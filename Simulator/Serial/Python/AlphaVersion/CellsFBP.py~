@@ -1,0 +1,580 @@
+######################################################################################################################################
+#
+#                FireSimulator FBP serial and parallel version 2.0 - October 2017 
+#                Author: Cristobal Pais
+#                example: mpiexec -n X python Path\Simulator1Beta.py  where X is the number of parallel processes
+#  modified by DLW, January 2018 to rely exclusively on ros for spread #
+#
+######################################################################################################################################
+
+# Importations
+import ctypes
+import pandas as pd
+from random import randint,uniform
+from math import exp,pow
+from itertools import repeat
+import ReadData
+import numpy as np
+
+# Cells Class: Detailed information about each forest's cell, including the send/receive messages functions (fire spread model) and all the math involved when determining a new Fire    
+class Cells:
+    #Basic parameters
+    StatusD = {0: "Available", 1: "Burning", 2: "Burnt", 3: "Harvested", 4:"Non Fuel"}
+    TerrainD = {0: "Soft", 1: "Medium", 2: "Hard"}
+    FTypeD = {0:"NonBurnable",1: "Normal", 2: "Burnable"}
+    FTypeD2 = {"M1":0, "M2":1,"M3":2,"M4":3,"C1":4,"C2":5,"C3":6,"C4":7,"C5":8,"C6":9,"C7":10,"D1":11,"S1":12,"S2":13,"S3":14,"O1a":15,"O1b":16,"D2":17}
+    
+    def __init__(self,ID,Area,Coord,Age,FType,FType2,Terrain,Vol,Perimeter,Status,Adjacents,Color,RealID):
+        #Constructor
+        self.ID = ID
+        self.Area = Area
+        self.Coord = Coord
+        self.Age = Age
+        self.FType = FType
+        self.FType2 = FType2
+        self.Terrain = Terrain
+        self.Vol = Vol
+        self.Perimeter = Perimeter
+        self.Status = Status
+        self.Adjacents = Adjacents
+        self.Color = Color
+        self.RealID = RealID
+        
+        self.GMsgList = [[] for i in repeat(None,12*7*24)]
+        self.FSCell = [[] for i in repeat(None,12*7*24)]    
+        self.FICell = [[] for i in repeat(None,12*7*24)]
+        self.HPeriod = None
+        self.Firestarts = 0
+        self.Harveststarts = 0
+        self.FireStartsSeason = 0
+        
+        self.TYears = 4
+        self.GMsgListSeason = [[] for i in repeat(None,self.TYears)]
+        self.CH = [5 for i in range(0,self.TYears)]
+        self.CHVar = [5 for i in range(0,self.TYears)]
+        self.Value = None
+        self.Productivity = [10 for i in range(0,self.TYears)]
+        
+        '''
+        New Fields
+        '''
+        self.FireProgress = {}  # dynamic; meters from the center on the axis
+        self.AngleDict = {} # static; indexed by neighbors contains angle
+        self.ROSAngleDir = {} # dynamic; indexed by active angles; contains currenROS
+        self.DistToCenter = {} # static; distance in meters
+        self.angle_to_nb = {} # static map
+        '''
+        End new fields
+        '''
+        
+    '''
+    CP October 2017
+    New function: populate angles, distances, and initialize ROS per axis
+    '''
+    def InitializeFireFields(self, CoordCells, AvailSet):
+        # Loop over neighbors
+        for nb in self.Adjacents.values():
+            if nb != None: 
+                a = -CoordCells[nb[0]-1][0] + CoordCells[self.ID-1][0]
+                b = -CoordCells[nb[0]-1][1] + CoordCells[self.ID-1][1]
+                
+                if a == 0:
+                    if b>=0:
+                        angle = 270
+                    else:
+                        angle = 90
+                                        
+                if b == 0:
+                    if a >= 0:
+                        angle = 180
+                    else:                    
+                        angle = 0
+                                        
+                if a!=0 and b!=0:
+                    if a>0 and b >0:
+                        angle = np.degrees(np.arctan(b/a))+180.0
+                    if a>0 and b <0:
+                        angle = np.degrees(-np.abs(np.arctan(b/a)))+180.0
+                    if a<0 and b >0:
+                        angle = np.degrees(-np.abs(np.arctan(b/a)))+360.0
+                    if a<0 and b <0:
+                        angle = np.degrees(np.arctan(b/a))
+                            
+                self.AngleDict[nb[0]] = angle
+                if nb[0] in AvailSet:
+                    self.ROSAngleDir[angle] = None
+                self.angle_to_nb[angle] = nb[0]
+                self.FireProgress[nb[0]] = 0.0
+                self.DistToCenter[nb[0]] = np.sqrt(a*a + b*b)
+    
+    #New functions for calculating the ROS based on the fire angles
+    def ros_distr(self, thetafire, forward, flank, back):
+        """
+        Distribute the rate of spread (ROS,ros) to the axes given in the AngleList.
+        All angles are w.t.r. E-W with East positive and in non-negative degrees.
+        Inputs:
+            thetafire: direction of "forward"
+            forward : forward ROS
+            flank: ROS normal to forward (on both sides)
+            back: ROS in the opposide direction of forward
+            AngleList: List of angles for the axes connecting centers
+                       of interest (might have less than 8 angles)
+        Effect:
+            Populate the ROSAngleDir, whose indexes are the angles,
+            with ROS values.
+        no return value
+        """
+        def allocate(offset, base, ros1, ros2):
+            # allocate the ros between 1 and 2 based on the angle
+            d = (offset - base) / 90.
+            return (1-d) * ros1 + d * ros2
+        
+        
+        for angle in self.ROSAngleDir:
+            #offset = angle - thetafire  # CP: this can be negative with the current angle system e.g. angle = 0, thetafire = 25
+            offset = np.abs(angle - thetafire)  # CP: abs value and works with our angle system
+            #print("Angle:", angle)
+            #print("Thetafire:", thetafire)
+            #print("Offset:", offset)
+            
+            if offset >= 0 and offset <= 90:
+                self.ROSAngleDir[angle] = allocate(offset, 0., forward, flank)
+                
+            elif offset > 90 and offset < 180:
+                self.ROSAngleDir[angle] = allocate(offset, 90., flank, back)
+                
+            elif offset >= 180 and offset <= 270:
+                self.ROSAngleDir[angle] = allocate(offset, 180., back, flank)
+                
+            elif offset > 270 and offset < 360:
+                self.ROSAngleDir[angle] = allocate(offset, 270., flank, forward)
+                
+    # New logic in 2017: ROS per axis (8 axes)
+        # Changed again jan 2018 to base spread strictly on ROS
+    ####def manageFire(self,period,Weather,AvailSet,verbose,df,coef,WeatherOpt,spotting,Cells_Obj,Thresholds,CoordCells, PeriodLen):
+    def manageFire(self,period,Weather,AvailSet,verbose,df,coef,WeatherOpt,spotting,Cells_Obj,SpottingParams,CoordCells, PeriodLen):
+        # Verbose = True for debug
+        #verbose = True
+        
+        # Aux variable for looping until fire reaches another cell 
+        Repeat = "False"
+        msg_list_aux = []
+        
+        # Create an empty message list
+        msg_list = []
+        
+        if verbose == True and spotting:
+            print ""
+            print "SPOT:",SpottingParams["SPOT"]
+            print "SPTANGLE:",SpottingParams["SPTANGLE"]
+
+        # Time decay factor
+        # Probability
+        psm = round(exp(-(period-self.Firestarts-1)/3.0),2)
+        if 0.0 >psm:
+            psm = 0.0
+        if verbose == True:
+            print ""
+            print "Sending message probability: "+str(psm)+" in period: "+str(period) + " for Firestarts = "+str(self.Firestarts)    
+        
+        # Cell can send message
+        if round(uniform(0, 1),2) <= psm:    
+            if verbose == True:
+                print("Cell can send messages: time decay factor")
+                '''
+                CP October 2017: Repeat = True allows us to indicate to the sim that the fire in this cell
+                is "alive" and we need to take into account that maybe there is no message 
+                sent in the current period, but maybe in the next one....
+                
+                major change in the original loop logic of the simulator....
+                '''
+                
+                Repeat = "True"
+                print " Repeat condition: ", Repeat
+                '''
+                Workaround: add this new variable and use it as a new condition for moving to the 
+                next year...
+                '''
+                
+                
+            # Compute main angle and ROSs: forward, flanks and back
+            mainstruct, headstruct, flankstruct, backstruct = ReadData.CalculateOne(df,coef,self.ID)
+                        
+            # Display if verbose True
+            if verbose == True:
+                    print "Wind Speed", Weather["Wind_Speed"]
+                    print "Wind Direction", Weather["Wind_Direction"]
+            
+                    print "Main Angle:", mainstruct.raz
+                    print "Front ROS Value:", headstruct.ros
+                    print "Flanks ROS Value:", flankstruct.ros
+                    print "Rear ROS Value:", backstruct.ros
+            
+            # Check a threshold for the ROS
+            if headstruct.ros > 1e-3:
+                if verbose == True:
+                    print ""
+                    print "ROS value is enough for sending messages"
+                    
+            
+                # Delete adjacent cells that are not available 
+                for angle in self.angle_to_nb:
+                    nb = self.angle_to_nb[angle]
+                    
+                    if nb not in AvailSet and angle in self.ROSAngleDir:
+                        self.ROSAngleDir.pop(angle)
+                        
+                # ROS distribution    method
+                self.ros_distr(mainstruct.raz, headstruct.ros, flankstruct.ros, backstruct.ros)
+                if verbose == True:
+                    print "ROSAngleDir Cell", self.ID,":",self.ROSAngleDir
+                    print "Fire Progress Cell", self.ID, ":", self.FireProgress
+
+                '''
+                Fire progress using ROS from burning cell, not the neighbors
+                '''
+                # Update Fireprogress (deterministic)        
+                for angle in list(self.ROSAngleDir):
+                    nb = self.angle_to_nb[angle]
+                    self.FireProgress[nb] += self.ROSAngleDir[angle] * PeriodLen
+                    
+                    # If the message arrives to the adjacent cell's center, send a message
+                    if self.FireProgress[nb] >= self.DistToCenter[nb]:
+                        msg_list.append(nb)
+                        self.ROSAngleDir.pop(angle) 
+                        
+                        if verbose == True:
+                            print "Fire reaches the center of the cell", nb
+                            msg_list.sort()
+                            print "MSG list:", msg_list
+                            print "Cell", nb, "popped out from the ROSAngleDir"
+                            print "ROSAngleDir Cell", self.ID,":",self.ROSAngleDir
+                    
+
+                    '''
+                        If we have not reached the center of an adjacent cell but the fire is still "alive",
+                        send a True value to the msg_list for using it as a flag in the main code
+                    '''
+                    
+                    if     self.FireProgress[nb] < self.DistToCenter[nb] and Repeat == "True" and "True" not in msg_list_aux:
+                        if verbose == True:
+                            print "A Repeat = TRUE flag is sent in order to continue with the current fire....."
+                            print "Main workaround of the new sim logic....."
+                        msg_list_aux.append(Repeat)
+
+                    '''
+                        Workaround....
+                    '''
+                        
+        '''
+        New aux list combination if original is empty (no messages but fire is alive)
+        '''
+        if len(msg_list) == 0:
+            msg_list = msg_list_aux
+                        
+        '''
+        '''        
+                        
+        if verbose == True:
+            print " ----------------- End of new manageFire function -----------------"
+        return msg_list
+    
+    # Get burned new logic: Checks if the ROS on its side is above a threshold for burning
+    def get_burned(self, period,Weather,NMsg,Season,verbose,df,coef,Thresholds):
+        # Verbose = True for debug
+        #verbose = True
+        
+        # Define thresholds 
+        if len(Thresholds) > 0:
+            RSOT = Thresholds["ROS"]
+            
+        if verbose == True:
+            print ""
+            print "ROS Threshold get_burned method"
+            print "RSOT:",Thresholds["ROS"]
+            
+        # Compute main angle and ROSs: forward, flanks and back
+        mainstruct, headstruct, flankstruct, backstruct = ReadData.CalculateOne(df,coef,self.ID)
+            
+        # Display if verbose True
+        if verbose == True:
+            print "Wind Speed", Weather["Wind_Speed"]
+            print "Wind Direction", Weather["Wind_Direction"]
+        
+            print "Main Angle:", mainstruct.raz
+            print "Front ROS Value:", headstruct.ros
+            print "Flanks ROS Value:", flankstruct.ros
+            print "Rear ROS Value:", backstruct.ros    
+        
+        # Check a threshold for the ROS
+        if headstruct.ros > 1e-3:
+            if verbose == True:
+                print ""
+                print "ROS value is enough for burning"
+
+            # Update status
+            self.Status = 1
+            self.Firestarts = period
+            self.FireStartsSeason = Season
+            self.BurntP = period
+            
+            return True
+        
+        # Not burned
+        else:
+            return False
+            
+    '''
+    End new functions
+    '''
+    
+
+
+    # Old functions
+    def set_Adj(self,AdjacentCells):
+    #Set (if needed) adjacent cells again
+        self.Adjacents = AdjacentCells
+    
+    def set_Status(self,Status_int):
+        #Change the status of the cell: 0 available, 1 burning, 2 harvested, 3 burnt
+        self.Status = Status_int
+        
+    def get_Status(self):
+        #Returns cell status
+        return self.StatusD[self.Status]
+    
+    def send_msg(self,period,Weather,AvailSet,verbose):
+        #A cell sends messages to its available adjacent cells
+        
+        # Check Wind Speed, Temperature and Precipitation thresholds
+        WST = 15
+        TMT = 20
+        PRT = 40
+        Section = []
+        
+        if verbose == True:
+                print Weather
+        # Send messages only if these conditions are satisfied
+        if (Weather["Wind_Speed"] >= WST and Weather["Temperature"] >= TMT and Weather["Rain"] <= PRT):
+            
+            # Time decay factor
+            #Probability
+            psm = round(exp(-(period-self.Firestarts-1)/3.0),2)
+            if 0.0 >psm:
+                psm = 0.0
+            if verbose == True:
+                print "Sending message probability: "+str(psm)+" in period: "+str(period) + " for Firestarts = "+str(self.Firestarts)    
+            
+            if round(uniform(0, 1),2) <= psm:
+                Tolerance = 10
+                #Message is sent
+                # Check wind direction
+                if (Weather["Wind_Direction"] >= 45 and Weather["Wind_Direction"] <= 135):  
+                    Section.append("N")
+                
+                if (Weather["Wind_Direction"] >= 25 and Weather["Wind_Direction"] <= 65):  
+                    Section.append("NE")
+                
+                if (Weather["Wind_Direction"] >= 115 and Weather["Wind_Direction"] <= 155):  
+                    Section.append("NW")
+                
+                if (Weather["Wind_Direction"] >= 225 and Weather["Wind_Direction"] <= 315):  
+                    Section.append("S")
+                
+                if (Weather["Wind_Direction"] >= 295 and Weather["Wind_Direction"] <= 335):  
+                    Section.append("SE")
+                
+                if (Weather["Wind_Direction"] >= 205 and Weather["Wind_Direction"] <= 245):  
+                    Section.append("SW")
+                
+                if (Weather["Wind_Direction"] >= 135 and Weather["Wind_Direction"] <= 225):  
+                    Section.append("W")
+                    
+                if (Weather["Wind_Direction"] >= 0 and Weather["Wind_Direction"] <= 45) or (Weather["Wind_Direction"] >= 315 and Weather["Wind_Direction"] <= 360):  
+                    Section.append("E")
+                    
+                #print "Sections:", Section    
+                    
+                    
+                    
+                if verbose == True:
+                    print "Cell "+ str(self.ID) + " can send messages to section "+ Section+ " (due to wind direction)" +"\n"        
+                    
+                # Create message list    
+                Msg_List = [self.Adjacents[i] for i in self.Adjacents.keys() if i == Section]
+                        
+                AuxList = [x for x in Msg_List if x != None]
+                
+                Msg_List = [val for sublist in AuxList for val in sublist if val in AvailSet]
+                for i in Msg_List:
+                    if i not in AvailSet:
+                        Msg_List.remove(i)
+                Msg_List.sort()
+                return Msg_List
+                
+            else: 
+                if verbose == True:
+                    print "Cell "+ str(self.ID) + " cannot send messages due to probabilities \n"        
+                Msg_List=[]    
+                return Msg_List
+        else:
+            if verbose == True:
+                print "Cell "+ str(self.ID) + " cannot send messages due to weather conditions \n"        
+            Msg_List=[]    
+            return Msg_List
+        
+                
+    def ignition(self,period,Weather,Season,IgnitionPoints):
+        #Determines if a cell ignites, based on the period, cell characteristics and poisson strike distribution
+        
+        if IgnitionPoints != "":
+            self.Status = 1
+            self.Firestarts = period
+            self.FireStartsSeason = Season
+            self.BurntP = period
+            self.FICell[period-1] = 1 
+            return True
+            
+        else:
+            # Burnt conditions
+            # Check Wind Speed, Temperature and Precipitation thresholds
+            WST = 15
+            TMT = 20
+            PRT = 40
+            AGT = 1
+            pr_ignition = 0.6
+                
+            # Send messages only if these conditions are satisfied
+            if (Weather["Wind_Speed"] >= WST and Weather["Temperature"] >= TMT and Weather["Rain"] <= PRT and self.FTypeD[self.FType] == "Burnable" and self.Age >= AGT):
+                # Ignition probability
+                if round(uniform(0, 1),2)>pr_ignition:
+                    self.Status = 1
+                    self.Firestarts = period
+                    self.FireStartsSeason = Season
+                    self.BurntP = period
+                    self.FICell[period-1] = 1 
+                    return True
+                else:
+                    return False    
+            
+    def got_burnt(self,period,Weather,NMsg,Season,verbose):
+        #Based on the number of messages (with at least 1 msg), weather and cell characteristics, determines if the cell got burnt 
+        # Burnt conditions
+        # Check Wind Speed, Temperature and Precipitation thresholds
+        factortest = 0.25
+        WST = 15*factortest
+        TMT = 20*factortest
+        PRT = 40
+        AGT = 1*factortest
+        pr_get_burnt = 0.1
+        pr_burnt = 0.8
+        nmsg_lb_needed = 2
+                    
+        # Got burnt if these conditions are satisfied and depending on the number of messages
+        if (Weather["Wind_Speed"] >= WST and Weather["Temperature"] >= TMT and Weather["Rain"] <= PRT and self.FTypeD[self.FType] == "Burnable" and self.Age >= AGT):
+            
+            if NMsg >= nmsg_lb_needed:
+                self.Status = 1
+                self.Firestarts = period
+                self.FireStartsSeason = Season
+                self.BurntP = period
+                return True
+            
+            else:
+                if round(uniform(0,1),2) < pr_burnt:
+                    self.Status = 1
+                    self.Firestarts = period
+                    self.FireStartsSeason = Season
+                    self.BurntP = period
+                    return True
+                
+                else:
+                    if verbose == True:
+                        print "Cell "+str(self.ID)+" not burnt due to probabilities"
+                    return False
+            
+        # if not a Burnable type, still has a chance of getting burnt, based on some probability
+        else:
+            if round(uniform(0,1),2)< pr_get_burnt :
+                self.Status = 1
+                self.Firestarts = period
+                self.FireStartsSeason = Season
+                self.BurntP = period
+                return True
+            else:
+                if verbose == True:
+                    print "Cell "+str(self.ID)+" not burnt due to FType"
+                return False
+    
+        
+    def got_burnt_from(self,period,MsgLists,verbose):
+        #Compute FS parameter
+        counter=1
+        auxlist = []
+        for sublist in MsgLists:
+            
+            if self.ID in sublist:
+                auxlist.append(counter)
+                counter+=1
+            else:
+                counter+=1
+        
+        self.GMsgList[period-1] = auxlist
+        
+        if verbose == True:
+                print "Cell "+str(self.ID)+ " got messages from the following cells in this fire period (hour): "+ str(self.GMsgList[period-1])
+    
+    def got_burnt_from_mem(self,period,MsgLists,Season,verbose):
+        #Compute FS parameter
+        counter=1
+        auxlist = []
+        for sublist in MsgLists:
+            
+            if self.ID in sublist:
+                auxlist.append(counter)
+                counter+=1
+            else:
+                counter+=1
+        self.GMsgList[period-1] = auxlist
+        if len(self.GMsgList[period-1]) > 0:
+            self.GMsgListSeason[Season].append(self.GMsgList[period-1])
+        
+        if verbose == True:
+                print "Cell "+str(self.ID)+ " got messages from the following cells in this fire period (hour): "+ str(self.GMsgList[period-1])
+    
+        return self.GMsgList
+    
+    def FS_definition(self):
+        #Determines if FS is one or not for any period, indicating the sender cell's ID
+        self.FSCell[self.Firestarts-1] = self.GMsgList[self.Firestarts-1]
+        
+        for y in range(0,self.TYears):
+                        
+            if (self.FireStartsSeason-1) == y and len(self.GMsgListSeason[y])>= 1:
+                self.FSCell[self.Firestarts-1] = self.GMsgListSeason[y][(len(self.GMsgListSeason[y])-1)]
+                
+    def harvested(self,ID,period):
+        #Cell is harvested
+        self.Status = 2
+        self.Harveststarts = period
+                
+    def print_info(self):
+        #Print Cell information
+        print "Cell Information" + "\n" +" ID = " + str(self.ID) + "\n" + " Status = "+ str(self.StatusD[self.Status])+ "\n"+ " Coordinates = " +str(self.Coord)+ "\n" +" Area = "+str(self.Area)+"\n"+" Vol = "+str(self.Vol)+"\n" + " Age = "+ str(self.Age)+"\n"+ " FTypes = "+ str(self.FTypeD[self.FType]) + "\n"+ " Terrain: "+str(self.TerrainD[self.Terrain])+ "\n"+ " Adjacents = "+str(self.Adjacents)
+        
+    def SpottingFBP(self,period,Weather,Season,verbose,df,coef):
+    #Spotting function (called from send_msg_FBP function)
+        return None
+        
+        
+
+# Fuel Coeff class: defines the structure of the fuel coefficients
+class fuel_coeffs(ctypes.Structure):
+    _fields_ = [('fueltype', ctypes.c_char*4), 
+                ('q', ctypes.c_float),
+                ('bui0', ctypes.c_float),
+                ('cbh', ctypes.c_float),
+                ('cfl', ctypes.c_float),
+                ('a', ctypes.c_double),
+                ('b', ctypes.c_double),
+                ('c', ctypes.c_double)]

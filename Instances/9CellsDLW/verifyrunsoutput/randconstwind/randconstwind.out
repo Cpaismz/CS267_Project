@@ -1,0 +1,371 @@
+('Creating a new, empty folder=', 'outdir')
+-----------------------------------------------------------------------------------
+Period Length for ROS computations [min]:  60
+-----------------------------------------------------------------------------------
+------------------------------------------------- Simulation Number  1 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+creating outdir/Plots
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  4
+New Fire period:  5
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 1.609302
+Total simulation time:  0.79  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  2 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     6 - % of the Forest:  66.667 %
+Total Burnt Cells:         3 - % of the Forest:  33.333 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 4 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 8 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+
+Final Time: 4.021351
+Total simulation time:  1.04  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  3 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 6.791389
+Total simulation time:  0.34  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  4 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  4
+New Fire period:  5
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 8.504506
+Total simulation time:  0.35  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  5 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  5
+New Fire period:  6
+
+Messages have been sent, next step
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  7
+New Fire period:  8
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  8
+New Fire period:  9
+
+Messages have been sent, next step
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     2 - % of the Forest:  22.222 %
+Total Burnt Cells:         7 - % of the Forest:  77.778 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 2 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 4 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 6 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 7 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 8 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 9 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+
+Final Time: 12.46538
+Total simulation time:  2.58  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  6 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 17.192824
+Total simulation time:  0.35  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  7 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 18.918463
+Total simulation time:  0.34  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  8 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 20.649152
+Total simulation time:  0.36  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  9 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 22.37042
+Total simulation time:  0.34  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  10 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+Forest already exists
+Weather is a constant
+WARNING: Weather is a constant but reading weather from a file so using first row.
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 24.100541
+Total simulation time:  0.36  [s]
+Forest Grid has been created

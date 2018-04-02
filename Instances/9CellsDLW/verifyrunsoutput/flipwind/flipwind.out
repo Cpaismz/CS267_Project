@@ -1,0 +1,4371 @@
+('Creating a new, empty folder=', 'outdir')
+Setting initial psuedo-random number stream seed to  1134
+-----------------------------------------------------------------------------------
+Period Length for ROS computations [min]:  60
+-----------------------------------------------------------------------------------
+------------------------------------------------- Simulation Number  1 -------------------------------------------------
+Initial Time: 1.06586
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+creating outdir/Plots
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -2.54921548053
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 2.16888783145
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 6.54350033144
+    angle, realized ros in m/min 135.0 2.75385519138
+    angle, realized ros in m/min 45.0 1.58392047151
+    angle, realized ros in m/min 270 4.64867776141
+    angle, realized ros in m/min 180 4.64867776141
+    angle, realized ros in m/min 90 2.16888783145
+    angle, realized ros in m/min 315.0 2.75385519138
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 165.23131148264648, 2: 130.13326988672873, 3: 95.03522829081102, 4: 278.92066568438645, 6: 130.13326988672873, 7: 392.61001988612645, 8: 278.92066568438645, 9: 165.23131148264648})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.118544294172
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 165.23131148264648, 2: 130.13326988672873, 3: 95.03522829081102, 4: 278.92066568438645, 6: 130.13326988672873, 7: 392.61001988612645, 8: 278.92066568438645, 9: 165.23131148264648}
+    angle, realized ros in m/min 0 3.19392353784
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 9.63601686791
+    angle, realized ros in m/min 135.0 4.0553516821
+    angle, realized ros in m/min 45.0 2.33249539357
+    angle, realized ros in m/min 270 6.845684275
+    angle, realized ros in m/min 180 6.845684275
+    angle, realized ros in m/min 90 3.19392353784
+    angle, realized ros in m/min 315.0 4.0553516821
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 4
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 408.55241240842008, 2: 321.76868215684931, 3: 234.98495190527854, 4: 689.66172218445763, 6: 321.76868215684931, 7: 970.77103196049541, 8: 689.66172218445763, 9: 408.55241240842008})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 4 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.780851956588
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 408.55241240842008, 2: 321.76868215684931, 3: 234.98495190527854, 4: 689.66172218445763, 6: 321.76868215684931, 7: 970.77103196049541, 8: 689.66172218445763, 9: 408.55241240842008}
+    angle, realized ros in m/min 0 2.91462249276
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 8.79337002626
+Fire reaches the center of the cell 7 Distance to cell (in meters) was 1414.21356237
+MSG list: [7]
+Cell 7 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 135.0 3.70072078704
+    angle, realized ros in m/min 45.0 2.12852419848
+    angle, realized ros in m/min 270 6.24704540665
+Fire reaches the center of the cell 8 Distance to cell (in meters) was 1000.0
+MSG list: [7, 8]
+Cell 8 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 180 6.24704540665
+Fire reaches the center of the cell 4 Distance to cell (in meters) was 1000.0
+MSG list: [4, 7, 8]
+Cell 4 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 90 2.91462249276
+    angle, realized ros in m/min 315.0 3.70072078704
+ ----------------- End of new manageFire function -----------------
+Aux list: [4, 7, 8]
+List is not empty
+SendMessageList:  [[], [], [], [], [4, 7, 8], [], [], [], []]
+Global_Message_Aux: [4, 7, 8]
+RepeatFire: False
+Lists of messages per Cell: [[], [], [], [], [4, 7, 8], [], [], [], []]
+Global Message Lists: [4, 7, 8]
+We have at least one message: True
+Cell 4 got messages from the following cells in this fire period (hour): [5]
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): [5]
+Cell 8 got messages from the following cells in this fire period (hour): [5]
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([8, 4, 7])
+Cell 4 receives 1 messages
+Cell 7 receives 1 messages
+Cell 8 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 8 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 4 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 7 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [8, 4, 7]
+Available cells: set([1, 2, 3, 6, 9])
+Non Burnable Cells: set([])
+Burning cells: set([8, 4, 5, 7])
+Harvest cells: set([])
+Burnt and Burning cells: set([8, 4, 5, 7])
+enter update_Weather_FBPReadFile called from Main period= 2
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws    waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 5)
+Wind Speed = 15.0
+Wind Direction = 45.0
+Temperature = 16.1
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+
+Current Period (week): 1
+Current Fire Period: 5
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 5
+Burning Cells: set([8, 4, 5, 7])
+Burnt Cells (should include burning): set([8, 4, 5, 7])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 4 : clearing ROSAngleDir
+Cell 4 : clearing ROSAngleDir
+Cell 7 : clearing ROSAngleDir
+Cell 7 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: None, 45.0: None})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 5 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: 0.43193197363
+ROSAngleDir Cell 8 : {0: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 8 : {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0}
+    angle, realized ros in m/min 0 9.28317845249
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 14.4722016661
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 0.0, 2: 0.0, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: None, 45.0: None})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 5 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: 0.275684023196
+ROSAngleDir Cell 4 : {90: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 4 : {8: 0.0, 1: 0.0, 2: 0.0, 5: 0.0, 7: 0.0}
+    angle, realized ros in m/min 90 9.10464142424
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 14.1938676999
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 630.59565963066268, 2: 496.646031722234, 3: 362.69640381380532, 4: 1064.4844465834901, 6: 496.646031722234, 7: 1498.3732335363179, 8: 1064.4844465834901, 9: 630.59565963066268})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.252 in period: 5 for Firestarts = 1
+    len(ROSAngleDir)= 5
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  5
+New Fire period:  6
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 6
+Burning Cells: set([8, 4, 5, 7])
+Burnt Cells (should include burning): set([8, 4, 5, 7])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 556.9907071494822, 4: 0.0, 5: 0.0, 6: 868.33209996639368, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: 8.7896305322647095, 45.0: 13.702775001525879})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 6 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: 0.623286027881
+ROSAngleDir Cell 8 : {0: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 8 : {9: 556.9907071494822, 4: 0.0, 5: 0.0, 6: 868.33209996639368, 7: 0.0}
+    angle, realized ros in m/min 0 9.50182953939
+Fire reaches the center of the cell 9 Distance to cell (in meters) was 1000.0
+MSG list: [9]
+Cell 9 popped out from the ROSAngleDir
+ROSAngleDir Cell 8 : {45.0: 13.702775001525879}
+    angle, realized ros in m/min 45.0 14.8130722677
+Fire reaches the center of the cell 6 Distance to cell (in meters) was 1414.21356237
+MSG list: [6, 9]
+Cell 6 popped out from the ROSAngleDir
+ROSAngleDir Cell 8 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [6, 9]
+List is not empty
+SendMessageList:  [[], [], [], [], [], [], [], [6, 9], []]
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 546.27848545469033, 2: 851.63206199422007, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: 8.7896305322647095, 45.0: 13.702775001525879})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 6 for Firestarts = 4
+    len(ROSAngleDir)= 2
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 630.59565963066268, 2: 496.646031722234, 3: 362.69640381380532, 4: 1064.4844465834901, 6: 496.646031722234, 7: 1498.3732335363179, 8: 1064.4844465834901, 9: 630.59565963066268})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.178 in period: 6 for Firestarts = 1
+    len(ROSAngleDir)= 5
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: [6, 9]
+RepeatFire: False
+Lists of messages per Cell: [[], [], [], [], [], [], [], [6, 9], []]
+Global Message Lists: [6, 9]
+We have at least one message: True
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): [8]
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+Cell 9 got messages from the following cells in this fire period (hour): [8]
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([9, 6])
+Cell 6 receives 1 messages
+Cell 9 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Head ROS value: 13.7027750015
+Cell 9 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Head ROS value: 13.7027750015
+Cell 6 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [9, 6]
+Available cells: set([1, 2, 3])
+Non Burnable Cells: set([])
+Burning cells: set([4, 5, 6, 7, 8, 9])
+Harvest cells: set([])
+Burnt and Burning cells: set([4, 5, 6, 7, 8, 9])
+enter update_Weather_FBPReadFile called from Main period= 3
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws    waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 7)
+Wind Speed = 37.0
+Wind Direction = 45.0
+Temperature = 15.8
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+
+Current Period (week): 1
+Current Fire Period: 7
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 7
+Burning Cells: set([4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 5 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 6 : clearing ROSAngleDir
+Cell 9 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 546.27848545469033, 2: 851.63206199422007, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: 8.7896305322647095, 45.0: 13.702775001525879})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 7 for Firestarts = 4
+    len(ROSAngleDir)= 2
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 630.59565963066268, 2: 496.646031722234, 3: 362.69640381380532, 4: 1064.4844465834901, 6: 496.646031722234, 7: 1498.3732335363179, 8: 1064.4844465834901, 9: 630.59565963066268})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.126 in period: 7 for Firestarts = 1
+    len(ROSAngleDir)= 3
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 0.0, 3: 0.0, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {90: None, 135.0: None})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 7 for Firestarts = 6
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Std Normal RV for Stochastic ROS CV: -1.02276040038
+ROSAngleDir Cell 6 : {90: 27.966433525085449, 135.0: 5.4216594696044922}
+Fire Progress before this update 6 : {8: 0.0, 9: 0.0, 2: 0.0, 3: 0.0, 5: 0.0}
+    angle, realized ros in m/min 90 24.2480486277
+Fire reaches the center of the cell 3 Distance to cell (in meters) was 1000.0
+MSG list: [3]
+Cell 3 popped out from the ROSAngleDir
+ROSAngleDir Cell 6 : {135.0: 5.4216594696044922}
+    angle, realized ros in m/min 135.0 4.70080185032
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+ ----------------- End of new manageFire function -----------------
+Aux list: [3]
+List is not empty
+SendMessageList:  [[], [], [], [], [], [3], [], [], []]
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 1127.1004795131448, 4: 0.0, 5: 0.0, 6: 1757.1164360308094, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: [3]
+RepeatFire: False
+Lists of messages per Cell: [[], [], [], [], [], [3], [], [], []]
+Global Message Lists: [3]
+We have at least one message: True
+Cell 3 got messages from the following cells in this fire period (hour): [6]
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+Cell 9 got messages from the following cells in this fire period (hour): []
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([3])
+Cell 3 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Head ROS value: 50.5112075806
+Cell 3 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [3]
+Available cells: set([1, 2])
+Non Burnable Cells: set([])
+Burning cells: set([3, 4, 5, 6, 7, 8, 9])
+Harvest cells: set([])
+Burnt and Burning cells: set([3, 4, 5, 6, 7, 8, 9])
+enter update_Weather_FBPReadFile called from Main period= 4
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws   waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 8)
+Wind Speed = 43.0
+Wind Direction = 225.0
+Temperature = 13.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 25.0
+
+Current Period (week): 1
+Current Fire Period: 8
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 8
+Burning Cells: set([3, 4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([3, 4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 5 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 3)
+('FireProgress:', {2: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {2: 180, 5: 225.0, 6: 270})
+('ROSAngleDir:', {180: None})
+('DistToCenter:', {2: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {225.0: 5, 180: 2, 270: 6})
+Cell 3 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 8 for Firestarts = 7
+    len(ROSAngleDir)= 1
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 43.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 65.0875854492
+Flanks ROS Value: 6.08888053894
+Rear ROS Value: 0.20438285172
+Std Normal RV for Stochastic ROS CV: 1.74014992418
+ROSAngleDir Cell 3 : {180: 35.58823299407959}
+Fire Progress before this update 3 : {2: 0.0, 5: 0.0, 6: 0.0}
+    angle, realized ros in m/min 180 43.6389849171
+Fire reaches the center of the cell 2 Distance to cell (in meters) was 1000.0
+MSG list: [2]
+Cell 2 popped out from the ROSAngleDir
+ROSAngleDir Cell 3 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [2]
+List is not empty
+SendMessageList:  [[], [], [2], [], [], [], [], [], []]
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 546.27848545469033, 2: 851.63206199422007, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: 8.7896305322647095, 45.0: 13.702775001525879})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.252 in period: 8 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 43.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 65.0875854492
+Flanks ROS Value: 6.08888053894
+Rear ROS Value: 0.20438285172
+Std Normal RV for Stochastic ROS CV: -0.580940992869
+ROSAngleDir Cell 4 : {90: 3.146631695330143, 45.0: 0.20438285171985626}
+Fire Progress before this update 4 : {8: 0.0, 1: 546.27848545469033, 2: 851.63206199422007, 5: 0.0, 7: 0.0}
+    angle, realized ros in m/min 90 2.90899074096
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 0.188947382735
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 630.59565963066268, 2: 496.646031722234, 3: 362.69640381380532, 4: 1064.4844465834901, 6: 496.646031722234, 7: 1498.3732335363179, 8: 1064.4844465834901, 9: 630.59565963066268})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {135.0: 4.1188259124755859, 90: 3.2439147233963013})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.089 in period: 8 for Firestarts = 1
+    len(ROSAngleDir)= 2
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 282.04811101921274, 3: 1454.8829176595541, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {135.0: 5.4216594696044922})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 8 for Firestarts = 6
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 1127.1004795131448, 4: 0.0, 5: 0.0, 6: 1757.1164360308094, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: [2]
+RepeatFire: True
+Messages have been sent, next step
+Lists of messages per Cell: [[], [], [2], [], [], [], [], [], []]
+Global Message Lists: [2]
+We have at least one message: True
+Cell 2 got messages from the following cells in this fire period (hour): [3]
+Cell 3 got messages from the following cells in this fire period (hour): []
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+Cell 9 got messages from the following cells in this fire period (hour): []
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([2])
+Cell 2 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 43.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 65.0875854492
+Flanks ROS Value: 6.08888053894
+Rear ROS Value: 0.20438285172
+Head ROS value: 65.0875854492
+Cell 2 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [2]
+Available cells: set([1])
+Non Burnable Cells: set([])
+Burning cells: set([2, 3, 4, 5, 6, 7, 8, 9])
+Harvest cells: set([])
+Burnt and Burning cells: set([2, 3, 4, 5, 6, 7, 8, 9])
+enter update_Weather_FBPReadFile called from Main period= 5
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws   waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  45.0  45.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 9)
+Wind Speed = 45.0
+Wind Direction = 225.0
+Temperature = 12.1
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 35.0
+
+Current Period (week): 1
+Current Fire Period: 9
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 9
+Burning Cells: set([2, 3, 4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([2, 3, 4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 4 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 6 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {180: None})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 9 for Firestarts = 8
+    len(ROSAngleDir)= 1
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 45.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 68.5110473633
+Flanks ROS Value: 6.16342782974
+Rear ROS Value: 0.175882920623
+Std Normal RV for Stochastic ROS CV: -0.968285565382
+ROSAngleDir Cell 2 : {180: 37.337237596511841}
+Fire Progress before this update 2 : {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0}
+    angle, realized ros in m/min 180 32.6373335284
+Fire reaches the center of the cell 1 Distance to cell (in meters) was 1000.0
+MSG list: [1]
+Cell 1 popped out from the ROSAngleDir
+ROSAngleDir Cell 2 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [1]
+List is not empty
+SendMessageList:  [[], [1], [], [], [], [], [], [], []]
+Cell object new fields
+('ID:', 3)
+('FireProgress:', {2: 2618.3390950266116, 5: 0.0, 6: 0.0})
+('AngleDict:', {2: 180, 5: 225.0, 6: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {225.0: 5, 180: 2, 270: 6})
+Cell 3 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 720.81792991252701, 2: 862.96890495834373, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: 3.146631695330143})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.178 in period: 9 for Firestarts = 4
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 630.59565963066268, 2: 496.646031722234, 3: 362.69640381380532, 4: 1064.4844465834901, 6: 496.646031722234, 7: 1498.3732335363179, 8: 1064.4844465834901, 9: 630.59565963066268})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {135.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.063 in period: 9 for Firestarts = 1
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 282.04811101921274, 3: 1454.8829176595541, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 1127.1004795131448, 4: 0.0, 5: 0.0, 6: 1757.1164360308094, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: [1]
+RepeatFire: False
+Lists of messages per Cell: [[], [1], [], [], [], [], [], [], []]
+Global Message Lists: [1]
+We have at least one message: True
+Cell 1 got messages from the following cells in this fire period (hour): [2]
+Cell 2 got messages from the following cells in this fire period (hour): []
+Cell 3 got messages from the following cells in this fire period (hour): []
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+Cell 9 got messages from the following cells in this fire period (hour): []
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([1])
+Cell 1 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 45.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 68.5110473633
+Flanks ROS Value: 6.16342782974
+Rear ROS Value: 0.175882920623
+Head ROS value: 68.5110473633
+Cell 1 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [1]
+Available cells: set([])
+Non Burnable Cells: set([])
+Burning cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Harvest cells: set([])
+Burnt and Burning cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+enter update_Weather_FBPReadFile called from Main period= 6
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws   waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  46.0  45.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 10)
+Wind Speed = 46.0
+Wind Direction = 225.0
+Temperature = 10.6
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 41.0
+
+Current Period (week): 1
+Current Fire Period: 10
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 10
+Burning Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 4 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 1)
+('FireProgress:', {2: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {2: 0, 4: 270, 5: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 2, 315.0: 5, 270: 4})
+Cell 1 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 1958.2400117062728, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 3)
+('FireProgress:', {2: 2618.3390950266116, 5: 0.0, 6: 0.0})
+('AngleDict:', {2: 180, 5: 225.0, 6: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {225.0: 5, 180: 2, 270: 6})
+Cell 3 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 720.81792991252701, 2: 862.96890495834373, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 630.59565963066268, 2: 496.646031722234, 3: 362.69640381380532, 4: 1064.4844465834901, 6: 496.646031722234, 7: 1498.3732335363179, 8: 1064.4844465834901, 9: 630.59565963066268})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 282.04811101921274, 3: 1454.8829176595541, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 1127.1004795131448, 4: 0.0, 5: 0.0, 6: 1757.1164360308094, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     0 - % of the Forest:  0.0 %
+Total Burnt Cells:         9 - % of the Forest:  100.0 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 1 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 2 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 3 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 4 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 6 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 7 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 8 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 9 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+
+Final Time: 7.581609
+Total simulation time:  6.52  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  2 -------------------------------------------------
+Initial Time: 16.183758
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.661166049463
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 2.96509510668
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 8.94564510528
+    angle, realized ros in m/min 135.0 3.76480629107
+    angle, realized ros in m/min 45.0 2.16538392228
+    angle, realized ros in m/min 270 6.35522569817
+    angle, realized ros in m/min 180 6.35522569817
+    angle, realized ros in m/min 90 2.96509510668
+    angle, realized ros in m/min 315.0 3.76480629107
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 225.8883774641084, 2: 177.90570640056541, 3: 129.92303533702241, 4: 381.31354189046795, 6: 177.90570640056541, 7: 536.73870631682757, 8: 381.31354189046795, 9: 225.8883774641084})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 16.678613
+Total simulation time:  0.49  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  3 -------------------------------------------------
+Initial Time: 18.472379
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: 1.14897864799
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 3.7284492613
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 11.2486725331
+    angle, realized ros in m/min 135.0 4.73404350615
+    angle, realized ros in m/min 45.0 2.72285501645
+    angle, realized ros in m/min 270 7.99135801964
+    angle, realized ros in m/min 180 7.99135801964
+    angle, realized ros in m/min 90 3.7284492613
+    angle, realized ros in m/min 315.0 4.73404350615
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 284.04261036878671, 2: 223.70695567791557, 3: 163.37130098704444, 4: 479.48148117866572, 6: 223.70695567791557, 7: 674.92035198854467, 8: 479.48148117866572, 9: 284.04261036878671})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.862671775048
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 284.04261036878671, 2: 223.70695567791557, 3: 163.37130098704444, 4: 479.48148117866572, 6: 223.70695567791557, 7: 674.92035198854467, 8: 479.48148117866572, 9: 284.04261036878671}
+    angle, realized ros in m/min 0 2.88011834597
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 8.68927156037
+    angle, realized ros in m/min 135.0 3.65691058054
+    angle, realized ros in m/min 45.0 2.10332611139
+    angle, realized ros in m/min 270 6.17309107045
+    angle, realized ros in m/min 180 6.17309107045
+    angle, realized ros in m/min 90 2.88011834597
+    angle, realized ros in m/min 315.0 3.65691058054
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 4
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 503.45724520128954, 2: 396.51405643590317, 3: 289.5708676705168, 4: 849.86694540592111, 6: 396.51405643590317, 7: 1196.2766456105528, 8: 849.86694540592111, 9: 503.45724520128954})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 4 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -1.88107765025
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 503.45724520128954, 2: 396.51405643590317, 3: 289.5708676705168, 4: 849.86694540592111, 6: 396.51405643590317, 7: 1196.2766456105528, 8: 849.86694540592111, 9: 503.45724520128954}
+    angle, realized ros in m/min 0 2.45064751028
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 7.39356483229
+Fire reaches the center of the cell 7 Distance to cell (in meters) was 1414.21356237
+MSG list: [7]
+Cell 7 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 135.0 3.11160783448
+    angle, realized ros in m/min 45.0 1.78968718609
+    angle, realized ros in m/min 270 5.25258633339
+Fire reaches the center of the cell 8 Distance to cell (in meters) was 1000.0
+MSG list: [7, 8]
+Cell 8 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 180 5.25258633339
+Fire reaches the center of the cell 4 Distance to cell (in meters) was 1000.0
+MSG list: [4, 7, 8]
+Cell 4 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 90 2.45064751028
+    angle, realized ros in m/min 315.0 3.11160783448
+ ----------------- End of new manageFire function -----------------
+Aux list: [4, 7, 8]
+List is not empty
+SendMessageList:  [[], [], [], [], [4, 7, 8], [], [], [], []]
+Global_Message_Aux: [4, 7, 8]
+RepeatFire: False
+Lists of messages per Cell: [[], [], [], [], [4, 7, 8], [], [], [], []]
+Global Message Lists: [4, 7, 8]
+We have at least one message: True
+Cell 4 got messages from the following cells in this fire period (hour): [5]
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): [5]
+Cell 8 got messages from the following cells in this fire period (hour): [5]
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([8, 4, 7])
+Cell 4 receives 1 messages
+Cell 7 receives 1 messages
+Cell 8 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 8 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 4 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 7 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [8, 4, 7]
+Available cells: set([1, 2, 3, 6, 9])
+Non Burnable Cells: set([])
+Burning cells: set([8, 4, 5, 7])
+Harvest cells: set([])
+Burnt and Burning cells: set([8, 4, 5, 7])
+enter update_Weather_FBPReadFile called from Main period= 2
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws    waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 5)
+Wind Speed = 15.0
+Wind Direction = 45.0
+Temperature = 16.1
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+
+Current Period (week): 1
+Current Fire Period: 5
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 5
+Burning Cells: set([8, 4, 5, 7])
+Burnt Cells (should include burning): set([8, 4, 5, 7])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 4 : clearing ROSAngleDir
+Cell 4 : clearing ROSAngleDir
+Cell 7 : clearing ROSAngleDir
+Cell 7 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: None, 45.0: None})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 5 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: -0.30060336288
+ROSAngleDir Cell 8 : {0: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 8 : {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0}
+    angle, realized ros in m/min 0 8.44614550772
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 13.1672919695
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 0.0, 2: 0.0, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: None, 45.0: None})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 5 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: 0.672475638728
+ROSAngleDir Cell 4 : {90: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 4 : {8: 0.0, 1: 0.0, 2: 0.0, 5: 0.0, 7: 0.0}
+    angle, realized ros in m/min 90 9.55803614509
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 14.9006967098
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 690.15371526991885, 2: 543.55290705285881, 3: 396.95209883579867, 4: 1165.0221254090543, 6: 543.55290705285881, 7: 1639.89053554819, 8: 1165.0221254090543, 9: 690.15371526991885})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.252 in period: 5 for Firestarts = 1
+    len(ROSAngleDir)= 5
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: -0.510727095531
+ROSAngleDir Cell 5 : {0: 8.7896305322647095, 135.0: 3.87648606300354, 45.0: 13.702775001525879, 90: 8.7896305322647095, 315.0: 3.87648606300354}
+Fire Progress before this update 5 : {1: 690.15371526991885, 2: 543.55290705285881, 3: 396.95209883579867, 4: 1165.0221254090543, 6: 543.55290705285881, 7: 1639.89053554819, 8: 1165.0221254090543, 9: 690.15371526991885}
+    angle, realized ros in m/min 0 8.20604721083
+Fire reaches the center of the cell 6 Distance to cell (in meters) was 1000.0
+MSG list: [6]
+Cell 6 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {135.0: 3.87648606300354, 45.0: 13.702775001525879, 90: 8.7896305322647095, 315.0: 3.87648606300354}
+    angle, realized ros in m/min 135.0 3.61910862219
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 12.7929857995
+    angle, realized ros in m/min 90 8.20604721083
+Fire reaches the center of the cell 2 Distance to cell (in meters) was 1000.0
+MSG list: [2, 6]
+Cell 2 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {135.0: 3.87648606300354, 45.0: 13.702775001525879, 315.0: 3.87648606300354}
+    angle, realized ros in m/min 315.0 3.61910862219
+ ----------------- End of new manageFire function -----------------
+Aux list: [2, 6]
+List is not empty
+SendMessageList:  [[], [], [], [], [2, 6], [], [], [], []]
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: [2, 6]
+RepeatFire: True
+Messages have been sent, next step
+Lists of messages per Cell: [[], [], [], [], [2, 6], [], [], [], []]
+Global Message Lists: [2, 6]
+We have at least one message: True
+Cell 2 got messages from the following cells in this fire period (hour): [5]
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): [5]
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([2, 6])
+Cell 2 receives 1 messages
+Cell 6 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Head ROS value: 13.7027750015
+Cell 2 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Head ROS value: 13.7027750015
+Cell 6 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [2, 6]
+Available cells: set([1, 3, 9])
+Non Burnable Cells: set([])
+Burning cells: set([2, 4, 5, 6, 7, 8])
+Harvest cells: set([])
+Burnt and Burning cells: set([2, 4, 5, 6, 7, 8])
+enter update_Weather_FBPReadFile called from Main period= 3
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws    waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 6)
+Wind Speed = 37.0
+Wind Direction = 45.0
+Temperature = 15.8
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+
+Current Period (week): 1
+Current Fire Period: 6
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 6
+Burning Cells: set([2, 4, 5, 6, 7, 8])
+Burnt Cells (should include burning): set([2, 4, 5, 6, 7, 8])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 2 : clearing ROSAngleDir
+Cell 4 : clearing ROSAngleDir
+Cell 6 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {0: None, 180: None})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 6 for Firestarts = 5
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Std Normal RV for Stochastic ROS CV: -0.978299255005
+ROSAngleDir Cell 2 : {0: 27.966433525085449, 180: 2.8710742741823196}
+Fire Progress before this update 2 : {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0}
+    angle, realized ros in m/min 0 24.4096931843
+Fire reaches the center of the cell 3 Distance to cell (in meters) was 1000.0
+MSG list: [3]
+Cell 3 popped out from the ROSAngleDir
+ROSAngleDir Cell 2 : {180: 2.8710742741823196}
+    angle, realized ros in m/min 180 2.50593419713
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+ ----------------- End of new manageFire function -----------------
+Aux list: [3]
+List is not empty
+SendMessageList:  [[], [3], [], [], [], [], [], [], []]
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 573.48216870552062, 2: 894.04180258918234, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: 8.7896305322647095})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 6 for Firestarts = 4
+    len(ROSAngleDir)= 1
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Std Normal RV for Stochastic ROS CV: -0.465202183973
+ROSAngleDir Cell 4 : {90: 27.966433525085449}
+Fire Progress before this update 4 : {8: 0.0, 1: 573.48216870552062, 2: 894.04180258918234, 5: 0.0, 7: 0.0}
+    angle, realized ros in m/min 90 26.2751275511
+Fire reaches the center of the cell 1 Distance to cell (in meters) was 1000.0
+MSG list: [1]
+Cell 1 popped out from the ROSAngleDir
+ROSAngleDir Cell 4 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [1]
+List is not empty
+SendMessageList:  [[], [3], [], [1], [], [], [], [], []]
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 907.30023260109454, 2: 1035.9157397029569, 3: 1164.5312468048191, 4: 1165.0221254090543, 6: 1035.9157397029569, 7: 1639.89053554819, 8: 1165.0221254090543, 9: 907.30023260109454})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {135.0: 3.87648606300354, 45.0: 13.702775001525879, 315.0: 3.87648606300354})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.178 in period: 6 for Firestarts = 1
+    len(ROSAngleDir)= 3
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 0.0, 3: 0.0, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {90: None, 270: None})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 6 for Firestarts = 5
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Std Normal RV for Stochastic ROS CV: -0.0113963156267
+ROSAngleDir Cell 6 : {90: 27.966433525085449, 270: 2.8710742741823196}
+Fire Progress before this update 6 : {8: 0.0, 9: 0.0, 2: 0.0, 3: 0.0, 5: 0.0}
+    angle, realized ros in m/min 90 27.9250006656
+Fire reaches the center of the cell 3 Distance to cell (in meters) was 1000.0
+MSG list: [3]
+Cell 3 popped out from the ROSAngleDir
+ROSAngleDir Cell 6 : {270: 2.8710742741823196}
+    angle, realized ros in m/min 270 2.86682071726
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+ ----------------- End of new manageFire function -----------------
+Aux list: [3]
+List is not empty
+SendMessageList:  [[], [3], [], [1], [], [3], [], [], []]
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 506.76873046337249, 4: 0.0, 5: 0.0, 6: 790.03751817077807, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: 8.7896305322647095})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 6 for Firestarts = 4
+    len(ROSAngleDir)= 1
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Std Normal RV for Stochastic ROS CV: 0.592240324046
+ROSAngleDir Cell 8 : {0: 27.966433525085449}
+Fire Progress before this update 8 : {9: 506.76873046337249, 4: 0.0, 5: 0.0, 6: 790.03751817077807, 7: 0.0}
+    angle, realized ros in m/min 0 30.11960398
+Fire reaches the center of the cell 9 Distance to cell (in meters) was 1000.0
+MSG list: [9]
+Cell 9 popped out from the ROSAngleDir
+ROSAngleDir Cell 8 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [9]
+List is not empty
+SendMessageList:  [[], [3], [], [1], [], [3], [], [9], []]
+Global_Message_Aux: [3, 1, 3, 9]
+RepeatFire: False
+Lists of messages per Cell: [[], [3], [], [1], [], [3], [], [9], []]
+Global Message Lists: [1, 3, 3, 9]
+We have at least one message: True
+Cell 1 got messages from the following cells in this fire period (hour): [4]
+Cell 2 got messages from the following cells in this fire period (hour): []
+Cell 3 got messages from the following cells in this fire period (hour): [2, 6]
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+Cell 9 got messages from the following cells in this fire period (hour): [8]
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([1, 3, 9])
+Cell 1 receives 1 messages
+Cell 3 receives 2 messages
+Cell 9 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Head ROS value: 50.5112075806
+Cell 1 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Head ROS value: 50.5112075806
+Cell 3 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Head ROS value: 50.5112075806
+Cell 9 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [1, 3, 9]
+Available cells: set([])
+Non Burnable Cells: set([])
+Burning cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Harvest cells: set([])
+Burnt and Burning cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+enter update_Weather_FBPReadFile called from Main period= 4
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws   waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 7)
+Wind Speed = 43.0
+Wind Direction = 225.0
+Temperature = 13.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 25.0
+
+Current Period (week): 1
+Current Fire Period: 7
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 7
+Burning Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 2 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 6 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 1)
+('FireProgress:', {2: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {2: 0, 4: 270, 5: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 2, 315.0: 5, 270: 4})
+Cell 1 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 150.35605182766017, 3: 1464.5815910597162, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 3)
+('FireProgress:', {2: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {2: 180, 5: 225.0, 6: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {225.0: 5, 180: 2, 270: 6})
+Cell 3 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 2149.9898217710388, 2: 894.04180258918234, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 907.30023260109454, 2: 1035.9157397029569, 3: 1164.5312468048191, 4: 1165.0221254090543, 6: 1035.9157397029569, 7: 1639.89053554819, 8: 1165.0221254090543, 9: 907.30023260109454})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 172.00924303573149, 2: 0.0, 3: 1675.5000399385613, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 2313.9449692643007, 4: 0.0, 5: 0.0, 6: 790.03751817077807, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     0 - % of the Forest:  0.0 %
+Total Burnt Cells:         9 - % of the Forest:  100.0 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 1 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 2 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 5
+Cell 3 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 4 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 6 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 5
+Cell 7 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 8 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 9 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+
+Final Time: 22.244856
+Total simulation time:  3.77  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  4 -------------------------------------------------
+Initial Time: 28.105233
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 28.59657
+Total simulation time:  0.49  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  5 -------------------------------------------------
+Initial Time: 30.446461
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: 1.03094604561
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 3.67867386073
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 11.0985009358
+    angle, realized ros in m/min 135.0 4.67084325979
+    angle, realized ros in m/min 45.0 2.68650446166
+    angle, realized ros in m/min 270 7.88467209779
+    angle, realized ros in m/min 180 7.88467209779
+    angle, realized ros in m/min 90 3.67867386073
+    angle, realized ros in m/min 315.0 4.67084325979
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 280.25059558735052, 2: 220.72043164358371, 3: 161.19026769981687, 4: 473.08032586716593, 6: 220.72043164358371, 7: 665.91005614698133, 8: 473.08032586716593, 9: 280.25059558735052})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.905541362739
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 280.25059558735052, 2: 220.72043164358371, 3: 161.19026769981687, 4: 473.08032586716593, 6: 220.72043164358371, 7: 665.91005614698133, 8: 473.08032586716593, 9: 280.25059558735052}
+    angle, realized ros in m/min 0 2.8620398587
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 8.63472904981
+    angle, realized ros in m/min 135.0 3.63395617262
+    angle, realized ros in m/min 45.0 2.09012354477
+    angle, realized ros in m/min 270 6.13434261121
+    angle, realized ros in m/min 180 6.13434261121
+    angle, realized ros in m/min 90 2.8620398587
+    angle, realized ros in m/min 315.0 3.63395617262
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 4
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 498.28796594446521, 2: 392.44282316533247, 3: 286.59768038619967, 4: 841.14088253996522, 6: 392.44282316533247, 7: 1183.993799135465, 8: 841.14088253996522, 9: 498.28796594446521})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 4 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.461709545591
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 498.28796594446521, 2: 392.44282316533247, 3: 286.59768038619967, 4: 841.14088253996522, 6: 392.44282316533247, 7: 1183.993799135465, 8: 841.14088253996522, 9: 498.28796594446521}
+    angle, realized ros in m/min 0 3.04920769232
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 9.19941144768
+Fire reaches the center of the cell 7 Distance to cell (in meters) was 1414.21356237
+MSG list: [7]
+Cell 7 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 135.0 3.87160475122
+    angle, realized ros in m/min 45.0 2.22681063342
+    angle, realized ros in m/min 270 6.53550809945
+Fire reaches the center of the cell 8 Distance to cell (in meters) was 1000.0
+MSG list: [7, 8]
+Cell 8 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 180 6.53550809945
+Fire reaches the center of the cell 4 Distance to cell (in meters) was 1000.0
+MSG list: [4, 7, 8]
+Cell 4 popped out from the ROSAngleDir
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+    angle, realized ros in m/min 90 3.04920769232
+    angle, realized ros in m/min 315.0 3.87160475122
+ ----------------- End of new manageFire function -----------------
+Aux list: [4, 7, 8]
+List is not empty
+SendMessageList:  [[], [], [], [], [4, 7, 8], [], [], [], []]
+Global_Message_Aux: [4, 7, 8]
+RepeatFire: False
+Lists of messages per Cell: [[], [], [], [], [4, 7, 8], [], [], [], []]
+Global Message Lists: [4, 7, 8]
+We have at least one message: True
+Cell 4 got messages from the following cells in this fire period (hour): [5]
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): [5]
+Cell 8 got messages from the following cells in this fire period (hour): [5]
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([8, 4, 7])
+Cell 4 receives 1 messages
+Cell 7 receives 1 messages
+Cell 8 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 8 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 4 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Head ROS value: 9.78683948517
+Cell 7 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [8, 4, 7]
+Available cells: set([1, 2, 3, 6, 9])
+Non Burnable Cells: set([])
+Burning cells: set([8, 4, 5, 7])
+Harvest cells: set([])
+Burnt and Burning cells: set([8, 4, 5, 7])
+enter update_Weather_FBPReadFile called from Main period= 2
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws    waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  15.0 -135.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 5)
+Wind Speed = 15.0
+Wind Direction = 45.0
+Temperature = 16.1
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+
+Current Period (week): 1
+Current Fire Period: 5
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 5
+Burning Cells: set([8, 4, 5, 7])
+Burnt Cells (should include burning): set([8, 4, 5, 7])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 4 : clearing ROSAngleDir
+Cell 4 : clearing ROSAngleDir
+Cell 7 : clearing ROSAngleDir
+Cell 7 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+Cell 8 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: None, 45.0: None})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 5 for Firestarts = 4
+    len(ROSAngleDir)= 2
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 0.0, 2: 0.0, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: None, 45.0: None})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 5 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: -0.197599582105
+ROSAngleDir Cell 4 : {90: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 4 : {8: 0.0, 1: 0.0, 2: 0.0, 5: 0.0, 7: 0.0}
+    angle, realized ros in m/min 90 8.56384298066
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 13.3507788617
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 730.58425101775049, 2: 575.39528470468895, 3: 420.20631839162741, 4: 1233.27136850694, 6: 575.39528470468895, 7: 1735.9584859961292, 8: 1233.27136850694, 9: 730.58425101775049})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.252 in period: 5 for Firestarts = 1
+    len(ROSAngleDir)= 5
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  5
+New Fire period:  6
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 6
+Burning Cells: set([8, 4, 5, 7])
+Burnt Cells (should include burning): set([8, 4, 5, 7])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: None, 45.0: None})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 6 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: 0.698078902212
+ROSAngleDir Cell 8 : {0: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 8 : {9: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0}
+    angle, realized ros in m/min 0 9.58729176453
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 45.0 14.9463053585
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 513.83057883964523, 2: 801.04673170253545, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {90: 8.7896305322647095, 45.0: 13.702775001525879})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 6 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Std Normal RV for Stochastic ROS CV: -0.23991454934
+ROSAngleDir Cell 4 : {90: 8.7896305322647095, 45.0: 13.702775001525879}
+Fire Progress before this update 4 : {8: 0.0, 1: 513.83057883964523, 2: 801.04673170253545, 5: 0.0, 7: 0.0}
+    angle, realized ros in m/min 90 8.51549170002
+Fire reaches the center of the cell 1 Distance to cell (in meters) was 1000.0
+MSG list: [1]
+Cell 1 popped out from the ROSAngleDir
+ROSAngleDir Cell 4 : {45.0: 13.702775001525879}
+    angle, realized ros in m/min 45.0 13.2754006399
+Fire reaches the center of the cell 2 Distance to cell (in meters) was 1414.21356237
+MSG list: [1, 2]
+Cell 2 popped out from the ROSAngleDir
+ROSAngleDir Cell 4 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [1, 2]
+List is not empty
+SendMessageList:  [[], [], [], [1, 2], [], [], [], [], []]
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 730.58425101775049, 2: 575.39528470468895, 3: 420.20631839162741, 4: 1233.27136850694, 6: 575.39528470468895, 7: 1735.9584859961292, 8: 1233.27136850694, 9: 730.58425101775049})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.178 in period: 6 for Firestarts = 1
+    len(ROSAngleDir)= 5
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: [1, 2]
+RepeatFire: True
+Messages have been sent, next step
+Lists of messages per Cell: [[], [], [], [1, 2], [], [], [], [], []]
+Global Message Lists: [1, 2]
+We have at least one message: True
+Cell 1 got messages from the following cells in this fire period (hour): [4]
+Cell 2 got messages from the following cells in this fire period (hour): [4]
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([1, 2])
+Cell 1 receives 1 messages
+Cell 2 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Head ROS value: 13.7027750015
+Cell 1 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 15.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 13.7027750015
+Flanks ROS Value: 3.876486063
+Rear ROS Value: 1.64314758778
+Head ROS value: 13.7027750015
+Cell 2 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [1, 2]
+Available cells: set([9, 3, 6])
+Non Burnable Cells: set([])
+Burning cells: set([1, 2, 4, 5, 7, 8])
+Harvest cells: set([])
+Burnt and Burning cells: set([1, 2, 4, 5, 7, 8])
+enter update_Weather_FBPReadFile called from Main period= 3
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws    waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  37.0 -135.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 7)
+Wind Speed = 37.0
+Wind Direction = 45.0
+Temperature = 15.8
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+
+Current Period (week): 1
+Current Fire Period: 7
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 7
+Burning Cells: set([1, 2, 4, 5, 7, 8])
+Burnt Cells (should include burning): set([1, 2, 4, 5, 7, 8])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 1 : clearing ROSAngleDir
+Cell 2 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 1)
+('FireProgress:', {2: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {2: 0, 4: 270, 5: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 2, 315.0: 5, 270: 4})
+Cell 1 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {0: None, 315.0: None})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 7 for Firestarts = 6
+    len(ROSAngleDir)= 2
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 1024.7600808410225, 2: 1597.5707700983385, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 730.58425101775049, 2: 575.39528470468895, 3: 420.20631839162741, 4: 1233.27136850694, 6: 575.39528470468895, 7: 1735.9584859961292, 8: 1233.27136850694, 9: 730.58425101775049})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 45.0: 2.3690035343170166, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.126 in period: 7 for Firestarts = 1
+    len(ROSAngleDir)= 3
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 575.23750587181405, 4: 0.0, 5: 0.0, 6: 896.77832150806535, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {0: 8.7896305322647095, 45.0: 13.702775001525879})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 7 for Firestarts = 4
+    len(ROSAngleDir)= 2
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Std Normal RV for Stochastic ROS CV: 0.00848626755955
+ROSAngleDir Cell 8 : {0: 27.966433525085449, 45.0: 50.511207580566406}
+Fire Progress before this update 8 : {9: 575.23750587181405, 4: 0.0, 5: 0.0, 6: 896.77832150806535, 7: 0.0}
+    angle, realized ros in m/min 0 27.997286508
+Fire reaches the center of the cell 9 Distance to cell (in meters) was 1000.0
+MSG list: [9]
+Cell 9 popped out from the ROSAngleDir
+ROSAngleDir Cell 8 : {45.0: 50.511207580566406}
+    angle, realized ros in m/min 45.0 50.5669322915
+Fire reaches the center of the cell 6 Distance to cell (in meters) was 1414.21356237
+MSG list: [6, 9]
+Cell 6 popped out from the ROSAngleDir
+ROSAngleDir Cell 8 : {}
+ ----------------- End of new manageFire function -----------------
+Aux list: [6, 9]
+List is not empty
+SendMessageList:  [[], [], [], [], [], [], [], [6, 9], []]
+Global_Message_Aux: [6, 9]
+RepeatFire: False
+Lists of messages per Cell: [[], [], [], [], [], [], [], [6, 9], []]
+Global Message Lists: [6, 9]
+We have at least one message: True
+Cell 1 got messages from the following cells in this fire period (hour): []
+Cell 2 got messages from the following cells in this fire period (hour): []
+Cell 4 got messages from the following cells in this fire period (hour): []
+Cell 5 got messages from the following cells in this fire period (hour): []
+Cell 6 got messages from the following cells in this fire period (hour): [8]
+Cell 7 got messages from the following cells in this fire period (hour): []
+Cell 8 got messages from the following cells in this fire period (hour): []
+Cell 9 got messages from the following cells in this fire period (hour): [8]
+
+---------------------- Step 3: Receiving and processing messages from Ignition ----------------------
+Size of the world:  1
+Cells receiving messages: set([9, 6])
+Cell 6 receives 1 messages
+Cell 9 receives 1 messages
+
+---Serial version of the code---
+
+Cells status
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Head ROS value: 50.5112075806
+Cell 9 got burnt: True
+
+ROS Threshold get_burned method
+ROSThresh: 0.001
+Wind Speed 37.0
+Wind Direction 45.0
+Main Angle: 45.0
+Front ROS Value: 50.5112075806
+Flanks ROS Value: 5.4216594696
+Rear ROS Value: 0.32048907876
+Head ROS value: 50.5112075806
+Cell 6 got burnt: True
+
+Results
+newly Burnt (and/or burning) List: [9, 6]
+Available cells: set([3])
+Non Burnable Cells: set([])
+Burning cells: set([1, 2, 4, 5, 6, 7, 8, 9])
+Harvest cells: set([])
+Burnt and Burning cells: set([1, 2, 4, 5, 6, 7, 8, 9])
+enter update_Weather_FBPReadFile called from Main period= 4
+forest data frame (df) after weather update
+  fueltype  mon  jd   m  jd_min  lat  lon  elev  ffmc    ws   waz  bui  ps  \
+0       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+1       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+2       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+3       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+4       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+5       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+6       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+7       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+8       c2    7   1 NaN     NaN   55  110   NaN    90  43.0  45.0  130   0   
+
+   saz  pc  pdf  gfl  cur  time  
+0   90 NaN  NaN  NaN  NaN    20  
+1   90 NaN  NaN  NaN  NaN    20  
+2   90 NaN  NaN  NaN  NaN    20  
+3   90 NaN  NaN  NaN  NaN    20  
+4   90 NaN  NaN  NaN  NaN    20  
+5   90 NaN  NaN  NaN  NaN    20  
+6   90 NaN  NaN  NaN  NaN    20  
+7   90 NaN  NaN  NaN  NaN    20  
+8   90 NaN  NaN  NaN  NaN    20  
+
+Weather Info for (hour 8)
+Wind Speed = 43.0
+Wind Direction = 225.0
+Temperature = 13.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 25.0
+
+Current Period (week): 1
+Current Fire Period: 8
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 8
+Burning Cells: set([1, 2, 4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([1, 2, 4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+Cell 2 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 5 : clearing ROSAngleDir
+Cell 6 : clearing ROSAngleDir
+Cell 9 : clearing ROSAngleDir
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 1)
+('FireProgress:', {2: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {2: 0, 4: 270, 5: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 2, 315.0: 5, 270: 4})
+Cell 1 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {0: None})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 8 for Firestarts = 6
+    len(ROSAngleDir)= 1
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 43.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 65.0875854492
+Flanks ROS Value: 6.08888053894
+Rear ROS Value: 0.20438285172
+Std Normal RV for Stochastic ROS CV: 0.238000569944
+ROSAngleDir Cell 2 : {0: 3.146631695330143}
+Fire Progress before this update 2 : {1: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0}
+    angle, realized ros in m/min 0 3.24398871313
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 1024.7600808410225, 2: 1597.5707700983385, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 730.58425101775049, 2: 575.39528470468895, 3: 420.20631839162741, 4: 1233.27136850694, 6: 575.39528470468895, 7: 1735.9584859961292, 8: 1233.27136850694, 9: 730.58425101775049})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {45.0: 2.3690035343170166})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.089 in period: 8 for Firestarts = 1
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 0.0, 3: 0.0, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {90: None})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 8 for Firestarts = 7
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 2255.0746963500665, 4: 0.0, 5: 0.0, 6: 3930.7942589958689, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  8
+New Fire period:  9
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 9
+Burning Cells: set([1, 2, 4, 5, 6, 7, 8, 9])
+Burnt Cells (should include burning): set([1, 2, 4, 5, 6, 7, 8, 9])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 1)
+('FireProgress:', {2: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {2: 0, 4: 270, 5: 315.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {2: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 2, 315.0: 5, 270: 4})
+Cell 1 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 2)
+('FireProgress:', {1: 0.0, 3: 194.63932278757534, 4: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {1: 180, 3: 0, 4: 225.0, 5: 270, 6: 315.0})
+('ROSAngleDir:', {0: 3.146631695330143})
+('DistToCenter:', {1: 1000.0, 3: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951})
+('angle_to_nb:', {0: 3, 225.0: 4, 315.0: 6, 180: 1, 270: 5})
+Cell 2 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 9 for Firestarts = 6
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 4)
+('FireProgress:', {8: 0.0, 1: 1024.7600808410225, 2: 1597.5707700983385, 5: 0.0, 7: 0.0})
+('AngleDict:', {8: 315.0, 1: 90, 2: 45.0, 5: 0, 7: 270})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1414.2135623730951, 1: 1000.0, 2: 1414.2135623730951, 5: 1000.0, 7: 1000.0})
+('angle_to_nb:', {0: 5, 90: 1, 315.0: 8, 45.0: 2, 270: 7})
+Cell 4 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 730.58425101775049, 2: 575.39528470468895, 3: 420.20631839162741, 4: 1233.27136850694, 6: 575.39528470468895, 7: 1735.9584859961292, 8: 1233.27136850694, 9: 730.58425101775049})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {45.0: 2.3690035343170166})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.063 in period: 9 for Firestarts = 1
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 6)
+('FireProgress:', {8: 0.0, 9: 0.0, 2: 0.0, 3: 0.0, 5: 0.0})
+('AngleDict:', {8: 225.0, 9: 270, 2: 135.0, 3: 90, 5: 180})
+('ROSAngleDir:', {90: None})
+('DistToCenter:', {8: 1414.2135623730951, 9: 1000.0, 2: 1414.2135623730951, 3: 1000.0, 5: 1000.0})
+('angle_to_nb:', {225.0: 8, 90: 3, 180: 5, 270: 9, 135.0: 2})
+Cell 6 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 9 for Firestarts = 7
+    len(ROSAngleDir)= 1
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 7)
+('FireProgress:', {8: 0.0, 4: 0.0, 5: 0.0})
+('AngleDict:', {8: 0, 4: 90, 5: 45.0})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 4: 1000.0, 5: 1414.2135623730951})
+('angle_to_nb:', {0: 8, 90: 4, 45.0: 5})
+Cell 7 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 8)
+('FireProgress:', {9: 2255.0746963500665, 4: 0.0, 5: 0.0, 6: 3930.7942589958689, 7: 0.0})
+('AngleDict:', {9: 0, 4: 135.0, 5: 90, 6: 45.0, 7: 180})
+('ROSAngleDir:', {})
+('DistToCenter:', {9: 1000.0, 4: 1414.2135623730951, 5: 1000.0, 6: 1414.2135623730951, 7: 1000.0})
+('angle_to_nb:', {0: 9, 90: 5, 180: 7, 45.0: 6, 135.0: 4})
+Cell 8 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell object new fields
+('ID:', 9)
+('FireProgress:', {8: 0.0, 5: 0.0, 6: 0.0})
+('AngleDict:', {8: 180, 5: 135.0, 6: 90})
+('ROSAngleDir:', {})
+('DistToCenter:', {8: 1000.0, 5: 1414.2135623730951, 6: 1000.0})
+('angle_to_nb:', {90: 6, 180: 8, 135.0: 5})
+Cell 9 does not have any neighbor available for receiving messages
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     1 - % of the Forest:  11.111 %
+Total Burnt Cells:         8 - % of the Forest:  88.889 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 1 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 2 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 4 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 6 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 7 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 8 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 9 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+
+Final Time: 34.133535
+Total simulation time:  3.69  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  6 -------------------------------------------------
+Initial Time: 40.036586
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 40.529727
+Total simulation time:  0.49  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  7 -------------------------------------------------
+Initial Time: 42.325047
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -1.45355218517
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 2.63093880988
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 7.93750083562
+    angle, realized ros in m/min 135.0 3.34052521977
+    angle, realized ros in m/min 45.0 1.9213524
+    angle, realized ros in m/min 270 5.6390130277
+    angle, realized ros in m/min 180 5.6390130277
+    angle, realized ros in m/min 90 2.63093880988
+    angle, realized ros in m/min 315.0 3.34052521977
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 200.43151318621167, 2: 157.85632859305895, 3: 115.28114399990622, 4: 338.34078166170372, 6: 157.85632859305895, 7: 476.25005013719573, 8: 338.34078166170372, 9: 200.43151318621167})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 42.819736
+Total simulation time:  0.49  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  8 -------------------------------------------------
+Initial Time: 44.666879
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 45.157379
+Total simulation time:  0.49  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  9 -------------------------------------------------
+Initial Time: 46.957651
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.243075859441
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 3.14140746668
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 9.47757671069
+    angle, realized ros in m/min 135.0 3.98867158316
+    angle, realized ros in m/min 45.0 2.2941433502
+    angle, realized ros in m/min 270 6.73312414693
+    angle, realized ros in m/min 180 6.73312414693
+    angle, realized ros in m/min 90 3.14140746668
+    angle, realized ros in m/min 315.0 3.98867158316
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 239.32029498973259, 2: 188.48444800089405, 3: 137.64860101205554, 4: 403.98744881553853, 6: 188.48444800089405, 7: 568.65460264134458, 8: 403.98744881553853, 9: 239.32029498973259})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 47.451673
+Total simulation time:  0.49  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  10 -------------------------------------------------
+Initial Time: 49.246451
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 5}
+Rows: 3 Cols: 3 NCells: 9
+------------ End read forest data -------------
+Reading weather file
+enter update_Weather_FBPReadFile called from Main period= 0
+Weather Info for (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+DF     ws   waz  ps  saz
+0  5.0  45.0   0   90
+1  5.0  45.0   0   90
+2  5.0  45.0   0   90
+3  5.0  45.0   0   90
+4  5.0  45.0   0   90
+5  5.0  45.0   0   90
+6  5.0  45.0   0   90
+7  5.0  45.0   0   90
+8  5.0  45.0   0   90
+WindDirection 225.0
+
+Serial Initialization 
+Number of workers: 1
+---------------------- End initialization ------------------------------
+Actual Weather Info (Week 0)
+Wind Speed = 5.0
+Wind Direction = 225.0
+Temperature = 17.7
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 20.0
+Forest already exists
+
+Set information period (week1)
+Available Cells: set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning Cells: set([])
+Burnt Cells: set([])
+Harvest Cells: set([])
+
+------------------------------------ Current Year:  1 ------------------------------------
+---------------------- Step 1: Ignition ----------------------
+
+Current Period (Week): 1
+Current Fire Period (Hour): 1
+Cell 5 Ignites
+Cell 5 Status: Burning
+
+Available cells: set([1, 2, 3, 4, 6, 7, 8, 9])
+Non Burnable Cells:set([])
+Burning cells: set([5])
+Harvest cells: set([])
+Burnt cells (including burning): set([5])
+enter update_Weather_FBPReadFile called from Main period= 1
+Current Week: 1
+Fire Period Starts: 2
+
+Weather Info for (Week 1)
+Wind Speed = 10.0
+Wind Direction = 225.0
+Temperature = 16.9
+Dew Point = 8.4
+Precipitation = 0.0
+Radiation = 0
+RHumidity = 18.0
+
+Next Fire Period: 2
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: None, 225.0: None, 135.0: None, 45.0: None, 270: None, 180: None, 90: None, 315.0: None})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.708 in period: 2 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -0.291800790471
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0}
+    angle, realized ros in m/min 0 3.12085972893
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 9.41558451043
+    angle, realized ros in m/min 135.0 3.96258194706
+    angle, realized ros in m/min 45.0 2.2791375108
+    angle, realized ros in m/min 270 6.68908322874
+    angle, realized ros in m/min 180 6.68908322874
+    angle, realized ros in m/min 90 3.12085972893
+    angle, realized ros in m/min 315.0 3.96258194706
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 237.75491682335954, 2: 187.25158373581311, 3: 136.74825064826666, 4: 401.34499372458311, 6: 187.25158373581311, 7: 564.93507062580659, 8: 401.34499372458311, 9: 237.75491682335954})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.502 in period: 3 for Firestarts = 1
+    len(ROSAngleDir)= 8
+Cell can send messages
+ Repeat condition:  True
+Wind Speed 10.0
+Wind Direction 225.0
+Main Angle: 225.0
+Front ROS Value: 9.78683948517
+Flanks ROS Value: 4.11882591248
+Rear ROS Value: 2.36900353432
+Std Normal RV for Stochastic ROS CV: -1.45405352965
+ROSAngleDir Cell 5 : {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859}
+Fire Progress before this update 5 : {1: 237.75491682335954, 2: 187.25158373581311, 3: 136.74825064826666, 4: 401.34499372458311, 6: 187.25158373581311, 7: 564.93507062580659, 8: 401.34499372458311, 9: 237.75491682335954}
+    angle, realized ros in m/min 0 2.63072738845
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+    angle, realized ros in m/min 225.0 7.93686298049
+    angle, realized ros in m/min 135.0 3.34025677619
+    angle, realized ros in m/min 45.0 1.92119800071
+    angle, realized ros in m/min 270 5.63855987834
+    angle, realized ros in m/min 180 5.63855987834
+    angle, realized ros in m/min 90 2.63072738845
+    angle, realized ros in m/min 315.0 3.34025677619
+ ----------------- End of new manageFire function -----------------
+Aux list: ['True']
+Fire is still alive and we may repeat if no other messages......
+Global_Message_Aux: []
+RepeatFire: True
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 4
+Burning Cells: set([5])
+Burnt Cells (should include burning): set([5])
+ -------------------- NEW CLEANING STEP ------------------------
+----------------------------------------------------------------------
+
+---Serial version of the code---
+Cell object new fields
+('ID:', 5)
+('FireProgress:', {1: 438.17032339470387, 2: 345.0952270427681, 3: 252.02013069083227, 4: 739.65858642494277, 6: 345.0952270427681, 7: 1041.1468494551816, 8: 739.65858642494277, 9: 438.17032339470387})
+('AngleDict:', {1: 135.0, 2: 90, 3: 45.0, 4: 180, 6: 0, 7: 225.0, 8: 270, 9: 315.0})
+('ROSAngleDir:', {0: 3.2439147233963013, 225.0: 9.786839485168457, 135.0: 4.1188259124755859, 45.0: 2.3690035343170166, 270: 6.9528326988220215, 180: 6.9528326988220215, 90: 3.2439147233963013, 315.0: 4.1188259124755859})
+('DistToCenter:', {1: 1414.2135623730951, 2: 1000.0, 3: 1414.2135623730951, 4: 1000.0, 6: 1000.0, 7: 1414.2135623730951, 8: 1000.0, 9: 1414.2135623730951})
+('angle_to_nb:', {0: 6, 225.0: 7, 135.0: 1, 45.0: 3, 270: 8, 180: 4, 90: 2, 315.0: 9})
+Cell 5 can still send messages to neighbors
+Message sending probability (i.e. Non-burnout): 0.355 in period: 4 for Firestarts = 1
+    len(ROSAngleDir)= 8
+ ----------------- End of new manageFire function -----------------
+Aux list: []
+Message and Aux Lists are empty; adding to BurnedOutList
+Global_Message_Aux: []
+RepeatFire: False
+
+No messages during the fire period, end of year 1
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     8 - % of the Forest:  88.889 %
+Total Burnt Cells:         1 - % of the Forest:  11.111 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 5 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 49.79914
+Total simulation time:  0.55  [s]
+Forest Grid has been created

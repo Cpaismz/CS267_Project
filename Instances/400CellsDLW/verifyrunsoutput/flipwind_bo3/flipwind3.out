@@ -1,0 +1,1221 @@
+('Creating a new, empty folder=', 'outdir')
+-----------------------------------------------------------------------------------
+Period Length for ROS computations [min]:  60
+-----------------------------------------------------------------------------------
+------------------------------------------------- Simulation Number  1 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  5
+New Fire period:  6
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  6
+New Fire period:  7
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  48
+New Fire period:  49
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  53
+New Fire period:  54
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  57
+New Fire period:  58
+
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  59
+New Fire period:  60
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  60
+New Fire period:  61
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  61
+New Fire period:  62
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  62
+New Fire period:  63
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  63
+New Fire period:  64
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  64
+New Fire period:  65
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  65
+New Fire period:  66
+
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  67
+New Fire period:  68
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  68
+New Fire period:  69
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  69
+New Fire period:  70
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     159 - % of the Forest:  39.75 %
+Total Burnt Cells:         241 - % of the Forest:  60.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 126 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 127 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 128 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 129 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 130 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 131 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 132 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 133 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 49
+Cell 145 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 45
+Cell 146 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 147 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 148 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 22
+Cell 149 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 150 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 151 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 152 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 153 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 154 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 51
+Cell 165 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 166 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 167 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 168 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 169 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 170 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 171 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 172 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 173 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 174 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 52
+Cell 175 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 54
+Cell 176 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 66
+Cell 183 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 51
+Cell 184 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 44
+Cell 185 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 186 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 187 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 188 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 189 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 190 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 191 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 192 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 193 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 194 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 50
+Cell 195 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 55
+Cell 196 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 56
+Cell 201 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 55
+Cell 202 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 54
+Cell 203 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 45
+Cell 204 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 45
+Cell 205 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 206 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 207 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 208 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 209 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 211 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 212 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 213 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 214 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 43
+Cell 215 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 216 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 56
+Cell 217 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 58
+Cell 221 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 50
+Cell 222 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 46
+Cell 223 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 46
+Cell 224 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 46
+Cell 225 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 226 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 227 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 228 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 229 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 230 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 231 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 232 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 233 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 234 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 235 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 236 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 237 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 238 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 239 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 49
+Cell 240 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 56
+Cell 241 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 49
+Cell 242 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 47
+Cell 243 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 47
+Cell 244 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 245 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 246 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 247 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 248 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 249 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 250 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 251 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 252 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 253 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 254 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 255 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 256 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 257 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 22
+Cell 258 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 259 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 260 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 44
+Cell 261 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 40
+Cell 262 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 36
+Cell 263 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 34
+Cell 264 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 265 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 266 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 267 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 268 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 269 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 270 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 271 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 272 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 273 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 274 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 275 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 276 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 277 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 278 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 279 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 280 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 44
+Cell 281 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 282 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 283 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 284 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 285 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 286 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 287 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 288 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 289 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 290 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 291 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 292 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 293 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 294 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 295 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 296 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 297 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 298 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 299 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 300 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 301 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 302 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 303 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 304 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 305 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 306 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 307 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 308 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 309 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 310 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 311 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 312 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 313 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 314 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 315 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 316 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 317 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 318 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 319 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 320 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 321 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 322 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 323 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 324 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 325 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 326 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 327 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 328 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 329 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 330 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 331 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 332 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 333 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 334 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 335 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 336 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 337 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 338 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 339 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 340 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 42
+Cell 341 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 342 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 343 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 344 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 345 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 346 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 347 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 348 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 349 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 350 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 351 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 352 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 353 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 354 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 355 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 356 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 357 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 358 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 359 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 360 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 361 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 362 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 363 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 364 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 365 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 366 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 367 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 368 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 369 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 370 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 21
+Cell 371 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 372 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 373 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 374 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 375 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 376 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 377 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 378 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 379 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 380 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 381 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 382 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 383 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 384 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 385 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 386 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 387 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 388 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 389 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 390 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 391 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 22
+Cell 392 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 393 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 394 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 395 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 396 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 397 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 398 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 399 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 400 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+
+Final Time: 5.065588
+Total simulation time:  4.0  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  2 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 5.150271
+Total simulation time:  0.08  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  3 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 5.174626
+Total simulation time:  0.02  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  4 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  5
+New Fire period:  6
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  33
+New Fire period:  34
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  37
+New Fire period:  38
+
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  39
+New Fire period:  40
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  40
+New Fire period:  41
+
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  43
+New Fire period:  44
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  44
+New Fire period:  45
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  45
+New Fire period:  46
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  46
+New Fire period:  47
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     218 - % of the Forest:  54.5 %
+Total Burnt Cells:         182 - % of the Forest:  45.5 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 149 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 150 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 151 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 152 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 153 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 168 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 169 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 170 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 171 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 172 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 173 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 188 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 189 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 190 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 191 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 192 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 193 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 194 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 195 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 21
+Cell 196 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 197 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 198 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 36
+Cell 207 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 208 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 209 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 211 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 212 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 213 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 214 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 215 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 216 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 21
+Cell 217 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 218 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 34
+Cell 219 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 42
+Cell 226 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 227 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 228 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 229 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 230 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 231 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 6
+Cell 232 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 233 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 234 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 235 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 236 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 237 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 238 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 239 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 240 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 245 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 246 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 247 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 248 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 249 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 250 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 251 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 252 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 253 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 254 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 255 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 256 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 257 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 258 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 259 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 260 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 34
+Cell 265 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 266 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 267 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 268 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 269 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 270 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 271 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 272 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 273 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 274 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 275 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 276 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 277 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 278 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 279 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 280 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 285 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 286 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 287 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 288 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 289 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 290 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 291 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 292 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 293 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 294 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 295 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 296 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 297 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 298 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 299 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 300 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 305 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 306 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 307 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 308 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 309 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 310 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 311 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 312 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 313 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 314 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 315 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 316 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 317 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 318 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 319 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 320 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 325 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 326 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 327 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 328 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 329 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 330 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 331 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 332 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 333 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 334 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 335 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 336 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 337 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 338 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 339 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 340 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 346 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 22
+Cell 347 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 348 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 349 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 350 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 351 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 352 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 353 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 354 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 355 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 356 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 357 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 358 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 359 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 360 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 363 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 364 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 36
+Cell 365 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 366 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 367 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 368 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 369 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 370 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 371 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 372 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 373 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 374 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 375 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 376 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 377 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 378 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 379 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 380 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 382 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 383 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 384 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 36
+Cell 385 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 386 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 42
+Cell 387 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 388 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 389 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 390 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 391 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 392 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 393 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 394 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 395 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 396 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 397 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 398 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 399 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 400 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+
+Final Time: 7.755816
+Total simulation time:  2.58  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  5 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 7.828477
+Total simulation time:  0.07  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  6 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 7.850077
+Total simulation time:  0.02  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  7 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 7.872537
+Total simulation time:  0.02  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  8 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 7.894901
+Total simulation time:  0.02  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  9 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  3
+New Fire period:  4
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  5
+New Fire period:  6
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  6
+New Fire period:  7
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  50
+New Fire period:  51
+
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  52
+New Fire period:  53
+
+Messages have been sent, next step
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  57
+New Fire period:  58
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  58
+New Fire period:  59
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  60
+New Fire period:  61
+
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  62
+New Fire period:  63
+
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  64
+New Fire period:  65
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  65
+New Fire period:  66
+
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  66
+New Fire period:  67
+
+Messages have been sent, next step
+Messages have been sent, next step
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  69
+New Fire period:  70
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     190 - % of the Forest:  47.5 %
+Total Burnt Cells:         210 - % of the Forest:  52.5 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 165 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 63
+Cell 166 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 53
+Cell 167 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 49
+Cell 168 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 46
+Cell 169 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 40
+Cell 170 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 171 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 172 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 183 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 63
+Cell 184 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 55
+Cell 185 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 54
+Cell 186 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 51
+Cell 187 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 188 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 189 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 190 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 191 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 192 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 193 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 194 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 195 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 202 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 63
+Cell 203 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 61
+Cell 204 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 55
+Cell 205 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 55
+Cell 206 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 207 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 208 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 209 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+Cell 211 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 7
+Cell 212 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 213 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 214 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 21
+Cell 215 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 216 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 59
+Cell 222 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 42
+Cell 223 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 224 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 225 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 226 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 227 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 228 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 229 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 230 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 4
+Cell 231 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 8
+Cell 232 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 233 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 234 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 235 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 236 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 237 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 61
+Cell 238 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 68
+Cell 241 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 47
+Cell 242 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 243 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 244 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 245 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 246 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 247 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 248 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 249 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 250 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 251 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 9
+Cell 252 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 253 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 254 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 255 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 18
+Cell 256 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 257 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 258 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 67
+Cell 261 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 44
+Cell 262 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 263 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 264 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 265 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 266 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 267 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 268 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 269 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 270 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 271 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 10
+Cell 272 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 273 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 16
+Cell 274 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 275 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 276 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 277 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 278 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 45
+Cell 279 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 49
+Cell 281 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 42
+Cell 282 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 36
+Cell 283 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 284 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 285 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 286 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 287 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 288 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 289 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 290 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 11
+Cell 291 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 292 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 293 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 294 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 295 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 296 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 297 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 298 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 299 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 45
+Cell 300 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 56
+Cell 301 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 38
+Cell 302 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 303 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 34
+Cell 304 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 305 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 306 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 307 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 308 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 309 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 13
+Cell 310 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 12
+Cell 311 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 312 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 313 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 314 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 315 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 23
+Cell 316 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 317 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 318 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 319 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 320 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 47
+Cell 321 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 322 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 323 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 324 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 325 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 326 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 327 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 328 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 329 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 330 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 331 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 14
+Cell 332 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 333 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 334 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 335 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 336 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 337 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 338 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 339 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 340 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 48
+Cell 341 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 39
+Cell 342 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 343 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 344 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 345 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 346 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 347 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 348 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 349 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 350 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 351 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 352 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 15
+Cell 353 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 22
+Cell 354 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 25
+Cell 355 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 356 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 357 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 358 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 359 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 360 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 361 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 362 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 41
+Cell 363 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 364 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 365 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 366 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 22
+Cell 367 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 368 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 369 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 370 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 17
+Cell 371 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 372 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 373 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 374 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 375 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 27
+Cell 376 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 377 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 30
+Cell 378 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 379 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 380 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 32
+Cell 381 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 43
+Cell 382 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 37
+Cell 383 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 35
+Cell 384 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 385 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 386 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 387 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 24
+Cell 388 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 21
+Cell 389 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 21
+Cell 390 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 19
+Cell 391 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 20
+Cell 392 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 26
+Cell 393 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 394 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 395 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 28
+Cell 396 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 29
+Cell 397 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 31
+Cell 398 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 399 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+Cell 400 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 33
+
+Final Time: 11.552758
+Total simulation time:  3.66  [s]
+Forest Grid has been created
+------------------------------------------------- Simulation Number  10 -------------------------------------------------
+
+----------------- Forest Data -----------------
+We have specific ignition points
+Ignitions: {1: 210}
+Rows: 20 Cols: 20 NCells: 400
+------------ End read forest data -------------
+Reading weather file
+
+Fires are still alive and no message has been generated during this period
+Current Fire period:  2
+New Fire period:  3
+
+
+----------------------------- Results -----------------------------
+
+--------------------------- Solution without Heuristic --------------------------
+Total Available Cells:     399 - % of the Forest:  99.75 %
+Total Burnt Cells:         1 - % of the Forest:  0.25 %
+Total Non-Burnable Cells:  0 - % of the Forest:  0.0 %
+
+Cells status
+Cell 210 status: Burnt, Year: 1, Week: 1.0, Fire starts (hour): 1
+
+Final Time: 11.632801
+Total simulation time:  0.08  [s]
+Forest Grid has been created
