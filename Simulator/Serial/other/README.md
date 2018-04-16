@@ -2,15 +2,7 @@
 ## Problem description
 
 ## Classes
-- Cells
-- Forest
-- Plot
-- ReadData
-- ReadDataPrometheus
-- Output
-- Heuristic
-- Parallel
-
+lots of stuff to do
 ## Main code: algorithm
 -
 -
