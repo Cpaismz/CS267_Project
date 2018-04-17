@@ -9,7 +9,7 @@ class Weather {
         void set_columns(TYPE df, TYPE Row);
         void set_columns(TYPE df, TYPE datetime); // TODO: hopefully datetime has a different type than Row :P
 
-        TYPE update_Weather_FBP(TYPE df, string weatherOpt);
+        TYPE update_Weather_FBP(TYPE df, string weatherOpt);        //CP: void type
         void print_info();
     private:
         int TODO;
@@ -17,3 +17,6 @@ class Weather {
 };
 
 #endif
+
+
+// This class requires a re-design.. Will check it
