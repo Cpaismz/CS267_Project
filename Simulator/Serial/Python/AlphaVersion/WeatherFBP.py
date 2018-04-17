@@ -1,28 +1,27 @@
 ######################################################################################################################################
 #
-#				FireSimulator serial and parallel version 2.0 - OCTOBER 2017 
-#				Author: Cristobal Pais; modifications by David L. Woodruff 2018
-#				example: mpiexec -n X python Path\Simulator1Beta.py  where X is the number of parallel processes
+#                FireSimulator FBP serial and parallel version 1.0 - April 2018
+#                Authors: Cristobal Pais, David L. Woodruff
+#                example: mpiexec -n X python Path\Simulator1Beta.py  where X is the number of parallel processes
 #
 ######################################################################################################################################
+
 """
 March 2018, DLW. We now reqire a weather file with a header and at least
 one row. The header (for now) is somewhat "FBP-friendly".
 """
 
-
 # Importations
 import inspect
 import sys
 import os
-from random import randint,uniform
-from math import exp,pow
 from itertools import repeat
 import itertools
 import numpy as np
 import pandas as pd
 
-# Weather class: Weather objects where all parameters like Wind speed, Wind direction, Dew Point, Temperature, etc., are computed and updated from an initial state
+# Weather class: Weather objects where all parameters like Wind speed, Wind direction, 
+# Dew Point, Temperature, etc., are computed and updated from an initial state
 """
 March 2018: A weather data frame is required. It might have only one row.
 The new class has a public interface that callers can send in a date-time
@@ -33,7 +32,7 @@ attributes with FBP input field names (extras are OK, "Scenario"). Here
 is what we are hoping for, but we can live without some...
 because they may come in from Data.dat...:
 datetime, AACP, TMP, RH, WS, WD, FFMC, DMC, DC, ISI, BUI, FWI
-TBD: if the weather data does not ahve FFMC, compute it.
+TBD: if the weather data does not have FFMC, compute it.
 """
 class Weather:
     
@@ -62,11 +61,13 @@ class Weather:
         else:
             raise RuntimeError("Datetime not supported yet")
                         
+    
+    ##### CP: TO BE MODIFIED!
     def update_Weather_FBP(self,df, WeatherOpt, weatherperiod=None, datetime=None):
         #Updates the current weather in df 
         # Has some code for random weather Weather
         if WeatherOpt == "constant":
-            print "weather constant, so why is",inspect.stack()[0][3],"called from",inspect.stack()[1][3]
+            print("weather constant, so why is",inspect.stack()[0][3],"called from",inspect.stack()[1][3])
             return df
 
         if WeatherOpt != "random":
@@ -75,11 +76,12 @@ class Weather:
             return df
 
         else:
-            print "WARNING: DLW: random weather needs maintenance"
+            print("WARNING: DLW: random weather needs maintenance")
+            print("         CP:  random sampling from file? distribution form hist. data?")
             row = 0            
             for i in df['ws']:
                 #print "Row",row," I",i
-                WS = round(uniform(-i, 30),2)
+                WS = np.round(np.random.uniform(-i, 30),2)
 
                 if (i + WS) <= 50:
                     df.set_value(row, 'ws', i+WS) 
@@ -91,7 +93,7 @@ class Weather:
             row = 0
             for i in df['waz']:
                 #print "Row",row," I",i
-                WAZ = round(uniform(-15, 15),2)
+                WAZ = np.round(np.random.uniform(-15, 15),2)
 
                 if (i + WAZ) <= 359 and (i + WAZ) >= 0:
                     df.set_value(row, 'waz', i+WAZ) 
@@ -146,7 +148,11 @@ class Weather:
                 else:
                     self.Rain = 0
         """
-    def print_info(self,period):
-        print " Weather Info for weather period ",str(period)
-        print "report TBD xxxxx (need to get the row from the dataframe"
+        
     
+    # Prints-out weather report for current period (TBD)
+    def print_info(self, period):
+        print("Weather Info for weather period ", str(period))
+        print("Report TBD xxxxx (need to get the row from the dataframe)")
+    
+

@@ -1,16 +1,13 @@
+
 ######################################################################################################################################
 #
-#                FireSimulator FBP serial and parallel version 1.0b - July 2017 
-#                Author: Cristobal Pais
+#                FireSimulator FBP serial and parallel version 1.0b - April 2018
+#                Authors: Cristobal Pais, David L. Woodruff
 #                example: mpiexec -n X python Path\Simulator1Beta.py  where X is the number of parallel processes
 #
 ######################################################################################################################################
 
-import pandas as pd
 import json
-import matplotlib.pyplot as plt
-#from argparse import ArgumentParser
-import math
 
 #=============
 # some stuff to make json work with python 2.7 taken from the web
@@ -44,6 +41,10 @@ def _byteify(data, ignore_dicts = False):
     return data
 #================
 
+'''
+Inputs:
+filename        str
+'''
 # Reads fbp_lookup_table.csv and creates dictionaries for the fuel types and cells' colors
 def Dictionary(filename):
     aux = 1
@@ -54,7 +55,7 @@ def Dictionary(filename):
     
     # Read file and save colors and ftypes dictionaries
     for line in file: 
-        if aux >1:
+        if aux > 1:
             aux +=1
             line = line.replace("-","")
             line = line.replace("\n","")
@@ -62,19 +63,26 @@ def Dictionary(filename):
             line = line.split(",")
             
             row[line[0]] = line[3][0:2]
-            colors[line[0]] = (float(line[4])/255.0,float(line[5])/255.0,float(line[6])/255.0,1.0)#,line[7],line[8],line[9]]
+            colors[line[0]] = (float(line[4])/ 255.0, 
+                                    float(line[5]) / 255.0,
+                                    float(line[6]) / 255.0,
+                                    1.0)
             all[line[0]] = line
     
         if aux == 1:
             aux +=1
-        
+            
+    return row, colors
     
-    
-    return row,colors
-    
+
+'''
+Inputs:
+filename        str
+Dictionary      Dictionary
+'''   
 # Reads the ASCII file with the forest grid structure and returns an array with all the cells and grid dimensions nxm
 # Modified Feb 2018 by DLW to read the forest params (e.g. cell size) as well
-def ForestGrid(filename,Dictionary):
+def ForestGrid(filename, Dictionary):
     AdjCells = []
     North = "N"
     South = "S"
@@ -94,7 +102,7 @@ def ForestGrid(filename,Dictionary):
     parts = line.split()
     if parts[0] != "cellsize":
         print ("line=",line)
-        raise RuntimeError("Expected cellsize on line 5 of "+filename)
+        raise RuntimeError("Expected cellsize on line 5 of "+ filename)
     cellsize = float(parts[1])
     
     cells = 0
@@ -109,7 +117,7 @@ def ForestGrid(filename,Dictionary):
     grid2 = []
     
     # Read the ASCII file with the grid structure
-    for row in range(6,len(filelines)):
+    for row in range(6, len(filelines)):
         line = filelines[row]
         line = line.replace("\n","")
         line = line.split(" ")
@@ -142,52 +150,82 @@ def ForestGrid(filename,Dictionary):
                 
                 if r == 0:
                     if c == 0:
-                        AdjCells.append({North:None,NorthEast:None,NorthWest:None, South:[n+tcols-1], SouthEast:[n+tcols], SouthWest:None, East:[n+1],West:None})
+                        AdjCells.append({North:None,NorthEast:None,NorthWest:None, 
+                                         South:[n+tcols-1], SouthEast:[n+tcols], 
+                                         SouthWest:None, East:[n+1],West:None})
                         n+=1
                     if c == tcols-2:
-                        AdjCells.append({North:None,NorthEast:None,NorthWest:None,South:[n+tcols-1],SouthEast:None,SouthWest:[n+tcols-2] , East:None, West:[n-1]})
+                        AdjCells.append({North:None,NorthEast:None,NorthWest:None,
+                                         South:[n+tcols-1],SouthEast:None,SouthWest:[n+tcols-2], 
+                                         East:None, West:[n-1]})
                         n+=1
                     if c>0 and c<tcols-2:    
-                        AdjCells.append({North:None,NorthEast:None,NorthWest:None,South:[n+tcols-1],SouthEast:[n+tcols] , SouthWest:[n+tcols-2], East:[n+1],West:[n-1]})
+                        AdjCells.append({North:None,NorthEast:None,NorthWest:None,
+                                         South:[n+tcols-1],SouthEast:[n+tcols], 
+                                         SouthWest:[n+tcols-2], East:[n+1],West:[n-1]})
                         n+=1
                 
-                if r >0 and r<len(grid)-1:
+                if r > 0 and r < len(grid)-1:
                     if c == 0:
-                        AdjCells.append({North:[n-tcols+1],NorthEast:[n-tcols+2],NorthWest:None,South:[n+tcols-1],SouthEast:[n+tcols],SouthWest:None,East:[n+1],West:None})
+                        AdjCells.append({North:[n-tcols+1], NorthEast:[n-tcols+2],NorthWest:None,
+                                         South:[n+tcols-1], SouthEast:[n+tcols], SouthWest:None,
+                                         East:[n+1], West:None})
                         n+=1
                     if c == tcols-2:
-                        AdjCells.append({North:[n-tcols+1],NorthEast:None,NorthWest:[n-tcols],South:[n+tcols-1],SouthEast:None,SouthWest:[n+tcols-2],East:None,West:[n-1]})
+                        AdjCells.append({North:[n-tcols+1], NorthEast:None, NorthWest:[n-tcols],
+                                         South:[n+tcols-1], SouthEast:None, SouthWest:[n+tcols-2],
+                                         East:None, West:[n-1]})
                         n+=1
                     if c>0 and c<tcols-2:    
-                        AdjCells.append({North:[n-tcols+1],NorthEast:[n-tcols+2],NorthWest:[n-tcols],South:[n+tcols-1],SouthEast:[n+tcols] , SouthWest:[n+tcols-2],East:[n+1],West:[n-1]})
+                        AdjCells.append({North:[n-tcols+1], NorthEast:[n-tcols+2], NorthWest:[n-tcols],
+                                         South:[n+tcols-1], SouthEast:[n+tcols], SouthWest:[n+tcols-2],
+                                         East:[n+1], West:[n-1]})
                         n+=1        
                 
                 if r == len(grid)-1:
                     if c == 0:
-                        AdjCells.append({North:[n-tcols+1],NorthEast:[n-tcols+2],NorthWest:None,South:None,SouthEast:None , SouthWest:None,East:[n+1],West:None})
+                        AdjCells.append({North:[n-tcols+1], NorthEast:[n-tcols+2], NorthWest:None,
+                                         South:None, SouthEast:None, SouthWest:None,
+                                         East:[n+1], West:None})
                         n+=1
+                        
                     if c == tcols-2:
-                        AdjCells.append({North:[n-tcols+1],NorthEast:None,NorthWest:[n-tcols],South:None,SouthEast:None , SouthWest:None,East:None,West:[n-1]})
+                        AdjCells.append({North:[n-tcols+1], NorthEast:None, NorthWest:[n-tcols],
+                                         South:None, SouthEast:None, SouthWest:None,
+                                         East:None, West:[n-1]})
                         n+=1
+                        
                     if c>0 and c<tcols-2:    
-                        AdjCells.append({North:[n-tcols+1],NorthEast:[n-tcols+2],NorthWest:[n-tcols],South:None,SouthEast:None , SouthWest:None,East:[n+1],West:[n-1]})
+                        AdjCells.append({North:[n-tcols+1], NorthEast:[n-tcols+2], NorthWest:[n-tcols],
+                                         South:None, SouthEast:None,SouthWest:None,
+                                         East:[n+1], West:[n-1]})
                         n+=1
             
             if len(grid)==1:
                 if c == 0:
-                    AdjCells.append({North:None,NorthEast:None,NorthWest:None,South:None,SouthEast:None , SouthWest:None,East:[n+1],West:None})
+                    AdjCells.append({North:None, NorthEast:None, NorthWest:None,
+                                     South:None, SouthEast:None, SouthWest:None,
+                                     East:[n+1], West:None})
                     n+=1
                 if c == tcols-2:
-                    AdjCells.append({North:None,NorthEast:None,NorthWest:None,South:None,SouthEast:None , SouthWest:None,East:None,West:[n-1]})
+                    AdjCells.append({North:None, NorthEast:None, NorthWest:None,
+                                     South:None, SouthEast:None, SouthWest:None,
+                                     East:None,West:[n-1]})
                     n+=1
                 if c>0 and c<tcols-2:    
-                    AdjCells.append({North:None,NorthEast:None,NorthWest:None,South:None,SouthEast:None , SouthWest:None,East:[n+1],West:[n-1]})
+                    AdjCells.append({North:None, NorthEast:None, NorthWest:None,
+                                     South:None, SouthEast:None, SouthWest:None,
+                                     East:[n+1], West:[n-1]})
                     n+=1
     
-    #print "Adjacents:",AdjCells
-    return gridcell3,gridcell4,len(grid),tcols-1,AdjCells,CoordCells, cellsize
+    
+    return gridcell3, gridcell4, len(grid), tcols-1, AdjCells, CoordCells, cellsize
 
-# Reads fbp_lookup_table.csv and creates dictionaries for the fuel types and cells' colors (Pandas' version - not ready)    
+'''
+Inputs:
+filename        str
+'''
+# Reads fbp_lookup_table.csv and creates dictionaries for the fuel types and cells' colors (Pandas' version - TBD)    
 def Dictionary_PD(filename):
     pd.set_option('display.mpl_style','default')
     plt.rcParams['figure.figsize'] = (15, 5)
@@ -195,6 +233,11 @@ def Dictionary_PD(filename):
     fbplookuptableDF["export_value"]
     fbplookuptableDF
     
+
+'''
+Inputs:
+filename        str
+'''    
 # Reads IgnitionPoints.csv file and creates an array with them 
 def IgnitionPoints(filename):
     #Ignitions is a dictionary with years = keys and ncell = values
@@ -210,8 +253,14 @@ def IgnitionPoints(filename):
             aux+=1    
     return ignitions        
     
+
+'''
+Inputs
+filename        str
+nooutput        boolean
+'''
+# Reads spotting parameters json file and returns dictionary
 def ReadSpotting(filename,nooutput):
-    #Reads spotting parameters json file and returns dictionary
     # As of Jan 2018 the dictionary should have "SPOT" and "SPTANGLE"
     with open(filename, 'r') as f:
         SpottingParams = json_load_byteified(f)
@@ -219,8 +268,10 @@ def ReadSpotting(filename,nooutput):
     ### Thresholds["SPTANGLE"] = 30
     
     if nooutput == False:
-        print "---- Spotting Parameters ----"
+        print("---- Spotting Parameters ----")
         for i in SpottingParams:
-            print i,":",SpottingParams[i]
-        print "......................"    
+            print(i,":",SpottingParams[i])
+        print("......................")    
     return SpottingParams
+
+
