@@ -12,10 +12,10 @@ class Forest {
         double vol;
         int age;
         std::string location;
-        std::vector<double> coord;
+        std::vector<double> coord;																									// CP: Vector of doubles [[d1,d2], [d3,d4],...,[dn,dk]], can be a matrix 
         double perimeter;
-        std::vector<TYPE> fTypes; // TODO i will decide the data structure later, just need the typing
-        std::vector<TYPE> cellsDistance;
+        std::vector<TYPE> fTypes; // TODO i will decide the data structure later, just need the typing       CP: dictionary {string: int}
+        std::vector<TYPE> cellsDistance; 																							// CP: Not used, we can get rid of it
         std::vector<int> availCells;
         std::vector<int> burntCells;
         std::vector<int> harvestCells;
