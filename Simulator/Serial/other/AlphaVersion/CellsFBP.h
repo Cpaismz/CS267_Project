@@ -17,7 +17,7 @@ class CellsFBP {
         int terrain;
         double perimeter;
         std::vector<std::vector<TYPE>> adjacents; // TODO: what type is a a cell? TODO: adjacents is a dictionary         CP: dictionary {string: [int array]}
-        std::vector<TYPE>> color; // TODO: what type is a color?                                                                                  CP: vector of strings
+        std::vector<TYPE>> color; // TODO: what type is a color?                                                                                  CP: vector of 4D double lists/arrays [(d1,d2,d3,d4), (d11,d22,d33,d44)]
 
         // mutable
         int status;
