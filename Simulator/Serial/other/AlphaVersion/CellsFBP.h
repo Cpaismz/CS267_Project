@@ -52,7 +52,7 @@ class CellsFBP {
 
 
         // constructor and methods here
-        CellsFBP(int _ID, double _area, std::vector<std::vector<double>> & _coord, double _age, std::string _fType, int _fType2, double _vol, double _perimeter, int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, TYPE _color, int _realId, bool outputGrid); // TODO: check type of age, fType, coord, color
+        CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _coord, double _age, std::string _fType, int _fType2, double _vol, double _perimeter, int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, TYPE _color, int _realId, bool outputGrid); // TODO: check type of age, fType, coord, color
         
         void initializeFireFields(TYPE & coordCells, std::unordered_set<int> availSet); // TODO: need TYPE
         
