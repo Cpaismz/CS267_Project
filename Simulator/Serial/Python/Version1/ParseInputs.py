@@ -17,6 +17,8 @@ import WeatherFBP
 import Forest
 
 
+# In[22]:
+
 
 '''
 Returns       args object (containing command line arguments)
@@ -193,6 +195,12 @@ def ParseInputs():
     return args
     
     
+    
+    
+    
+
+
+# In[44]:
 
 
 '''
@@ -226,7 +234,8 @@ def Init(Ignitions, WeatherOpt, plottrue, DF, args, verbose, nooutput):
         print("Reading weather file")
     weatherperiod = 0
     Weather_Obj = WeatherFBP.Weather(os.path.join(args.input_folder, "Weather.csv"))
-    DF = Weather_Obj.update_Weather_FBP(DF, WeatherOpt, weatherperiod)
+    if WeatherOpt != 'constant':
+        DF = Weather_Obj.update_Weather_FBP(DF, WeatherOpt, weatherperiod)
 
     # Weather: printing info, if verbose
     if verbose == True:
@@ -253,6 +262,8 @@ def Init(Ignitions, WeatherOpt, plottrue, DF, args, verbose, nooutput):
         
     return Ignitions, Weather_Obj, Plotter, DF
 
+
+# In[49]:
 
 
 '''
@@ -320,5 +331,4 @@ def InitForest(FID, FLocation, FCoord, FNCells, FArea, FVol, FAVGAge, FPerimeter
         Forest1.print_info()
             
     return Forest1
-
 

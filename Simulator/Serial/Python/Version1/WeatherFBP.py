@@ -1,6 +1,9 @@
 
 # coding: utf-8
 
+# In[14]:
+
+
 ######################################################################################################################################
 #
 #                FireSimulator FBP serial and parallel version 1.0 - April 2018
@@ -95,13 +98,13 @@ class Weather:
             print("weather constant, so why is",inspect.stack()[0][3],"called from",inspect.stack()[1][3])
             return df
 
-        if WeatherOpt == "row":
+        if WeatherOpt == "rows":
             # print "Weather is not random"
             self.set_columns(df, Row=weatherperiod)
             return df
 
         if WeatherOpt == "random":
-            # Random sampling from the weather file
+            # Random sampling from a weather file
             RandomRow = np.random.randint(1, self.rows)
             print("\n--------------------------------------------------------------")
             print("     DEBUG: Taking random row", RandomRow + 2, "from weather file")
@@ -122,5 +125,4 @@ class Weather:
     def print_info(self, period):
         print("Weather Info for weather period ", str(period))
         print(self._wdf.iloc[[period]])
-
 
