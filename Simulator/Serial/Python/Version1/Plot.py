@@ -282,17 +282,17 @@ class Plot:
         YCoord = None
         
         # Plot messages arrows
-        for cell in Cells_Obj.keys():
+        for cell in msg_list.keys():
             for adj in msg_list[cell]:
-                    XCoord = Cells_Obj[adj-1].Coord[0] - Cells_Obj[cell].Coord[0]
-                    YCoord = Cells_Obj[adj-1].Coord[1] - Cells_Obj[cell].Coord[1]
+                    XCoord = Cells_Obj[adj-1].Coord[0] - Cells_Obj[cell-1].Coord[0]
+                    YCoord = Cells_Obj[adj-1].Coord[1] - Cells_Obj[cell-1].Coord[1]
         
                     u = XCoord
                     v = YCoord
         
                     # Plot arrows
-                    plt.quiver(Cells_Obj[cell].Coord[0] + 0.5 + 0.4 * u,
-                               Cells_Obj[cell].Coord[1] + 0.5 + 0.4 * v,
+                    plt.quiver(Cells_Obj[cell-1].Coord[0] + 0.5 + 0.4 * u,
+                               Cells_Obj[cell-1].Coord[1] + 0.5 + 0.4 * v,
                                u, v, color='r', units='x', linewidths=(2,), 
                                edgecolors=('k'), headaxislength=5, zorder=3)
 
@@ -465,17 +465,17 @@ class Plot:
         YCoord = None
         
         # for active cells
-        for cell in Cells_Obj.keys():
+        for cell in msg_list.keys():
             for adj in msg_list[cell]:
-                    XCoord = Cells_Obj[adj-1].Coord[0] - Cells_Obj[cell].Coord[0]
-                    YCoord = Cells_Obj[adj-1].Coord[1] - Cells_Obj[cell].Coord[1]
+                    XCoord = Cells_Obj[adj-1].Coord[0] - Cells_Obj[cell-1].Coord[0]
+                    YCoord = Cells_Obj[adj-1].Coord[1] - Cells_Obj[cell-1].Coord[1]
         
                     u = XCoord
                     v = YCoord
     
                     # Plot arrows
-                    plt.quiver(Cells_Obj[cell].Coord[0] + 0.5 + 0.4 * u,
-                               Cells_Obj[cell].Coord[1] + 0.5 + 0.4 * v,
+                    plt.quiver(Cells_Obj[cell-1].Coord[0] + 0.5 + 0.4 * u,
+                               Cells_Obj[cell-1].Coord[1] + 0.5 + 0.4 * v,
                                u,v, color='r', units='x', linewidths=(2,), 
                                edgecolors=('k'), headaxislength=5, zorder=3)
         

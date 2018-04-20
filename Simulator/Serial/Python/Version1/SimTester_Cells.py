@@ -2,7 +2,6 @@
 # coding: utf-8
 
 
-
 ######################################################################################################################################
 #
 #                FireSimulator (Split) serial and parallel version 0.05 - April 2018 
@@ -336,15 +335,30 @@ class Main:
         #                               Ignition, Weather, Plot, Lightning Options/Data
         ##########################################################################################################    
         weatherperiod = 0
-        Ignitions, Weather_Obj, Plotter, DF = Init(Ignitions, WeatherOpt, plottrue, DF, 
+        Ignitions, Weather_Obj, Plotter, DF = Init(Ignitions, WeatherOpt, plottrue, OutFolder, DF, 
                                                    args, verbose, nooutput)
+        
+        # Plots
+        if plottrue == True:
+            emptylist = dict.fromkeys([i for i in range(1,NCells+1)], [])#[[] for i in range(0,NCells)]#emptylist = dict.fromkeys([i for i in range(NCells)], [])
+            print("Emptylist:", emptylist)
+            PlotPath = os.path.join(OutFolder, "Plots")
+            if os.path.isfile(os.path.join(OutFolder, "ForestInitial.png")) == True:
+                if nooutput == False:
+                    print("Forest already exists")
+            else:    
+                Plotter.PlotForestOnly(Colors,CoordCells,plotnumber,0,Year,False,Rows,Cols,OutFolder)
         
         # Maximum fire periods validity
         if WeatherOpt == "rows":
-            Max_Fire_Periods = np.round(MinutesPerWP / FirePeriodLen, 0) * Weather_Obj.rows
-            if verbose == True:
-                print("Maximum fire periods are set to:", Max_Fire_Periods,
-                      "based on the weather file, Fire Period Length, and Minutes per WP")
+            MaxFP = np.round(MinutesPerWP / FirePeriodLen, 0) * Weather_Obj.rows
+            if Max_Fire_Periods > MaxFP:
+                Max_Fire_Periods = MaxFP
+                if verbose == True:
+                    print("Maximum fire periods are set to:", Max_Fire_Periods,
+                          "based on the weather file, Fire Period Length, and Minutes per WP")
+            else:
+                print("Maximum fire periods:", Max_Fire_Periods)
         
         #Initializing Lambda Instance (random lightning)
         Lambda_Strike = Lightning.Lightning()
@@ -382,7 +396,8 @@ class Main:
         #                                   Years' loop (Periods = 4 by default) 
         ##########################################################################################################    
         while Year <= TotalYears:
-            
+            if verbose == True:
+                print("\nSimulating Year", Year,"\n")
             
             
             
@@ -789,7 +804,7 @@ class Main:
                                 print("\nCell", cell, "does not have any neighbor available for receiving messages")
                             Aux_List = []
 
-                        # Print for Debug
+                        # Print for Debugf
                         if verbose == True:
                             print("\nAux list:", Aux_List)
 
@@ -861,9 +876,10 @@ class Main:
                         if verbose == True:
                             print("\nNo messages during the fire period, end of year", Year)
 
-                        # Next year, reset weeks and update burnt cells from burning cells
+                        # Next year, reset weeks, weather period, and update burnt cells from burning cells
                         Year+=1
                         week_number=1
+                        weatherperiod=0
 
                         # Burning cells are labeled as Burnt cells (no more messages), then
                         # if save memory flag is True, we delete the cells objects saving memory...
@@ -1190,7 +1206,7 @@ class Main:
                 print("\nStatistics cannot be output in Save Memory mode")
 
         # TBD, DLW? what do you do about weather in a new year?
-        # CP Apr 2018: Can we take the same weather file form the beginning with a std value?
+        # CP Apr 2018: Can we take the same weather file from the beginning with a std value?
 
         # Forest Grid
         if OutputGrid == True:
