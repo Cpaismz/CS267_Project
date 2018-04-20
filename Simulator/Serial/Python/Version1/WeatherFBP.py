@@ -1,7 +1,6 @@
 
 # coding: utf-8
 
-
 ######################################################################################################################################
 #
 #                FireSimulator FBP serial and parallel version 1.0 - April 2018
@@ -89,93 +88,29 @@ class Weather:
     weatherperiod    int
     datetime         datetime object
     '''
-    def update_Weather_FBP(self,df, WeatherOpt, weatherperiod=None, datetime=None):
-        #Updates the current weather in df 
+    def update_Weather_FBP(self, df, WeatherOpt, weatherperiod=None, datetime=None):
+        # Updates the current weather in df 
         # Has some code for random weather Weather
         if WeatherOpt == "constant":
             print("weather constant, so why is",inspect.stack()[0][3],"called from",inspect.stack()[1][3])
             return df
 
-        if WeatherOpt != "random":
-            #print "Weather is not random\n"
+        if WeatherOpt == "row":
+            # print "Weather is not random"
             self.set_columns(df, Row=weatherperiod)
             return df
 
-        else:
-            print("WARNING: DLW: random weather needs maintenance")
-            print("         CP:  random sampling from file? distribution form hist. data?")
-            row = 0            
-            for i in df['ws']:
-                #print "Row",row," I",i
-                WS = np.round(np.random.uniform(-i, 30),2)
-
-                if (i + WS) <= 50:
-                    df.set_value(row, 'ws', i+WS) 
-                else:
-                    df.set_value(row, 'ws', 50.0)         
-                row+=1
-            #print "WS:",df.loc[:,"ws"]
-
-            row = 0
-            for i in df['waz']:
-                #print "Row",row," I",i
-                WAZ = np.round(np.random.uniform(-15, 15),2)
-
-                if (i + WAZ) <= 359 and (i + WAZ) >= 0:
-                    df.set_value(row, 'waz', i+WAZ) 
-                elif (i + WAZ) >= 360:
-                    df.set_value(row, 'waz', i+WAZ-360)
-                elif (i + WAZ) < 0:
-                    df.set_value(row, 'waz', i+WAZ+360)
-                row+=1
-            #print "WAZ:",df.loc[:,"waz"]
-            # dlw says: do not change the slope
-        
-            return df
-        """
-        def update_Weather(self,period,optweather):
-        #Updates the weather in the DF
-        # Weather's random coefficients
-        # DLW feb 2018: note that file based updates seem to take place in main and/or a different routine here
-            
-        if optweather == "random":
-            WS = round(uniform(-0.15, 0.15),2)
-            WD = round(uniform(-0.30, 0.30),2)
-            TP = round(uniform(-0.10, 0.10),2)
-            DP = round(uniform(-0.05, 0.05),2)
-            RA = round(uniform(-0.03, 0.03),2)
-            RD = round(uniform(-0.01, 0.01),2)
-            
-            #Rain probability: pr normal, qr if rain before
-            pr = 0.10   
-            qr = 0.05
-            RAmount = 20
-            
-            #Update values
-            self.WindSpeed = round(self.WindSpeed*(1+WS),2)
-            if self.WindDirection*(1+WD) > 360:
-                self.WindDirection = round(self.WindDirection*(1+WD)-360,2)
-            else: 
-                self.WindDirection = round(self.WindDirection*(1+WD),2)
-            
-            self.Temperature = round(self.Temperature*(1+TP),2)
-            self.DPoint = round(self.DPoint*(1+DP),2)
-            self.Radiation = round(self.Radiation*(1+RD),2)
-            
-            prain = round(uniform(0, 1),2)
-            if self.Rain == 0:
-                if prain < pr:
-                    self.Rain = RAmount
-                else:
-                    self.Rain = 0
-            else:
-                if prain < qr:
-                    self.Rain = round(self.Rain*(1+RA),2)
-                else:
-                    self.Rain = 0
-        """
-        
-    
+        if WeatherOpt == "random":
+            # Random sampling from the weather file
+            RandomRow = np.random.randint(1, self.rows)
+            print("\n--------------------------------------------------------------")
+            print("     DEBUG: Taking random row", RandomRow + 2, "from weather file")
+            print("--------------------------------------------------------------\n")
+            b, c = self._wdf.iloc[weatherperiod].copy(), self._wdf.iloc[RandomRow].copy()
+            self._wdf.iloc[weatherperiod], self._wdf.iloc[RandomRow] = c, b
+            self.set_columns(df, Row=weatherperiod)
+            return df        
+  
     
     '''
     Returns          void
@@ -187,4 +122,5 @@ class Weather:
     def print_info(self, period):
         print("Weather Info for weather period ", str(period))
         print(self._wdf.iloc[[period]])
+
 
