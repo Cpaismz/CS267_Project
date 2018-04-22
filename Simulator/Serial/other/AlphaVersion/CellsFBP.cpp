@@ -5,7 +5,7 @@
 
 
 
-CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _coord, double _age, std::string _fType, int _fType2, double _vol, double _perimeter, int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, TYPE _color, int _realId, bool outputGrid); // TODO: check type of age, fType, coord, color {
+CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _coord, double _age, std::string _fType, int _fType2, double _vol, double _perimeter, int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, std::vector<double> _color, int _realId, bool outputGrid); // TODO: check type of age, fType, coord, color {
     this.id = _id;
     this.area = _area;
     this.coord = _coord;
@@ -24,10 +24,10 @@ CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _co
         std::cerr << "Cell ID=" << self.ID << "Area=" <<  self.Area <<  "Perimeter=" <<  self.Perimeter << std::endl;
         // maybe raise runtime error
     }
-    this.gMsgList = ; // TODO NEED TYPE
+    this.gMsgList = std::unordered_map<int, std::vector<int>>();
     this.FSCell = std::unordered_map<int, std::vector<double>>();
     this.FICell = std::unordered_map<int, int>();
-    this.hPeriod = ; // TODO NEED TYPE... and default value
+    this.hPeriod = 0;
 
     this.fireStarts = 0;
     this.harvestStarts = 0;
@@ -43,7 +43,7 @@ CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _co
     this.triedToSpot = false;
 }
         
-void CellsFBP::initializeFireFields(TYPE & coordCells, std::unordered_set<int> availSet) { // TODO: need TYPE 
+void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, std::unordered_set<int> availSet) { // TODO: should probably make a coordinate type
 
 }
         
@@ -51,11 +51,11 @@ void CellsFBP::ros_distr(double thetafire, double forward, double flank, double 
 
 }
         
-std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailSet, bool verbose, TYPE df, TYPE coef, TYPE spotting, TYPE spottingParams, TYPE & coordCells, TYPE Cells_Obj, TYPE args) {
+std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailSet, bool verbose, TYPE df, struct fuel_coeffs * coef, bool spotting, std::unordered_map<std::string, double> spottingParams, std::vector<int> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, std::vector<std::string> args) {
 
 }
     
-bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, TYPE df, TYPE coef, double ROSThresh) {
+bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, TYPE df, struct fuel_coeffs * coef, double ROSThresh) {
 
 }
 
@@ -69,7 +69,7 @@ std::string CellsFBP::getStatus() {
 
 }
 
-bool CellsFBP::ignition(int period, int season, std::vector<int> ignitionPoints, TYPE df, TYPE coef, double ROSThresh, double HFIThresh) {
+bool CellsFBP::ignition(int period, int season, std::vector<int> ignitionPoints, TYPE df, struct fuel_coeffs * coef, double ROSThresh, double HFIThresh) {
 
 }
 void CellsFBP::harvested(int id, int period) {

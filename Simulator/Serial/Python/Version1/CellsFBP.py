@@ -255,7 +255,7 @@ class Cells:
                 
             #xxx get the wind speed and direction from the df xxxx
             spot_list = SpottingFBP.SpottingFBP(Cells_Obj, CoordCells, AvailSet,
-                                                df.iloc["WD"][0],
+                                                df.iloc["WD"][0], # column header, row number
                                                 df.iloc["WS"][0],
                                                 SpottingParams, verbose)
             print ("debug: spot_list=", spot_list)

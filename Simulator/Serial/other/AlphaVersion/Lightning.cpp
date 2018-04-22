@@ -4,6 +4,7 @@
 #include <cstdlib>
 
 int Lightning::Lambda_Simple_Test(int period) {
+    // TODO: fix because RNG is bad
     int selected_week = std::rand() % 12 + 1;
     return selected_week;
 }

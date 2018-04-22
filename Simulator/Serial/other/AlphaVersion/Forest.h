@@ -11,20 +11,20 @@ class Forest {
         int nCells;
         double area;
         double vol;
-        int age;
+        double age;
         std::string location;
-        std::vector<double> coord;	//TODO																								// CP: Vector of doubles [[d1,d2], [d3,d4],...,[dn,dk]], can be a matrix 
+        std::vector<int> coord;	
         double perimeter;
-        std::unordered_map<std::string, int> fTypes; // TODO i will decide the data structure later, just need the typing  
-        TYPE cellsDistance;
-        std::vector<int> availCells;
-        std::vector<int> burntCells;
+        std::unordered_map<std::string, int> fTypes;
+        // cellsDistance;
+        //std::vector<int> availCells;
+        //std::vector<int> burntCells;
         //std::vector<int> harvestCells;
         
-        Forest(int _id, std::string _location, std::vector<double> _coord, int _nCells, double _area, double _col, int _age, double _perimeter, std::unordered_map<std::string, int> & _fTypes); // TODO: change types
+        Forest(int _id, std::string _location, std::vector<int> _coord, int _nCells, double _area, double _vol, double _age, double _perimeter, std::unordered_map<std::string, int> & _fTypes);
 
-        std::vector<int> set_AvailCells(int period, TYPE AvailCells_set);
-        std::vector<int> set_BurntCells(int period, TYPE BurntCells_set);
+        //std::vector<int> set_AvailCells(int period, TYPE AvailCells_set);
+        //std::vector<int> set_BurntCells(int period, TYPE BurntCells_set);
         void print_info();
 
     private:

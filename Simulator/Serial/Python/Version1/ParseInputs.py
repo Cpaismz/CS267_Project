@@ -267,15 +267,7 @@ def Init(Ignitions, WeatherOpt, plottrue, DF, args, verbose, nooutput):
 
 
 '''
-Returns          int array, int array, int array, array of 4D doubles tuples [(d1,d2,d3,d4),...,(d1n,d2n,d3n,d4n)]  
-
-Inputs:
-Ignitions        string
-WeatherOpt       list of strings
-DF               DataFrame
-args             args object
-verbose          boolean
-nooutput         boolean
+TODO
 '''
 def InitCells(NCells, FTypes2, ColorsDict, CellsGrid4, CellsGrid3):   
     FTypeCells = np.zeros(NCells).astype(int)   #[]
