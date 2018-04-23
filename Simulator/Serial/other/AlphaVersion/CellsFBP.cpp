@@ -6,49 +6,49 @@
 
 
 CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _coord, double _age, std::string _fType, int _fType2, double _vol, double _perimeter, int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, std::vector<double> _color, int _realId, bool outputGrid); // TODO: check type of age, fType, coord, color {
-    this.id = _id;
-    this.area = _area;
-    this.coord = _coord;
-    this.age = _age;
-    this.fType = _fType;
-    this.fType2 = _fType2;
-    this.vol = _vol;
-    this.perimeter = _perimeter;
-    this.status = _status;
-    this.adjacents = _adjacents;
-    this.color = _color;
-    this.realId = _realId;
-    this._ctr2ctrdist = cmath::sqrt(this.area);
+    this->id = _id;
+    this->area = _area;
+    this->coord = _coord;
+    this->age = _age;
+    this->fType = _fType;
+    this->fType2 = _fType2;
+    this->vol = _vol;
+    this->perimeter = _perimeter;
+    this->status = _status;
+    this->adjacents = _adjacents;
+    this->color = _color;
+    this->realId = _realId;
+    this->_ctr2ctrdist = cmath::sqrt(this->area);
 
     if (cmath::abs(4 * self._ctr2ctrdist - self.perimeter) > 0.01 * self.perimeter) {
         std::cerr << "Cell ID=" << self.ID << "Area=" <<  self.Area <<  "Perimeter=" <<  self.Perimeter << std::endl;
         // maybe raise runtime error
     }
-    this.gMsgList = std::unordered_map<int, std::vector<int>>();
-    this.FSCell = std::unordered_map<int, std::vector<double>>();
-    this.FICell = std::unordered_map<int, int>();
-    this.hPeriod = 0;
+    this->gMsgList = std::unordered_map<int, std::vector<int>>();
+    this->FSCell = std::unordered_map<int, std::vector<double>>();
+    this->FICell = std::unordered_map<int, int>();
+    this->hPeriod = 0;
 
-    this.fireStarts = 0;
-    this.harvestStarts = 0;
-    this.fireStartsSeason = 0;
-    this.tYears = 4;
-    this.gMsgListSeason = std::vector<std::vector<int>>();
+    this->fireStarts = 0;
+    this->harvestStarts = 0;
+    this->fireStartsSeason = 0;
+    this->tYears = 4;
+    this->gMsgListSeason = std::vector<std::vector<int>>();
     
-    this.fireProgress = std::unordered_map<int, double>();
-    this.angleDict = std::unordered_map<int, double>();
-    this.ROSAngleDir = std::unordered_map<int, double>();
-    this.distToCenter = std::unordered_map<int, double>();
-    this.angleToNb = std::unordered_map<int, double>();
-    this.triedToSpot = false;
+    this->fireProgress = std::unordered_map<int, double>();
+    this->angleDict = std::unordered_map<int, double>();
+    this->ROSAngleDir = std::unordered_map<int, double>();
+    this->distToCenter = std::unordered_map<int, double>();
+    this->angleToNb = std::unordered_map<int, double>();
+    this->triedToSpot = false;
 }
         
 void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, std::unordered_set<int> & availSet) { // TODO: should probably make a coordinate type
-    for (auto & nb : this.adjacents) {
+    for (auto & nb : this->adjacents) {
         // TODO: default adjacent value CANNOT be None:
         if (nb.second != None) {
-            int a = -1 * coordCells[nb.second[0] - 1][0] + coordCells[this.id - 1][0];
-            int b = -1 * coordCells[nb.second[0] - 1][1] + coordCells[this.id - 1][1];
+            int a = -1 * coordCells[nb.second[0] - 1][0] + coordCells[this->id - 1][0];
+            int b = -1 * coordCells[nb.second[0] - 1][1] + coordCells[this->id - 1][1];
             
             int angle = -1;
             if (a == 0) {
@@ -75,20 +75,20 @@ void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, 
                 angle = temp;
             }
 
-            this.angleDict[nb.second[0]] = angle;
+            this->angleDict[nb.second[0]] = angle;
             if (availSet.find(nb.second[0] != availSet.end()) {
                 // TODO: cannot be None
-                this.ROSAngleDir[angle] = None;
+                this->ROSAngleDir[angle] = None;
             }
-            this.angleToNb[angle] = nb.second[0];
-            this.fireProgress[nb.second[0]] = 0.0;
-            this.distToCenter[nb.second[0]] = cmath::sqrt(a * a + b * b) * this._ctr2ctrdist;
+            this->angleToNb[angle] = nb.second[0];
+            this->fireProgress[nb.second[0]] = 0.0;
+            this->distToCenter[nb.second[0]] = cmath::sqrt(a * a + b * b) * this->_ctr2ctrdist;
         }
     }
 }
         
 void CellsFBP::ros_distr(double thetafire, double forward, double flank, double back) {
-    for (auto & angle : this.ROSAngleDir) {
+    for (auto & angle : this->ROSAngleDir) {
         double offset = cmath::abs(angle.first - thetafire);
         
         double first;
@@ -107,7 +107,7 @@ void CellsFBP::ros_distr(double thetafire, double forward, double flank, double 
             first = flank;
             second = forward;
         }
-        this.ROSAngleDir[angle.first] = this.allocate(offset, base, first, second);
+        this->ROSAngleDir[angle.first] = this->allocate(offset, base, first, second);
     }
 }
         
@@ -117,8 +117,8 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
     TYPE msg_list_aux = new TYPE();
     TYPE msg_list = new TYPE();
 
-    if (spotting && !this.triedToSpot) {
-        this.triedToSpot = true;
+    if (spotting && !this->triedToSpot) {
+        this->triedToSpot = true;
 
         if (verbose) {
             std::cout << "SPOTANGLE:" << SpottingParams["SPOTANGLE"] << std::endl;
