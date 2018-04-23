@@ -60,7 +60,7 @@ class CellsFBP {
         
         void ros_distr(double thetafire, double forward, double flank, double back);
         
-        std::vector<int> manageFire(int period, std::unordered_set<int> AvailSet, bool verbose, TYPE df, struct fuel_coeffs * coef, bool spotting, std::unordered_map<std::string, double> spottingParams, std::vector<int> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, std::vector<std::string> args); // TODO: we can't have a generic "args" in c                                 CP: Returns a vector of integers
+        std::vector<int> manageFire(int period, std::unordered_set<int> AvailSet, bool verbose, TYPE df, struct fuel_coeffs * coef, bool spotting, std::unordered_map<std::string, double> spottingParams, std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, std::vector<std::string> args); // TODO: we can't have a generic "args" in c                                 CP: Returns a vector of integers
         
         bool get_burned(int period, int NMsg, int season, bool verbose, TYPE df, struct fuel_coeffs * coef, double ROSThresh);
 
