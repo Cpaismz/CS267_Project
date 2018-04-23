@@ -34,28 +34,28 @@ DFGrid::DFGrid(string _fueltype, double _mon, double _jd, double _m, double _jd_
 // Prints-out info from the object (all fields)
 void DFGrid::printInfo()
 {
-cout << "fueltype: " << this->fueltype << "\n";
-cout << "mon: " << this->mon << "\n";
-cout << "jd: " << this->jd << "\n";
-cout << "m: " << this->m << "\n";
-cout << "jd_min: " << this->jd_min << "\n";
-cout << "lat: " << this->lat << "\n";
-cout << "lon: " << this->lon << "\n";
-cout << "elev: " << this->elev << "\n";
-cout << "ffmc: " << this->ffmc << "\n";
-cout << "ws: " << this->ws << "\n";
-cout << "waz: " << this->waz << "\n";
-cout << "bui: " << this->bui << "\n";
-cout << "ps: " << this->ps << "\n";
-cout << "saz: " << this->saz << "\n";
-cout << "pc: " << this->pc << "\n";
-cout << "pdf: " << this->pdf << "\n";
-cout << "gfl: " << this->gfl << "\n";
-cout << "cur: " << this->cur << "\n";
-cout << "time: " << this->time << "\n";
+printf("\nfueltype: %s ", this->fueltype.c_str());
+printf("\nmon: %f",this->mon);
+printf("\njd: %f", this->jd);
+printf("\nm: %f", this->m);
+printf("\njd_min: %f", this->jd_min);
+printf("\nlat: %f", this->lat);
+printf("\nlon: %f", this->lon);
+printf("\nelev: %f", this->elev);
+printf("\nffmc: %f", this->ffmc);
+printf("\nws: %f", this->ws);
+printf("\nwaz: %f", this->waz);
+printf("\nbui: %f", this->bui);
+printf("\nps: %f", this->ps);
+printf("\nsaz: %f", this->saz);
+printf("\npc: %f", this->pc);
+printf("\npdf: %f", this->pdf);
+printf("\ngfl: %f", this->gfl);
+printf("\ncur: %f", this->cur);
+printf("\ntime: %f", this->time);
 }
 
-
+/*
 int main()
 {
     // Initialize one row
@@ -67,4 +67,4 @@ int main()
 
 
 
-}
+}*/

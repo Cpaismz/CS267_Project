@@ -1,10 +1,11 @@
 #include "DFWeather.h"
+#include <math.h>
 #include <stdio.h>
 #include <string>
 #include <vector>
 
 DFWeather::DFWeather(string _scenario, string _datetime, double _apcp, double _tmp, double _rh, double _ws, double _wd,
-                     double _ffmc, double _dmc, double _dc, double _isi, double _bui, double _fwi)
+								  double _ffmc, double _dmc, double _dc, double _isi, double _bui, double _fwi)
 {
    // Populate fields
    this->scenario = _scenario;
@@ -25,22 +26,22 @@ DFWeather::DFWeather(string _scenario, string _datetime, double _apcp, double _t
 // Prints-out info from the object (all fields)
 void DFWeather::printWeather()
 {
-    cout << "scenario: " << this->scenario << "\n";
-    cout << "datetime: " << this->datetime<< "\n";
-    cout << "apcp: " << this->apcp << "\n";
-    cout << "tmp: " << this->tmp << "\n";
-    cout << "rh: " << this->rh<< "\n";
-    cout << "ws: " << this->ws<< "\n";
-    cout << "wd: " << this->wd<< "\n";
-    cout << "ffmc: " << this->ffmc<< "\n";
-    cout << "dmc: " << this->dmc << "\n";
-    cout << "dc: " << this->dc << "\n";
-    cout << "isi: " << this->isi << "\n";
-    cout << "bui: " << this->bui << "\n";
-    cout << "fwi: " << this->fwi << "\n";
+    printf("\nscenario: %s" , this->scenario.c_str());
+    printf("\ndatetime: %s " , this->datetime.c_str());
+    printf("\napcp: %f" , this->apcp);
+    printf("\ntmp: %f" , this->tmp);
+    printf("\nrh: %f" , this->rh);
+    printf("\nws: %f" , this->ws);
+    printf("\nwd: %f" , this->wd);
+    printf("\nffmc: %f" , this->ffmc);
+    printf("\ndmc: %f" , this->dmc);
+    printf("\ndc: %f" , this->dc);
+    printf("\nisi: %f" , this->isi);
+    printf("\nbui: %f" , this->bui);
+    printf("\nfwi: %f" , this->fwi);
 }
 
-
+/*
 int main()
 {
     // Initialize one row
@@ -53,4 +54,4 @@ int main()
 
 
 }
-
+*/
