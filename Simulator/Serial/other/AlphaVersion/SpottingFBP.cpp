@@ -15,7 +15,7 @@
 
 using namespace std;
 
-std::vector<int> SpottingFBP(std::unordered_map<int, CellsFBP> Cells_Obj, std::vector<std::vector<int>> coordCells, 
+std::vector<int> SpottingFBP(std::unordered_map<int, CellsFBP> &  Cells_Obj, std::vector<std::vector<int>> coordCells, 
 											std::unordered_set<int> AvailSet, double WSD, double WSC, 
 											std::unordered_map<std::string, double> spottingParams, bool verbose) {
     
@@ -58,7 +58,7 @@ std::vector<int> SpottingFBP(std::unordered_map<int, CellsFBP> Cells_Obj, std::v
 	*/
 
     for (auto & _c1 : Cells_Obj) {
-        int c1 = _c1.first;
+        int c1 = 0;
         Angles[c1] = std::unordered_map<int, int>();
         Distances[c1] = std::unordered_map<int, int>();
         for (auto & c2 : AvailSet){
@@ -109,8 +109,8 @@ std::vector<int> SpottingFBP(std::unordered_map<int, CellsFBP> Cells_Obj, std::v
         std::cout<< "Distances size: " << Distances.size() << std::endl;
     }
 
-    int anyCell = Cells_Obj.begin()->first;
-    double cellsize = Cells_Obj[anyCell].perimeter / 4.0;
+    // TODO: fix these later
+    int cellsize = Cells_Obj.begin()->second.perimeter / 4.0;
     double beta = spottingParams["SPOT0PROB"];
     double tilde_d = spottingParams["SPOT10TIME"] * WSC / cellsize;
     double alpha = std::log(.1) / tilde_d + std::log(beta) / tilde_d;
@@ -177,12 +177,6 @@ CellsFBP.h:57:9: note: candidate: CellsFBP::CellsFBP(int, double, std::vector<in
             }
         }
     }
+
     return msg_list;
-    
-    
-     
-
-
 }
-
-

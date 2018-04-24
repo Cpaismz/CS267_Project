@@ -12,7 +12,10 @@ all:	$(TARGETS)
 CellsFBP: CellsFBP.o FBPfunc5_NoDebug.o 
 	$(CC) -o $@ $(LIBS) CellsFBP.o FBPfunc5_NoDebug.o 
 
-CellsFBP.o: CellsFBP.cpp CellsFBP.h FBP5.0.h 
+CellsFBP.o: CellsFBP.cpp CellsFBP.h FBPfunc5_NoDebug.o
 	$(CC) -c $(CFLAGS) CellsFBP.cpp
-	
+
+FBPfunc5_NoDebug.o: FBPfunc5_NoDebug.c FBP5.0.h
+	$(CC) -c $(CFLAGS) FBPfunc5_NoDebug.c
+
 clean:
