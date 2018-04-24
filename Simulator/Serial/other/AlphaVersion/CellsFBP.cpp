@@ -13,8 +13,8 @@
 /*
 	Constructor
 */
-CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _coord, 
-                            double _age, std::string _fType, int _fType2, double _vol, double _perimeter, 
+CellsFBP::CellsFBP(int _id, double _area, std::vector<int> coord, double _age, 
+							int _fType, std::string _fType2, double _vol, double _perimeter, 
 							int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, 
 							std::vector<double> _color, int _realId, bool outputGrid)
 {
@@ -63,13 +63,13 @@ CellsFBP::CellsFBP(int _id, double _area, std::vector<std::vector<double>> & _co
     this->harvestStarts = 0;
     this->fireStartsSeason = 0;
     this->tYears = 4;
-    this->gMsgListSeason = std::vector<std::vector<int>>();
-    
+	
+    this->gMsgListSeason = std::unordered_map<int, std::vector<int>>();
     this->fireProgress = std::unordered_map<int, double>();
     this->angleDict = std::unordered_map<int, double>();
     this->ROSAngleDir = std::unordered_map<int, double>();
     this->distToCenter = std::unordered_map<int, double>();
-    this->angleToNb = std::unordered_map<int, double>();
+    this->angleToNb = std::unordered_map<int, int>();
     this->triedToSpot = false;
 }
         
