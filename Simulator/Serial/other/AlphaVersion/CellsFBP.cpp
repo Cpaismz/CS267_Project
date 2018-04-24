@@ -1,37 +1,42 @@
 // Include classes
 #include "CellsFBP.h"
-#include "Spotting.h"
+//#include "SpottingFBP.h"
+#include "FBP5.0.h"
 
 // Include libraries
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <math.h>
 #include <cmath>
 #include <iostream>
+#include <unordered_map>
+#include <unordered_set>
+#include <string>
+
+using namespace std;
 
 
 /*
 	Constructor
 */
-CellsFBP::CellsFBP(int _id, double _area, std::vector<int> coord, double _age, 
+CellsFBP::CellsFBP(int _id, double _area, std::vector<int> _coord, double _age, 
 							int _fType, std::string _fType2, double _vol, double _perimeter, 
-							int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, 
+							int _status, std::unordered_map<std::string, std::vector<int>> & _adjacents, 
 							std::vector<double> _color, int _realId, bool outputGrid)
 {
 	// Global "dictionaries" (vectors) for status and types
 	// Status: 0: "Available", 1: "Burning", 2: "Burnt", 3: "Harvested", 4:"Non Fuel"
-	std::vector<string> StatusD;
-	StatudD.push_back("Available");    
-	StatudD.push_back("Burning");
-	StatudD.push_back("Burnt");
-	StatudD.push_back("Harvested");
-	StatudD.push_back("Non Fuel");
+	this->StatusD[0] = "Available";
+	this->StatusD[1] = "Burning";
+	this->StatusD[2] = "Burnt";
+	this->StatusD[3] = "Harvested";
+	this->StatusD[4] = "Non Fuel";
 	
 	// FTypeD: 0: "NonBurnable", 1: "Normal", 2: "Burnable
-	std::vector<string> FTypeD;
-	FtypeD.push_back("NonBurnable");    
-	FtypeD.push_back("Normal");
-	FtypeD.push_back("Burnable");
+	this->FTypeD[0] = "NonBurnable";
+	this->FTypeD[1] = "Normal";
+	this->FTypeD[2] = "Burnable";
 	
 	// Initialize fields of the Cell object 
     this->id = _id;
@@ -46,17 +51,15 @@ CellsFBP::CellsFBP(int _id, double _area, std::vector<int> coord, double _age,
     this->adjacents = _adjacents;
     this->color = _color;
     this->realId = _realId;
-    this->_ctr2ctrdist = cmath::sqrt(this->area);
+    this->_ctr2ctrdist = std::sqrt(this->area);
 
-    if (cmath::abs(4 * self._ctr2ctrdist - self.perimeter) > 0.01 * self.perimeter) {
-        std::cerr << "Cell ID=" << self.ID << "Area=" <<  self.Area <<  "Perimeter=" <<  self.Perimeter << std::endl;
+    if (std::abs(4 * this->_ctr2ctrdist - this->perimeter) > 0.01 * this->perimeter) {
+        std::cerr << "Cell ID=" << this->id << "Area=" <<  this->area <<  "Perimeter=" <<  this->perimeter << std::endl;
         // maybe raise runtime error
     }
 	
 	// Inner fields
     this->gMsgList = std::unordered_map<int, std::vector<int>>();
-    this->FSCell = std::unordered_map<int, std::vector<double>>();
-    this->FICell = std::unordered_map<int, int>();
     this->hPeriod = 0;
 
     this->fireStarts = 0;
@@ -72,8 +75,8 @@ CellsFBP::CellsFBP(int _id, double _area, std::vector<int> coord, double _age,
     this->angleToNb = std::unordered_map<int, int>();
     this->triedToSpot = false;
 }
-        
-		
+
+
 /*
     Populates angles, distances, and initialize ROS per axis
     Modified by dlw to use cell area to compute distances in meters.
@@ -90,7 +93,7 @@ void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, 
 {  
     for (auto & nb : this->adjacents) {
         // CP Default value is replaced: None = -1
-        if (nb.second != -1) {
+        if (nb.second[0] != -1) {
             int a = -1 * coordCells[nb.second[0] - 1][0] + coordCells[this->id - 1][0];
             int b = -1 * coordCells[nb.second[0] - 1][1] + coordCells[this->id - 1][1];
             
@@ -109,9 +112,9 @@ void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, 
             }
             else {
                 // TODO: check this logi
-                double radToDeg = 180 / cmath::M_PI;
+                double radToDeg = 180 / M_PI;
                 // TODO: i think all the negatives and abs cancel out
-                double temp = cmath::atan(b * 1.0 / a) * radToDeg;
+                double temp = std::atan(b * 1.0 / a) * radToDeg;
                 if (a > 0)
                     temp += 180;
                 if (a < 0 && b > 0) 
@@ -120,20 +123,20 @@ void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, 
             }
 
             this->angleDict[nb.second[0]] = angle;
-            if (availSet.find(nb.second[0] != availSet.end()) {
+            if (availSet.find(nb.second[0]) != availSet.end()) {
                 // TODO: cannot be None, replaced None = -1   and ROSAngleDir has a double inside 
                 this->ROSAngleDir[angle] = -1;
             }
             this->angleToNb[angle] = nb.second[0];
             this->fireProgress[nb.second[0]] = 0.0;
-            this->distToCenter[nb.second[0]] = cmath::sqrt(a * a + b * b) * this->_ctr2ctrdist;
+            this->distToCenter[nb.second[0]] = std::sqrt(a * a + b * b) * this->_ctr2ctrdist;
         }
     }
 }
+
         
 		
-		
- /*
+/*
     New functions for calculating the ROS based on the fire angles
 	Distribute the rate of spread (ROS,ros) to the axes given in the AngleList.
     All angles are w.t.r. E-W with East positive and in non-negative degrees.
@@ -152,11 +155,11 @@ void CellsFBP::initializeFireFields(std::vector<std::vector<int>> & coordCells, 
  */		
 void CellsFBP::ros_distr(double thetafire, double forward, double flank, double back) {
     for (auto & angle : this->ROSAngleDir) {
-        double offset = cmath::abs(angle.first - thetafire);
+        double offset = std::abs(angle.first - thetafire);
         
         double first;
         double second;
-		double base = ((int)(offset)) / 90 * 90
+		double base = ((int)(offset)) / 90 * 90;
         
 		// Distribute ROS
 		if (offset >= 0 && offset <= 90) {
@@ -174,6 +177,21 @@ void CellsFBP::ros_distr(double thetafire, double forward, double flank, double 
         }
         this->ROSAngleDir[angle.first] = this->allocate(offset, base, first, second);
     }
+}		
+		
+
+/*
+	Returns      double
+	
+	Inputs:
+	offset       double
+	base         double
+	ros1         double
+	ros2         double
+*/	
+double CellsFBP::allocate(double offset, double base, double ros1, double ros2) {
+    double d = (offset - base) / 90;
+    return (1 - d) * ros1 + d * ros2;
 }
 
 
@@ -193,7 +211,7 @@ void CellsFBP::ros_distr(double thetafire, double forward, double flank, double 
 */
         
 std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailSet, 
-                                                          bool verbose, vector<inputs> & df, struct fuel_coeffs * coef, 
+                                                          bool verbose, vector<inputs> & df, fuel_coefs * coef, 
 														  bool spotting, std::unordered_map<std::string, double> spottingParams, 
 														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, 
 														  std::vector<std::string> args) 
@@ -202,9 +220,9 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
 	int repeat = -99;
 	
     // msg lists contains integers (True = -100)
-    std::vector<int> msg_list_aux = new std::vector<int>();
+    std::vector<int> msg_list_aux;
 	msg_list_aux.push_back(0);
-    std::vector<int> msg_list = new std::vector<int>();
+    std::vector<int> msg_list;
 
 	// If spotting and haven't tried to spotting, make it true
     if (spotting && !this->triedToSpot) {
@@ -212,19 +230,19 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
 
 		// Print-out spotting parameters
         if (verbose) {
-            std::cout << "SPOTANGLE:" << SpottingParams["SPOTANGLE"] << std::endl;
-            std::cout << "SPOT0PROB:" << SpottingParams["SPOT0PROB"] << std::endl;
-            std::cout << "SPOT10TIME:" << SpottingParams["SPOT10TIME"] << std::endl;
+            std::cout << "SPOTANGLE:" << spottingParams["SPOTANGLE"] << std::endl;
+            std::cout << "SPOT0PROB:" << spottingParams["SPOT0PROB"] << std::endl;
+            std::cout << "SPOT10TIME:" << spottingParams["SPOT10TIME"] << std::endl;
         }
 
-		// Using current weather, generate the (potentiall) message list from spotting
-        vector<int> spot_list = SpottingFBP(Cells_Obj, CoordCells, AvailSet, df[0].WD, df[0].WS, SpottingParams, verbose);
+		//TODO: ADD SUPPORT FOR SPOTTING!!!!  Using current weather, generate the (potentiall) message list from spotting
+        /*vector<int> spot_list = SpottingFBP(Cells_Obj, coordCells, AvailSet, df[0].waz, df[0].ws, spottingParams, verbose);
         std::cout << "debug: spot_list len= " << spot_list.size() << std::endl;
 
 		// Populate the message list from spotting
         for (int si : spot_list) {
-            std::msg_list.push_back(si);
-        }
+            msg_list.push_back(si);
+        }*/
     }
 
 	// Compute main angle and ROSs: forward, flanks and back
@@ -241,10 +259,10 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
 
 	// Display if verbose True (FBP ROSs, Main angle, and ROS std (if included))
     if (verbose) {
-        std::cout << "Main Angle: " << mainstruct.raz; << std::endl;
+        std::cout << "Main Angle: " << mainstruct.raz << std::endl;
         std::cout << "FBP Front ROS Value: " << headstruct.ros << std::endl; 
         std::cout << " FBP Flanks ROS Value: " << flankstruct.ros << std::endl;
-        std::cout <<  "FBP Rear ROS Value: " << backstruct.ros << std:endl;
+        std::cout <<  "FBP Rear ROS Value: " << backstruct.ros << std::endl;
         std::cout << "Std Normal RV for Stochastic ROS CV: " << ROSRV << std::endl;
     }
 
@@ -256,10 +274,11 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
 	double HFI_Threshold = 0.1;    //args.
 	
 	// Extra debug step for sanity checks
-	if (verbose):
+	if (verbose){
             std::cout << "Sending message conditions" << std::endl;
             std::cout << "HROS: " << HROS << " Threshold: "<<  ROS_Threshold << std::endl;
             std::cout << "HeadStruct FI: " << headstruct.fi << " Threshold: " << HFI_Threshold << std::endl;
+	}
 	
     // Check thresholds for sending messages	
     if (HROS > ROS_Threshold && headstruct.fi > HFI_Threshold) {
@@ -273,17 +292,17 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
         
 		// ROS distribution method
         ros_distr(mainstruct.raz,  headstruct.ros, flankstruct.ros, backstruct.ros);
-        if (verbose){
-			std::cout << "ROSAngleDir Cell" << this->ID << ":" << this->ROSAngleDir << std::endl;
-            std::cout << "Fire Progress before this update" << this>ID << ":" << self.FireProgress << std::endl;
-		}
+        /*if (verbose){
+			std::cout << "ROSAngleDir Cell" << this->id << ":" << this->ROSAngleDir << std::endl;
+            std::cout << "Fire Progress before this update" << this>id << ":" << this->FireProgress << std::endl;
+		}*/
 		
 		
 		/* Fire progress using ROS from burning cell, not the neighbors */
         vector<double> toPop = vector<double>();
         
 		// this is a iterator through the keyset of a dictionary
-        for (auto&  _angle : this->rosAngleDir) {
+        for (auto&  _angle : this->ROSAngleDir) {
             double angle = _angle.first;
             int nb = angleToNb[angle];
             double ros = (1 + ROSCV * ROSRV) * _angle.second;
@@ -298,14 +317,14 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
             this->fireProgress[nb] += ros * PeriodLen;   // Updates fire progress
 		
 		    // If the message arrives to the adjacent cell's center, send a message
-            if (this->FireProgress[nb] >= this->distToCenter[nb]) {
+            if (this->fireProgress[nb] >= this->distToCenter[nb]) {
                 msg_list.push_back(nb);
                 // cannot mutate ROSangleDir during iteration.. we do it like 10 lines down
                 toPop.push_back(angle);
-                if (verbose) {
+                /*if (verbose) {
                     //fill out this verbose section
                     std::cout << "MSG list" << msg_list << std::endl;
-                }
+                }*/
             }    
         
 			for (double temp : toPop) {
@@ -313,7 +332,7 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
 			}
 			
 			
-			if (this->FireProgress[nb] < this->distToCenter[nb] && repeat == -100 && -100  != msg_list_aux[0]){
+			if (this->fireProgress[nb] < this->distToCenter[nb] && repeat == -100 && -100  != msg_list_aux[0]){
                     if (verbose){
                         std::cout << "A Repeat = TRUE flag is sent in order to continue with the current fire....." << std::endl;
                         std::cout << "Main workaround of the new sim logic....." << std::endl;
@@ -343,10 +362,9 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
     return msg_list;
 }
     
-	
-	
-	
- /*
+		
+		
+/*
     Get burned new logic: Checks if the ROS on its side is above a threshold for burning
 	
 	Returns     boolean  
@@ -361,8 +379,8 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
     ROSThresh   double
  */
 	
-bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, vector<inputs> & df, 
-									   struct fuel_coeffs * coef, double ROSThresh) {
+bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, std::vector<inputs> & df, 
+									   fuel_coefs * coef, double ROSThresh) {
     if (verbose) { 
         std::cout << "ROS Threshold get_burned method" << std::endl;
 		std::cout << "ROSThresh" << ROSThresh << std::endl;
@@ -381,15 +399,14 @@ bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, vector
 		std::cout << "Front ROS Value:" << headstruct.ros << std::endl;
 		std::cout << "Flanks ROS Value:" << flankstruct.ros << std::endl;
 		std::cout << "Rear ROS Value:" << backstruct.ros << std::endl;
-		std::cout << "Head ROS value:" << str(headstruct.ros << std::endl;
-    }
+	}
     
 	// Check a threshold for the ROS
     if (headstruct.ros > ROSThresh) {
         this->status = 1;
         this->fireStarts = period;
         this->fireStartsSeason = season;
-        this->burntP = period
+        this->burntP = period;
         return true;
     }
     // Not burned
@@ -397,8 +414,7 @@ bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, vector
 }
 
 
-
-
+		
 /* Old functions
     Returns            void
     
@@ -422,7 +438,6 @@ void CellsFBP::setStatus(int status_int) {
 }
 
 
-
 /*
     Returns            string
     
@@ -430,12 +445,11 @@ void CellsFBP::setStatus(int status_int) {
 */
 std::string CellsFBP::getStatus() {
     // Return cell's status
-    return StatudD[this->status];
+    return this->StatusD[this->status];
 }
 
-
-
- /*
+		
+/*
     Returns           boolean
     
     Inputs:
@@ -448,7 +462,7 @@ std::string CellsFBP::getStatus() {
     HFIThreshold      double
  */
 bool CellsFBP::ignition(int period, int season, int year, std::vector<int> ignitionPoints, vector<inputs> & df, 
-								 struct fuel_coeffs * coef, double ROSThresh, double HFIThresh) {
+								 fuel_coefs * coef, double ROSThreshold, double HFIThreshold, bool verbose) {
     
 	// If we have ignition points, update
     if (ignitionPoints.size() > 0) {
@@ -477,23 +491,24 @@ bool CellsFBP::ignition(int period, int season, int year, std::vector<int> ignit
         }
 		
 		// Check a threshold for the ROS
-        if (headstruct.ros > ROSThresh && headstruct.fi > HFIThreshold) {
+        if (headstruct.ros > ROSThreshold && headstruct.fi > HFIThreshold) {
             if (verbose) {
                 std::cout << "Head (ROS, FI) values of" << headstruct.ros << headstruct.fi  <<  "are enough for ignition" << std::endl;
             }
 
             this->status = 1;
-            this->fireStartss = period;
+            this->fireStarts = period;
             this->fireStartsSeason = year;
-            this.burntP = period;
+            this->burntP = period;
 
             return true;
         }
         return false;
     }
-}
-
-
+}		
+		
+		
+		
 /*
     Returns      void
     Inputs
@@ -513,28 +528,27 @@ void CellsFBP::harvested(int id, int period) {
 */
 void CellsFBP::print_info() {
 	std::cout << "Cell Information" << std::endl;
-	std::cout << "ID = "  << this-> id<< std::endl;
-    std::cout << "Status = " << this-> StatusD[this->status] << std::endl;
-    std::cout << "Coordinates = " << this-> coord << std::endl;
+	std::cout << "ID = "  << this->id<< std::endl;
+    std::cout << "Status = " << this->StatusD[this->status] << std::endl;
+    //std::cout << "Coordinates = " << this->coord << std::endl;
     std::cout << "Area = "<<  this->area << std::endl;
     std::cout << "Vol = " << this->vol << std::endl;
     std::cout << "Age = " << this->age << std::endl;
-    std::cout << "FTypes = "<< this->FTypeD[this->ftype] << std::endl;
-    std::cout << "Adjacents = " << this->adjacents << std::endl;
+    std::cout << "FTypes = "<< this->FTypeD[this->fType] << std::endl;
+    //std::cout << "Adjacents = " << this->adjacents << std::endl;
     std::cout << "need to fill out this verbose" << std::endl;
 }
 
 
-/*
-	Returns      double
-	
-	Inputs:
-	offset       double
-	base         double
-	ros1         double
-	ros2         double
-*/
-double CellsFBP::allocate(double offset, double base, double ros1, double ros2) {
-    double d = (offset - base) / 90;
-    return (1 - d) * ros1 + d * ros2;
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+// Main for debugging
+int main(){
+	std::cout << "CellsFBP has been compiled!" << std::endl;
+	return 0;
 }

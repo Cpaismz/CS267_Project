@@ -2,10 +2,15 @@
 #define CELLSFBP
 
 // include stuff
+#include "FBP5.0.h"
+#include <stdio.h>
+#include <math.h>
 #include <unordered_map>
 #include <unordered_set>
 #include <string>
 #include <vector>
+
+using namespace std;
 
 class CellsFBP {
     // TODO: find where to put the enums
@@ -20,12 +25,14 @@ class CellsFBP {
         double vol;
 		double perimeter;
 		
-        std::string ftype2;
+        std::string fType2;
         std::vector<int> coord; //maybe change this into a tuple or class	CP: 2-tuple (int)
 		std::unordered_map<std::string, std::vector<int>> adjacents; // CP: dictionary {string: [int array]}
         std::vector<double> color; // 4-tuple
 		
-        
+		string FTypeD[3];
+        string StatusD[5];
+		
 		// mutable
         int status;
         int hPeriod;
@@ -47,40 +54,43 @@ class CellsFBP {
         // TODO: reference to shared object
 
         // constructor and methods here
-        CellsFBP(int _id, double _area, std::vector<int> coord, double _age, 
+        CellsFBP(int _id, double _area, std::vector<int> _coord, double _age, 
 					 int _fType, std::string _fType2, double _vol, double _perimeter, 
-					 int _status, std::unodreded_map<std::string, std::vector<int>> & _adjacents, 
+					 int _status, std::unordered_map<std::string, std::vector<int>> & _adjacents, 
 					 std::vector<double> _color, int _realId, bool outputGrid);
         
-        void initializeFireFields(std::vector<std::vector<int>> & coordCells, std::unordered_set<int> & availSet); // TODO: need TYPE
-        
-        void ros_distr(double thetafire, double forward, double flank, double back);
-			
+		void initializeFireFields(std::vector<std::vector<int>> & coordCells, std::unordered_set<int> & availSet); // TODO: need TYPE
+       
+	    void ros_distr(double thetafire, double forward, double flank, double back);
+		
 		// TODO: we can't have a generic "args" in c                
         std::vector<int> manageFire(int period, std::unordered_set<int> AvailSet, 
-																  bool verbose, vector<inputs> & df, struct fuel_coeffs * coef, 
-																  bool spotting, std::unordered_map<std::string, double> spottingParams, 
-																  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, 
-																  std::vector<std::string> args); 
-        
-        bool get_burned(int period, int NMsg, int season, bool verbose, vector<inputs> & df, 
-								struct fuel_coeffs * coef, double ROSThresh);
-
-        void set_Adj(std::unordered_map<std::string, std::vector<int>> & adjacentCells);
-
-        void setStatus(int status_int);
-        
+                                                          bool verbose, vector<inputs> & df, fuel_coefs * coef, 
+														  bool spotting, std::unordered_map<std::string, double> spottingParams, 
+														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, 
+														  std::vector<std::string> args);
+		
+		bool get_burned(int period, int NMsg, int season, bool verbose, vector<inputs> & df, 
+								fuel_coefs * coef, double ROSThresh);
+								
+		void set_Adj(std::unordered_map<std::string, std::vector<int>> & adjacentCells);
+		
+		void setStatus(int status_int);
+		
 		std::string getStatus();
-
-        bool ignition(int period, int season, int year, std::vector<int> ignitionPoints, vector<inputs> & df, 
-						  struct fuel_coeffs * coef, double ROSThresh, double HFIThresh);
-
-        void harvested(int id, int period);
-
-        void print_info();
-        
-    private:
-        double allocate(double offset, double base, double ros1, double ros2);
+		
+		bool ignition(int period, int season, int year, std::vector<int> ignitionPoints, vector<inputs> & df, 
+						  fuel_coefs * coef, double ROSThreshold, double HFIThreshold, bool verbose);
+						  
+		void harvested(int id, int period);
+		
+		void print_info();
+		
+		
+		
+		
+	private:
+		double allocate(double offset, double base, double ros1, double ros2);
 };
 
 #endif
