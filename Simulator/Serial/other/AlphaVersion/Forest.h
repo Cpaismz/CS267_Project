@@ -1,10 +1,20 @@
 #ifndef FOREST
 #define FOREST
 
+// Include libraries
+#include <stdio.h>
 #include <string>
-#include <unordered_map>
 #include <vector>
+#include <math.h>
+#include <cmath>
+#include <iostream>
+#include <unordered_map>
+#include <unordered_set>
+#include <string>
 
+using namespace std;
+
+// Class definition
 class Forest {
     public:
         int id;
@@ -12,23 +22,18 @@ class Forest {
         double area;
         double vol;
         double age;
-        std::string location;
-        std::vector<int> coord;	
         double perimeter;
+		std::string location;
+        std::vector<int> coord;	
         std::unordered_map<std::string, int> fTypes;
-        // cellsDistance;
-        //std::vector<int> availCells;
-        //std::vector<int> burntCells;
-        //std::vector<int> harvestCells;
+        std::vector<int> availCells;
+        std::vector<int> burntCells;
         
-        Forest(int _id, std::string _location, std::vector<int> _coord, int _nCells, double _area, double _vol, double _age, double _perimeter, std::unordered_map<std::string, int> & _fTypes);
-
-        //std::vector<int> set_AvailCells(int period, TYPE AvailCells_set);
-        //std::vector<int> set_BurntCells(int period, TYPE BurntCells_set);
-        void print_info();
-
-    private:
-        int TODO;
-}
+		// Constructor & methods
+        Forest(int _id, std::string _location, std::vector<int> _coord, int _nCells, double _area, 
+		          double _vol, double _age, double _perimeter, std::unordered_map<std::string, int> & _fTypes);
+        
+		void print_info();
+};
 
 #endif
