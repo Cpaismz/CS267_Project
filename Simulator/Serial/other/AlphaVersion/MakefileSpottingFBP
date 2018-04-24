@@ -1,0 +1,18 @@
+CC = g++
+MPCC = g++
+OPENMP = -openmp
+CFLAGS = -O3 -std=c++11
+LIBS =
+
+
+TARGETS = SpottingFBP
+
+all:	$(TARGETS)
+
+SpottingFBP: SpottingFBP.o CellsFBP.o
+	$(CC) -o $@ $(LIBS) SpottingFBP.o CellsFBP.o 
+
+SpottingFBP.o: SpottingFBP.cpp SpottingFBP.h CellsFBP.h
+	$(CC) -c $(CFLAGS) SpottingFBP.cpp
+	
+clean:
