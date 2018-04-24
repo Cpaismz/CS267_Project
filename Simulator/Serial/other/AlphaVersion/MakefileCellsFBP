@@ -9,8 +9,8 @@ TARGETS = CellsFBP
 
 all:	$(TARGETS)
 
-CellsFBP: CellsFBP.o FBPfunc5_NoDebug.o 
-	$(CC) -o $@ $(LIBS) CellsFBP.o FBPfunc5_NoDebug.o 
+CellsFBP: CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o
+	$(CC) -o $@ $(LIBS) CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o
 
 CellsFBP.o: CellsFBP.cpp CellsFBP.h FBPfunc5_NoDebug.o
 	$(CC) -c $(CFLAGS) CellsFBP.cpp

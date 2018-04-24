@@ -1,6 +1,6 @@
 // Include classes
 #include "CellsFBP.h"
-//#include "SpottingFBP.h"
+#include "SpottingFBP.h"
 #include "FBP5.0.h"
 
 // Include libraries
@@ -235,14 +235,13 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
             std::cout << "SPOT10TIME:" << spottingParams["SPOT10TIME"] << std::endl;
         }
 
-		//TODO: ADD SUPPORT FOR SPOTTING!!!!  Using current weather, generate the (potentiall) message list from spotting
-        /*vector<int> spot_list = SpottingFBP(Cells_Obj, coordCells, AvailSet, df[0].waz, df[0].ws, spottingParams, verbose);
+        vector<int> spot_list = SpottingFBP(Cells_Obj, coordCells, AvailSet, df[0].waz, df[0].ws, spottingParams, verbose);
         std::cout << "debug: spot_list len= " << spot_list.size() << std::endl;
 
 		// Populate the message list from spotting
         for (int si : spot_list) {
             msg_list.push_back(si);
-        }*/
+        }
     }
 
 	// Compute main angle and ROSs: forward, flanks and back
