@@ -1,9 +1,6 @@
 
 # coding: utf-8
 
-# In[14]:
-
-
 ######################################################################################################################################
 #
 #                FireSimulator FBP serial and parallel version 1.0 - April 2018
@@ -54,6 +51,7 @@ class Weather:
         """
         self._wdf = pd.read_csv(wdf_path, sep=",", index_col="datetime") # header implied
         self._wdf.columns = self._wdf.columns.str.lower()
+        self._wdf.rename(columns={'wd': 'waz'}, inplace=True)
         self.rows = self._wdf.shape[0]  # Get nrows for max fire periods in main
         
 
@@ -125,4 +123,5 @@ class Weather:
     def print_info(self, period):
         print("Weather Info for weather period ", str(period))
         print(self._wdf.iloc[[period]])
+
 

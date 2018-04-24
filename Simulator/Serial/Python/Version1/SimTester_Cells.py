@@ -1,6 +1,8 @@
 
 # coding: utf-8
 
+# In[55]:
+
 
 ######################################################################################################################################
 #
@@ -32,9 +34,7 @@ import FBP2PY
 import ReadDataPrometheus
 import SpottingFBP
 import Output_Grid
-
-# Steps importations
-
+import DataGenerator
 
 # Shared library .so (CP: Careful with Windows vs UNIX)
 soname = "FBPfunc5NODEBUG.so"
@@ -143,6 +143,7 @@ class Main:
     exceltrue = args.input_excel
     heuristic = args.input_heur
     combine = args.input_combine
+    GenData = args.input_gendata
     Thresholds = {}
     
     # Debug mode    
@@ -152,13 +153,28 @@ class Main:
         mainstruct, headstruct, flankstruct, backstruct = FBP2PY.CalculateOne(DF, coef_ptr,cellID, verbose=True)
         quit()
     
+    # Generate Data.dat if needed
+    if GenData == True:
+        print("Generating Data.dat File")
+        if InFolder != None:
+            DataGenerator.GenDataFile(InFolder)
+        else:
+            DataGenerator.GenDataFile("")
+    
     # Filename
     if scenarios and not OutputGrid:
         raise RuntimeError("--scenarios requires --output-grid")
     if InFolder != None:
         filename = os.path.join(InFolder, "Data.dat")
+        if os.path.isfile(filename) == False:
+            print("Data.dat file does not exists, generating it from files inside", InFolder)
+            DataGenerator.GenDataFile(InFolder)
+            
     else:
         filename = "Data.dat"
+        if os.path.isfile(filename) == False:
+            print("Data.dat file does not exists, generating it from files inside current directory")
+            DataGenerator.GenDataFile("")
         
     
     # Folder existence
@@ -215,6 +231,12 @@ class Main:
     ##########################################################################################################
     # Read DataFrame
     DF = FBP2PY.inputData(filename)
+    if GenData == False:
+        Elevation, SAZ, PS = ReadDataPrometheus.DataGrids(InFolder, len(DF))
+        DF["elev"] = Elevation
+        DF["saz"] = SAZ
+        DF["ps"] = PS
+        DF["time"] = np.zeros(DF.shape[0]) + 20
     if verbose == True:
         print("DF:", DF)
 
@@ -229,6 +251,73 @@ class Main:
     ##########################################################################################################
     
     
+    
+    ##########################################################################################################
+    #                                          Global Forest Data
+    ##########################################################################################################
+    #Read Forest
+    if nooutput == False:
+        print( "\n----------------- Forest Data -----------------")
+
+    # Obtain FBP and Color dictionaries from FBP file, read the ForestGrid file
+    FBPDict, ColorsDict =  ReadDataPrometheus.Dictionary(FBPlookup)
+    GForestN, GForestType, Rows, Cols, AdjCells, CoordCells, CellSide = ReadDataPrometheus.ForestGrid(ForestFile,FBPDict)
+
+    # Number of cells
+    NCells = Rows * Cols
+
+    # Initialize main cells inputs
+    FTypeCells, StatusCells, RealCells, Colors = InitCells(NCells, FTypes2, ColorsDict, 
+                                                           GForestType, GForestN)  
+
+    ###################################################################
+    # Print information for debug
+    #if verbose == True:
+    #    print("\nCoord Cells:", CoordCells)
+    #    print("\nCells GForestType:", GForestType)
+    #    print("\nFTypeCells:", FTypeCells)
+    #    print("\nFTypeCells2:", FTypeCells2)
+    #    print("\nlist of coef:", ListOfCoefs)
+    #    print("\nRealCells:", RealCells)
+    #    print("\nStatus Cells:", StatusCells)
+    #    print("\nColors:", Colors)
+    #    print("\nCells GForestN:", GForestN)
+    #    print("\nCoef pointer:", coef_ptr)
+    #    print("\nlen DF fueltype:", DF['fueltype'].shape[0])
+    #    print("\nFBPDict:", FBPDict)
+    #    print("\nColorsDict:",ColorsDict)
+    #    print("\nAdj cells:",AdjCells)
+    #    print("\nCell side:", CellSide)
+    ###################################################################
+
+    #Releasing memory
+    del GForestN
+    del ColorsDict
+
+    # Cell instance data (explicit for the moment, final version may read it from a source file)
+    VolCells, AgeCells = ReadDataPrometheus.CellsInfo(ForestFile)
+    AreaCells = CellSide * CellSide
+    PerimeterCells = CellSide * 4 
+
+    # Init Forest object
+    ForestObj = InitForest(1, "My Mind", [1,1], NCells, NCells * AreaCells, 
+                           NCells * VolCells, 0.0, 2 * CellSide * (Rows + Cols), 
+                           FTypeCells2, verbose)
+    # FTypes = {0: "NonBurnable", 1: "Normal", 2: "Burnable"}
+
+    if nooutput == False:    
+        print( "Rows:",Rows,"Cols:",Cols, "NCells:",NCells)
+        print( "------------ End read forest data -------------")
+            
+    ##########################################################################################################
+    #                               Ignition, Weather, Plot, Lightning Options/Data
+    ##########################################################################################################    
+    weatherperiod = 0
+    Ignitions, Weather_Obj, Plotter, DF = Init(Ignitions, WeatherOpt, plottrue, OutFolder, DF, 
+                                               args, verbose, nooutput)
+
+
+
     
     
     
@@ -248,6 +337,7 @@ class Main:
         # Global Parameters (reseting)
         week_number = 1 
         Year = 1
+        weatherperiod = 0
         NoIgnition = None
         MessagesSent = None
         plotnumber = 1
@@ -270,78 +360,13 @@ class Main:
         # Record current clock for measuring running time (including data reading)
         Initial_Time = time.clock()
             
-            
-            
-            
-        
-        ##########################################################################################################
-        #                                          Global Forest Data
-        ##########################################################################################################
-        #Read Forest
-        if nooutput == False:
-            print( "\n----------------- Forest Data -----------------")
-        
-        # Obtain FBP and Color dictionaries from FBP file, read the ForestGrid file
-        FBPDict,ColorsDict =  ReadDataPrometheus.Dictionary(FBPlookup)
-        CellsGrid3,CellsGrid4,Rows,Cols,AdjCells,CoordCells,CellSide = ReadDataPrometheus.ForestGrid(ForestFile,FBPDict)
-        
-        # Number of cells
-        NCells = Rows*Cols
-            
-        # Initialize main cells inputs
-        FTypeCells, StatusCells, RealCells, Colors = InitCells(NCells, FTypes2, ColorsDict, 
-                                                               CellsGrid4, CellsGrid3)  
-        
-        ###################################################################
-        # Print information for debug
-        if verbose == True:
-            print("\nCoord Cells:", CoordCells)
-            print("\nCells Grid 4:", CellsGrid4)
-            print("\nFTypeCells:", FTypeCells)
-            print("\nFTypeCells2:", FTypeCells2)
-            print("\nlist of coef:", ListOfCoefs)
-            print("\nRealCells:", RealCells)
-            print("\nStatus Cells:", StatusCells)
-            print("\nColors:", Colors)
-            print("\nCells Grid 3:", CellsGrid3)
-            print("\nCoef pointer:", coef_ptr)
-            print("\nlen DF fueltype:", DF['fueltype'].shape[0])
-            print("\nFBPDict:", FBPDict)
-            print("\nColorsDict:",ColorsDict)
-            print("\nAdj cells:",AdjCells)
-            print("\nCell side:", CellSide)
-        ###################################################################
-        
-        #Releasing memory
-        del CellsGrid3
-        del ColorsDict
-        
-        # Cell instance data (explicit for the moment, final version may read it from a source file)
-        VolCells, AgeCells = ReadDataPrometheus.CellsInfo(ForestFile)
-        AreaCells = CellSide * CellSide
-        PerimeterCells = CellSide * 4 
-        
-        # Init Forest object
-        ForestObj = InitForest(1, "My Mind", [1,1], NCells, NCells * AreaCells, 
-                               NCells * VolCells, 0.0, 2 * CellSide * (Rows + Cols), 
-                               FTypeCells2, verbose)
-        # FTypes = {0: "NonBurnable", 1: "Normal", 2: "Burnable"}
-            
-        if nooutput == False:    
-            print( "Rows:",Rows,"Cols:",Cols, "NCells:",NCells)
-            print( "------------ End read forest data -------------")
-            
         ##########################################################################################################
         #                               Ignition, Weather, Plot, Lightning Options/Data
         ##########################################################################################################    
-        weatherperiod = 0
-        Ignitions, Weather_Obj, Plotter, DF = Init(Ignitions, WeatherOpt, plottrue, OutFolder, DF, 
-                                                   args, verbose, nooutput)
-        
+    
         # Plots
         if plottrue == True:
-            emptylist = dict.fromkeys([i for i in range(1,NCells+1)], [])#[[] for i in range(0,NCells)]#emptylist = dict.fromkeys([i for i in range(NCells)], [])
-            print("Emptylist:", emptylist)
+            emptylist = dict.fromkeys([i for i in range(1,NCells+1)], [])
             PlotPath = os.path.join(OutFolder, "Plots")
             if os.path.isfile(os.path.join(OutFolder, "ForestInitial.png")) == True:
                 if nooutput == False:
@@ -352,13 +377,20 @@ class Main:
         # Maximum fire periods validity
         if WeatherOpt == "rows":
             MaxFP = np.round(MinutesPerWP / FirePeriodLen, 0) * Weather_Obj.rows
-            if Max_Fire_Periods > MaxFP:
-                Max_Fire_Periods = MaxFP
+            if Max_Fire_Periods >= MaxFP:
+                Max_Fire_Periods = MaxFP-1
                 if verbose == True:
                     print("Maximum fire periods are set to:", Max_Fire_Periods,
                           "based on the weather file, Fire Period Length, and Minutes per WP")
             else:
                 print("Maximum fire periods:", Max_Fire_Periods)
+        
+        # Number of years and Ignitions
+        if Ignitions != "":
+            IgYears = len(Ignitions.keys())
+            if TotalYears > IgYears:
+                print("Total Years set to", IgYears, "based on Ignitions points provided")
+                TotalYears = IgYears
         
         #Initializing Lambda Instance (random lightning)
         Lambda_Strike = Lightning.Lightning()
@@ -376,8 +408,7 @@ class Main:
         BurntCells_Set = set()
         HarvestCells_Set = set()
         
-        # DEGUB!!!!!!!!!!!!!!
-        #Printing info about the cells' status
+        # Printing info about the cells' status
         if verbose == True:
             print("\nSet information period (week",week_number,")")
             print("Available Cells:", AvailCells_Set)
@@ -439,15 +470,13 @@ class Main:
                         break
                     else: 
                         week_number += 1
-                        weatherperiod += 1
+                        #weatherperiod += 1
 
             else: 
                 week_number = 1 
                 weatherperiod = 0
                 Sel_Week = 1
-            #week_number = Step1Ignition.SelWeek(Ignitions, Lambda_Strike, max_weeks, 
-            #week_number, weatherperiod, verbose)
-          
+           
             #Go to that period/week
             print("Selected Week (Ignition) =", Sel_Week)
             
@@ -492,7 +521,7 @@ class Main:
                         if aux not in Cells_Obj.keys():
                             Cells_Obj[aux] = CellsFBP.Cells((aux+1),AreaCells, CoordCells[aux],
                                                             AgeCells, FTypeCells[aux],
-                                                            coef_ptr[FTypes2[str.lower(CellsGrid4[aux])]],
+                                                            coef_ptr[FTypes2[str.lower(GForestType[aux])]],
                                                             VolCells, PerimeterCells,
                                                             StatusCells[aux], AdjCells[aux], Colors[aux],
                                                             RealCells[aux], OutputGrid)
@@ -555,7 +584,7 @@ class Main:
                         Cells_Obj[Ignitions[Year]-1] = CellsFBP.Cells((Ignitions[Year]),AreaCells,
                                                                       CoordCells[Ignitions[Year]-1], AgeCells,
                                                                       FTypeCells[Ignitions[Year]-1],
-                                                                      coef_ptr[FTypes2[str.lower(CellsGrid4[Ignitions[Year]-1])]],
+                                                                      coef_ptr[FTypes2[str.lower(GForestType[Ignitions[Year]-1])]],
                                                                       VolCells, PerimeterCells,
                                                                       StatusCells[Ignitions[Year]-1],
                                                                       AdjCells[Ignitions[Year]-1], Colors[Ignitions[Year]-1],
@@ -648,15 +677,15 @@ class Main:
             if verbose == True:
                 print("debug Fire_Period[Year-1]", Fire_Period[Year-1])
             
-            if WeatherOpt != 'constant' and Fire_Period[Year-1] * FirePeriodLen / MinutesPerWP > weatherperiod:
+            if WeatherOpt != 'constant' and Fire_Period[Year-1] * FirePeriodLen / MinutesPerWP > weatherperiod + 1:
                 weatherperiod +=1
                 DF = Weather_Obj.update_Weather_FBP(DF, WeatherOpt, weatherperiod)
-                
            
             if verbose == True:
                 print("Current Week:", week_number)
                 print("Fire Period Starts:", Fire_Period[Year-1], "\n")
                 Weather_Obj.print_info(weatherperiod)
+                print("DF:", DF[["fueltype", "ws", "waz", "ffmc", "bui", "saz", "elev", "ps"]])
                 
                 if WeatherOpt == 'constant':
                     print("(NOTE: current weather is not used for ROS with constant option)")
@@ -695,7 +724,7 @@ class Main:
                 while Fire_Period[Year-1] < Max_Fire_Periods:
                     # Ending condition and message to user
                     if Fire_Period[Year-1] == Max_Fire_Periods-1:
-                        print("\n **** WARNING!!!! About to hit Max_Fire_Periods=",Max_Fire_Periods," ***\n\n")
+                        print("\n **** WARNING!!!! About to hit Max_Fire_Periods=", Max_Fire_Periods," ***\n\n")
            
         
         
@@ -857,10 +886,12 @@ class Main:
                         print("New Fire period: ", Fire_Period[Year-1],"\n")
 
                         # Update weather if needed based on Period lengths
-                        if WeatherOpt != 'constant' and Fire_Period[Year-1] * FirePeriodLen / MinutesPerWP > weatherperiod:
+                        if WeatherOpt != 'constant' and Fire_Period[Year-1] * FirePeriodLen / MinutesPerWP > weatherperiod + 1:
                             weatherperiod +=1
                             DF = Weather_Obj.update_Weather_FBP(DF, WeatherOpt, weatherperiod)
-                            print("Weather has been updated!, weather period", weatherperiod)
+                            if verbose == True:
+                                print("Weather has been updated!, weather period", weatherperiod)
+                                print("DF:", DF[["fueltype", "ws", "waz", "ffmc", "bui", "saz", "elev", "ps"]])
 
                             
                     
@@ -929,7 +960,7 @@ class Main:
                             if (bc-1) not in Cells_Obj.keys() and bc not in BurntCells_Set:
                                 Cells_Obj[bc-1] = CellsFBP.Cells((bc), AreaCells, CoordCells[bc-1], AgeCells,
                                                                  FTypeCells[bc-1], 
-                                                                 coef_ptr[FTypes2[str.lower(CellsGrid4[bc-1])]],
+                                                                 coef_ptr[FTypes2[str.lower(GForestType[bc-1])]],
                                                                  VolCells, PerimeterCells, 
                                                                  StatusCells[bc-1], AdjCells[bc-1], 
                                                                  Colors[bc-1], RealCells[bc-1], 
@@ -956,11 +987,11 @@ class Main:
                             plotnumber+=1
 
                         # Grid and FS/FI definitions: To be modified
-                        if OutputGrid:
-                            for c in Cells_Obj.keys():
-                                Cells_Obj[c].got_burnt_from_mem(Fire_Period[Year-1],
-                                                                SendMessageList, Year-1,
-                                                                verbose)
+                        #if OutputGrid:
+                        #    for c in Cells_Obj.keys():
+                        #        Cells_Obj[c].got_burnt_from_mem(Fire_Period[Year-1],
+                        #                                        SendMessageList, Year-1,
+                        #                                        verbose)
                          
                         # Releasing Memory 
                         del SendMessageList
@@ -986,7 +1017,8 @@ class Main:
                         # for i in range(1, NCells+1):  migrating to GotMsg_Set
                         for i in GotMsg_Set:
                             NMessages[i-1] = Global_Message_List.count(i)
-                            print("Cell", i, "receives", NMessages[i-1], "messages")
+                            if verbose == True:
+                                print("Cell", i, "receives", NMessages[i-1], "messages")
 
                         # Releasing Memory 
                         del Global_Message_List
@@ -1004,7 +1036,7 @@ class Main:
                                 if (bc-1) not in Cells_Obj.keys():
                                     Cells_Obj[bc-1] = CellsFBP.Cells((bc),AreaCells,CoordCells[bc-1],AgeCells,
                                                                      FTypeCells[bc-1],
-                                                                     coef_ptr[FTypes2[str.lower(CellsGrid4[bc-1])]],
+                                                                     coef_ptr[FTypes2[str.lower(GForestType[bc-1])]],
                                                                      TerrainCells, VolCells, PerimeterCells,
                                                                      StatusCells[bc-1], AdjCells[bc-1],
                                                                      Colors[bc-1], RealCells[bc-1])
@@ -1083,7 +1115,7 @@ class Main:
                         
                         # Next Period: t=t+1. Update Weather
                         Fire_Period[Year-1]+=1
-                        if WeatherOpt != 'constant' and Fire_Period[Year-1] * FirePeriodLen / MinutesPerWP > weatherperiod:
+                        if WeatherOpt != 'constant' and Fire_Period[Year-1] * FirePeriodLen / MinutesPerWP > weatherperiod + 1:
                             weatherperiod +=1
                             DF = Weather_Obj.update_Weather_FBP(DF, WeatherOpt, weatherperiod=weatherperiod)
                             if verbose:
@@ -1107,7 +1139,11 @@ class Main:
                             week_number += 1
  
         
-    
+                # Extra breaking condition: Max fire periods then go to next year
+                print("Next year...")
+                Year += 1
+                week_number = 1
+                weatherperiod = 0
     
         
         ##################################################################################################
@@ -1225,5 +1261,4 @@ class Main:
     if nooutput == True:
         Final_Time = time.clock()
         print("\nFinal Time:", np.round(Final_Time - Initial_Time, 3) , "[s]")
-
 

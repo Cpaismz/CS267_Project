@@ -1,6 +1,8 @@
 
 # coding: utf-8
 
+
+# from __future__ import division
 ######################################################################################################################################
 #
 #                FireSimulator FBP serial and parallel version 0.03 April 2018
@@ -20,7 +22,7 @@ import SpottingFBP
 import numpy as np
 
 # Cells Class: Detailed information about each forest's cell, including the send/receive 
-# messages functions (fire spread model) and all the math involved when determining a new Fire    
+# messages functions (fire spread modcellel) and all the math involved when determining a new Fire    
 class Cells:
     # Basic parameters
     StatusD = {0: "Available", 1: "Burning", 2: "Burnt", 3: "Harvested", 4:"Non Fuel"}
@@ -81,8 +83,8 @@ class Cells:
             #self.FSCell = [[] for i in repeat(None,12*7*24)]    # Being modified  
             #self.FICell = [[] for i in repeat(None,12*7*24)]    # Being modified
             self.GMsgList = {}
-            FSCell = {}     # Dict{CelliID (int): [period (int), CelljID (int)]}
-            FICell = {}     # Dict{CelliID (int): period (int)}
+            self.FSCell = {}     # Dict{CelliID (int): [period (int), CelljID (int)]}
+            self.FICell = {}     # Dict{CelliID (int): period (int)}
             self.HPeriod = None
             
         self.Firestarts = 0
@@ -189,6 +191,16 @@ class Cells:
             with ROS values.
         no return value
         """
+        
+        '''
+        Returns      double
+        
+        Inputs:
+        offset       double
+        base         double
+        ros1         double
+        ros2         double
+        '''
         def allocate(offset, base, ros1, ros2):
             # allocate the ros between 1 and 2 based on the angle
             d = (offset - base) / 90.
@@ -255,7 +267,7 @@ class Cells:
                 
             #xxx get the wind speed and direction from the df xxxx
             spot_list = SpottingFBP.SpottingFBP(Cells_Obj, CoordCells, AvailSet,
-                                                df.iloc["WD"][0], # column header, row number
+                                                df.iloc["WD"][0],
                                                 df.iloc["WS"][0],
                                                 SpottingParams, verbose)
             print ("debug: spot_list=", spot_list)
@@ -265,7 +277,7 @@ class Cells:
                 msg_list.append(si)
 
         # Compute main angle and ROSs: forward, flanks and back
-        mainstruct, headstruct, flankstruct, backstruct = FBP2PY.CalculateOne(df,coef,self.ID)
+        mainstruct, headstruct, flankstruct, backstruct = FBP2PY.CalculateOne(df,coef,self.ID, verbose)
         
         # Stochastic ROS (standard deviation)
         ROSCV = args.ROS_CV
@@ -285,6 +297,11 @@ class Cells:
                 
         # Jan 2018: if cell cannot send, then it will be burned out in the main loop
         HROS =  (1 + ROSCV*ROSRV) * headstruct.ros
+        if verbose == True:
+            print("Sending message conditions")
+            print("HROS:", HROS, " Threshold:", args.ROS_Threshold)
+            print("HeadStruct FI:", headstruct.fi, " Threshold:", args.HFI_Threshold)
+            
         if HROS > args.ROS_Threshold and headstruct.fi > args.HFI_Threshold:
             Repeat = "True"  #xxxxxxxx DLW: think about this a little more (feb 2018)
             '''

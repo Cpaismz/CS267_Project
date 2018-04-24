@@ -13,6 +13,7 @@
 import json
 import numpy as np
 import pandas as pd
+import os 
 
 #=============
 # some stuff to make json work with python 2.7 taken from the web
@@ -69,7 +70,10 @@ def Dictionary(filename):
             line = line.replace("No","NF")
             line = line.split(",")
             
-            row[line[0]] = line[3][0:2]
+            if line[3][0:3] in ["O1a", "O1b"]:
+                row[line[0]] = line[3][0:3]
+            else:
+                row[line[0]] = line[3][0:2]
             colors[line[0]] = (float(line[4]) / 255.0, 
                                float(line[5]) / 255.0,
                                float(line[6]) / 255.0,
@@ -102,8 +106,6 @@ def ForestGrid(filename, Dictionary):
     SouthEast = "SE"
     SouthWest = "SW"
     
-    #CoordCells = []
-    
     with open(filename, "r") as f:
         filelines = f.readlines()
 
@@ -130,29 +132,43 @@ def ForestGrid(filename, Dictionary):
     for row in range(6, len(filelines)):
         line = filelines[row]
         line = line.replace("\n","")
+        line = ' '.join(line.split())
         line = line.split(" ")
-
-        for c in range(0,len(line)-1):
-            if line[c] not in Dictionary.keys():
+        #print(line)
+        
+        
+        for c in line: #range(0,len(line)-1):
+            if c not in Dictionary.keys():
                 gridcell1.append("NData")
                 gridcell2.append("NData")
                 gridcell3.append("NData")
                 gridcell4.append("NData")
             else:
-                gridcell1.append(line[c])
-                gridcell2.append(Dictionary[line[c]])
-                gridcell3.append(int(line[c]))
-                gridcell4.append(Dictionary[line[c]])
-            tcols = max(tcols,len(line))
+                gridcell1.append(c)
+                gridcell2.append(Dictionary[c])
+                gridcell3.append(int(c))
+                gridcell4.append(Dictionary[c])
+            tcols = np.max([tcols,len(line)])
 
         grid.append(gridcell1)
         grid2.append(gridcell2)
         gridcell1 = []
         gridcell2 = []
-            
+    
+    #     print("")
+    #     print("GridCell3:", gridcell3)
+    #     print("lenGC3:", len(gridcell3))
+    #     print("")
+    #     print("GridCell4:", gridcell4)
+    #     print("lenGC4:", len(gridcell4))
+    #     print("")
+    #     print("Cols:", tcols)
+    #     print("LenGrid:", len(grid))
+    
     # Adjacent list of dictionaries and Cells coordinates
-    CoordCells = np.empty([len(grid)*(tcols-1), 2]).astype(int)
+    CoordCells = np.empty([len(grid)*(tcols), 2]).astype(int)
     n = 1
+    tcols += 1
     for r in range(0,len(grid)):
         for c in range(0,tcols-1):
             #CoordCells.append([c,len(grid)-r-1])
@@ -233,6 +249,64 @@ def ForestGrid(filename, Dictionary):
     
     
     return gridcell3, gridcell4, len(grid), tcols-1, AdjCells, CoordCells, cellsize
+'''
+Returns         arrays of doubles
+
+Inputs:
+InFolder        Path to folder (string) 
+NCells          int
+'''   
+# Reads the ASCII files with forest data elevation, saz, slope, and (future) curing degree and returns arrays
+# with values
+def DataGrids(InFolder, NCells):
+    filenames = ["elevation.asc", "saz.asc", "slope.asc"]
+    Elevation =  np.full(NCells, np.nan)
+    SAZ = np.full(NCells, np.nan)
+    PS = np.full(NCells, np.nan)
+    #Curing = np.zeros([NCells])
+    
+    for name in filenames:
+        ff = os.path.join(InFolder, name)
+        if os.path.isfile(ff) == True:
+            aux = 0
+            with open(ff, "r") as f:
+                filelines = f.readlines()
+
+                line = filelines[4].replace("\n","")
+                parts = line.split()
+
+                if parts[0] != "cellsize":
+                    print ("line=",line)
+                    raise RuntimeError("Expected cellsize on line 5 of "+ ff)
+                cellsize = float(parts[1])
+
+                row = 1
+
+                # Read the ASCII file with the grid structure
+                for row in range(6, len(filelines)):
+                    line = filelines[row]
+                    line = line.replace("\n","")
+                    line = ' '.join(line.split())
+                    line = line.split(" ")
+                    #print(line)
+
+
+                    for c in line: 
+                        if name == "elevation.asc":
+                            Elevation[aux] = float(c)
+                            aux += 1
+                        if name == "saz.asc":
+                            SAZ[aux] = float(c)
+                            aux += 1
+                        if name == "slope.asc":
+                            PS[aux] = float(c)
+                            aux += 1
+                        #if name == "curing.asc":
+                        #    Curing[aux] = float(c)
+
+        else:
+            print("  No", name, "file, filling with NaN")
+    return Elevation, SAZ, PS
 
 '''
 Not needed to translate, it is the pandas version of a previous function

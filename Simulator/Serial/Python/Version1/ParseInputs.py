@@ -17,7 +17,7 @@ import WeatherFBP
 import Forest
 
 
-# In[22]:
+# In[63]:
 
 
 '''
@@ -188,7 +188,13 @@ def ParseInputs():
                         help="Maximum fire periods per year (default 2016)",
                         dest="max_fire_periods",
                         type=int,
-                        default=2016)        
+                        default=2016) 
+    
+    parser.add_argument("--gen-data",
+                        help="Generates the Data.dat file before the simulation",
+                        dest="input_gendata",
+                        default=False,
+                        action="store_true")
 
     args = parser.parse_args()
         
@@ -200,7 +206,7 @@ def ParseInputs():
     
 
 
-# In[44]:
+# In[61]:
 
 
 '''
@@ -214,7 +220,7 @@ args             args object
 verbose          boolean
 nooutput         boolean
 '''
-def Init(Ignitions, WeatherOpt, plottrue, DF, args, verbose, nooutput):
+def Init(Ignitions, WeatherOpt, plottrue, OutFolder, DF, args, verbose, nooutput):
     # Check for ignition points       
     if Ignitions != "":
         Ignitions = ReadDataPrometheus.IgnitionPoints(Ignitions)
@@ -249,13 +255,6 @@ def Init(Ignitions, WeatherOpt, plottrue, DF, args, verbose, nooutput):
             print("creating", PlotPath)
             os.makedirs(PlotPath)
         Plotter = Plot.Plot()
-        emptylist = [[] for i in range(0,NCells)]
-
-        if os.path.isfile(os.path.join(OutFolder, "ForestInitial.png")) == True:
-            if nooutput == False:
-                print("Forest already exists")
-        else:    
-            Plotter.PlotForestOnly(Colors,CoordCells,plotnumber,0,Year,False,Rows,Cols,OutFolder)
 
     else:
         Plotter = None
@@ -267,7 +266,15 @@ def Init(Ignitions, WeatherOpt, plottrue, DF, args, verbose, nooutput):
 
 
 '''
-TODO
+Returns          int array, int array, int array, array of 4D doubles tuples [(d1,d2,d3,d4),...,(d1n,d2n,d3n,d4n)]  
+
+Inputs:
+Ignitions        string
+WeatherOpt       list of strings
+DF               DataFrame
+args             args object
+verbose          boolean
+nooutput         boolean
 '''
 def InitCells(NCells, FTypes2, ColorsDict, CellsGrid4, CellsGrid3):   
     FTypeCells = np.zeros(NCells).astype(int)   #[]
@@ -323,4 +330,5 @@ def InitForest(FID, FLocation, FCoord, FNCells, FArea, FVol, FAVGAge, FPerimeter
         Forest1.print_info()
             
     return Forest1
+
 
