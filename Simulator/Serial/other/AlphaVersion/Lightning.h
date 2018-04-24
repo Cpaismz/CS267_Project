@@ -1,11 +1,26 @@
 #ifndef LIGHTNING
 #define LIGHTNING
 
+// Include libraries
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <math.h>
+#include <cmath>
+#include <iostream>
+#include <unordered_map>
+#include <unordered_set>
+#include <string>
+
+using namespace std;
+
 class Lightning {
     public:
-        static int Lambda_Simple_Test(int period);
-        static bool Lambda_NH(int period, bool verbose);
-        static bool Lambda_H(int period, bool verbose);
-}
+		// Constructor & Methos
+		Lightning();
+        int Lambda_Simple_Test(int period);
+        bool Lambda_NH(int period, bool verbose);
+        bool Lambda_H(int period, bool verbose);
+};
 
 #endif
