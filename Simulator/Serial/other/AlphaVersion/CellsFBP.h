@@ -30,8 +30,10 @@ class CellsFBP {
         std::string fType2;	
         int realId;
         double _ctr2ctrdist;							
-        int harvestStarts;																															
-        int fireStartsSeason;																																		
+        int harvestStarts;
+        int fireStartsSeason;
+        int burntP;
+
         int tYears;	
         std::unordered_map<int, std::vector<<int>> gMsgListSeason;
         std::unordered_map<int, double> fireProgress;	// CP: dictionary {int: double}

@@ -111,11 +111,11 @@ void CellsFBP::ros_distr(double thetafire, double forward, double flank, double 
     }
 }
         
-std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailSet, bool verbose, TYPE df, struct fuel_coeffs * coef, bool spotting, std::unordered_map<std::string, double> spottingParams, std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, std::vector<std::string> args) {
+std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailSet, bool verbose, vector<inputs> & df, struct fuel_coeffs * coef, bool spotting, std::unordered_map<std::string, double> spottingParams, std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, std::vector<std::string> args) {
     std::string repeat = "False";
     // TODO: type
     TYPE msg_list_aux = new TYPE();
-    TYPE msg_list = new TYPE();
+    std::vector<int> msg_list = new std::vector<int>();
 
     if (spotting && !this->triedToSpot) {
         this->triedToSpot = true;
@@ -126,31 +126,160 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailS
             std::cout << "SPOT10TIME:" << SpottingParams["SPOT10TIME"] << std::endl;
         }
 
+        vector<int> spot_list = SpottingFBP(Cells_Obj, CoordCells, AvailSet, df[0].WD, df[0].WS, SpottingParams, verbose);
+        std::cout << "debug: spot_list len= " << spot_list.size() << std::endl;
+
+        for (int si : spot_list) {
+            std::msg_list.push_back(si);
+        }
     }
+
+    main_outs mainstruct;
+    snd_outs sndstruct;
+    fire_struc headstruct, backstruct, flankstruct;
+
+    calculate(&(df[this->id]), coef, &mainstruct, &sndstruct, &headstruct, &flankstruct, &backstruct);
+     
+    // TODO: find a way to deal with args
+    double ROSRV = 0;
+    double ROSCV = 0;
+    // might need to set it to random normal (numpy.random.randn())
+
+    if (verbose) {
+        std::cout << "Main Angle: " << mainstruct.raz; << std::endl;
+        std::cout << "FBP Front ROS Value: " << headstruct.ros << std::endl; 
+        std::cout << " FBP Flanks ROS Value: " << flankstruct.ros << std::endl;
+        std::cout <<  "FBP Rear ROS Value: " << backstruct.ros << std:endl;
+        std::cout << "Std Normal RV for Stochastic ROS CV: " << ROSRV << std::endl;
+    }
+
+    double HROS = (1 + ROSCV * ROSRV) * headstruct.ros;
+    // TODO : args
+    if (HROS > args.ROS_Threshold && headstruct.fi > args.HFI_Threshold) {
+        String repeat = "True";
+        if (verbose) {
+            std::cout << "Repeat copndition: " << repeat << std::endl;
+            std::cout << "Cell can send messages" << std::endl;
+        }
+        
+        vector<double> toPop = vector<double>();
+        // this is a iterator through the keyset of a dictionary
+        for (auto&  _angle : this->rosAngleDir) {
+            double angle = _angle.first;
+            int nb = angleToNb[angle];
+            double ros = (1 + ROSCV * ROSRV) * _angle.second;
+
+            if (verbose) {
+                std::cout << "     (angle, realized ros in m/min): (" << angle << ", " << ros << ")" << std::endl;
+            }
+            // TODO: args
+            this->fireProgress[nb] += ros * args.input_PeriodLen
+            if (this->FireProgress[nb] >= this->distToCenter[nb]) {
+                msg_list.push_back(nb);
+                // cannot mutate ROSangleDir during iteration.. we do it like 10 lines down
+                toPop.push_back(angle);
+                if (verbose) {
+                    //fill out this verbose section
+                    std::cout << "need to fill out this verbose" << std::endl;
+                }
+            }    
+        }
+        for (double temp : toPop) {
+            this->ROSAngleDir.erase(angle); 
+        }
+
+    }
+    // TODO: your string flag passing violates type safety :| pls fix
+    // TODO
+    // TODO
+    return msg_list;
 }
     
-bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, TYPE df, struct fuel_coeffs * coef, double ROSThresh) {
+bool CellsFBP::get_burned(int period, int NMsg, int season, bool verbose, vector<inputs> & df, struct fuel_coeffs * coef, double ROSThresh) {
+    if (verbose) { 
+        std::cout << "need to fill out this verbose" << std::endl;
+    }
 
+    main_outs mainstruct;
+    snd_outs sndstruct;
+    fire_struc headstruct, backstruct, flankstruct;
+
+    calculate(&(df[this->id]), coef, &mainstruct, &sndstruct, &headstruct, &flankstruct, &backstruct);
+
+    if (verbose) { 
+        std::cout << "need to fill out this verbose" << std::endl;
+    }
+    
+    if (headstruct.ros > ROSThresh) {
+        this->status = 1;
+        this->fireStarts = period;
+        this->fireStartsSeason = season;
+        this->burntP = period
+        return true;
+    }
+
+    return false; 
 }
 
 void CellsFBP::set_Adj(std::unordered_map<std::string, std::vector<int>> & adjacentCells) {
-
+    // TODO: in python, these are pointers, maybe make these pointers too :P
+    this->adjacents = adjacentCells;
 }
 void CellsFBP::setStatus(int status_int) {
-
+    this->status = status_int;
 }
+
 std::string CellsFBP::getStatus() {
-
+    // TODO: enums, or maybe just a list
+    return "TODO FOR LATER";
 }
 
-bool CellsFBP::ignition(int period, int season, std::vector<int> ignitionPoints, TYPE df, struct fuel_coeffs * coef, double ROSThresh, double HFIThresh) {
+// TODO: check type of year
+bool CellsFBP::ignition(int period, int season, int year, std::vector<int> ignitionPoints, vector<inputs> & df, struct fuel_coeffs * coef, double ROSThresh, double HFIThresh) {
+    // TODO: verify my logic is correct
+    if (ignitionPoints.size() > 0) {
+        this->status = 1;
+        this->fireStarts = period;
+        this->fireStartsSeason = year;
+        this->burntP = period;
 
+        // TODO: attr checking at runtime
+        // i assume FI cell doesn't have to be trasnlated
+        return true;
+    } else {
+        
+        main_outs mainstruct;
+        snd_outs sndstruct;
+        fire_struc headstruct, backstruct, flankstruct;
+
+        calculate(&(df[this->id]), coef, &mainstruct, &sndstruct, &headstruct, &flankstruct, &backstruct);
+
+        if (verbose) {
+            std::cout << "need to fill out this verbose" << std::endl;
+        }
+
+        if (headstruct.ros > ROSThresh && headstruct.fi > HFIThreshold) {
+            if (verbose) {
+                std::cout << "need to fill out this verbose" << std::endl;
+            }
+
+            this->status = 1;
+            this->fireStartss = period;
+            this->fireStartsSeason = year;
+            this.burntP = period;
+
+            return true;
+        }
+        return false;
+    }
 }
 void CellsFBP::harvested(int id, int period) {
-
+    // TODO: unused param
+    this->status = 3;
+    self.harvestStarts = period;
 }
 void CellsFBP::print_info() {
-
+    std::cout << "need to fill out this verbose" << std::endl;
 }
 
 double CellsFBP::allocate(double offset, double base, double ros1, double ros2) {
