@@ -14,3 +14,4 @@ struct fuel_coeffs {
 }
 #endif 
 
+// Not using it, calling the structure from FBP5.0.h (directly)
