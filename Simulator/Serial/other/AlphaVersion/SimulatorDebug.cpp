@@ -190,7 +190,7 @@ int main(int argc, char * argv[])
 	int week_number = 1;
 	int year = 1;
 	int weatherPeriod = 0;
-	int noIgnition = -1;  		//  None = -1
+	bool noIgnition = true;  		//  None = -1
 	int messagesSent = -1; 	//  None = -1
 	int plotNumber = 1;
 	vector<int> fire_period = vector<int>(args.TotalYears, 0);
@@ -224,7 +224,7 @@ int main(int argc, char * argv[])
 		week_number = 1;
 		year = 1;
 		weatherPeriod = 0;
-		noIgnition = -1;  		//  None = -1
+		noIgnition = true;  		//  None = -1
 		messagesSent = -1; 	//  None = -1
 		plotNumber = 1;
 		
@@ -274,7 +274,7 @@ int main(int argc, char * argv[])
 				// Ignitions 
 				int aux = 0;
 				int loops = 0;
-				bool noIgnition = false;
+				noIgnition = false;
 								
 				// No Ignitions provided
 				if (args.ignitions == 0) { 
@@ -325,12 +325,14 @@ int main(int argc, char * argv[])
 									break;  
 								}
 							}
-							loops++;
-							if (loops > nCells) {
-								noIgnition = true;
-								break;
-							}
 						}
+						
+						loops++;
+						if (loops > nCells) {
+							noIgnition = true;
+							break;
+						}
+						
 
 					}
 				} 
@@ -524,7 +526,7 @@ int main(int argc, char * argv[])
 							} // TODO: side effect-less else branch
 
 							else{
-								std::cout << "\nCell" << cell <<  "does not have any neighbor available for receiving messages" << std::endl;
+								std::cout << "\nCell " << cell <<  "does not have any neighbor available for receiving messages" << std::endl;
 							}
 							
 							// If message and not a true flag 
@@ -775,30 +777,8 @@ int main(int argc, char * argv[])
 
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				break;  // For debugging KEEP IT TO RUN ONLY ONE PERIOD!!!!!! 
+	
+				//break;  // For debugging KEEP IT TO RUN ONLY ONE PERIOD!!!!!! 
 			
 		}  // End of years loop
 		
