@@ -1,0 +1,659 @@
+------------------ Simulator C Beta version ----------------------
+
+------ Command line values ------
+--verbose: 1 
+InFolder: 
+OutFolder: SimOut
+ForestFile: Forest.csv
+FBPlookup: FBPlookup.csv
+WeatherOpt: rows
+Ignitions: 0
+SaveMem: 0
+scenarios: 0
+noOutput: 0
+OutputGrid: 0
+verbose: 1
+plottrue: 0
+spotting: 0
+exceltrue: 0
+combine: 0
+MinutesPerWP: 60
+Max_Fire_Periods: 1000
+TotalYears: 4
+TotalSims: 1
+FirePeriodLen: 60
+heuristic: 0
+seed: 123
+
+------ Instance in memory initialization ------
+
+------ Read DataFrames: Forest and Weather ------
+Forest DataFrame from instance Data.csv
+ fueltype  mon  jd  m  jd_min  lat  lon  elev  ffmc  ws  waz  bui  ps  saz  pc  pdf  gfl  cur  time  pattern 
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20  NaN 
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20  NaN 
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20  NaN 
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20  NaN 
+Populating DF for cell 1
+Populating DF for cell 2
+Populating DF for cell 3
+Populating DF for cell 4
+
+Weather DataFrame from instance Weather.csv
+ Scenario  datetime  APCP  TMP  RH  WS  WD  FFMC  DMC  DC  ISI  BUI  FWI 
+ JCB  2001-10-16 13:00  0.0  17.7  20  21  270  90  43  259  10.9  60  26 
+ JCB  2001-10-16 14:00  0.0  16.9  18  25  270  90  43  259  14.9  60  32 
+ JCB  2001-10-16 15:00  0.0  16.1  20  27  270  90  43  259  17.6  60  36 
+ JCB  2001-10-16 16:00  0.0  15.8  20  37  270  90  43  259  31.1  60  51.7 
+ JCB  2001-10-16 17:00  0.0  13.9  25  43  270  90  43  259  41.5  60  61.8 
+ JCB  2001-10-16 18:00  0.0  12.1  35  45  270  90  43  259  43.9  60  63.9 
+ JCB  2001-10-16 19:00  0.0  10.6  41  46  270  90  43  259  43.6  60  63.7 
+ JCB  2001-10-16 20:00  0.0  11.3  39  18  270  90  43  259  11.5  60  27.1 
+Populating Weather DF period 1
+Populating Weather DF period 2
+Populating Weather DF period 3
+Populating Weather DF period 4
+Populating Weather DF period 5
+Populating Weather DF period 6
+Populating Weather DF period 7
+Populating Weather DF period 8
+Maximum fire periods are set to: 8 based on the weather file, Fire Period Length, and Minutes per WP
+------------------------------------------ Simulation Number: 1------------------------------------------
+
+Set information period (week 1)
+Available Cells: 4 3 2 1
+nonBurnable Cells:
+Burning Cells:
+Burnt Cells:
+Harvested Cells:
+
+----------------------------- Simulating Year 1 -----------------------------
+---------------------- Step 1: Ignition ----------------------
+aux: 0
+realCells[aux]: 1
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Available
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : -1 0 : -1 315 : -1
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 0 2 : 0 4 : 0
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+
+Weather inside ignition:
+waz: 90  ffmc: 90  bui: 60
+
+In ignition function
+Main Angle: 90
+Front ROS Value: 6.08898
+Flanks ROS Value: 1.13006
+Rear ROS Value: 0.00193258
+Head (ROS, FI) values of: (6.08898, 3455.37) are enough for ignition
+Cell 1 Ignites
+Cell 1 Status: Burning
+New ID for burning cell: 1
+
+Set information period (week 1)
+Available Cells: 4 3 2
+nonBurnable Cells:
+Burning Cells: 1
+Burnt Cells: 1
+Harvested Cells:
+Fire period updated to 1
+Current Week: 1
+Fire Period Starts: 1
+
+Current weather conditions:
+JCB 2001-10-16 13:00 0 17.7 20 21 90 90 43 259 10.9 60 26
+
+Next Fire Period: 1
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 1
+
+Set information period (week 1)
+Available Cells: 4 3 2
+nonBurnable Cells:
+Burning Cells: 1
+Burnt Cells: 1
+Harvested Cells:
+-------------------- Cleaning step (angles) ------------------------
+--------------------------------------------------------------------
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : -1 0 : -1 315 : -1
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 0 2 : 0 4 : 0
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+Main Angle (raz): 90 Cartesian: 0
+FBP Front ROS Value: 6.08898
+FBP Flanks ROS Value: 1.13006
+FBP Rear ROS Value: 0.00193258
+Std Normal RV for Stochastic ROS CV: 0
+
+Sending message conditions
+HROS: 6.08898 Threshold: 0.1
+HeadStruct FI: 3455.37 Threshold: 0.1
+
+Repeat condition: -100
+Cell can send messages
+     (angle, realized ros in m/min): (270, 1.13006)
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : 1.13006 0 : 6.08898 315 : 3.60952
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 67.8033 2 : 0 4 : 0
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+     (angle, realized ros in m/min): (0, 6.08898)
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : 1.13006 0 : 6.08898 315 : 3.60952
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 67.8033 2 : 365.339 4 : 0
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+     (angle, realized ros in m/min): (315, 3.60952)
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : 1.13006 0 : 6.08898 315 : 3.60952
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 67.8033 2 : 365.339 4 : 216.571
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+ ----------------- End of new manageFire function -----------------
+
+List is not empty
+Message list content
+  Fire reaches the center of the cell 2  Distance to cell (in meters) was 100.0 
+  Fire reaches the center of the cell 4  Distance to cell (in meters) was 100.0 
+
+Set information period (week 1)
+Available Cells: 4 3 2
+nonBurnable Cells:
+Burning Cells: 1
+Burnt Cells: 1
+Harvested Cells:
+Number of messages: 2
+
+DEBUGGING GLOBALMESSAGESLIST!!!!!!
+CELL 4 inside global message list 
+CELL 2 inside global message list 
+
+
+WE ARE DEBUGGING!!!! CELL TO BE ANALYZED GET BURNT IS 4
+
+ Re-check NUMBER OF CELL!!!!! 4
+ROS Threshold get_burned method
+ROSThresh0.1
+Main Angle:90
+Front ROS Value:6.08898
+Flanks ROS Value:1.13006
+Rear ROS Value:0.00193258
+
+Cell 4 got burnt (1 true, 0 false): 1
+
+
+WE ARE DEBUGGING!!!! CELL TO BE ANALYZED GET BURNT IS 2
+
+ Re-check NUMBER OF CELL!!!!! 2
+ROS Threshold get_burned method
+ROSThresh0.1
+Main Angle:90
+Front ROS Value:6.08898
+Flanks ROS Value:1.13006
+Rear ROS Value:0.00193258
+
+Cell 2 got burnt (1 true, 0 false): 1
+
+Set information period (week 1)
+Available Cells: 3
+nonBurnable Cells:
+Burning Cells: 4 2 1
+Burnt Cells: 4 2 1
+Harvested Cells:
+
+Weather has been updated
+JCB 2001-10-16 14:00 0 16.9 18 25 90 90 43 259 14.9 60 32
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 2
+
+Set information period (week 1)
+Available Cells: 3
+nonBurnable Cells:
+Burning Cells: 4 2 1
+Burnt Cells: 4 2 1
+Harvested Cells:
+-------------------- Cleaning step (angles) ------------------------
+Cell 2: clearing ROSAngleDir
+Cell 4: clearing ROSAngleDir
+--------------------------------------------------------------------
+Cell Information
+ID = 3
+In Forest ID = 4
+Status = Burning
+Coordinates: 1 0
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:-1 NE:-1 W:3 E:-1 S:-1 NW:1 N:2
+Angle Dict:  2 : 90 1 : 135 3 : 180
+Ros Angle Dict:  180 : -1
+angleToNb Dict:  90 : 2 135 : 1 180 : 3
+fireProgress Dict:  2 : 0 1 : 0 3 : 0
+distToCenter Dict:  2 : 100 1 : 141.421 3 : 100
+Main Angle (raz): 90 Cartesian: 0
+FBP Front ROS Value: 10.6947
+FBP Flanks ROS Value: 1.67073
+FBP Rear ROS Value: 0.000811334
+Std Normal RV for Stochastic ROS CV: 0
+
+Sending message conditions
+HROS: 10.6947 Threshold: 0.1
+HeadStruct FI: 6608.23 Threshold: 0.1
+
+Repeat condition: -100
+Cell can send messages
+     (angle, realized ros in m/min): (180, 0.000811334)
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+Cell Information
+ID = 3
+In Forest ID = 4
+Status = Burning
+Coordinates: 1 0
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:-1 NE:-1 W:3 E:-1 S:-1 NW:1 N:2
+Angle Dict:  2 : 90 1 : 135 3 : 180
+Ros Angle Dict:  180 : 0.000811334
+angleToNb Dict:  90 : 2 135 : 1 180 : 3
+fireProgress Dict:  2 : 0 1 : 0 3 : 0.04868
+distToCenter Dict:  2 : 100 1 : 141.421 3 : 100
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+ ----------------- End of new manageFire function -----------------
+Cell Information
+ID = 1
+In Forest ID = 2
+Status = Burning
+Coordinates: 1 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:3 SE:-1 NE:-1 W:1 E:-1 S:4 NW:-1 N:-1
+Angle Dict:  4 : 270 1 : 180 3 : 225
+Ros Angle Dict:  225 : -1
+angleToNb Dict:  270 : 4 180 : 1 225 : 3
+fireProgress Dict:  4 : 0 1 : 0 3 : 0
+distToCenter Dict:  4 : 100 1 : 100 3 : 141.421
+Main Angle (raz): 90 Cartesian: 0
+FBP Front ROS Value: 10.6947
+FBP Flanks ROS Value: 1.67073
+FBP Rear ROS Value: 0.000811334
+Std Normal RV for Stochastic ROS CV: 0
+
+Sending message conditions
+HROS: 10.6947 Threshold: 0.1
+HeadStruct FI: 6608.23 Threshold: 0.1
+
+Repeat condition: -100
+Cell can send messages
+     (angle, realized ros in m/min): (225, 0.835772)
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+Cell Information
+ID = 1
+In Forest ID = 2
+Status = Burning
+Coordinates: 1 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:3 SE:-1 NE:-1 W:1 E:-1 S:4 NW:-1 N:-1
+Angle Dict:  4 : 270 1 : 180 3 : 225
+Ros Angle Dict:  225 : 0.835772
+angleToNb Dict:  270 : 4 180 : 1 225 : 3
+fireProgress Dict:  4 : 0 1 : 0 3 : 50.1463
+distToCenter Dict:  4 : 100 1 : 100 3 : 141.421
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+A Repeat = TRUE flag is sent in order to continue with the current fire.....
+Main workaround of the new sim logic.....
+ ----------------- End of new manageFire function -----------------
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : 1.13006
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 67.8033 2 : 365.339 4 : 216.571
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+Main Angle (raz): 90 Cartesian: 0
+FBP Front ROS Value: 10.6947
+FBP Flanks ROS Value: 1.67073
+FBP Rear ROS Value: 0.000811334
+Std Normal RV for Stochastic ROS CV: 0
+
+Sending message conditions
+HROS: 10.6947 Threshold: 0.1
+HeadStruct FI: 6608.23 Threshold: 0.1
+
+Repeat condition: -100
+Cell can send messages
+     (angle, realized ros in m/min): (270, 1.67073)
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict:  270 : 1.67073
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 168.047 2 : 365.339 4 : 216.571
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+
+
+ IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE 
+
+ ----------------- End of new manageFire function -----------------
+
+List is not empty
+Message list content
+  Fire reaches the center of the cell 3  Distance to cell (in meters) was 100.0 
+
+Set information period (week 1)
+Available Cells: 3
+nonBurnable Cells:
+Burning Cells: 4 2 1
+Burnt Cells: 4 2 1
+Harvested Cells:
+Number of messages: 1
+Messages have been sent, next step. Current period: 2
+
+DEBUGGING GLOBALMESSAGESLIST!!!!!!
+CELL 3 inside global message list 
+
+
+WE ARE DEBUGGING!!!! CELL TO BE ANALYZED GET BURNT IS 3
+
+ Re-check NUMBER OF CELL!!!!! 3
+ROS Threshold get_burned method
+ROSThresh0.1
+Main Angle:90
+Front ROS Value:10.6947
+Flanks ROS Value:1.67073
+Rear ROS Value:0.000811334
+
+Cell 3 got burnt (1 true, 0 false): 1
+
+Set information period (week 1)
+Available Cells:
+nonBurnable Cells:
+Burning Cells: 3 4 2 1
+Burnt Cells: 3 4 2 1
+Harvested Cells:
+
+Weather has been updated
+JCB 2001-10-16 15:00 0 16.1 20 27 90 90 43 259 17.6 60 36
+
+---------------------- Step 2: Sending Messages from Ignition ----------------------
+Current Week: 1
+Current Fire Period: 3
+
+Set information period (week 1)
+Available Cells:
+nonBurnable Cells:
+Burning Cells: 3 4 2 1
+Burnt Cells: 3 4 2 1
+Harvested Cells:
+-------------------- Cleaning step (angles) ------------------------
+Cell 2: clearing ROSAngleDir
+Cell 4: clearing ROSAngleDir
+--------------------------------------------------------------------
+Cell Information
+ID = 2
+In Forest ID = 3
+Status = Burning
+Coordinates: 0 0
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:-1 NE:2 W:-1 E:4 S:-1 NW:-1 N:1
+Angle Dict:  1 : 90 4 : 0 2 : 45
+Ros Angle Dict: 
+angleToNb Dict:  90 : 1 0 : 4 45 : 2
+fireProgress Dict:  1 : 0 4 : 0 2 : 0
+distToCenter Dict:  1 : 100 4 : 100 2 : 141.421
+
+Cell 3does not have any neighbor available for receiving messages
+
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell Information
+ID = 3
+In Forest ID = 4
+Status = Burning
+Coordinates: 1 0
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:-1 NE:-1 W:3 E:-1 S:-1 NW:1 N:2
+Angle Dict:  2 : 90 1 : 135 3 : 180
+Ros Angle Dict: 
+angleToNb Dict:  90 : 2 135 : 1 180 : 3
+fireProgress Dict:  2 : 0 1 : 0 3 : 0.04868
+distToCenter Dict:  2 : 100 1 : 141.421 3 : 100
+
+Cell 4does not have any neighbor available for receiving messages
+
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell Information
+ID = 1
+In Forest ID = 2
+Status = Burning
+Coordinates: 1 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:3 SE:-1 NE:-1 W:1 E:-1 S:4 NW:-1 N:-1
+Angle Dict:  4 : 270 1 : 180 3 : 225
+Ros Angle Dict: 
+angleToNb Dict:  270 : 4 180 : 1 225 : 3
+fireProgress Dict:  4 : 0 1 : 0 3 : 50.1463
+distToCenter Dict:  4 : 100 1 : 100 3 : 141.421
+
+Cell 2does not have any neighbor available for receiving messages
+
+Message and Aux Lists are empty; adding to BurnedOutList
+Cell Information
+ID = 0
+In Forest ID = 1
+Status = Burning
+Coordinates: 0 1
+Area = 10000
+Vol = 300
+Age = 10
+FTypes = Normal
+AdjacentCells: SW:-1 SE:4 NE:-1 W:-1 E:2 S:3 NW:-1 N:-1
+Angle Dict:  3 : 270 2 : 0 4 : 315
+Ros Angle Dict: 
+angleToNb Dict:  270 : 3 0 : 2 315 : 4
+fireProgress Dict:  3 : 168.047 2 : 365.339 4 : 216.571
+distToCenter Dict:  3 : 100 2 : 100 4 : 141.421
+
+Cell 1does not have any neighbor available for receiving messages
+
+Message and Aux Lists are empty; adding to BurnedOutList
+
+Set information period (week 1)
+Available Cells:
+nonBurnable Cells:
+Burning Cells:
+Burnt Cells: 3 4 2 1
+Harvested Cells:
+Number of messages: 0
+
+No messages during the fire period, end of year 1
+
+Set information period (week 1)
+Available Cells:
+nonBurnable Cells:
+Burning Cells:
+Burnt Cells: 3 4 2 1
+Harvested Cells:
+Next year...
+
+----------------------------- Simulating Year 3 -----------------------------
+---------------------- Step 1: Ignition ----------------------
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+Fire period updated to 1
+Current Week: 1
+Fire Period Starts: 1
+
+Current weather conditions:
+JCB 2001-10-16 13:00 0 17.7 20 21 90 90 43 259 10.9 60 26
+
+Next Fire Period: 1
+No ignition in year 3
+-------------------------------------------------------------------------
+
+                           End of the fire year 3               
+-------------------------------------------------------------------------
+
+----------------------------- Simulating Year 4 -----------------------------
+---------------------- Step 1: Ignition ----------------------
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+aux: 0
+realCells[aux]: 1
+Fire period updated to 1
+Current Week: 1
+Fire Period Starts: 1
+
+Current weather conditions:
+JCB 2001-10-16 13:00 0 17.7 20 21 90 90 43 259 10.9 60 26
+
+Next Fire Period: 1
+No ignition in year 4
+-------------------------------------------------------------------------
+
+                           End of the fire year 4               
+-------------------------------------------------------------------------
