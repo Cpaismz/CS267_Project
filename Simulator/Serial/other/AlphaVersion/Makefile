@@ -35,5 +35,4 @@ Lightning.o: Lightning.cpp Lightning.h
 
 	
 clean:
-
-
+	rm Lightning.o ReadArgs.o ReadCSV.o FBPfunc5_NoDebug.o SimulatorDebug.o CellsFBP.o SimulatorDebug CellsFBP
