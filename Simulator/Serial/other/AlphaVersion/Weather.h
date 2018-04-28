@@ -1,22 +1,12 @@
-#ifndef WEATHER
-#define WEATHER
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 
-#include <string>
-
-class Weather {
-    public:
-        Weather(string wdf_path);
-        void set_columns(TYPE df, TYPE Row);
-        void set_columns(TYPE df, TYPE datetime); // TODO: hopefully datetime has a different type than Row :P
-
-        void update_Weather_FBP(TYPE df, string weatherOpt);        //CP: void type
-        void print_info();
-    private:
-        int TODO;
-
-};
-
-#endif
-
-
-// This class requires a re-design.. Will check it
+ typedef struct
+   { std::string scenario, datetime;
+      float apcp, tmp, rh, ws, ffmc, dmc, dc, isi, bui, fwi;
+      int waz;
+   } weatherDF;
+   
+   
+   

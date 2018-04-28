@@ -16,7 +16,7 @@ using namespace std;
 
 class Lightning {
     public:
-		// Constructor & Methos
+		// Constructor & Methods
 		Lightning();
         int Lambda_Simple_Test(int period);
         bool Lambda_NH(int period, bool verbose);

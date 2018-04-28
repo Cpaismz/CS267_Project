@@ -50,10 +50,3 @@ bool Lightning::Lambda_H(int period, bool verbose) {
 
     return random_num > probsNoFire;
 }
-
-////////////////////////////////////////////////////////////////////////////////////
-// Main for debugging
-int main(){
-	std::cout << "Lightning has been compiled!" << std::endl;
-	return 0;
-}

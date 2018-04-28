@@ -1,5 +1,5 @@
-#ifndef CELLSFBP
-#define CELLSFBP
+#ifndef CELLSALONE
+#define CELLSALONE
 
 // include stuff
 #include "FBP5.0.h"
@@ -81,8 +81,9 @@ class CellsFBP {
 		
 		std::string getStatus();
 		
-		bool ignition(int period, int year, std::vector<int> ignitionPoints, inputs df[],   // WORKING CHECK OK
-						   fuel_coefs * coef, arguments *args, weatherDF * wdf_ptr);
+		bool ignition(int period, int season, int year, std::vector<int> ignitionPoints, inputs df[], 
+						  fuel_coefs * coef, double ROSThreshold, double HFIThreshold, bool verbose,
+						  weatherDF * wdf_ptr);
 						  
 		void harvested(int id, int period);
 		
