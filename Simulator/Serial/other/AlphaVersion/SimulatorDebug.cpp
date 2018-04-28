@@ -163,7 +163,7 @@ int main(int argc, char * argv[])
 	
 	/*  Ignitions */
 	int IgnitionYears;
-	std::vector<int> IgnitionPoints{4,4,4,4};   //HACK: HARD CODED FOR OUT OF SCOPE
+	std::vector<int> IgnitionPoints;   //HACK: HARD CODED FOR OUT OF SCOPE
 	
 	if(args.ignitions){
 		std::cout << "\nWe have specific ignition points:" << std::endl;
@@ -184,7 +184,7 @@ int main(int argc, char * argv[])
 		std::cout << "Setting TotalYears to " << args.TotalYears << " for consistency with Ignitions file" << std::endl;
 		
 		// Ignition points 
-		std::vector<int> IgnitionPoints(IgnitionYears, 0);
+		IgnitionPoints = std::vector<int>(IgnitionYears, 0);
 		CSVIgnitions.parseIgnitionDF(IgnitionPoints, IgnitionsDF, IgnitionYears);
 	}
 	
