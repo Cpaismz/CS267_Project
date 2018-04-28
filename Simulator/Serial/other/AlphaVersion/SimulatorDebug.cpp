@@ -572,11 +572,13 @@ int main(int argc, char * argv[])
 						
 						
 						// Check for burnt out updates via sets' difference
-						std::unordered_set<int> tempBurningSet;
-						std::set_difference(burningCells.begin(), burningCells.end(), burnedOutList.begin(), burnedOutList.end(),
-													std::inserter(tempBurningSet, tempBurningSet.begin()));
-						// this won't scale
-						burningCells = tempBurningSet;
+                        for(auto &bc : burnedOutList){
+                            auto lt = burningCells.find(bc);
+                            if (lt != burningCells.end()) { 
+                                burningCells.erase(bc);
+                            }
+                        }
+
 						printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
 
 						// Number of messages received per cell 
@@ -624,10 +626,10 @@ int main(int argc, char * argv[])
 							week_number = 1;
 							weatherPeriod = 0;
 							
-							// Update sets 
-							std::unordered_set<int> tempBurntCells;
-							std::set_union(burntCells.begin(), burntCells.end(), burningCells.begin(), burningCells.end(), std::inserter(tempBurntCells, tempBurntCells.begin()));
-							burntCells = tempBurntCells;
+							// Update sets
+                            for(auto &bc : burningCells){
+                                burntCells.insert(bc);
+                            }
 							burningCells = std::unordered_set<int>();
 							
 							printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
@@ -727,17 +729,24 @@ int main(int argc, char * argv[])
 							
 						
 							// Update sets (TODO: optimize)
-							std::unordered_set<int> tempSet;
-							std::set_union(burntList.begin(), burntList.end(), burntCells.begin(), burntCells.end(),  std::inserter(tempSet, tempSet.begin()));
-							std::set_union(tempSet.begin(), tempSet.end(), burnedOutList.begin(), burnedOutList.end(), std::inserter(burntCells, burntCells.begin()));
+
+                            for(auto &bc : burntList) {
+                                burntCells.insert(bc);
+                            }
+
+                            for(auto &bc : burnedOutList) {
+                                burntCells.insert(bc);
+                            }
 							
-							tempSet = unordered_set<int>();
-							std::set_union(burntList.begin(), burntList.end(), burningCells.begin(), burningCells.end(), std::inserter(tempSet, tempSet.begin()));
-							burningCells = tempSet;
-							
+                            for(auto &bc : burntList) {
+                                burningCells.insert(bc);
+                            }
+
 							for(auto &bc : burningCells){
 								auto lt = availCells.find(bc);
-								if (lt != availCells.end()) availCells.erase(bc);
+								if (lt != availCells.end()) {
+                                    availCells.erase(bc);
+                                }
 							}
 							
 							// Display info for debugging
