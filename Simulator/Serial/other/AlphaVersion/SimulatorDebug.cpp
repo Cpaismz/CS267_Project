@@ -48,6 +48,13 @@ void printSets(int week_number, std::unordered_set<int> availCells, std::unorder
 	}
 	std::cout << std::endl;
 	
+	std::cout << "Burnt Cells:";
+	for (auto & bc : burntCells){
+			std::cout << " " << bc;
+	}
+	std::cout << std::endl;
+	
+	
 	std::cout << "Harvested Cells:";
 	for (auto & hc : harvestCells){
 			std::cout << " " << hc;
@@ -60,11 +67,11 @@ void printSets(int week_number, std::unordered_set<int> availCells, std::unorder
 */
 int main(int argc, char * argv[])
 {
-	/*
+	/********************************************************************
 	*
 	*															Initialization steps
 	*
-	*/
+	********************************************************************/
 	std::cout << "------------------ Simulator C Beta version ----------------------\n" << std::endl;
 	/*
 		      Command line arguments (all of them inside args structure)
@@ -75,23 +82,23 @@ int main(int argc, char * argv[])
 	parseArgs(argc, argv, args_ptr);
 	printArgs(args);
 	
-	/*
-		Initialize fuel coefficients for FBP
-	*/
+	/********************************************************************
+										Initialize fuel coefficients for FBP
+	********************************************************************/
 	fuel_coefs coefs[18];	
 	fuel_coefs* coef_ptr = &coefs[0];
 	setup_const(coef_ptr);
 	
-	/*
-		Global Values (Forest) and Instance (in memory for the moment)
-	*/
+	/********************************************************************
+					Global Values (Forest) and Instance (in memory for the moment)
+	********************************************************************/
 	std::cout << "\n------ Instance in memory initialization ------\n";	
 	int max_weeks = 12;
 	int sim = 1;
 		
-	/*
-	    Instance in memory (4 cells = 2 x 2 grid)
-	*/
+	/********************************************************************
+							Instance in memory (4 cells = 2 x 2 grid)
+	********************************************************************/
 	int rows = 2;
 	int cols = 2;
 	int nCells = rows * cols; 
@@ -117,10 +124,11 @@ int main(int argc, char * argv[])
     std::vector<int> statusCells = {0,0,0,0};
     std::vector<int> realCells = {1,2,3,4};
 	
-	/*
+	/********************************************************************
 		Dataframes initialization: Forest and Weather
-	*/
+	********************************************************************/
 	std::cout << "\n------ Read DataFrames: Forest and Weather ------\n";
+	
 	/* Forest DataFrame */
 	std::string filename = args.InFolder + "Data.csv";
 	std::string sep = ",";
@@ -181,17 +189,17 @@ int main(int argc, char * argv[])
 	}
 	
 	
-	/*
+	/********************************************************************
 	*
 	*												Global Parameters for loop 
 	*
-	*/
+	*********************************************************************/
 	// Global parameters for the loop
 	int week_number = 1;
 	int year = 1;
 	int weatherPeriod = 0;
 	bool noIgnition = true;  		//  None = -1
-	int messagesSent = -1; 	//  None = -1
+	//bool messagesSent = false;   //  None = -1
 	int plotNumber = 1;
 	vector<int> fire_period = vector<int>(args.TotalYears, 0);
 	
@@ -212,11 +220,11 @@ int main(int argc, char * argv[])
 	 // aux indexes
 	 int i;
 	
-	/*
+	/***************************************************************************************************************************************
 	*
-	*												Main Simulation loop: Number of replications (nsims)
+	*																				Main Simulation loop: Number of replications (nsims)
 	*
-	*/
+	***************************************************************************************************************************************/
 	while (sim <= args.TotalSims){
 		std::cout << "------------------------------------------ Simulation Number: " << sim << "------------------------------------------" << std::endl;
 		
@@ -225,7 +233,7 @@ int main(int argc, char * argv[])
 		year = 1;
 		weatherPeriod = 0;
 		noIgnition = true;  		//  None = -1
-		messagesSent = -1; 	//  None = -1
+		//messagesSent = false; 	//  None = -1
 		plotNumber = 1;
 		
 		// Cells dictionary
@@ -251,11 +259,11 @@ int main(int argc, char * argv[])
 		}
 		
 		
-		/*
+		/***************************************************************************************************************************************
 		*
-		*												Main Simulation loop: Specific replication (Years)
+		*																							Main Simulation loop: Specific replication (Years)
 		*
-		*/
+		***************************************************************************************************************************************/
 		while (year <= args.TotalYears){
 				// Check current year
 				if (args.verbose) {
@@ -265,11 +273,11 @@ int main(int argc, char * argv[])
 				// TODO: Savemem
 				
 				
-				/*
+				/*******************************************************************
 				*
 				*												Step 1: Ignition 
 				*
-				*/
+				*******************************************************************/
 			
 				// Ignitions 
 				int aux = 0;
@@ -341,13 +349,14 @@ int main(int argc, char * argv[])
 				else {
 				int temp = IgnitionPoints[year-1];
 				
+					// If cell is available 
 					if (burntCells.find(temp) == burntCells.end() && statusCells[temp - 1] != 4) {
 						if (Cells_Obj.find(temp - 1) == Cells_Obj.end()) {
 						
 							// Initialize cell, insert it inside the unordered map
 							CellsFBP Cell(temp-1, areaCells,  coordCells[temp-1],  ageCells,  fTypeCells[temp-1],  fTypeCells2[temp-1], 
-														 volCells, perimeterCells, statusCells[temp-1], adjCells[temp-1], colors[temp-1], temp, 
-														 args.OutputGrid);
+												volCells, perimeterCells, statusCells[temp-1], adjCells[temp-1], colors[temp-1], temp, 
+												args.OutputGrid);
 							Cells_Obj.insert(std::make_pair(temp-1, Cell));							 
 															
 							// Get object from unordered map
@@ -357,15 +366,15 @@ int main(int argc, char * argv[])
 							it->second.initializeFireFields(coordCells, availCells);
 						}
 						
+						// Not available or non burnable: no ignition
 						if (it->second.getStatus() != "Available" || it->second.fType == 0) {
 							noIgnition = true;
 						}
-
+						
+						// Available anr Burnable: ignition
 						if (it->second.getStatus() == "Available" && it->second.fType != 0) {
-							
 							if (it->second.ignition(fire_period[year - 1], year, {temp}, df, coef_ptr, args_ptr, &wdf[weatherPeriod])) {
 									// TODO: outputgrid
-									
 									
 									//Printing info about ignitions        
 									if (args.verbose){
@@ -382,7 +391,7 @@ int main(int argc, char * argv[])
 					} else {
 						noIgnition = true;
 						if (args.verbose){
-							std::cout << "No ignition during year " << year << ", cell" << IgnitionPoints[year-1] << "is already burnt or non-burnable type" << std::endl;
+							std::cout << "No ignition during year " << year << ", Cell " << IgnitionPoints[year-1] << " is already burnt or non-burnable type" << std::endl;
 						}
 					}
                 }
@@ -396,6 +405,7 @@ int main(int argc, char * argv[])
 					burntCells.insert(newId);
 					availCells.erase(newId);
 					
+					// Print sets information
 					if (args.verbose){
 						printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
 					}
@@ -434,7 +444,7 @@ int main(int argc, char * argv[])
 				// If no ignition occurs, go to next year (no multiple ignitions per year, only one)
 				if(noIgnition){
 					if (args.verbose){
-						std::cout << "No ignition in year" << year << std::endl;
+						std::cout << "No ignition in year " << year << std::endl;
 						std::cout << "-------------------------------------------------------------------------\n" << std::endl;
 						std::cout << "                           End of the fire year " << year << "               "  << std::endl;
 						std::cout << "-------------------------------------------------------------------------" << std::endl;
@@ -716,16 +726,20 @@ int main(int argc, char * argv[])
 							}
 							
 						
-							// Update sets (TODO: optimize AND ERROR HERE!!!! CHECK)
+							// Update sets (TODO: optimize)
 							std::unordered_set<int> tempSet;
-							std::set_union(burntList.begin(), burntList.end(), burntCells.begin(), burntCells.end(), std::inserter(tempSet, tempSet.begin()));
+							std::set_union(burntList.begin(), burntList.end(), burntCells.begin(), burntCells.end(),  std::inserter(tempSet, tempSet.begin()));
 							std::set_union(tempSet.begin(), tempSet.end(), burnedOutList.begin(), burnedOutList.end(), std::inserter(burntCells, burntCells.begin()));
+							
 							tempSet = unordered_set<int>();
-							std::set_union(burntList.begin(), burntList.end(), burningCells.begin(), burningCells.end(), std::inserter(tempSet, tempSet.begin())); 
-							tempSet = unordered_set<int>();
-							std::set_difference(availCells.begin(), availCells.end(), burntList.begin(), burntList.end(), std::inserter(tempSet, tempSet.begin())); 
-							availCells = tempSet;
-
+							std::set_union(burntList.begin(), burntList.end(), burningCells.begin(), burningCells.end(), std::inserter(tempSet, tempSet.begin()));
+							burningCells = tempSet;
+							
+							for(auto &bc : burningCells){
+								auto lt = availCells.find(bc);
+								if (lt != availCells.end()) availCells.erase(bc);
+							}
+							
 							// Display info for debugging
 							if(args.verbose){
 								printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
@@ -794,11 +808,11 @@ int main(int argc, char * argv[])
 		
 		
 		
-		/*
+		/*****************************************************************************
 		*
 		*												Steps 4: Results and outputs 
 		*
-		*/
+		******************************************************************************/
 		for (auto & br : burntCells) {
             if (Cells_Obj.find(br-1) != Cells_Obj.end()) {
                 // Get object from unordered map
