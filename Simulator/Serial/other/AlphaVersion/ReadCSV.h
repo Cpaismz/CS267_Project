@@ -37,16 +37,16 @@ public:
 	std::vector<std::vector<std::string>> getData();
 	
 	//Print data to console (Debug)
-	void printData(std::vector<std::vector<std::string>> DF);
+	void printData(std::vector<std::vector<std::string>> & DF);
 	
 	//Populate DF 
-	void parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> DF, int NCells);
+	void parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> & DF, int NCells);
 	
 	//Populate Weather DF
-	void parseWeatherDF(weatherDF * wt_ptr, std::vector<std::vector<std::string>> DF, int WPeriods);
+	void parseWeatherDF(weatherDF * wt_ptr, std::vector<std::vector<std::string>> & DF, int WPeriods);
 	
 	// Populate Ignition Points
-	void parseIgnitionDF(std::vector<int> ig, std::vector<std::vector<std::string>> DF, int IgPeriods);
+	void parseIgnitionDF(std::vector<int> & ig, std::vector<std::vector<std::string>> & DF, int IgPeriods);
 	
 	// Prints individual cell info
 	void printDF(inputs df);

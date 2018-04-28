@@ -39,4 +39,4 @@ Forest.o: Forest.cpp Forest.h
 
 	
 clean:
-	rm Lightning.o ReadArgs.o ReadCSV.o FBPfunc5_NoDebug.o SimulatorDebug.o CellsFBP.o SimulatorDebug SpottingFBP.o Forest.o
+	rm Lightning.o ReadArgs.o ReadCSV.o FBPfunc5_NoDebug.o SimulatorDebug.o CellsFBP.o SimulatorDebug SpottingFBP.o Forest.o *.gch

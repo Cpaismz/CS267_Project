@@ -319,7 +319,8 @@ int main(int argc, char * argv[])
 							}
 
 							if (it->second.getStatus() == "Available" && it->second.fType != 0) {
-								if (it->second.ignition(fire_period[year - 1], year, {}, df, coef_ptr, args_ptr, &wdf[weatherPeriod])) {
+                                std::vector<int> ignPts = {};
+								if (it->second.ignition(fire_period[year - 1], year, ignPts, df, coef_ptr, args_ptr, &wdf[weatherPeriod])) {
 									// TODO: outputgrid
 									
 									
@@ -347,7 +348,7 @@ int main(int argc, char * argv[])
 			
 				// Ignitions with provided points from CSV
 				else {
-				int temp = IgnitionPoints[year-1];
+                    int temp = IgnitionPoints[year-1];
 				
 					// If cell is available 
 					if (burntCells.find(temp) == burntCells.end() && statusCells[temp - 1] != 4) {
@@ -373,7 +374,8 @@ int main(int argc, char * argv[])
 						
 						// Available anr Burnable: ignition
 						if (it->second.getStatus() == "Available" && it->second.fType != 0) {
-							if (it->second.ignition(fire_period[year - 1], year, {temp}, df, coef_ptr, args_ptr, &wdf[weatherPeriod])) {
+                            std::vector<int> ignPts = {temp};
+							if (it->second.ignition(fire_period[year - 1], year, ignPts, df, coef_ptr, args_ptr, &wdf[weatherPeriod])) {
 									// TODO: outputgrid
 									
 									//Printing info about ignitions        

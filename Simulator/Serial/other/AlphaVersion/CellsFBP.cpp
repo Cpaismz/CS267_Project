@@ -212,7 +212,7 @@ double CellsFBP::allocate(double offset, double base, double ros1, double ros2) 
     Cells_Obj         dictionary of cells objects
 */
         
-std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> AvailSet,      
+std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & AvailSet,      
                                                           inputs df[], fuel_coefs * coef, 
 														  std::unordered_map<std::string, double> spottingParams, 
 														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, 
@@ -471,7 +471,7 @@ std::string CellsFBP::getStatus() {		// WORKING CHECK OK
     ROSThresh         double
     HFIThreshold      double
  */
-bool CellsFBP::ignition(int period, int year, std::vector<int> ignitionPoints, inputs df[],   // WORKING CHECK OK
+bool CellsFBP::ignition(int period, int year, std::vector<int> & ignitionPoints, inputs df[],   // WORKING CHECK OK
 								 fuel_coefs * coef, arguments *args, weatherDF * wdf_ptr) {
     
 	// If we have ignition points, update

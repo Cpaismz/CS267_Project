@@ -43,7 +43,7 @@ std::vector<std::vector<std::string>> CSVReader::getData(){
 /*
 * Prints data to screen inside the DF obtained from the CSV file
 */
-void CSVReader::printData(std::vector<std::vector<std::string>> DF){
+void CSVReader::printData(std::vector<std::vector<std::string>> & DF){
 	// Print the content of row by row on screen
 	for(std::vector<std::string> vec : DF)
 	{
@@ -59,7 +59,7 @@ void CSVReader::printData(std::vector<std::vector<std::string>> DF){
 /*
 * Populates the df input objects based on the DF csv file for each row/cell
 */
-void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> DF, int NCells){
+void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> & DF, int NCells){
 	int i;
 	
 	// Floats 
@@ -145,7 +145,7 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> D
 /*
 * Populate Weather DF
 */
-void CSVReader::parseWeatherDF(weatherDF * wdf_ptr, std::vector<std::vector<std::string>> DF, int WPeriods){
+void CSVReader::parseWeatherDF(weatherDF * wdf_ptr, std::vector<std::vector<std::string>> & DF, int WPeriods){
 	int i;
 	
 	//Strings
@@ -216,7 +216,7 @@ void CSVReader::parseWeatherDF(weatherDF * wdf_ptr, std::vector<std::vector<std:
 	
 }
 
-void CSVReader::parseIgnitionDF(std::vector<int> ig, std::vector<std::vector<std::string>> DF, int IgPeriods){
+void CSVReader::parseIgnitionDF(std::vector<int> & ig, std::vector<std::vector<std::string>> & DF, int IgPeriods){
 	// Integers
 	int i, igcell;
 	std::string::size_type sz;   // alias of size_t
