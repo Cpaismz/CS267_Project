@@ -331,7 +331,10 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
             }    
         
 			// Info for deebugging status of the cell and fire evolution
+			printf("\n\n IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE \n\n");
 			this->print_info();
+			printf("\n\n IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE \n\n");
+		
 			
 			if (this->fireProgress[nb] < this->distToCenter[nb] && repeat == -100 && -100  != msg_list_aux[0]){
                     if (args->verbose){

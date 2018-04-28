@@ -56,6 +56,7 @@ void CSVReader::printData(std::vector<std::vector<std::string>> & DF){
 	}
 }
 
+
 /*
 * Populates the df input objects based on the DF csv file for each row/cell
 */
@@ -63,10 +64,10 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 	int i;
 	
 	// Floats 
-	float pdf, cur, elev, time, lat, lon, ffmc, ws, bui, gfl;
+	float pdf, cur, elev, lat, lon, ffmc, ws, bui, gfl;
 	
 	// Ints 
-	int mon, jd, jd_min, waz, ps, saz, pc; //std::stoi (DF[i][1] ,&sz);
+	int mon, jd, jd_min, waz, ps, saz, pc, time, pattern; //std::stoi (DF[i][1] ,&sz);
 	
 	// CChar
 	const char * faux;
@@ -126,6 +127,10 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 		if (DF[i][16].compare("") == 0) gfl = 0;
 		else gfl = std::stof (DF[i][16], &sz);
 		
+		if (DF[i][17].compare("") == 0) pattern = 0;
+		else pattern = std::stoi (DF[i][17], &sz);
+		
+		
 			
 		// Set values
 		strncpy(df_ptr->fueltype, faux, 4);
@@ -133,7 +138,7 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 		df_ptr->lat=lat; df_ptr->lon=lon; df_ptr->elev=elev; df_ptr->ffmc=ffmc;
 		df_ptr->ws=ws; df_ptr->waz=waz; df_ptr->bui=bui; df_ptr->ps=ps;
 		df_ptr->saz=saz; df_ptr->pc=pc; df_ptr->pdf=pdf; df_ptr->gfl=gfl; 
-		df_ptr->cur=cur; df_ptr->time=time;
+		df_ptr->cur=cur; df_ptr->time=time;df_ptr->pattern=pattern;
 			
 		// Next pointer
 		df_ptr++;
@@ -242,7 +247,8 @@ void CSVReader::printDF(inputs df){
 	std::cout << " " << df.elev; std::cout << " " << df.ffmc; std::cout << " " << df.ws;
 	std::cout << " " << df.waz; std::cout << " " << df.bui; std::cout << " " << df.ps;
 	std::cout << " " << df.saz; std::cout << " " << df.pc; std::cout << " " << df.pdf;
-	std::cout << " " << df.gfl; std::cout << " " << df.cur; std::cout << " " << df.time << std::endl;
+	std::cout << " " << df.gfl; std::cout << " " << df.cur; std::cout << " " << df.time;
+	std::cout << " " << df.pattern << std::endl;
 }
 
 void CSVReader::printWeatherDF(weatherDF wdf){
