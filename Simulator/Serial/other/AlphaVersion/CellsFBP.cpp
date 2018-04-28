@@ -215,7 +215,7 @@ double CellsFBP::allocate(double offset, double base, double ros1, double ros2) 
 std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & AvailSet,      
                                                           inputs df[], fuel_coefs * coef, 
 														  std::unordered_map<std::string, double> spottingParams, 
-														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, 
+														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> & Cells_Obj, 
 														  arguments * args, weatherDF * wdf_ptr) 
 	{
 	// Special flag for repetition (False = -99 for the record)
@@ -241,7 +241,7 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
             std::cout << "SPOT0PROB:" << spottingParams["SPOT0PROB"] << std::endl;
             std::cout << "SPOT10TIME:" << spottingParams["SPOT10TIME"] << std::endl;
         }
-
+        
         vector<int> spot_list = SpottingFBP(Cells_Obj, coordCells, AvailSet, df[this->id].waz, df[this->id].ws, spottingParams, args->verbose);
         std::cout << "debug: spot_list len= " << spot_list.size() << std::endl;
 
@@ -330,10 +330,6 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
                 }*/
             }    
         
-			for (double temp : toPop) {
-				this->ROSAngleDir.erase(angle); 
-			}
-			
 			// Info for deebugging status of the cell and fire evolution
 			this->print_info();
 			
@@ -346,6 +342,11 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
 			}
 						
 		}
+
+        for (double temp : toPop) {
+            this->ROSAngleDir.erase(temp);
+        }
+			
 		
 
     }

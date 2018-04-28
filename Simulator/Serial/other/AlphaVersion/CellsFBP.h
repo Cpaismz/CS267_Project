@@ -69,7 +69,7 @@ class CellsFBP {
         std::vector<int> manageFire(int period, std::unordered_set<int> & AvailSet,      
                                                           inputs df[], fuel_coefs * coef, 
 														  std::unordered_map<std::string, double> spottingParams, 
-														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> Cells_Obj, 
+														  std::vector<std::vector<int>> & coordCells, std::unordered_map<int, CellsFBP> & Cells_Obj, 
 														  arguments * args, weatherDF * wdf_ptr);
 		
 		bool get_burned(int period, int NMsg, int season, inputs df[],  
