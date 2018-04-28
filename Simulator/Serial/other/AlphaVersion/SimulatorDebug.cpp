@@ -686,28 +686,37 @@ int main(int argc, char * argv[])
 							    // TODO: plot
 							
 							// Get burnt loop
+							printf("\nDEBUGGING GLOBALMESSAGESLIST!!!!!!\n");
+							for (auto & _bc : globalMessagesList) {
+								printf("CELL %d inside global message list \n", _bc.first);
+							}
+							
+							
 							std::unordered_set<int> burntList;
 							bool checkBurnt;
 							for (auto & _bc : globalMessagesList) {
+								printf("\n\nWE ARE DEBUGGING!!!! CELL TO BE ANALYZED GET BURNT IS %d\n", _bc.first);
 								int bc = _bc.first;
+								printf("\n Re-check NUMBER OF CELL!!!!! %d\n", bc);
 								if (burntCells.find(bc) == burntCells.end()) {
 									if (Cells_Obj.find(bc - 1) == Cells_Obj.end()) {
 										
-									// Initialize cell, insert it inside the unordered map
-									CellsFBP Cell(bc-1, areaCells,  coordCells[bc-1],  ageCells,  fTypeCells[bc-1],  fTypeCells2[bc-1], 
-														volCells, perimeterCells, statusCells[bc-1], adjCells[bc-1], colors[bc-1], bc, 
-														args.OutputGrid);
-									
-									Cells_Obj.insert(std::make_pair(bc-1, Cell));							 
-																	
-									// Get object from unordered map
-									it = Cells_Obj.find(bc-1);
-									
-									// Initialize the fire fields for the selected cel
-									it->second.initializeFireFields(coordCells, availCells);
+										// Initialize cell, insert it inside the unordered map
+										CellsFBP Cell(bc-1, areaCells,  coordCells[bc-1],  ageCells,  fTypeCells[bc-1],  fTypeCells2[bc-1], 
+															volCells, perimeterCells, statusCells[bc-1], adjCells[bc-1], colors[bc-1], bc, 
+															args.OutputGrid);
+										
+										Cells_Obj.insert(std::make_pair(bc-1, Cell));							 
+																		
+										// Get object from unordered map
+										it = Cells_Obj.find(bc-1);
+										
+										// Initialize the fire fields for the selected cel
+										it->second.initializeFireFields(coordCells, availCells);
 									
 									}
-									
+									else  it = Cells_Obj.find(bc-1);
+										
 									// Check if burnable, then check potential ignition
 									if (it->second.fType != 0) {
 										checkBurnt = it->second.get_burned(fire_period[year-1], globalMessagesList[bc-1], year, df, coef_ptr, args_ptr, &wdf[weatherPeriod]);

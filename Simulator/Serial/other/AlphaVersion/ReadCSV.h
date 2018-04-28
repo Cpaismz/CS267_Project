@@ -10,6 +10,9 @@
 #include <string>
 #include <algorithm>
 #include <boost/algorithm/string.hpp>
+#include <unordered_map>
+#include <unordered_set>
+
  
 /*
 *   Weather structure
@@ -20,6 +23,15 @@ typedef struct
       int waz;
    } weatherDF;
    
+ /*
+*   Forest structure
+*/
+typedef struct
+   { int cellside, rows, cols; 
+      std::vector<std::unordered_map<std::string, int>> adjCells;
+	  std::vector<std::vector<int>> coordCells;
+   } forestDF;
+
  
 /*
  * A class to read data from a csv file.
@@ -47,6 +59,9 @@ public:
 	
 	// Populate Ignition Points
 	void parseIgnitionDF(std::vector<int> & ig, std::vector<std::vector<std::string>> & DF, int IgPeriods);
+	
+	// Populates ForestDF
+	void parseForestDF(forestDF * frt_ptr, std::vector<std::vector<std::string>> & DF);
 	
 	// Prints individual cell info
 	void printDF(inputs df);

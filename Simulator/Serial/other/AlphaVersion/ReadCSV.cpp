@@ -7,6 +7,8 @@
 #include <iterator>
 #include <string>
 #include <algorithm>
+#include <unordered_map>
+#include <unordered_set>
 #include <boost/algorithm/string.hpp>
  
 /*
@@ -240,6 +242,173 @@ void CSVReader::parseIgnitionDF(std::vector<int> & ig, std::vector<std::vector<s
 	
 	
 }
+
+void CSVReader::parseForestDF(forestDF * frt_ptr, std::vector<std::vector<std::string>> & DF){
+	// Ints 
+	int cellside, rows, cols;
+	int i, j;
+	
+	// Others 
+	std::vector<std::unordered_map<std::string, int>> adjCells;
+ 	std::string::size_type sz;   // alias of size_t
+	std::vector<std::vector<int>> coordCells;
+	std::unordered_map<std::string, int> Aux;
+	std::vector<int> Aux2;
+	
+	std::string North = "N";
+    std::string South = "S";
+    std::string East = "E";
+    std::string West = "W";
+    std::string NorthEast = "NE";
+    std::string NorthWest = "NW";
+    std::string SouthEast = "SE";
+    std::string SouthWest = "SW";
+	
+	// Filling DF
+	printf("Populating Forest DF\n");
+	cols = std::stoi (DF[0][1], &sz);
+	rows = std::stoi (DF[1][1], &sz);
+	cellside = std::stoi (DF[4][1], &sz);
+	
+	printf("cols: %d,  rows:  %d,   cellside:  %d\n", cols, rows, cellside);
+	
+	// CoordCells and Adjacents
+	int n = 1; 
+	int r, c;
+	for (r=0; r<rows; r++){
+		for (c=0; c < cols; c++){
+			
+			/*   CoordCells  */
+			Aux2 = std::vector<int>();
+			Aux2.push_back(c); 
+            Aux2.push_back(rows-r-1);   
+			coordCells.push_back(Aux2);                    
+			//printf("i,j = %d,%d\n", r,c);
+			//std::cout << "x: " << coordCells[c + r*(cols)][0] <<  "  y: " << coordCells[c + r*(cols)][1]  <<   std::endl;
+					
+			/*   Adjacents  */
+			// if we have rows (not a forest = line)
+			if (rows>1){
+				
+				// Initial row
+				if(r == 0){
+					
+					if (c == 0){
+                        Aux = {{North,-1},{NorthEast,-1},{NorthWest,-1},{South,n+cols},{SouthEast,n+cols+1}, 
+							        {SouthWest,-1}, {East,n+1},{West,-1}};
+                        adjCells.push_back(Aux);
+						n++;
+					}
+                    if (c == cols - 1){
+                        Aux = {{North,-1},{NorthEast,-1},{NorthWest,-1},{South, n+cols},{SouthEast,-1},
+										{SouthWest, n+cols-1,}, {East,-1}, {West,n-1}};
+						adjCells.push_back(Aux);
+                        n++;
+					}
+                    if (c > 0 && c < cols-1){    
+                        Aux = {{North, -1},{NorthEast,-1},{NorthWest,-1},{South,n+cols},{SouthEast,n+cols+1}, 
+									{SouthWest, n+cols-1}, {East, n+1},{West,n-1}};
+						adjCells.push_back(Aux);
+						n++;
+					}
+				}
+				
+				// In between
+				if (r > 0 && r < rows - 1){
+                    if (c == 0){
+                        Aux = {{North, n-cols} , {NorthEast, n-cols+1 }, {NorthWest,-1}, {South, n+cols}, 
+									{SouthEast, n+cols+1} , {SouthWest,-1}, {East, n+1} ,{West,-1}};
+						adjCells.push_back(Aux);
+                        n++;
+					}
+                    if (c == cols-1){
+                        Aux = {{North, n-cols}, {NorthEast,-1}, {NorthWest, n-cols-1},{South, n+cols}, 
+									{SouthEast,-1}, {SouthWest, n+cols-1}, {East,-1}, {West, n-1}};
+                        adjCells.push_back(Aux);
+						n++;
+					}
+                    if (c>0 && c<cols-1){    
+                        Aux = {{North, n-cols}, {NorthEast, n-cols+1} , {NorthWest, n-cols-1}, {South, n+cols}, 
+									{SouthEast, n+cols+1} , {SouthWest, n+cols-1}, {East, n+1}, {West, n-1}};
+						adjCells.push_back(Aux);
+                        n++;    
+					}
+				}
+				
+				// Final row
+				if (r == rows-1){
+                    if (c == 0){
+                        Aux = {{North,n-cols}, {NorthEast,n-cols+1}, {NorthWest,-1}, {South,-1}, {SouthEast,-1}, 
+									{SouthWest,-1,}, {East,n+1}, {West,-1}};
+						adjCells.push_back(Aux);				 
+                        n++;    
+					}
+                        
+                    if (c == cols-1){
+                        Aux = {{North,n-cols}, {NorthEast,-1}, {NorthWest,n-cols-1}, {South,-1}, {SouthEast,-1}, 
+									{SouthWest,-1}, {East,-1}, {West,n-1}};
+						adjCells.push_back(Aux);
+                        n++;    
+					}
+                    if (c>0 and c<cols-1){    
+                        Aux = {{North,n-cols}, {NorthEast, n-cols+1}, {NorthWest,n-cols-1}, {South,-1}, 
+									{SouthEast,-1} , {SouthWest,-1}, {East,n+1}, {West,n-1}};
+						adjCells.push_back(Aux);
+						n++;    
+					}
+				
+				}
+			}	
+				
+			// One line
+			if (rows == 1){
+				if (c == 0){
+					Aux = {{North,-1}, {NorthEast,-1}, {NorthWest,-1}, {South,-1}, {SouthEast,-1}, 
+								{SouthWest,-1}, {East,n+1}, {West,-1}};
+					adjCells.push_back(Aux);
+					n++;    
+				}
+				if (c == cols-1){
+					Aux = {{North,-1}, {NorthEast,-1}, {NorthWest,-1}, {South,-1}, {SouthEast,-1}, 
+								{SouthWest,-1}, {East,-1},{West,n-1}};
+					adjCells.push_back(Aux);
+					n++;    
+				}
+				if (c>0 && c<cols-1){						
+					Aux = {{North,-1}, {NorthEast,-1}, {NorthWest,-1}, {South,-1}, {SouthEast,-1}, 
+								{SouthWest,-1}, {East,n+1}, {West,n-1}};
+					adjCells.push_back(Aux);
+					n++;    
+				}
+			}
+		}
+	}
+	
+	
+	/*
+	// Adjacents cells
+	for (i=0; i<adjCells.size();i++){
+		std::cout << "Cell "<< i+1 << "=  "; 
+		for (auto & nb : adjCells[i]){
+			std::cout << " " << nb.first << " : " << nb.second;
+		}
+		std::cout << std::endl;
+	}
+	*/
+	
+	
+	// Set values
+	frt_ptr->cellside = cellside;
+	frt_ptr->rows = rows;
+	frt_ptr->cols = cols;
+	frt_ptr->coordCells = coordCells;
+	frt_ptr->adjCells = adjCells;
+		
+		
+	
+}
+
+
 
 void CSVReader::printDF(inputs df){
 	std::cout << df.fueltype; std::cout << " " << df.mon; std::cout << " " << df.jd;
