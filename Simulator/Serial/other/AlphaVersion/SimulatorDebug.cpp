@@ -62,9 +62,9 @@ void printSets(int week_number, std::unordered_set<int> availCells, std::unorder
 	std::cout << std::endl;
 }
 
-/*
-	Main
-*/
+/***************************************************************************
+																Main
+****************************************************************************/
 int main(int argc, char * argv[])
 {
 	/********************************************************************
@@ -80,7 +80,7 @@ int main(int argc, char * argv[])
 	arguments args;
 	arguments * args_ptr = &args;
 	parseArgs(argc, argv, args_ptr);
-	//printArgs(args);
+	printArgs(args);
 	
 	/********************************************************************
 										Initialize fuel coefficients for FBP
@@ -97,7 +97,7 @@ int main(int argc, char * argv[])
 	int sim = 1;
 		
 	/********************************************************************
-							Read Instance from csv files...
+											Read Instance from csv files...
 	********************************************************************/
 	// Create forest structure 
 	forestDF frdf;
@@ -106,7 +106,7 @@ int main(int argc, char * argv[])
 	CSVReader CSVForest(forestFile, sept);
 	std::vector<std::vector<std::string>> FDF = CSVForest.getData();
 	CSVForest.parseForestDF(&frdf, FDF);
-	
+		
 	int rows = frdf.rows;
 	int cols = frdf.cols;
 	int nCells = rows * cols; 
