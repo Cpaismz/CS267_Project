@@ -92,40 +92,37 @@ int main(int argc, char * argv[])
 	/********************************************************************
 					Global Values (Forest) and Instance (in memory for the moment)
 	********************************************************************/
-	std::cout << "\n------ Instance from file initialization ------\n";	
+	std::cout << "\n------ Instance in memory initialization ------\n";	
 	int max_weeks = 12;
 	int sim = 1;
 		
 	/********************************************************************
-							Read Instance from csv files...
+							Instance in memory (4 cells = 2 x 2 grid)
 	********************************************************************/
-	// Create forest structure 
-	forestDF frdf;
-	std::string forestFile = args.InFolder + "Forest.asc";
-	std::string sept= " ";
-	CSVReader CSVForest(forestFile, sept);
-	std::vector<std::vector<std::string>> FDF = CSVForest.getData();
-	CSVForest.parseForestDF(&frdf, FDF);
-	
-	int rows = frdf.rows;
-	int cols = frdf.cols;
+	int rows = 2;
+	int cols = 2;
 	int nCells = rows * cols; 
-	double cellSide = frdf.cellside;
+	double cellSide = 100;
 	double areaCells= cellSide * cellSide;
-	double ageCells = 10;   //Hard coded, not relevant in current project
-	double volCells = 300;  //Hard coded, not relevant in current project
+	double ageCells = 10;
+	double volCells = 300;
 	double perimeterCells = 4 * cellSide;
 	
-	std::vector<std::vector<int>> coordCells = frdf.coordCells;
-	std::vector<std::unordered_map<std::string, int>> adjCells = frdf.adjCells;
+	std::vector<std::vector<int>> coordCells = {{0,1},{1,1},{0,0},{1,0}};
+	std::unordered_map<std::string, int> adjacents, adjacents2, adjacents3, adjacents4;    // -1 = None 
+	adjacents = {{"N",-1},{"S",3},{"E",2},{"W",-1}, {"NE", -1}, {"NW", -1}, {"SE", 4}, {"SW", -1}};
+	adjacents2 = {{"N",-1},{"S",4},{"E",-1},{"W",1},{"NE", -1}, {"NW", -1}, {"SE", -1}, {"SW", 3}};
+	adjacents3 = {{"N",1},{"S",-1},{"E",4},{"W",-1},{"NE", 2}, {"NW", -1}, {"SE", -1}, {"SW", -1}};
+	adjacents4 = {{"N",2},{"S",-1},{"E",-1},{"W",3},{"NE", -1}, {"NW", 1}, {"SE", -1}, {"SW", -1}};
+	std::vector<std::unordered_map<std::string, int>> adjCells = {adjacents, adjacents2,adjacents3,adjacents4};
 	
-	std::vector<double> color = {0.000, 1.000, 2.0334, 1.3223};    // Hard coded, python post processing will plot 
-	std::vector<std::vector<double>> colors(nCells, color);              // Idem 
+	std::vector<double> color = {0.000, 1.000, 2.0334, 1.3223};
+	std::vector<std::vector<double>> colors = {color, color, color, color};
 
-	std::vector<int> fTypeCells = {1,1,1,1};    															 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
-	std::vector<string> fTypeCells2 = {"Burnable","Burnable","Burnable","Burnable"};		 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
-    std::vector<int> statusCells = {0,0,0,0};																 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
-    std::vector<int> realCells = {1,2,3,4};																	 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
+	std::vector<int> fTypeCells = {1,1,1,1};
+	std::vector<string> fTypeCells2 = {"Burnable","Burnable","Burnable","Burnable"};
+    std::vector<int> statusCells = {0,0,0,0};
+    std::vector<int> realCells = {1,2,3,4};
 	
 	/********************************************************************
 		Dataframes initialization: Forest and Weather

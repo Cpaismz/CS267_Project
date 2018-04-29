@@ -266,6 +266,7 @@ void CSVReader::parseForestDF(forestDF * frt_ptr, std::vector<std::vector<std::s
 	
 	// Filling DF
 	printf("Populating Forest DF\n");
+	
 	cols = std::stoi (DF[0][1], &sz);
 	rows = std::stoi (DF[1][1], &sz);
 	cellside = std::stoi (DF[4][1], &sz);
@@ -275,6 +276,7 @@ void CSVReader::parseForestDF(forestDF * frt_ptr, std::vector<std::vector<std::s
 	// CoordCells and Adjacents
 	int n = 1; 
 	int r, c;
+	std::cout  << "CoordCells Debug" << std::endl;
 	for (r=0; r<rows; r++){
 		for (c=0; c < cols; c++){
 			
@@ -284,7 +286,7 @@ void CSVReader::parseForestDF(forestDF * frt_ptr, std::vector<std::vector<std::s
             Aux2.push_back(rows-r-1);   
 			coordCells.push_back(Aux2);                    
 			//printf("i,j = %d,%d\n", r,c);
-			//std::cout << "x: " << coordCells[c + r*(cols)][0] <<  "  y: " << coordCells[c + r*(cols)][1]  <<   std::endl;
+			std::cout << "x: " << coordCells[c + r*(cols)][0] <<  "  y: " << coordCells[c + r*(cols)][1]  <<   std::endl;
 					
 			/*   Adjacents  */
 			// if we have rows (not a forest = line)
@@ -385,16 +387,17 @@ void CSVReader::parseForestDF(forestDF * frt_ptr, std::vector<std::vector<std::s
 	}
 	
 	
-	/*
+	
 	// Adjacents cells
+	std::cout  << "Adjacents Debug" << std::endl;
 	for (i=0; i<adjCells.size();i++){
-		std::cout << "Cell "<< i+1 << "=  "; 
+		std::cout << "Cell "<< i+1 << " =  "; 
 		for (auto & nb : adjCells[i]){
 			std::cout << " " << nb.first << " : " << nb.second;
 		}
 		std::cout << std::endl;
 	}
-	*/
+	
 	
 	
 	// Set values

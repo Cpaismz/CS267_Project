@@ -331,10 +331,11 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
             }    
         
 			// Info for deebugging status of the cell and fire evolution
-			printf("\n\n IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE \n\n");
-			this->print_info();
-			printf("\n\n IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE \n\n");
-		
+			if (args->verbose){
+				printf("\n\n IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE \n\n");
+				this->print_info();
+				printf("\n\n IMPORTANT INFO CELL FOR DEBUG: MANAGEFIRE \n\n");
+			}
 			
 			if (this->fireProgress[nb] < this->distToCenter[nb] && repeat == -100 && -100  != msg_list_aux[0]){
                     if (args->verbose){
@@ -389,11 +390,10 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
     ROSThresh   double
  */
 	
-bool CellsFBP::get_burned(int period, int NMsg, int season, inputs df[],  // WORKING CHECK ON 
-									   fuel_coefs * coef, arguments * args, weatherDF * wdf_ptr) {
+bool CellsFBP::get_burned(int period, int season, int NMsg, inputs df[],  fuel_coefs * coef, arguments * args, weatherDF * wdf_ptr) {
     if (args->verbose) { 
         std::cout << "ROS Threshold get_burned method" << std::endl;
-		std::cout << "ROSThresh" << args->ROSThreshold << std::endl;
+		std::cout << "ROSThreshold: " << args->ROSThreshold << std::endl;
     }
 
 	// Structures
@@ -409,10 +409,10 @@ bool CellsFBP::get_burned(int period, int NMsg, int season, inputs df[],  // WOR
     calculate(&(df[this->id]), coef, &mainstruct, &sndstruct, &headstruct, &flankstruct, &backstruct);
 
     if (args->verbose) { 
-		std::cout << "Main Angle:" << mainstruct.raz << std::endl;
-		std::cout << "Front ROS Value:" << headstruct.ros << std::endl;
-		std::cout << "Flanks ROS Value:" << flankstruct.ros << std::endl;
-		std::cout << "Rear ROS Value:" << backstruct.ros << std::endl;
+		std::cout << "\nMain Angle :" << mainstruct.raz << std::endl;
+		std::cout << "Front ROS Value :" << headstruct.ros << std::endl;
+		std::cout << "Flanks ROS Value :" << flankstruct.ros << std::endl;
+		std::cout << "Rear ROS Value :" << backstruct.ros << std::endl;
 	}
     
 	// Check a threshold for the ROS
