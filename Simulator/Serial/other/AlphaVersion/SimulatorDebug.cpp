@@ -110,7 +110,7 @@ int main(int argc, char * argv[])
 		
 	int rows = frdf.rows;
 	int cols = frdf.cols;
-	int nCells = rows * cols; 
+	long int nCells = rows * cols; 
 	double cellSide = frdf.cellside;
 	double areaCells= cellSide * cellSide;
 	double ageCells = 10;   //Hard coded, not relevant in current project
@@ -137,7 +137,8 @@ int main(int argc, char * argv[])
 	// Populate DF 
 	std::vector<std::vector<std::string>> DF = CSVParser.getData();
 	std::cout << "Forest DataFrame from instance " << filename << std::endl;
-	CSVParser.printData(DF);
+	//CSVParser.printData(DF);
+	std::cout << "Number of cells: " <<  nCells  << std::endl;
 	
 	// Create empty df with size of NCells
 	inputs df [nCells];
