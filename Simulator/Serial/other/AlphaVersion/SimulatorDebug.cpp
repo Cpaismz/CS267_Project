@@ -122,10 +122,6 @@ int main(int argc, char * argv[])
 	std::vector<double> color = {0.000, 1.000, 2.0334, 1.3223};    // Hard coded, python post processing will plot 
 	std::vector<std::vector<double>> colors(nCells, color);              // Idem 
 
-	std::vector<int> fTypeCells = {1,1,1,1};    															 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
-	std::vector<string> fTypeCells2 = {"Burnable","Burnable","Burnable","Burnable"};		 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
-    std::vector<int> statusCells = {0,0,0,0};																 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
-    std::vector<int> realCells = {1,2,3,4};																	 // Hard coded to 1, TODO: read fuel type from Data.csv and populate
 	
 	/********************************************************************
 		Dataframes initialization: Forest and Weather
@@ -148,6 +144,19 @@ int main(int argc, char * argv[])
 	
 	// Populate the df [nCells] objects
 	CSVParser.parseDF(df_ptr, DF, nCells);
+	
+	// Initialize and populate relevant vectors 
+	std::vector<int> fTypeCells(nCells, 1); 
+	std::vector<string> fTypeCells2(nCells, "Burnable"); 
+    std::vector<int> statusCells(nCells, 0);
+    
+	for(int l=0; l< nCells; l++){
+		if(df[l].fueltype == "NF "){
+			fTypeCells[l] = 1;
+			fTypeCells2[l] = "NonBurnable";
+			statusCells[l] = 4;
+		}
+	}
 	
 	/* Weather DataFrame */
 	std::string weatherFile = args.InFolder + "Weather.csv";
@@ -299,7 +308,7 @@ int main(int argc, char * argv[])
 						// Check information (Debugging)
 						if (args.verbose){
 							std::cout << "aux: " << aux << std::endl;
-							std::cout << "realCells[aux]: " << realCells[aux] << std::endl;
+							std::cout << "realCells[aux]: " << aux << std::endl;
 						}
 						
 						// If cell is available and not initialized, initialize it 
