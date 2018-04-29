@@ -20,6 +20,7 @@
 #include <string.h>
 #include <random>
 #include <algorithm> 
+#include <chrono>
 
 using namespace std;
 
@@ -199,8 +200,14 @@ int main(int argc, char * argv[])
 		IgnitionPoints = std::vector<int>(IgnitionYears, 0);
 		CSVIgnitions.parseIgnitionDF(IgnitionPoints, IgnitionsDF, IgnitionYears);
 	}
-	
-	
+
+
+
+    // initialize time 
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+
+
 	/********************************************************************
 	*
 	*												Global Parameters for loop 
@@ -890,8 +897,11 @@ int main(int argc, char * argv[])
 		
 		
 	} // End of simulations loop 
-	
-	
+    
+    auto endTime = std::chrono::high_resolution_clock::now();
+    std::cout << "\nTime elapsed: "
+                  << (double)std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() / 1000000000.
+                                << " seconds" << std::endl;
 	
 		
 	
