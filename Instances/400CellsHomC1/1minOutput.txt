@@ -1,0 +1,2107 @@
+------------------ Simulator C Beta version ----------------------
+
+------ Command line values ------
+--Fire-Period-Length: 1 
+InFolder: 
+OutFolder: SimOut
+ForestFile: Forest.csv
+FBPlookup: FBPlookup.csv
+WeatherOpt: rows
+Ignitions: 0
+SaveMem: 0
+scenarios: 0
+noOutput: 0
+OutputGrid: 0
+verbose: 0
+plottrue: 0
+spotting: 0
+exceltrue: 0
+combine: 0
+MinutesPerWP: 60
+Max_Fire_Periods: 1000
+TotalYears: 4
+TotalSims: 1
+FirePeriodLen: 1
+heuristic: 0
+seed: 123
+
+------ Instance from file initialization ------
+Populating Forest DF
+cols: 20,  rows:  20,   cellside:  100
+CoordCells Debug
+x: 0  y: 19
+x: 1  y: 19
+x: 2  y: 19
+x: 3  y: 19
+x: 4  y: 19
+x: 5  y: 19
+x: 6  y: 19
+x: 7  y: 19
+x: 8  y: 19
+x: 9  y: 19
+x: 10  y: 19
+x: 11  y: 19
+x: 12  y: 19
+x: 13  y: 19
+x: 14  y: 19
+x: 15  y: 19
+x: 16  y: 19
+x: 17  y: 19
+x: 18  y: 19
+x: 19  y: 19
+x: 0  y: 18
+x: 1  y: 18
+x: 2  y: 18
+x: 3  y: 18
+x: 4  y: 18
+x: 5  y: 18
+x: 6  y: 18
+x: 7  y: 18
+x: 8  y: 18
+x: 9  y: 18
+x: 10  y: 18
+x: 11  y: 18
+x: 12  y: 18
+x: 13  y: 18
+x: 14  y: 18
+x: 15  y: 18
+x: 16  y: 18
+x: 17  y: 18
+x: 18  y: 18
+x: 19  y: 18
+x: 0  y: 17
+x: 1  y: 17
+x: 2  y: 17
+x: 3  y: 17
+x: 4  y: 17
+x: 5  y: 17
+x: 6  y: 17
+x: 7  y: 17
+x: 8  y: 17
+x: 9  y: 17
+x: 10  y: 17
+x: 11  y: 17
+x: 12  y: 17
+x: 13  y: 17
+x: 14  y: 17
+x: 15  y: 17
+x: 16  y: 17
+x: 17  y: 17
+x: 18  y: 17
+x: 19  y: 17
+x: 0  y: 16
+x: 1  y: 16
+x: 2  y: 16
+x: 3  y: 16
+x: 4  y: 16
+x: 5  y: 16
+x: 6  y: 16
+x: 7  y: 16
+x: 8  y: 16
+x: 9  y: 16
+x: 10  y: 16
+x: 11  y: 16
+x: 12  y: 16
+x: 13  y: 16
+x: 14  y: 16
+x: 15  y: 16
+x: 16  y: 16
+x: 17  y: 16
+x: 18  y: 16
+x: 19  y: 16
+x: 0  y: 15
+x: 1  y: 15
+x: 2  y: 15
+x: 3  y: 15
+x: 4  y: 15
+x: 5  y: 15
+x: 6  y: 15
+x: 7  y: 15
+x: 8  y: 15
+x: 9  y: 15
+x: 10  y: 15
+x: 11  y: 15
+x: 12  y: 15
+x: 13  y: 15
+x: 14  y: 15
+x: 15  y: 15
+x: 16  y: 15
+x: 17  y: 15
+x: 18  y: 15
+x: 19  y: 15
+x: 0  y: 14
+x: 1  y: 14
+x: 2  y: 14
+x: 3  y: 14
+x: 4  y: 14
+x: 5  y: 14
+x: 6  y: 14
+x: 7  y: 14
+x: 8  y: 14
+x: 9  y: 14
+x: 10  y: 14
+x: 11  y: 14
+x: 12  y: 14
+x: 13  y: 14
+x: 14  y: 14
+x: 15  y: 14
+x: 16  y: 14
+x: 17  y: 14
+x: 18  y: 14
+x: 19  y: 14
+x: 0  y: 13
+x: 1  y: 13
+x: 2  y: 13
+x: 3  y: 13
+x: 4  y: 13
+x: 5  y: 13
+x: 6  y: 13
+x: 7  y: 13
+x: 8  y: 13
+x: 9  y: 13
+x: 10  y: 13
+x: 11  y: 13
+x: 12  y: 13
+x: 13  y: 13
+x: 14  y: 13
+x: 15  y: 13
+x: 16  y: 13
+x: 17  y: 13
+x: 18  y: 13
+x: 19  y: 13
+x: 0  y: 12
+x: 1  y: 12
+x: 2  y: 12
+x: 3  y: 12
+x: 4  y: 12
+x: 5  y: 12
+x: 6  y: 12
+x: 7  y: 12
+x: 8  y: 12
+x: 9  y: 12
+x: 10  y: 12
+x: 11  y: 12
+x: 12  y: 12
+x: 13  y: 12
+x: 14  y: 12
+x: 15  y: 12
+x: 16  y: 12
+x: 17  y: 12
+x: 18  y: 12
+x: 19  y: 12
+x: 0  y: 11
+x: 1  y: 11
+x: 2  y: 11
+x: 3  y: 11
+x: 4  y: 11
+x: 5  y: 11
+x: 6  y: 11
+x: 7  y: 11
+x: 8  y: 11
+x: 9  y: 11
+x: 10  y: 11
+x: 11  y: 11
+x: 12  y: 11
+x: 13  y: 11
+x: 14  y: 11
+x: 15  y: 11
+x: 16  y: 11
+x: 17  y: 11
+x: 18  y: 11
+x: 19  y: 11
+x: 0  y: 10
+x: 1  y: 10
+x: 2  y: 10
+x: 3  y: 10
+x: 4  y: 10
+x: 5  y: 10
+x: 6  y: 10
+x: 7  y: 10
+x: 8  y: 10
+x: 9  y: 10
+x: 10  y: 10
+x: 11  y: 10
+x: 12  y: 10
+x: 13  y: 10
+x: 14  y: 10
+x: 15  y: 10
+x: 16  y: 10
+x: 17  y: 10
+x: 18  y: 10
+x: 19  y: 10
+x: 0  y: 9
+x: 1  y: 9
+x: 2  y: 9
+x: 3  y: 9
+x: 4  y: 9
+x: 5  y: 9
+x: 6  y: 9
+x: 7  y: 9
+x: 8  y: 9
+x: 9  y: 9
+x: 10  y: 9
+x: 11  y: 9
+x: 12  y: 9
+x: 13  y: 9
+x: 14  y: 9
+x: 15  y: 9
+x: 16  y: 9
+x: 17  y: 9
+x: 18  y: 9
+x: 19  y: 9
+x: 0  y: 8
+x: 1  y: 8
+x: 2  y: 8
+x: 3  y: 8
+x: 4  y: 8
+x: 5  y: 8
+x: 6  y: 8
+x: 7  y: 8
+x: 8  y: 8
+x: 9  y: 8
+x: 10  y: 8
+x: 11  y: 8
+x: 12  y: 8
+x: 13  y: 8
+x: 14  y: 8
+x: 15  y: 8
+x: 16  y: 8
+x: 17  y: 8
+x: 18  y: 8
+x: 19  y: 8
+x: 0  y: 7
+x: 1  y: 7
+x: 2  y: 7
+x: 3  y: 7
+x: 4  y: 7
+x: 5  y: 7
+x: 6  y: 7
+x: 7  y: 7
+x: 8  y: 7
+x: 9  y: 7
+x: 10  y: 7
+x: 11  y: 7
+x: 12  y: 7
+x: 13  y: 7
+x: 14  y: 7
+x: 15  y: 7
+x: 16  y: 7
+x: 17  y: 7
+x: 18  y: 7
+x: 19  y: 7
+x: 0  y: 6
+x: 1  y: 6
+x: 2  y: 6
+x: 3  y: 6
+x: 4  y: 6
+x: 5  y: 6
+x: 6  y: 6
+x: 7  y: 6
+x: 8  y: 6
+x: 9  y: 6
+x: 10  y: 6
+x: 11  y: 6
+x: 12  y: 6
+x: 13  y: 6
+x: 14  y: 6
+x: 15  y: 6
+x: 16  y: 6
+x: 17  y: 6
+x: 18  y: 6
+x: 19  y: 6
+x: 0  y: 5
+x: 1  y: 5
+x: 2  y: 5
+x: 3  y: 5
+x: 4  y: 5
+x: 5  y: 5
+x: 6  y: 5
+x: 7  y: 5
+x: 8  y: 5
+x: 9  y: 5
+x: 10  y: 5
+x: 11  y: 5
+x: 12  y: 5
+x: 13  y: 5
+x: 14  y: 5
+x: 15  y: 5
+x: 16  y: 5
+x: 17  y: 5
+x: 18  y: 5
+x: 19  y: 5
+x: 0  y: 4
+x: 1  y: 4
+x: 2  y: 4
+x: 3  y: 4
+x: 4  y: 4
+x: 5  y: 4
+x: 6  y: 4
+x: 7  y: 4
+x: 8  y: 4
+x: 9  y: 4
+x: 10  y: 4
+x: 11  y: 4
+x: 12  y: 4
+x: 13  y: 4
+x: 14  y: 4
+x: 15  y: 4
+x: 16  y: 4
+x: 17  y: 4
+x: 18  y: 4
+x: 19  y: 4
+x: 0  y: 3
+x: 1  y: 3
+x: 2  y: 3
+x: 3  y: 3
+x: 4  y: 3
+x: 5  y: 3
+x: 6  y: 3
+x: 7  y: 3
+x: 8  y: 3
+x: 9  y: 3
+x: 10  y: 3
+x: 11  y: 3
+x: 12  y: 3
+x: 13  y: 3
+x: 14  y: 3
+x: 15  y: 3
+x: 16  y: 3
+x: 17  y: 3
+x: 18  y: 3
+x: 19  y: 3
+x: 0  y: 2
+x: 1  y: 2
+x: 2  y: 2
+x: 3  y: 2
+x: 4  y: 2
+x: 5  y: 2
+x: 6  y: 2
+x: 7  y: 2
+x: 8  y: 2
+x: 9  y: 2
+x: 10  y: 2
+x: 11  y: 2
+x: 12  y: 2
+x: 13  y: 2
+x: 14  y: 2
+x: 15  y: 2
+x: 16  y: 2
+x: 17  y: 2
+x: 18  y: 2
+x: 19  y: 2
+x: 0  y: 1
+x: 1  y: 1
+x: 2  y: 1
+x: 3  y: 1
+x: 4  y: 1
+x: 5  y: 1
+x: 6  y: 1
+x: 7  y: 1
+x: 8  y: 1
+x: 9  y: 1
+x: 10  y: 1
+x: 11  y: 1
+x: 12  y: 1
+x: 13  y: 1
+x: 14  y: 1
+x: 15  y: 1
+x: 16  y: 1
+x: 17  y: 1
+x: 18  y: 1
+x: 19  y: 1
+x: 0  y: 0
+x: 1  y: 0
+x: 2  y: 0
+x: 3  y: 0
+x: 4  y: 0
+x: 5  y: 0
+x: 6  y: 0
+x: 7  y: 0
+x: 8  y: 0
+x: 9  y: 0
+x: 10  y: 0
+x: 11  y: 0
+x: 12  y: 0
+x: 13  y: 0
+x: 14  y: 0
+x: 15  y: 0
+x: 16  y: 0
+x: 17  y: 0
+x: 18  y: 0
+x: 19  y: 0
+Adjacents Debug
+Cell 1 =   W : -1 E : 2 SW : -1 SE : 22 S : 21 NE : -1 NW : -1 N : -1
+Cell 2 =   W : 1 E : 3 SW : 21 SE : 23 S : 22 NE : -1 NW : -1 N : -1
+Cell 3 =   W : 2 E : 4 SW : 22 SE : 24 S : 23 NE : -1 NW : -1 N : -1
+Cell 4 =   W : 3 E : 5 SW : 23 SE : 25 S : 24 NE : -1 NW : -1 N : -1
+Cell 5 =   W : 4 E : 6 SW : 24 SE : 26 S : 25 NE : -1 NW : -1 N : -1
+Cell 6 =   W : 5 E : 7 SW : 25 SE : 27 S : 26 NE : -1 NW : -1 N : -1
+Cell 7 =   W : 6 E : 8 SW : 26 SE : 28 S : 27 NE : -1 NW : -1 N : -1
+Cell 8 =   W : 7 E : 9 SW : 27 SE : 29 S : 28 NE : -1 NW : -1 N : -1
+Cell 9 =   W : 8 E : 10 SW : 28 SE : 30 S : 29 NE : -1 NW : -1 N : -1
+Cell 10 =   W : 9 E : 11 SW : 29 SE : 31 S : 30 NE : -1 NW : -1 N : -1
+Cell 11 =   W : 10 E : 12 SW : 30 SE : 32 S : 31 NE : -1 NW : -1 N : -1
+Cell 12 =   W : 11 E : 13 SW : 31 SE : 33 S : 32 NE : -1 NW : -1 N : -1
+Cell 13 =   W : 12 E : 14 SW : 32 SE : 34 S : 33 NE : -1 NW : -1 N : -1
+Cell 14 =   W : 13 E : 15 SW : 33 SE : 35 S : 34 NE : -1 NW : -1 N : -1
+Cell 15 =   W : 14 E : 16 SW : 34 SE : 36 S : 35 NE : -1 NW : -1 N : -1
+Cell 16 =   W : 15 E : 17 SW : 35 SE : 37 S : 36 NE : -1 NW : -1 N : -1
+Cell 17 =   W : 16 E : 18 SW : 36 SE : 38 S : 37 NE : -1 NW : -1 N : -1
+Cell 18 =   W : 17 E : 19 SW : 37 SE : 39 S : 38 NE : -1 NW : -1 N : -1
+Cell 19 =   W : 18 E : 20 SW : 38 SE : 40 S : 39 NE : -1 NW : -1 N : -1
+Cell 20 =   W : 19 E : -1 SW : 39 SE : -1 S : 40 NE : -1 NW : -1 N : -1
+Cell 21 =   W : -1 E : 22 SW : -1 SE : 42 S : 41 NE : 2 NW : -1 N : 1
+Cell 22 =   W : 21 E : 23 SW : 41 SE : 43 S : 42 NE : 3 NW : 1 N : 2
+Cell 23 =   W : 22 E : 24 SW : 42 SE : 44 S : 43 NE : 4 NW : 2 N : 3
+Cell 24 =   W : 23 E : 25 SW : 43 SE : 45 S : 44 NE : 5 NW : 3 N : 4
+Cell 25 =   W : 24 E : 26 SW : 44 SE : 46 S : 45 NE : 6 NW : 4 N : 5
+Cell 26 =   W : 25 E : 27 SW : 45 SE : 47 S : 46 NE : 7 NW : 5 N : 6
+Cell 27 =   W : 26 E : 28 SW : 46 SE : 48 S : 47 NE : 8 NW : 6 N : 7
+Cell 28 =   W : 27 E : 29 SW : 47 SE : 49 S : 48 NE : 9 NW : 7 N : 8
+Cell 29 =   W : 28 E : 30 SW : 48 SE : 50 S : 49 NE : 10 NW : 8 N : 9
+Cell 30 =   W : 29 E : 31 SW : 49 SE : 51 S : 50 NE : 11 NW : 9 N : 10
+Cell 31 =   W : 30 E : 32 SW : 50 SE : 52 S : 51 NE : 12 NW : 10 N : 11
+Cell 32 =   W : 31 E : 33 SW : 51 SE : 53 S : 52 NE : 13 NW : 11 N : 12
+Cell 33 =   W : 32 E : 34 SW : 52 SE : 54 S : 53 NE : 14 NW : 12 N : 13
+Cell 34 =   W : 33 E : 35 SW : 53 SE : 55 S : 54 NE : 15 NW : 13 N : 14
+Cell 35 =   W : 34 E : 36 SW : 54 SE : 56 S : 55 NE : 16 NW : 14 N : 15
+Cell 36 =   W : 35 E : 37 SW : 55 SE : 57 S : 56 NE : 17 NW : 15 N : 16
+Cell 37 =   W : 36 E : 38 SW : 56 SE : 58 S : 57 NE : 18 NW : 16 N : 17
+Cell 38 =   W : 37 E : 39 SW : 57 SE : 59 S : 58 NE : 19 NW : 17 N : 18
+Cell 39 =   W : 38 E : 40 SW : 58 SE : 60 S : 59 NE : 20 NW : 18 N : 19
+Cell 40 =   W : 39 E : -1 SW : 59 SE : -1 S : 60 NE : -1 NW : 19 N : 20
+Cell 41 =   W : -1 E : 42 SW : -1 SE : 62 S : 61 NE : 22 NW : -1 N : 21
+Cell 42 =   W : 41 E : 43 SW : 61 SE : 63 S : 62 NE : 23 NW : 21 N : 22
+Cell 43 =   W : 42 E : 44 SW : 62 SE : 64 S : 63 NE : 24 NW : 22 N : 23
+Cell 44 =   W : 43 E : 45 SW : 63 SE : 65 S : 64 NE : 25 NW : 23 N : 24
+Cell 45 =   W : 44 E : 46 SW : 64 SE : 66 S : 65 NE : 26 NW : 24 N : 25
+Cell 46 =   W : 45 E : 47 SW : 65 SE : 67 S : 66 NE : 27 NW : 25 N : 26
+Cell 47 =   W : 46 E : 48 SW : 66 SE : 68 S : 67 NE : 28 NW : 26 N : 27
+Cell 48 =   W : 47 E : 49 SW : 67 SE : 69 S : 68 NE : 29 NW : 27 N : 28
+Cell 49 =   W : 48 E : 50 SW : 68 SE : 70 S : 69 NE : 30 NW : 28 N : 29
+Cell 50 =   W : 49 E : 51 SW : 69 SE : 71 S : 70 NE : 31 NW : 29 N : 30
+Cell 51 =   W : 50 E : 52 SW : 70 SE : 72 S : 71 NE : 32 NW : 30 N : 31
+Cell 52 =   W : 51 E : 53 SW : 71 SE : 73 S : 72 NE : 33 NW : 31 N : 32
+Cell 53 =   W : 52 E : 54 SW : 72 SE : 74 S : 73 NE : 34 NW : 32 N : 33
+Cell 54 =   W : 53 E : 55 SW : 73 SE : 75 S : 74 NE : 35 NW : 33 N : 34
+Cell 55 =   W : 54 E : 56 SW : 74 SE : 76 S : 75 NE : 36 NW : 34 N : 35
+Cell 56 =   W : 55 E : 57 SW : 75 SE : 77 S : 76 NE : 37 NW : 35 N : 36
+Cell 57 =   W : 56 E : 58 SW : 76 SE : 78 S : 77 NE : 38 NW : 36 N : 37
+Cell 58 =   W : 57 E : 59 SW : 77 SE : 79 S : 78 NE : 39 NW : 37 N : 38
+Cell 59 =   W : 58 E : 60 SW : 78 SE : 80 S : 79 NE : 40 NW : 38 N : 39
+Cell 60 =   W : 59 E : -1 SW : 79 SE : -1 S : 80 NE : -1 NW : 39 N : 40
+Cell 61 =   W : -1 E : 62 SW : -1 SE : 82 S : 81 NE : 42 NW : -1 N : 41
+Cell 62 =   W : 61 E : 63 SW : 81 SE : 83 S : 82 NE : 43 NW : 41 N : 42
+Cell 63 =   W : 62 E : 64 SW : 82 SE : 84 S : 83 NE : 44 NW : 42 N : 43
+Cell 64 =   W : 63 E : 65 SW : 83 SE : 85 S : 84 NE : 45 NW : 43 N : 44
+Cell 65 =   W : 64 E : 66 SW : 84 SE : 86 S : 85 NE : 46 NW : 44 N : 45
+Cell 66 =   W : 65 E : 67 SW : 85 SE : 87 S : 86 NE : 47 NW : 45 N : 46
+Cell 67 =   W : 66 E : 68 SW : 86 SE : 88 S : 87 NE : 48 NW : 46 N : 47
+Cell 68 =   W : 67 E : 69 SW : 87 SE : 89 S : 88 NE : 49 NW : 47 N : 48
+Cell 69 =   W : 68 E : 70 SW : 88 SE : 90 S : 89 NE : 50 NW : 48 N : 49
+Cell 70 =   W : 69 E : 71 SW : 89 SE : 91 S : 90 NE : 51 NW : 49 N : 50
+Cell 71 =   W : 70 E : 72 SW : 90 SE : 92 S : 91 NE : 52 NW : 50 N : 51
+Cell 72 =   W : 71 E : 73 SW : 91 SE : 93 S : 92 NE : 53 NW : 51 N : 52
+Cell 73 =   W : 72 E : 74 SW : 92 SE : 94 S : 93 NE : 54 NW : 52 N : 53
+Cell 74 =   W : 73 E : 75 SW : 93 SE : 95 S : 94 NE : 55 NW : 53 N : 54
+Cell 75 =   W : 74 E : 76 SW : 94 SE : 96 S : 95 NE : 56 NW : 54 N : 55
+Cell 76 =   W : 75 E : 77 SW : 95 SE : 97 S : 96 NE : 57 NW : 55 N : 56
+Cell 77 =   W : 76 E : 78 SW : 96 SE : 98 S : 97 NE : 58 NW : 56 N : 57
+Cell 78 =   W : 77 E : 79 SW : 97 SE : 99 S : 98 NE : 59 NW : 57 N : 58
+Cell 79 =   W : 78 E : 80 SW : 98 SE : 100 S : 99 NE : 60 NW : 58 N : 59
+Cell 80 =   W : 79 E : -1 SW : 99 SE : -1 S : 100 NE : -1 NW : 59 N : 60
+Cell 81 =   W : -1 E : 82 SW : -1 SE : 102 S : 101 NE : 62 NW : -1 N : 61
+Cell 82 =   W : 81 E : 83 SW : 101 SE : 103 S : 102 NE : 63 NW : 61 N : 62
+Cell 83 =   W : 82 E : 84 SW : 102 SE : 104 S : 103 NE : 64 NW : 62 N : 63
+Cell 84 =   W : 83 E : 85 SW : 103 SE : 105 S : 104 NE : 65 NW : 63 N : 64
+Cell 85 =   W : 84 E : 86 SW : 104 SE : 106 S : 105 NE : 66 NW : 64 N : 65
+Cell 86 =   W : 85 E : 87 SW : 105 SE : 107 S : 106 NE : 67 NW : 65 N : 66
+Cell 87 =   W : 86 E : 88 SW : 106 SE : 108 S : 107 NE : 68 NW : 66 N : 67
+Cell 88 =   W : 87 E : 89 SW : 107 SE : 109 S : 108 NE : 69 NW : 67 N : 68
+Cell 89 =   W : 88 E : 90 SW : 108 SE : 110 S : 109 NE : 70 NW : 68 N : 69
+Cell 90 =   W : 89 E : 91 SW : 109 SE : 111 S : 110 NE : 71 NW : 69 N : 70
+Cell 91 =   W : 90 E : 92 SW : 110 SE : 112 S : 111 NE : 72 NW : 70 N : 71
+Cell 92 =   W : 91 E : 93 SW : 111 SE : 113 S : 112 NE : 73 NW : 71 N : 72
+Cell 93 =   W : 92 E : 94 SW : 112 SE : 114 S : 113 NE : 74 NW : 72 N : 73
+Cell 94 =   W : 93 E : 95 SW : 113 SE : 115 S : 114 NE : 75 NW : 73 N : 74
+Cell 95 =   W : 94 E : 96 SW : 114 SE : 116 S : 115 NE : 76 NW : 74 N : 75
+Cell 96 =   W : 95 E : 97 SW : 115 SE : 117 S : 116 NE : 77 NW : 75 N : 76
+Cell 97 =   W : 96 E : 98 SW : 116 SE : 118 S : 117 NE : 78 NW : 76 N : 77
+Cell 98 =   W : 97 E : 99 SW : 117 SE : 119 S : 118 NE : 79 NW : 77 N : 78
+Cell 99 =   W : 98 E : 100 SW : 118 SE : 120 S : 119 NE : 80 NW : 78 N : 79
+Cell 100 =   W : 99 E : -1 SW : 119 SE : -1 S : 120 NE : -1 NW : 79 N : 80
+Cell 101 =   W : -1 E : 102 SW : -1 SE : 122 S : 121 NE : 82 NW : -1 N : 81
+Cell 102 =   W : 101 E : 103 SW : 121 SE : 123 S : 122 NE : 83 NW : 81 N : 82
+Cell 103 =   W : 102 E : 104 SW : 122 SE : 124 S : 123 NE : 84 NW : 82 N : 83
+Cell 104 =   W : 103 E : 105 SW : 123 SE : 125 S : 124 NE : 85 NW : 83 N : 84
+Cell 105 =   W : 104 E : 106 SW : 124 SE : 126 S : 125 NE : 86 NW : 84 N : 85
+Cell 106 =   W : 105 E : 107 SW : 125 SE : 127 S : 126 NE : 87 NW : 85 N : 86
+Cell 107 =   W : 106 E : 108 SW : 126 SE : 128 S : 127 NE : 88 NW : 86 N : 87
+Cell 108 =   W : 107 E : 109 SW : 127 SE : 129 S : 128 NE : 89 NW : 87 N : 88
+Cell 109 =   W : 108 E : 110 SW : 128 SE : 130 S : 129 NE : 90 NW : 88 N : 89
+Cell 110 =   W : 109 E : 111 SW : 129 SE : 131 S : 130 NE : 91 NW : 89 N : 90
+Cell 111 =   W : 110 E : 112 SW : 130 SE : 132 S : 131 NE : 92 NW : 90 N : 91
+Cell 112 =   W : 111 E : 113 SW : 131 SE : 133 S : 132 NE : 93 NW : 91 N : 92
+Cell 113 =   W : 112 E : 114 SW : 132 SE : 134 S : 133 NE : 94 NW : 92 N : 93
+Cell 114 =   W : 113 E : 115 SW : 133 SE : 135 S : 134 NE : 95 NW : 93 N : 94
+Cell 115 =   W : 114 E : 116 SW : 134 SE : 136 S : 135 NE : 96 NW : 94 N : 95
+Cell 116 =   W : 115 E : 117 SW : 135 SE : 137 S : 136 NE : 97 NW : 95 N : 96
+Cell 117 =   W : 116 E : 118 SW : 136 SE : 138 S : 137 NE : 98 NW : 96 N : 97
+Cell 118 =   W : 117 E : 119 SW : 137 SE : 139 S : 138 NE : 99 NW : 97 N : 98
+Cell 119 =   W : 118 E : 120 SW : 138 SE : 140 S : 139 NE : 100 NW : 98 N : 99
+Cell 120 =   W : 119 E : -1 SW : 139 SE : -1 S : 140 NE : -1 NW : 99 N : 100
+Cell 121 =   W : -1 E : 122 SW : -1 SE : 142 S : 141 NE : 102 NW : -1 N : 101
+Cell 122 =   W : 121 E : 123 SW : 141 SE : 143 S : 142 NE : 103 NW : 101 N : 102
+Cell 123 =   W : 122 E : 124 SW : 142 SE : 144 S : 143 NE : 104 NW : 102 N : 103
+Cell 124 =   W : 123 E : 125 SW : 143 SE : 145 S : 144 NE : 105 NW : 103 N : 104
+Cell 125 =   W : 124 E : 126 SW : 144 SE : 146 S : 145 NE : 106 NW : 104 N : 105
+Cell 126 =   W : 125 E : 127 SW : 145 SE : 147 S : 146 NE : 107 NW : 105 N : 106
+Cell 127 =   W : 126 E : 128 SW : 146 SE : 148 S : 147 NE : 108 NW : 106 N : 107
+Cell 128 =   W : 127 E : 129 SW : 147 SE : 149 S : 148 NE : 109 NW : 107 N : 108
+Cell 129 =   W : 128 E : 130 SW : 148 SE : 150 S : 149 NE : 110 NW : 108 N : 109
+Cell 130 =   W : 129 E : 131 SW : 149 SE : 151 S : 150 NE : 111 NW : 109 N : 110
+Cell 131 =   W : 130 E : 132 SW : 150 SE : 152 S : 151 NE : 112 NW : 110 N : 111
+Cell 132 =   W : 131 E : 133 SW : 151 SE : 153 S : 152 NE : 113 NW : 111 N : 112
+Cell 133 =   W : 132 E : 134 SW : 152 SE : 154 S : 153 NE : 114 NW : 112 N : 113
+Cell 134 =   W : 133 E : 135 SW : 153 SE : 155 S : 154 NE : 115 NW : 113 N : 114
+Cell 135 =   W : 134 E : 136 SW : 154 SE : 156 S : 155 NE : 116 NW : 114 N : 115
+Cell 136 =   W : 135 E : 137 SW : 155 SE : 157 S : 156 NE : 117 NW : 115 N : 116
+Cell 137 =   W : 136 E : 138 SW : 156 SE : 158 S : 157 NE : 118 NW : 116 N : 117
+Cell 138 =   W : 137 E : 139 SW : 157 SE : 159 S : 158 NE : 119 NW : 117 N : 118
+Cell 139 =   W : 138 E : 140 SW : 158 SE : 160 S : 159 NE : 120 NW : 118 N : 119
+Cell 140 =   W : 139 E : -1 SW : 159 SE : -1 S : 160 NE : -1 NW : 119 N : 120
+Cell 141 =   W : -1 E : 142 SW : -1 SE : 162 S : 161 NE : 122 NW : -1 N : 121
+Cell 142 =   W : 141 E : 143 SW : 161 SE : 163 S : 162 NE : 123 NW : 121 N : 122
+Cell 143 =   W : 142 E : 144 SW : 162 SE : 164 S : 163 NE : 124 NW : 122 N : 123
+Cell 144 =   W : 143 E : 145 SW : 163 SE : 165 S : 164 NE : 125 NW : 123 N : 124
+Cell 145 =   W : 144 E : 146 SW : 164 SE : 166 S : 165 NE : 126 NW : 124 N : 125
+Cell 146 =   W : 145 E : 147 SW : 165 SE : 167 S : 166 NE : 127 NW : 125 N : 126
+Cell 147 =   W : 146 E : 148 SW : 166 SE : 168 S : 167 NE : 128 NW : 126 N : 127
+Cell 148 =   W : 147 E : 149 SW : 167 SE : 169 S : 168 NE : 129 NW : 127 N : 128
+Cell 149 =   W : 148 E : 150 SW : 168 SE : 170 S : 169 NE : 130 NW : 128 N : 129
+Cell 150 =   W : 149 E : 151 SW : 169 SE : 171 S : 170 NE : 131 NW : 129 N : 130
+Cell 151 =   W : 150 E : 152 SW : 170 SE : 172 S : 171 NE : 132 NW : 130 N : 131
+Cell 152 =   W : 151 E : 153 SW : 171 SE : 173 S : 172 NE : 133 NW : 131 N : 132
+Cell 153 =   W : 152 E : 154 SW : 172 SE : 174 S : 173 NE : 134 NW : 132 N : 133
+Cell 154 =   W : 153 E : 155 SW : 173 SE : 175 S : 174 NE : 135 NW : 133 N : 134
+Cell 155 =   W : 154 E : 156 SW : 174 SE : 176 S : 175 NE : 136 NW : 134 N : 135
+Cell 156 =   W : 155 E : 157 SW : 175 SE : 177 S : 176 NE : 137 NW : 135 N : 136
+Cell 157 =   W : 156 E : 158 SW : 176 SE : 178 S : 177 NE : 138 NW : 136 N : 137
+Cell 158 =   W : 157 E : 159 SW : 177 SE : 179 S : 178 NE : 139 NW : 137 N : 138
+Cell 159 =   W : 158 E : 160 SW : 178 SE : 180 S : 179 NE : 140 NW : 138 N : 139
+Cell 160 =   W : 159 E : -1 SW : 179 SE : -1 S : 180 NE : -1 NW : 139 N : 140
+Cell 161 =   W : -1 E : 162 SW : -1 SE : 182 S : 181 NE : 142 NW : -1 N : 141
+Cell 162 =   W : 161 E : 163 SW : 181 SE : 183 S : 182 NE : 143 NW : 141 N : 142
+Cell 163 =   W : 162 E : 164 SW : 182 SE : 184 S : 183 NE : 144 NW : 142 N : 143
+Cell 164 =   W : 163 E : 165 SW : 183 SE : 185 S : 184 NE : 145 NW : 143 N : 144
+Cell 165 =   W : 164 E : 166 SW : 184 SE : 186 S : 185 NE : 146 NW : 144 N : 145
+Cell 166 =   W : 165 E : 167 SW : 185 SE : 187 S : 186 NE : 147 NW : 145 N : 146
+Cell 167 =   W : 166 E : 168 SW : 186 SE : 188 S : 187 NE : 148 NW : 146 N : 147
+Cell 168 =   W : 167 E : 169 SW : 187 SE : 189 S : 188 NE : 149 NW : 147 N : 148
+Cell 169 =   W : 168 E : 170 SW : 188 SE : 190 S : 189 NE : 150 NW : 148 N : 149
+Cell 170 =   W : 169 E : 171 SW : 189 SE : 191 S : 190 NE : 151 NW : 149 N : 150
+Cell 171 =   W : 170 E : 172 SW : 190 SE : 192 S : 191 NE : 152 NW : 150 N : 151
+Cell 172 =   W : 171 E : 173 SW : 191 SE : 193 S : 192 NE : 153 NW : 151 N : 152
+Cell 173 =   W : 172 E : 174 SW : 192 SE : 194 S : 193 NE : 154 NW : 152 N : 153
+Cell 174 =   W : 173 E : 175 SW : 193 SE : 195 S : 194 NE : 155 NW : 153 N : 154
+Cell 175 =   W : 174 E : 176 SW : 194 SE : 196 S : 195 NE : 156 NW : 154 N : 155
+Cell 176 =   W : 175 E : 177 SW : 195 SE : 197 S : 196 NE : 157 NW : 155 N : 156
+Cell 177 =   W : 176 E : 178 SW : 196 SE : 198 S : 197 NE : 158 NW : 156 N : 157
+Cell 178 =   W : 177 E : 179 SW : 197 SE : 199 S : 198 NE : 159 NW : 157 N : 158
+Cell 179 =   W : 178 E : 180 SW : 198 SE : 200 S : 199 NE : 160 NW : 158 N : 159
+Cell 180 =   W : 179 E : -1 SW : 199 SE : -1 S : 200 NE : -1 NW : 159 N : 160
+Cell 181 =   W : -1 E : 182 SW : -1 SE : 202 S : 201 NE : 162 NW : -1 N : 161
+Cell 182 =   W : 181 E : 183 SW : 201 SE : 203 S : 202 NE : 163 NW : 161 N : 162
+Cell 183 =   W : 182 E : 184 SW : 202 SE : 204 S : 203 NE : 164 NW : 162 N : 163
+Cell 184 =   W : 183 E : 185 SW : 203 SE : 205 S : 204 NE : 165 NW : 163 N : 164
+Cell 185 =   W : 184 E : 186 SW : 204 SE : 206 S : 205 NE : 166 NW : 164 N : 165
+Cell 186 =   W : 185 E : 187 SW : 205 SE : 207 S : 206 NE : 167 NW : 165 N : 166
+Cell 187 =   W : 186 E : 188 SW : 206 SE : 208 S : 207 NE : 168 NW : 166 N : 167
+Cell 188 =   W : 187 E : 189 SW : 207 SE : 209 S : 208 NE : 169 NW : 167 N : 168
+Cell 189 =   W : 188 E : 190 SW : 208 SE : 210 S : 209 NE : 170 NW : 168 N : 169
+Cell 190 =   W : 189 E : 191 SW : 209 SE : 211 S : 210 NE : 171 NW : 169 N : 170
+Cell 191 =   W : 190 E : 192 SW : 210 SE : 212 S : 211 NE : 172 NW : 170 N : 171
+Cell 192 =   W : 191 E : 193 SW : 211 SE : 213 S : 212 NE : 173 NW : 171 N : 172
+Cell 193 =   W : 192 E : 194 SW : 212 SE : 214 S : 213 NE : 174 NW : 172 N : 173
+Cell 194 =   W : 193 E : 195 SW : 213 SE : 215 S : 214 NE : 175 NW : 173 N : 174
+Cell 195 =   W : 194 E : 196 SW : 214 SE : 216 S : 215 NE : 176 NW : 174 N : 175
+Cell 196 =   W : 195 E : 197 SW : 215 SE : 217 S : 216 NE : 177 NW : 175 N : 176
+Cell 197 =   W : 196 E : 198 SW : 216 SE : 218 S : 217 NE : 178 NW : 176 N : 177
+Cell 198 =   W : 197 E : 199 SW : 217 SE : 219 S : 218 NE : 179 NW : 177 N : 178
+Cell 199 =   W : 198 E : 200 SW : 218 SE : 220 S : 219 NE : 180 NW : 178 N : 179
+Cell 200 =   W : 199 E : -1 SW : 219 SE : -1 S : 220 NE : -1 NW : 179 N : 180
+Cell 201 =   W : -1 E : 202 SW : -1 SE : 222 S : 221 NE : 182 NW : -1 N : 181
+Cell 202 =   W : 201 E : 203 SW : 221 SE : 223 S : 222 NE : 183 NW : 181 N : 182
+Cell 203 =   W : 202 E : 204 SW : 222 SE : 224 S : 223 NE : 184 NW : 182 N : 183
+Cell 204 =   W : 203 E : 205 SW : 223 SE : 225 S : 224 NE : 185 NW : 183 N : 184
+Cell 205 =   W : 204 E : 206 SW : 224 SE : 226 S : 225 NE : 186 NW : 184 N : 185
+Cell 206 =   W : 205 E : 207 SW : 225 SE : 227 S : 226 NE : 187 NW : 185 N : 186
+Cell 207 =   W : 206 E : 208 SW : 226 SE : 228 S : 227 NE : 188 NW : 186 N : 187
+Cell 208 =   W : 207 E : 209 SW : 227 SE : 229 S : 228 NE : 189 NW : 187 N : 188
+Cell 209 =   W : 208 E : 210 SW : 228 SE : 230 S : 229 NE : 190 NW : 188 N : 189
+Cell 210 =   W : 209 E : 211 SW : 229 SE : 231 S : 230 NE : 191 NW : 189 N : 190
+Cell 211 =   W : 210 E : 212 SW : 230 SE : 232 S : 231 NE : 192 NW : 190 N : 191
+Cell 212 =   W : 211 E : 213 SW : 231 SE : 233 S : 232 NE : 193 NW : 191 N : 192
+Cell 213 =   W : 212 E : 214 SW : 232 SE : 234 S : 233 NE : 194 NW : 192 N : 193
+Cell 214 =   W : 213 E : 215 SW : 233 SE : 235 S : 234 NE : 195 NW : 193 N : 194
+Cell 215 =   W : 214 E : 216 SW : 234 SE : 236 S : 235 NE : 196 NW : 194 N : 195
+Cell 216 =   W : 215 E : 217 SW : 235 SE : 237 S : 236 NE : 197 NW : 195 N : 196
+Cell 217 =   W : 216 E : 218 SW : 236 SE : 238 S : 237 NE : 198 NW : 196 N : 197
+Cell 218 =   W : 217 E : 219 SW : 237 SE : 239 S : 238 NE : 199 NW : 197 N : 198
+Cell 219 =   W : 218 E : 220 SW : 238 SE : 240 S : 239 NE : 200 NW : 198 N : 199
+Cell 220 =   W : 219 E : -1 SW : 239 SE : -1 S : 240 NE : -1 NW : 199 N : 200
+Cell 221 =   W : -1 E : 222 SW : -1 SE : 242 S : 241 NE : 202 NW : -1 N : 201
+Cell 222 =   W : 221 E : 223 SW : 241 SE : 243 S : 242 NE : 203 NW : 201 N : 202
+Cell 223 =   W : 222 E : 224 SW : 242 SE : 244 S : 243 NE : 204 NW : 202 N : 203
+Cell 224 =   W : 223 E : 225 SW : 243 SE : 245 S : 244 NE : 205 NW : 203 N : 204
+Cell 225 =   W : 224 E : 226 SW : 244 SE : 246 S : 245 NE : 206 NW : 204 N : 205
+Cell 226 =   W : 225 E : 227 SW : 245 SE : 247 S : 246 NE : 207 NW : 205 N : 206
+Cell 227 =   W : 226 E : 228 SW : 246 SE : 248 S : 247 NE : 208 NW : 206 N : 207
+Cell 228 =   W : 227 E : 229 SW : 247 SE : 249 S : 248 NE : 209 NW : 207 N : 208
+Cell 229 =   W : 228 E : 230 SW : 248 SE : 250 S : 249 NE : 210 NW : 208 N : 209
+Cell 230 =   W : 229 E : 231 SW : 249 SE : 251 S : 250 NE : 211 NW : 209 N : 210
+Cell 231 =   W : 230 E : 232 SW : 250 SE : 252 S : 251 NE : 212 NW : 210 N : 211
+Cell 232 =   W : 231 E : 233 SW : 251 SE : 253 S : 252 NE : 213 NW : 211 N : 212
+Cell 233 =   W : 232 E : 234 SW : 252 SE : 254 S : 253 NE : 214 NW : 212 N : 213
+Cell 234 =   W : 233 E : 235 SW : 253 SE : 255 S : 254 NE : 215 NW : 213 N : 214
+Cell 235 =   W : 234 E : 236 SW : 254 SE : 256 S : 255 NE : 216 NW : 214 N : 215
+Cell 236 =   W : 235 E : 237 SW : 255 SE : 257 S : 256 NE : 217 NW : 215 N : 216
+Cell 237 =   W : 236 E : 238 SW : 256 SE : 258 S : 257 NE : 218 NW : 216 N : 217
+Cell 238 =   W : 237 E : 239 SW : 257 SE : 259 S : 258 NE : 219 NW : 217 N : 218
+Cell 239 =   W : 238 E : 240 SW : 258 SE : 260 S : 259 NE : 220 NW : 218 N : 219
+Cell 240 =   W : 239 E : -1 SW : 259 SE : -1 S : 260 NE : -1 NW : 219 N : 220
+Cell 241 =   W : -1 E : 242 SW : -1 SE : 262 S : 261 NE : 222 NW : -1 N : 221
+Cell 242 =   W : 241 E : 243 SW : 261 SE : 263 S : 262 NE : 223 NW : 221 N : 222
+Cell 243 =   W : 242 E : 244 SW : 262 SE : 264 S : 263 NE : 224 NW : 222 N : 223
+Cell 244 =   W : 243 E : 245 SW : 263 SE : 265 S : 264 NE : 225 NW : 223 N : 224
+Cell 245 =   W : 244 E : 246 SW : 264 SE : 266 S : 265 NE : 226 NW : 224 N : 225
+Cell 246 =   W : 245 E : 247 SW : 265 SE : 267 S : 266 NE : 227 NW : 225 N : 226
+Cell 247 =   W : 246 E : 248 SW : 266 SE : 268 S : 267 NE : 228 NW : 226 N : 227
+Cell 248 =   W : 247 E : 249 SW : 267 SE : 269 S : 268 NE : 229 NW : 227 N : 228
+Cell 249 =   W : 248 E : 250 SW : 268 SE : 270 S : 269 NE : 230 NW : 228 N : 229
+Cell 250 =   W : 249 E : 251 SW : 269 SE : 271 S : 270 NE : 231 NW : 229 N : 230
+Cell 251 =   W : 250 E : 252 SW : 270 SE : 272 S : 271 NE : 232 NW : 230 N : 231
+Cell 252 =   W : 251 E : 253 SW : 271 SE : 273 S : 272 NE : 233 NW : 231 N : 232
+Cell 253 =   W : 252 E : 254 SW : 272 SE : 274 S : 273 NE : 234 NW : 232 N : 233
+Cell 254 =   W : 253 E : 255 SW : 273 SE : 275 S : 274 NE : 235 NW : 233 N : 234
+Cell 255 =   W : 254 E : 256 SW : 274 SE : 276 S : 275 NE : 236 NW : 234 N : 235
+Cell 256 =   W : 255 E : 257 SW : 275 SE : 277 S : 276 NE : 237 NW : 235 N : 236
+Cell 257 =   W : 256 E : 258 SW : 276 SE : 278 S : 277 NE : 238 NW : 236 N : 237
+Cell 258 =   W : 257 E : 259 SW : 277 SE : 279 S : 278 NE : 239 NW : 237 N : 238
+Cell 259 =   W : 258 E : 260 SW : 278 SE : 280 S : 279 NE : 240 NW : 238 N : 239
+Cell 260 =   W : 259 E : -1 SW : 279 SE : -1 S : 280 NE : -1 NW : 239 N : 240
+Cell 261 =   W : -1 E : 262 SW : -1 SE : 282 S : 281 NE : 242 NW : -1 N : 241
+Cell 262 =   W : 261 E : 263 SW : 281 SE : 283 S : 282 NE : 243 NW : 241 N : 242
+Cell 263 =   W : 262 E : 264 SW : 282 SE : 284 S : 283 NE : 244 NW : 242 N : 243
+Cell 264 =   W : 263 E : 265 SW : 283 SE : 285 S : 284 NE : 245 NW : 243 N : 244
+Cell 265 =   W : 264 E : 266 SW : 284 SE : 286 S : 285 NE : 246 NW : 244 N : 245
+Cell 266 =   W : 265 E : 267 SW : 285 SE : 287 S : 286 NE : 247 NW : 245 N : 246
+Cell 267 =   W : 266 E : 268 SW : 286 SE : 288 S : 287 NE : 248 NW : 246 N : 247
+Cell 268 =   W : 267 E : 269 SW : 287 SE : 289 S : 288 NE : 249 NW : 247 N : 248
+Cell 269 =   W : 268 E : 270 SW : 288 SE : 290 S : 289 NE : 250 NW : 248 N : 249
+Cell 270 =   W : 269 E : 271 SW : 289 SE : 291 S : 290 NE : 251 NW : 249 N : 250
+Cell 271 =   W : 270 E : 272 SW : 290 SE : 292 S : 291 NE : 252 NW : 250 N : 251
+Cell 272 =   W : 271 E : 273 SW : 291 SE : 293 S : 292 NE : 253 NW : 251 N : 252
+Cell 273 =   W : 272 E : 274 SW : 292 SE : 294 S : 293 NE : 254 NW : 252 N : 253
+Cell 274 =   W : 273 E : 275 SW : 293 SE : 295 S : 294 NE : 255 NW : 253 N : 254
+Cell 275 =   W : 274 E : 276 SW : 294 SE : 296 S : 295 NE : 256 NW : 254 N : 255
+Cell 276 =   W : 275 E : 277 SW : 295 SE : 297 S : 296 NE : 257 NW : 255 N : 256
+Cell 277 =   W : 276 E : 278 SW : 296 SE : 298 S : 297 NE : 258 NW : 256 N : 257
+Cell 278 =   W : 277 E : 279 SW : 297 SE : 299 S : 298 NE : 259 NW : 257 N : 258
+Cell 279 =   W : 278 E : 280 SW : 298 SE : 300 S : 299 NE : 260 NW : 258 N : 259
+Cell 280 =   W : 279 E : -1 SW : 299 SE : -1 S : 300 NE : -1 NW : 259 N : 260
+Cell 281 =   W : -1 E : 282 SW : -1 SE : 302 S : 301 NE : 262 NW : -1 N : 261
+Cell 282 =   W : 281 E : 283 SW : 301 SE : 303 S : 302 NE : 263 NW : 261 N : 262
+Cell 283 =   W : 282 E : 284 SW : 302 SE : 304 S : 303 NE : 264 NW : 262 N : 263
+Cell 284 =   W : 283 E : 285 SW : 303 SE : 305 S : 304 NE : 265 NW : 263 N : 264
+Cell 285 =   W : 284 E : 286 SW : 304 SE : 306 S : 305 NE : 266 NW : 264 N : 265
+Cell 286 =   W : 285 E : 287 SW : 305 SE : 307 S : 306 NE : 267 NW : 265 N : 266
+Cell 287 =   W : 286 E : 288 SW : 306 SE : 308 S : 307 NE : 268 NW : 266 N : 267
+Cell 288 =   W : 287 E : 289 SW : 307 SE : 309 S : 308 NE : 269 NW : 267 N : 268
+Cell 289 =   W : 288 E : 290 SW : 308 SE : 310 S : 309 NE : 270 NW : 268 N : 269
+Cell 290 =   W : 289 E : 291 SW : 309 SE : 311 S : 310 NE : 271 NW : 269 N : 270
+Cell 291 =   W : 290 E : 292 SW : 310 SE : 312 S : 311 NE : 272 NW : 270 N : 271
+Cell 292 =   W : 291 E : 293 SW : 311 SE : 313 S : 312 NE : 273 NW : 271 N : 272
+Cell 293 =   W : 292 E : 294 SW : 312 SE : 314 S : 313 NE : 274 NW : 272 N : 273
+Cell 294 =   W : 293 E : 295 SW : 313 SE : 315 S : 314 NE : 275 NW : 273 N : 274
+Cell 295 =   W : 294 E : 296 SW : 314 SE : 316 S : 315 NE : 276 NW : 274 N : 275
+Cell 296 =   W : 295 E : 297 SW : 315 SE : 317 S : 316 NE : 277 NW : 275 N : 276
+Cell 297 =   W : 296 E : 298 SW : 316 SE : 318 S : 317 NE : 278 NW : 276 N : 277
+Cell 298 =   W : 297 E : 299 SW : 317 SE : 319 S : 318 NE : 279 NW : 277 N : 278
+Cell 299 =   W : 298 E : 300 SW : 318 SE : 320 S : 319 NE : 280 NW : 278 N : 279
+Cell 300 =   W : 299 E : -1 SW : 319 SE : -1 S : 320 NE : -1 NW : 279 N : 280
+Cell 301 =   W : -1 E : 302 SW : -1 SE : 322 S : 321 NE : 282 NW : -1 N : 281
+Cell 302 =   W : 301 E : 303 SW : 321 SE : 323 S : 322 NE : 283 NW : 281 N : 282
+Cell 303 =   W : 302 E : 304 SW : 322 SE : 324 S : 323 NE : 284 NW : 282 N : 283
+Cell 304 =   W : 303 E : 305 SW : 323 SE : 325 S : 324 NE : 285 NW : 283 N : 284
+Cell 305 =   W : 304 E : 306 SW : 324 SE : 326 S : 325 NE : 286 NW : 284 N : 285
+Cell 306 =   W : 305 E : 307 SW : 325 SE : 327 S : 326 NE : 287 NW : 285 N : 286
+Cell 307 =   W : 306 E : 308 SW : 326 SE : 328 S : 327 NE : 288 NW : 286 N : 287
+Cell 308 =   W : 307 E : 309 SW : 327 SE : 329 S : 328 NE : 289 NW : 287 N : 288
+Cell 309 =   W : 308 E : 310 SW : 328 SE : 330 S : 329 NE : 290 NW : 288 N : 289
+Cell 310 =   W : 309 E : 311 SW : 329 SE : 331 S : 330 NE : 291 NW : 289 N : 290
+Cell 311 =   W : 310 E : 312 SW : 330 SE : 332 S : 331 NE : 292 NW : 290 N : 291
+Cell 312 =   W : 311 E : 313 SW : 331 SE : 333 S : 332 NE : 293 NW : 291 N : 292
+Cell 313 =   W : 312 E : 314 SW : 332 SE : 334 S : 333 NE : 294 NW : 292 N : 293
+Cell 314 =   W : 313 E : 315 SW : 333 SE : 335 S : 334 NE : 295 NW : 293 N : 294
+Cell 315 =   W : 314 E : 316 SW : 334 SE : 336 S : 335 NE : 296 NW : 294 N : 295
+Cell 316 =   W : 315 E : 317 SW : 335 SE : 337 S : 336 NE : 297 NW : 295 N : 296
+Cell 317 =   W : 316 E : 318 SW : 336 SE : 338 S : 337 NE : 298 NW : 296 N : 297
+Cell 318 =   W : 317 E : 319 SW : 337 SE : 339 S : 338 NE : 299 NW : 297 N : 298
+Cell 319 =   W : 318 E : 320 SW : 338 SE : 340 S : 339 NE : 300 NW : 298 N : 299
+Cell 320 =   W : 319 E : -1 SW : 339 SE : -1 S : 340 NE : -1 NW : 299 N : 300
+Cell 321 =   W : -1 E : 322 SW : -1 SE : 342 S : 341 NE : 302 NW : -1 N : 301
+Cell 322 =   W : 321 E : 323 SW : 341 SE : 343 S : 342 NE : 303 NW : 301 N : 302
+Cell 323 =   W : 322 E : 324 SW : 342 SE : 344 S : 343 NE : 304 NW : 302 N : 303
+Cell 324 =   W : 323 E : 325 SW : 343 SE : 345 S : 344 NE : 305 NW : 303 N : 304
+Cell 325 =   W : 324 E : 326 SW : 344 SE : 346 S : 345 NE : 306 NW : 304 N : 305
+Cell 326 =   W : 325 E : 327 SW : 345 SE : 347 S : 346 NE : 307 NW : 305 N : 306
+Cell 327 =   W : 326 E : 328 SW : 346 SE : 348 S : 347 NE : 308 NW : 306 N : 307
+Cell 328 =   W : 327 E : 329 SW : 347 SE : 349 S : 348 NE : 309 NW : 307 N : 308
+Cell 329 =   W : 328 E : 330 SW : 348 SE : 350 S : 349 NE : 310 NW : 308 N : 309
+Cell 330 =   W : 329 E : 331 SW : 349 SE : 351 S : 350 NE : 311 NW : 309 N : 310
+Cell 331 =   W : 330 E : 332 SW : 350 SE : 352 S : 351 NE : 312 NW : 310 N : 311
+Cell 332 =   W : 331 E : 333 SW : 351 SE : 353 S : 352 NE : 313 NW : 311 N : 312
+Cell 333 =   W : 332 E : 334 SW : 352 SE : 354 S : 353 NE : 314 NW : 312 N : 313
+Cell 334 =   W : 333 E : 335 SW : 353 SE : 355 S : 354 NE : 315 NW : 313 N : 314
+Cell 335 =   W : 334 E : 336 SW : 354 SE : 356 S : 355 NE : 316 NW : 314 N : 315
+Cell 336 =   W : 335 E : 337 SW : 355 SE : 357 S : 356 NE : 317 NW : 315 N : 316
+Cell 337 =   W : 336 E : 338 SW : 356 SE : 358 S : 357 NE : 318 NW : 316 N : 317
+Cell 338 =   W : 337 E : 339 SW : 357 SE : 359 S : 358 NE : 319 NW : 317 N : 318
+Cell 339 =   W : 338 E : 340 SW : 358 SE : 360 S : 359 NE : 320 NW : 318 N : 319
+Cell 340 =   W : 339 E : -1 SW : 359 SE : -1 S : 360 NE : -1 NW : 319 N : 320
+Cell 341 =   W : -1 E : 342 SW : -1 SE : 362 S : 361 NE : 322 NW : -1 N : 321
+Cell 342 =   W : 341 E : 343 SW : 361 SE : 363 S : 362 NE : 323 NW : 321 N : 322
+Cell 343 =   W : 342 E : 344 SW : 362 SE : 364 S : 363 NE : 324 NW : 322 N : 323
+Cell 344 =   W : 343 E : 345 SW : 363 SE : 365 S : 364 NE : 325 NW : 323 N : 324
+Cell 345 =   W : 344 E : 346 SW : 364 SE : 366 S : 365 NE : 326 NW : 324 N : 325
+Cell 346 =   W : 345 E : 347 SW : 365 SE : 367 S : 366 NE : 327 NW : 325 N : 326
+Cell 347 =   W : 346 E : 348 SW : 366 SE : 368 S : 367 NE : 328 NW : 326 N : 327
+Cell 348 =   W : 347 E : 349 SW : 367 SE : 369 S : 368 NE : 329 NW : 327 N : 328
+Cell 349 =   W : 348 E : 350 SW : 368 SE : 370 S : 369 NE : 330 NW : 328 N : 329
+Cell 350 =   W : 349 E : 351 SW : 369 SE : 371 S : 370 NE : 331 NW : 329 N : 330
+Cell 351 =   W : 350 E : 352 SW : 370 SE : 372 S : 371 NE : 332 NW : 330 N : 331
+Cell 352 =   W : 351 E : 353 SW : 371 SE : 373 S : 372 NE : 333 NW : 331 N : 332
+Cell 353 =   W : 352 E : 354 SW : 372 SE : 374 S : 373 NE : 334 NW : 332 N : 333
+Cell 354 =   W : 353 E : 355 SW : 373 SE : 375 S : 374 NE : 335 NW : 333 N : 334
+Cell 355 =   W : 354 E : 356 SW : 374 SE : 376 S : 375 NE : 336 NW : 334 N : 335
+Cell 356 =   W : 355 E : 357 SW : 375 SE : 377 S : 376 NE : 337 NW : 335 N : 336
+Cell 357 =   W : 356 E : 358 SW : 376 SE : 378 S : 377 NE : 338 NW : 336 N : 337
+Cell 358 =   W : 357 E : 359 SW : 377 SE : 379 S : 378 NE : 339 NW : 337 N : 338
+Cell 359 =   W : 358 E : 360 SW : 378 SE : 380 S : 379 NE : 340 NW : 338 N : 339
+Cell 360 =   W : 359 E : -1 SW : 379 SE : -1 S : 380 NE : -1 NW : 339 N : 340
+Cell 361 =   W : -1 E : 362 SW : -1 SE : 382 S : 381 NE : 342 NW : -1 N : 341
+Cell 362 =   W : 361 E : 363 SW : 381 SE : 383 S : 382 NE : 343 NW : 341 N : 342
+Cell 363 =   W : 362 E : 364 SW : 382 SE : 384 S : 383 NE : 344 NW : 342 N : 343
+Cell 364 =   W : 363 E : 365 SW : 383 SE : 385 S : 384 NE : 345 NW : 343 N : 344
+Cell 365 =   W : 364 E : 366 SW : 384 SE : 386 S : 385 NE : 346 NW : 344 N : 345
+Cell 366 =   W : 365 E : 367 SW : 385 SE : 387 S : 386 NE : 347 NW : 345 N : 346
+Cell 367 =   W : 366 E : 368 SW : 386 SE : 388 S : 387 NE : 348 NW : 346 N : 347
+Cell 368 =   W : 367 E : 369 SW : 387 SE : 389 S : 388 NE : 349 NW : 347 N : 348
+Cell 369 =   W : 368 E : 370 SW : 388 SE : 390 S : 389 NE : 350 NW : 348 N : 349
+Cell 370 =   W : 369 E : 371 SW : 389 SE : 391 S : 390 NE : 351 NW : 349 N : 350
+Cell 371 =   W : 370 E : 372 SW : 390 SE : 392 S : 391 NE : 352 NW : 350 N : 351
+Cell 372 =   W : 371 E : 373 SW : 391 SE : 393 S : 392 NE : 353 NW : 351 N : 352
+Cell 373 =   W : 372 E : 374 SW : 392 SE : 394 S : 393 NE : 354 NW : 352 N : 353
+Cell 374 =   W : 373 E : 375 SW : 393 SE : 395 S : 394 NE : 355 NW : 353 N : 354
+Cell 375 =   W : 374 E : 376 SW : 394 SE : 396 S : 395 NE : 356 NW : 354 N : 355
+Cell 376 =   W : 375 E : 377 SW : 395 SE : 397 S : 396 NE : 357 NW : 355 N : 356
+Cell 377 =   W : 376 E : 378 SW : 396 SE : 398 S : 397 NE : 358 NW : 356 N : 357
+Cell 378 =   W : 377 E : 379 SW : 397 SE : 399 S : 398 NE : 359 NW : 357 N : 358
+Cell 379 =   W : 378 E : 380 SW : 398 SE : 400 S : 399 NE : 360 NW : 358 N : 359
+Cell 380 =   W : 379 E : -1 SW : 399 SE : -1 S : 400 NE : -1 NW : 359 N : 360
+Cell 381 =   W : -1 E : 382 SW : -1 SE : -1 S : -1 NE : 362 NW : -1 N : 361
+Cell 382 =   W : 381 E : 383 SW : -1 SE : -1 S : -1 NE : 363 NW : 361 N : 362
+Cell 383 =   W : 382 E : 384 SW : -1 SE : -1 S : -1 NE : 364 NW : 362 N : 363
+Cell 384 =   W : 383 E : 385 SW : -1 SE : -1 S : -1 NE : 365 NW : 363 N : 364
+Cell 385 =   W : 384 E : 386 SW : -1 SE : -1 S : -1 NE : 366 NW : 364 N : 365
+Cell 386 =   W : 385 E : 387 SW : -1 SE : -1 S : -1 NE : 367 NW : 365 N : 366
+Cell 387 =   W : 386 E : 388 SW : -1 SE : -1 S : -1 NE : 368 NW : 366 N : 367
+Cell 388 =   W : 387 E : 389 SW : -1 SE : -1 S : -1 NE : 369 NW : 367 N : 368
+Cell 389 =   W : 388 E : 390 SW : -1 SE : -1 S : -1 NE : 370 NW : 368 N : 369
+Cell 390 =   W : 389 E : 391 SW : -1 SE : -1 S : -1 NE : 371 NW : 369 N : 370
+Cell 391 =   W : 390 E : 392 SW : -1 SE : -1 S : -1 NE : 372 NW : 370 N : 371
+Cell 392 =   W : 391 E : 393 SW : -1 SE : -1 S : -1 NE : 373 NW : 371 N : 372
+Cell 393 =   W : 392 E : 394 SW : -1 SE : -1 S : -1 NE : 374 NW : 372 N : 373
+Cell 394 =   W : 393 E : 395 SW : -1 SE : -1 S : -1 NE : 375 NW : 373 N : 374
+Cell 395 =   W : 394 E : 396 SW : -1 SE : -1 S : -1 NE : 376 NW : 374 N : 375
+Cell 396 =   W : 395 E : 397 SW : -1 SE : -1 S : -1 NE : 377 NW : 375 N : 376
+Cell 397 =   W : 396 E : 398 SW : -1 SE : -1 S : -1 NE : 378 NW : 376 N : 377
+Cell 398 =   W : 397 E : 399 SW : -1 SE : -1 S : -1 NE : 379 NW : 377 N : 378
+Cell 399 =   W : 398 E : 400 SW : -1 SE : -1 S : -1 NE : 380 NW : 378 N : 379
+Cell 400 =   W : 399 E : -1 SW : -1 SE : -1 S : -1 NE : -1 NW : 379 N : 380
+
+------ Read DataFrames: Forest and Weather ------
+Forest DataFrame from instance Data.csv
+ fueltype  mon  jd  m  jd_min  lat  lon  elev  ffmc  ws  waz  bui  ps  saz  pc  pdf  gfl  cur  time  pattern 
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20  NaN 
+Populating DF for cell 1
+Populating DF for cell 2
+Populating DF for cell 3
+Populating DF for cell 4
+Populating DF for cell 5
+Populating DF for cell 6
+Populating DF for cell 7
+Populating DF for cell 8
+Populating DF for cell 9
+Populating DF for cell 10
+Populating DF for cell 11
+Populating DF for cell 12
+Populating DF for cell 13
+Populating DF for cell 14
+Populating DF for cell 15
+Populating DF for cell 16
+Populating DF for cell 17
+Populating DF for cell 18
+Populating DF for cell 19
+Populating DF for cell 20
+Populating DF for cell 21
+Populating DF for cell 22
+Populating DF for cell 23
+Populating DF for cell 24
+Populating DF for cell 25
+Populating DF for cell 26
+Populating DF for cell 27
+Populating DF for cell 28
+Populating DF for cell 29
+Populating DF for cell 30
+Populating DF for cell 31
+Populating DF for cell 32
+Populating DF for cell 33
+Populating DF for cell 34
+Populating DF for cell 35
+Populating DF for cell 36
+Populating DF for cell 37
+Populating DF for cell 38
+Populating DF for cell 39
+Populating DF for cell 40
+Populating DF for cell 41
+Populating DF for cell 42
+Populating DF for cell 43
+Populating DF for cell 44
+Populating DF for cell 45
+Populating DF for cell 46
+Populating DF for cell 47
+Populating DF for cell 48
+Populating DF for cell 49
+Populating DF for cell 50
+Populating DF for cell 51
+Populating DF for cell 52
+Populating DF for cell 53
+Populating DF for cell 54
+Populating DF for cell 55
+Populating DF for cell 56
+Populating DF for cell 57
+Populating DF for cell 58
+Populating DF for cell 59
+Populating DF for cell 60
+Populating DF for cell 61
+Populating DF for cell 62
+Populating DF for cell 63
+Populating DF for cell 64
+Populating DF for cell 65
+Populating DF for cell 66
+Populating DF for cell 67
+Populating DF for cell 68
+Populating DF for cell 69
+Populating DF for cell 70
+Populating DF for cell 71
+Populating DF for cell 72
+Populating DF for cell 73
+Populating DF for cell 74
+Populating DF for cell 75
+Populating DF for cell 76
+Populating DF for cell 77
+Populating DF for cell 78
+Populating DF for cell 79
+Populating DF for cell 80
+Populating DF for cell 81
+Populating DF for cell 82
+Populating DF for cell 83
+Populating DF for cell 84
+Populating DF for cell 85
+Populating DF for cell 86
+Populating DF for cell 87
+Populating DF for cell 88
+Populating DF for cell 89
+Populating DF for cell 90
+Populating DF for cell 91
+Populating DF for cell 92
+Populating DF for cell 93
+Populating DF for cell 94
+Populating DF for cell 95
+Populating DF for cell 96
+Populating DF for cell 97
+Populating DF for cell 98
+Populating DF for cell 99
+Populating DF for cell 100
+Populating DF for cell 101
+Populating DF for cell 102
+Populating DF for cell 103
+Populating DF for cell 104
+Populating DF for cell 105
+Populating DF for cell 106
+Populating DF for cell 107
+Populating DF for cell 108
+Populating DF for cell 109
+Populating DF for cell 110
+Populating DF for cell 111
+Populating DF for cell 112
+Populating DF for cell 113
+Populating DF for cell 114
+Populating DF for cell 115
+Populating DF for cell 116
+Populating DF for cell 117
+Populating DF for cell 118
+Populating DF for cell 119
+Populating DF for cell 120
+Populating DF for cell 121
+Populating DF for cell 122
+Populating DF for cell 123
+Populating DF for cell 124
+Populating DF for cell 125
+Populating DF for cell 126
+Populating DF for cell 127
+Populating DF for cell 128
+Populating DF for cell 129
+Populating DF for cell 130
+Populating DF for cell 131
+Populating DF for cell 132
+Populating DF for cell 133
+Populating DF for cell 134
+Populating DF for cell 135
+Populating DF for cell 136
+Populating DF for cell 137
+Populating DF for cell 138
+Populating DF for cell 139
+Populating DF for cell 140
+Populating DF for cell 141
+Populating DF for cell 142
+Populating DF for cell 143
+Populating DF for cell 144
+Populating DF for cell 145
+Populating DF for cell 146
+Populating DF for cell 147
+Populating DF for cell 148
+Populating DF for cell 149
+Populating DF for cell 150
+Populating DF for cell 151
+Populating DF for cell 152
+Populating DF for cell 153
+Populating DF for cell 154
+Populating DF for cell 155
+Populating DF for cell 156
+Populating DF for cell 157
+Populating DF for cell 158
+Populating DF for cell 159
+Populating DF for cell 160
+Populating DF for cell 161
+Populating DF for cell 162
+Populating DF for cell 163
+Populating DF for cell 164
+Populating DF for cell 165
+Populating DF for cell 166
+Populating DF for cell 167
+Populating DF for cell 168
+Populating DF for cell 169
+Populating DF for cell 170
+Populating DF for cell 171
+Populating DF for cell 172
+Populating DF for cell 173
+Populating DF for cell 174
+Populating DF for cell 175
+Populating DF for cell 176
+Populating DF for cell 177
+Populating DF for cell 178
+Populating DF for cell 179
+Populating DF for cell 180
+Populating DF for cell 181
+Populating DF for cell 182
+Populating DF for cell 183
+Populating DF for cell 184
+Populating DF for cell 185
+Populating DF for cell 186
+Populating DF for cell 187
+Populating DF for cell 188
+Populating DF for cell 189
+Populating DF for cell 190
+Populating DF for cell 191
+Populating DF for cell 192
+Populating DF for cell 193
+Populating DF for cell 194
+Populating DF for cell 195
+Populating DF for cell 196
+Populating DF for cell 197
+Populating DF for cell 198
+Populating DF for cell 199
+Populating DF for cell 200
+Populating DF for cell 201
+Populating DF for cell 202
+Populating DF for cell 203
+Populating DF for cell 204
+Populating DF for cell 205
+Populating DF for cell 206
+Populating DF for cell 207
+Populating DF for cell 208
+Populating DF for cell 209
+Populating DF for cell 210
+Populating DF for cell 211
+Populating DF for cell 212
+Populating DF for cell 213
+Populating DF for cell 214
+Populating DF for cell 215
+Populating DF for cell 216
+Populating DF for cell 217
+Populating DF for cell 218
+Populating DF for cell 219
+Populating DF for cell 220
+Populating DF for cell 221
+Populating DF for cell 222
+Populating DF for cell 223
+Populating DF for cell 224
+Populating DF for cell 225
+Populating DF for cell 226
+Populating DF for cell 227
+Populating DF for cell 228
+Populating DF for cell 229
+Populating DF for cell 230
+Populating DF for cell 231
+Populating DF for cell 232
+Populating DF for cell 233
+Populating DF for cell 234
+Populating DF for cell 235
+Populating DF for cell 236
+Populating DF for cell 237
+Populating DF for cell 238
+Populating DF for cell 239
+Populating DF for cell 240
+Populating DF for cell 241
+Populating DF for cell 242
+Populating DF for cell 243
+Populating DF for cell 244
+Populating DF for cell 245
+Populating DF for cell 246
+Populating DF for cell 247
+Populating DF for cell 248
+Populating DF for cell 249
+Populating DF for cell 250
+Populating DF for cell 251
+Populating DF for cell 252
+Populating DF for cell 253
+Populating DF for cell 254
+Populating DF for cell 255
+Populating DF for cell 256
+Populating DF for cell 257
+Populating DF for cell 258
+Populating DF for cell 259
+Populating DF for cell 260
+Populating DF for cell 261
+Populating DF for cell 262
+Populating DF for cell 263
+Populating DF for cell 264
+Populating DF for cell 265
+Populating DF for cell 266
+Populating DF for cell 267
+Populating DF for cell 268
+Populating DF for cell 269
+Populating DF for cell 270
+Populating DF for cell 271
+Populating DF for cell 272
+Populating DF for cell 273
+Populating DF for cell 274
+Populating DF for cell 275
+Populating DF for cell 276
+Populating DF for cell 277
+Populating DF for cell 278
+Populating DF for cell 279
+Populating DF for cell 280
+Populating DF for cell 281
+Populating DF for cell 282
+Populating DF for cell 283
+Populating DF for cell 284
+Populating DF for cell 285
+Populating DF for cell 286
+Populating DF for cell 287
+Populating DF for cell 288
+Populating DF for cell 289
+Populating DF for cell 290
+Populating DF for cell 291
+Populating DF for cell 292
+Populating DF for cell 293
+Populating DF for cell 294
+Populating DF for cell 295
+Populating DF for cell 296
+Populating DF for cell 297
+Populating DF for cell 298
+Populating DF for cell 299
+Populating DF for cell 300
+Populating DF for cell 301
+Populating DF for cell 302
+Populating DF for cell 303
+Populating DF for cell 304
+Populating DF for cell 305
+Populating DF for cell 306
+Populating DF for cell 307
+Populating DF for cell 308
+Populating DF for cell 309
+Populating DF for cell 310
+Populating DF for cell 311
+Populating DF for cell 312
+Populating DF for cell 313
+Populating DF for cell 314
+Populating DF for cell 315
+Populating DF for cell 316
+Populating DF for cell 317
+Populating DF for cell 318
+Populating DF for cell 319
+Populating DF for cell 320
+Populating DF for cell 321
+Populating DF for cell 322
+Populating DF for cell 323
+Populating DF for cell 324
+Populating DF for cell 325
+Populating DF for cell 326
+Populating DF for cell 327
+Populating DF for cell 328
+Populating DF for cell 329
+Populating DF for cell 330
+Populating DF for cell 331
+Populating DF for cell 332
+Populating DF for cell 333
+Populating DF for cell 334
+Populating DF for cell 335
+Populating DF for cell 336
+Populating DF for cell 337
+Populating DF for cell 338
+Populating DF for cell 339
+Populating DF for cell 340
+Populating DF for cell 341
+Populating DF for cell 342
+Populating DF for cell 343
+Populating DF for cell 344
+Populating DF for cell 345
+Populating DF for cell 346
+Populating DF for cell 347
+Populating DF for cell 348
+Populating DF for cell 349
+Populating DF for cell 350
+Populating DF for cell 351
+Populating DF for cell 352
+Populating DF for cell 353
+Populating DF for cell 354
+Populating DF for cell 355
+Populating DF for cell 356
+Populating DF for cell 357
+Populating DF for cell 358
+Populating DF for cell 359
+Populating DF for cell 360
+Populating DF for cell 361
+Populating DF for cell 362
+Populating DF for cell 363
+Populating DF for cell 364
+Populating DF for cell 365
+Populating DF for cell 366
+Populating DF for cell 367
+Populating DF for cell 368
+Populating DF for cell 369
+Populating DF for cell 370
+Populating DF for cell 371
+Populating DF for cell 372
+Populating DF for cell 373
+Populating DF for cell 374
+Populating DF for cell 375
+Populating DF for cell 376
+Populating DF for cell 377
+Populating DF for cell 378
+Populating DF for cell 379
+Populating DF for cell 380
+Populating DF for cell 381
+Populating DF for cell 382
+Populating DF for cell 383
+Populating DF for cell 384
+Populating DF for cell 385
+Populating DF for cell 386
+Populating DF for cell 387
+Populating DF for cell 388
+Populating DF for cell 389
+Populating DF for cell 390
+Populating DF for cell 391
+Populating DF for cell 392
+Populating DF for cell 393
+Populating DF for cell 394
+Populating DF for cell 395
+Populating DF for cell 396
+Populating DF for cell 397
+Populating DF for cell 398
+Populating DF for cell 399
+Populating DF for cell 400
+
+Weather DataFrame from instance Weather.csv
+ Scenario  datetime  APCP  TMP  RH  WS  WD  FFMC  DMC  DC  ISI  BUI  FWI 
+ JCB  2001-10-16 13:00  0.0  17.7  20  21  270  90  43  259  10.9  60  26 
+ JCB  2001-10-16 14:00  0.0  16.9  18  25  270  90  43  259  14.9  60  32 
+ JCB  2001-10-16 15:00  0.0  16.1  20  27  270  90  43  259  17.6  60  36 
+ JCB  2001-10-16 16:00  0.0  15.8  20  37  270  90  43  259  31.1  60  51.7 
+ JCB  2001-10-16 17:00  0.0  13.9  25  43  270  90  43  259  41.5  60  61.8 
+ JCB  2001-10-16 18:00  0.0  12.1  35  45  270  90  43  259  43.9  60  63.9 
+ JCB  2001-10-16 19:00  0.0  10.6  41  46  270  90  43  259  43.6  60  63.7 
+ JCB  2001-10-16 20:00  0.0  11.3  39  18  270  90  43  259  11.5  60  27.1 
+Populating Weather DF period 1
+Populating Weather DF period 2
+Populating Weather DF period 3
+Populating Weather DF period 4
+Populating Weather DF period 5
+Populating Weather DF period 6
+Populating Weather DF period 7
+Populating Weather DF period 8
+------------------------------------------ Simulation Number: 1------------------------------------------
+
+Weather inside ignition:
+waz: 90  ffmc: 90  bui: 60
+Fires are still alive, no message generated
+Current fire period: 1
+Fires are still alive, no message generated
+Current fire period: 2
+Fires are still alive, no message generated
+Current fire period: 3
+Fires are still alive, no message generated
+Current fire period: 4
+Fires are still alive, no message generated
+Current fire period: 5
+Fires are still alive, no message generated
+Current fire period: 6
+Fires are still alive, no message generated
+Current fire period: 7
+Fires are still alive, no message generated
+Current fire period: 8
+Fires are still alive, no message generated
+Current fire period: 9
+Fires are still alive, no message generated
+Current fire period: 10
+Fires are still alive, no message generated
+Current fire period: 11
+Fires are still alive, no message generated
+Current fire period: 12
+Fires are still alive, no message generated
+Current fire period: 13
+Fires are still alive, no message generated
+Current fire period: 14
+Fires are still alive, no message generated
+Current fire period: 15
+Fires are still alive, no message generated
+Current fire period: 16
+Fires are still alive, no message generated
+Current fire period: 18
+Fires are still alive, no message generated
+Current fire period: 19
+Fires are still alive, no message generated
+Current fire period: 20
+Fires are still alive, no message generated
+Current fire period: 21
+Fires are still alive, no message generated
+Current fire period: 22
+Fires are still alive, no message generated
+Current fire period: 23
+Fires are still alive, no message generated
+Current fire period: 24
+Fires are still alive, no message generated
+Current fire period: 25
+Fires are still alive, no message generated
+Current fire period: 26
+Fires are still alive, no message generated
+Current fire period: 27
+Fires are still alive, no message generated
+Current fire period: 28
+Fires are still alive, no message generated
+Current fire period: 29
+Fires are still alive, no message generated
+Current fire period: 30
+Fires are still alive, no message generated
+Current fire period: 31
+Fires are still alive, no message generated
+Current fire period: 32
+Fires are still alive, no message generated
+Current fire period: 33
+Fires are still alive, no message generated
+Current fire period: 35
+Fires are still alive, no message generated
+Current fire period: 36
+Fires are still alive, no message generated
+Current fire period: 37
+Fires are still alive, no message generated
+Current fire period: 38
+Fires are still alive, no message generated
+Current fire period: 39
+Fires are still alive, no message generated
+Current fire period: 41
+Fires are still alive, no message generated
+Current fire period: 42
+Fires are still alive, no message generated
+Current fire period: 43
+Fires are still alive, no message generated
+Current fire period: 44
+Fires are still alive, no message generated
+Current fire period: 45
+Fires are still alive, no message generated
+Current fire period: 46
+Fires are still alive, no message generated
+Current fire period: 47
+Fires are still alive, no message generated
+Current fire period: 48
+Fires are still alive, no message generated
+Current fire period: 49
+Fires are still alive, no message generated
+Current fire period: 50
+Fires are still alive, no message generated
+Current fire period: 52
+Fires are still alive, no message generated
+Current fire period: 53
+Fires are still alive, no message generated
+Current fire period: 54
+Fires are still alive, no message generated
+Current fire period: 55
+Fires are still alive, no message generated
+Current fire period: 56
+Fires are still alive, no message generated
+Current fire period: 58
+Fires are still alive, no message generated
+Current fire period: 59
+Fires are still alive, no message generated
+Current fire period: 60
+Fires are still alive, no message generated
+Current fire period: 61
+Fires are still alive, no message generated
+Current fire period: 62
+Fires are still alive, no message generated
+Current fire period: 63
+Fires are still alive, no message generated
+Current fire period: 64
+Fires are still alive, no message generated
+Current fire period: 65
+Fires are still alive, no message generated
+Current fire period: 66
+Fires are still alive, no message generated
+Current fire period: 67
+Fires are still alive, no message generated
+Current fire period: 69
+Fires are still alive, no message generated
+Current fire period: 70
+Fires are still alive, no message generated
+Current fire period: 71
+Fires are still alive, no message generated
+Current fire period: 72
+Fires are still alive, no message generated
+Current fire period: 73
+Fires are still alive, no message generated
+Current fire period: 75
+Fires are still alive, no message generated
+Current fire period: 76
+Fires are still alive, no message generated
+Current fire period: 77
+Fires are still alive, no message generated
+Current fire period: 78
+Fires are still alive, no message generated
+Current fire period: 79
+Fires are still alive, no message generated
+Current fire period: 81
+Fires are still alive, no message generated
+Current fire period: 82
+Fires are still alive, no message generated
+Current fire period: 83
+Fires are still alive, no message generated
+Current fire period: 84
+Fires are still alive, no message generated
+Current fire period: 86
+Fires are still alive, no message generated
+Current fire period: 87
+Fires are still alive, no message generated
+Current fire period: 88
+Fires are still alive, no message generated
+Current fire period: 90
+Fires are still alive, no message generated
+Current fire period: 92
+Fires are still alive, no message generated
+Current fire period: 93
+Fires are still alive, no message generated
+Current fire period: 94
+Fires are still alive, no message generated
+Current fire period: 95
+Fires are still alive, no message generated
+Current fire period: 96
+Fires are still alive, no message generated
+Current fire period: 98
+Fires are still alive, no message generated
+Current fire period: 99
+Fires are still alive, no message generated
+Current fire period: 100
+Fires are still alive, no message generated
+Current fire period: 101
+Fires are still alive, no message generated
+Current fire period: 103
+Fires are still alive, no message generated
+Current fire period: 104
+Fires are still alive, no message generated
+Current fire period: 105
+Fires are still alive, no message generated
+Current fire period: 106
+Fires are still alive, no message generated
+Current fire period: 107
+Fires are still alive, no message generated
+Current fire period: 109
+Fires are still alive, no message generated
+Current fire period: 110
+Fires are still alive, no message generated
+Current fire period: 111
+Fires are still alive, no message generated
+Current fire period: 112
+Fires are still alive, no message generated
+Current fire period: 113
+Fires are still alive, no message generated
+Current fire period: 115
+Fires are still alive, no message generated
+Current fire period: 116
+Fires are still alive, no message generated
+Current fire period: 117
+Fires are still alive, no message generated
+Current fire period: 118
+Fires are still alive, no message generated
+Current fire period: 121
+Fires are still alive, no message generated
+Current fire period: 122
+Fires are still alive, no message generated
+Current fire period: 124
+Fires are still alive, no message generated
+Current fire period: 127
+Fires are still alive, no message generated
+Current fire period: 128
+Fires are still alive, no message generated
+Current fire period: 131
+Fires are still alive, no message generated
+Current fire period: 133
+Fires are still alive, no message generated
+Current fire period: 134
+Fires are still alive, no message generated
+Current fire period: 135
+Fires are still alive, no message generated
+Current fire period: 137
+Fires are still alive, no message generated
+Current fire period: 138
+Fires are still alive, no message generated
+Current fire period: 140
+Fires are still alive, no message generated
+Current fire period: 141
+Fires are still alive, no message generated
+Current fire period: 144
+Fires are still alive, no message generated
+Current fire period: 145
+Fires are still alive, no message generated
+Current fire period: 147
+Fires are still alive, no message generated
+Current fire period: 150
+Fires are still alive, no message generated
+Current fire period: 151
+Fires are still alive, no message generated
+Current fire period: 154
+Fires are still alive, no message generated
+Current fire period: 156
+Fires are still alive, no message generated
+Current fire period: 157
+Fires are still alive, no message generated
+Current fire period: 158
+Fires are still alive, no message generated
+Current fire period: 160
+Fires are still alive, no message generated
+Current fire period: 161
+Fires are still alive, no message generated
+Current fire period: 163
+Fires are still alive, no message generated
+Current fire period: 164
+Fires are still alive, no message generated
+Current fire period: 167
+Fires are still alive, no message generated
+Current fire period: 168
+Fires are still alive, no message generated
+Current fire period: 170
+Fires are still alive, no message generated
+Current fire period: 173
+Fires are still alive, no message generated
+Current fire period: 174
+Fires are still alive, no message generated
+Current fire period: 177
+Fires are still alive, no message generated
+Current fire period: 180
+Fires are still alive, no message generated
+Current fire period: 183
+Fires are still alive, no message generated
+Current fire period: 185
+Fires are still alive, no message generated
+Current fire period: 188
+Fires are still alive, no message generated
+Current fire period: 190
+Fires are still alive, no message generated
+Current fire period: 193
+Fires are still alive, no message generated
+Current fire period: 196
+Fires are still alive, no message generated
+Current fire period: 198
+Fires are still alive, no message generated
+Current fire period: 201
+Fires are still alive, no message generated
+Current fire period: 206
+Fires are still alive, no message generated
+Current fire period: 208
+Fires are still alive, no message generated
+Current fire period: 214
+Fires are still alive, no message generated
+Current fire period: 216
+Fires are still alive, no message generated
+Current fire period: 224
+Fires are still alive, no message generated
+Current fire period: 226
+Fires are still alive, no message generated
+Current fire period: 232
+Fires are still alive, no message generated
+Current fire period: 234
+Fires are still alive, no message generated
+Current fire period: 297
+Fires are still alive, no message generated
+Current fire period: 326
+Fires are still alive, no message generated
+Current fire period: 331
+Fires are still alive, no message generated
+Current fire period: 336
+Fires are still alive, no message generated
+Current fire period: 341
+Fires are still alive, no message generated
+Current fire period: 345
+Fires are still alive, no message generated
+Current fire period: 346
+Fires are still alive, no message generated
+Current fire period: 350
+Fires are still alive, no message generated
+Current fire period: 351
+Fires are still alive, no message generated
+Current fire period: 355
+Fires are still alive, no message generated
+Current fire period: 360
+Fires are still alive, no message generated
+Current fire period: 365
+Fires are still alive, no message generated
+Current fire period: 369
+Fires are still alive, no message generated
+Current fire period: 370
+Fires are still alive, no message generated
+Current fire period: 374
+Fires are still alive, no message generated
+Current fire period: 379
+Fires are still alive, no message generated
+Current fire period: 383
+Fires are still alive, no message generated
+Current fire period: 384
+Fires are still alive, no message generated
+Current fire period: 388
+Fires are still alive, no message generated
+Current fire period: 389
+Fires are still alive, no message generated
+Current fire period: 393
+Fires are still alive, no message generated
+Current fire period: 397
+Fires are still alive, no message generated
+Current fire period: 398
+Fires are still alive, no message generated
+Current fire period: 402
+Fires are still alive, no message generated
+Current fire period: 403
+Fires are still alive, no message generated
+Current fire period: 407
+Fires are still alive, no message generated
+Current fire period: 408
+Fires are still alive, no message generated
+Current fire period: 411
+Fires are still alive, no message generated
+Current fire period: 412
+Fires are still alive, no message generated
+Current fire period: 416
+Fires are still alive, no message generated
+Current fire period: 417
+Fires are still alive, no message generated
+Current fire period: 421
+Fires are still alive, no message generated
+Current fire period: 422
+Fires are still alive, no message generated
+Current fire period: 425
+Fires are still alive, no message generated
+Current fire period: 426
+Fires are still alive, no message generated
+Current fire period: 427
+Fires are still alive, no message generated
+Current fire period: 430
+Fires are still alive, no message generated
+Current fire period: 431
+Fires are still alive, no message generated
+Current fire period: 435
+Fires are still alive, no message generated
+Current fire period: 436
+Fires are still alive, no message generated
+Current fire period: 439
+Fires are still alive, no message generated
+Current fire period: 440
+Fires are still alive, no message generated
+Current fire period: 441
+Fires are still alive, no message generated
+Current fire period: 444
+Fires are still alive, no message generated
+Current fire period: 445
+Fires are still alive, no message generated
+Current fire period: 446
+Fires are still alive, no message generated
+Current fire period: 449
+Fires are still alive, no message generated
+Current fire period: 450
+Fires are still alive, no message generated
+Current fire period: 453
+Fires are still alive, no message generated
+Current fire period: 454
+Fires are still alive, no message generated
+Current fire period: 455
+Fires are still alive, no message generated
+Current fire period: 458
+Fires are still alive, no message generated
+Current fire period: 459
+Fires are still alive, no message generated
+Current fire period: 460
+Fires are still alive, no message generated
+Current fire period: 463
+Fires are still alive, no message generated
+Current fire period: 464
+Fires are still alive, no message generated
+Current fire period: 465
+Fires are still alive, no message generated
+Current fire period: 467
+Fires are still alive, no message generated
+Current fire period: 468
+Fires are still alive, no message generated
+Current fire period: 469
+Fires are still alive, no message generated
+Current fire period: 472
+Fires are still alive, no message generated
+Current fire period: 473
+Fires are still alive, no message generated
+Current fire period: 474
+Fires are still alive, no message generated
+Current fire period: 477
+Fires are still alive, no message generated
+Current fire period: 478
+*** WARNING!!! About to hit MaxFirePeriods: 480
+Fires are still alive, no message generated
+Current fire period: 479
+Next year...
+
+ ------------------------ Final results for comparison with Python ------------------------
+Set information period (week 100)
+Available Cells: 385 384 383 382 381 364 363 362 361 343 342 341 321
+nonBurnable Cells:
+Burning Cells: 386 322 365 301 344 387 323 366 302 345 281 388 324 367 303 346 282 389 325 261 368 304 347 283 390 326 262 369 305 241 348 284 391 327 263 370 306 242 349 285 221 392 328 264 371 307 243 350 286 222 139 120 157 138 167 119 81 156 100 124 137 118 99 155 80 136 117 146 154 98 79 135 103 60 397 116 97 153 78 134 59 396 115 171 40 377 125 152 96 133 77 58 395 82 114 39 376 151 95 20 357 147 76 132 57 394 113 38 375 94 150 19 356 104 131 75 112 56 393 37 374 149 61 398 93 18 355 130 74 126 55 111 41 378 49 128 86 174 7 30 109 67 11 90 48 127 85 173 6 29 108 66 10 89 47 195 28 107 232 65 176 9 88 213 46 194 27 106 64 21 358 170 3 340 189 22 359 42 379 172 5 84 168 1 338 190 23 360 169 2 339 191 24 43 380 63 400 193 26 105 192 25 211 44 175 8 87 212 45 68 12 91 31 110 50 129 69 148 13 92 32 51 70 14 351 33 62 399 52 71 15 352 34 53 72 16 353 35 372 54 83 73 17 354 36 373 210 158 214 145 233 177 102 196 140 188 159 215 178 234 253 197 160 216 231 179 235 166 254 198 123 217 209 180 236 199 255 274 218 237 252 256 200 187 275 219 144 238 230 257 220 276 101 295 239 258 273 277 208 240 296 165 259 251 278 297 122 260 316 279 294 298 229 317 186 280 272 299 318 143 337 300 315 319 250 207 293 320 164 336 271 121 228 314 185 292 142 249 335 206 313 163 270 227 334 184 291 248 141 205 312 269 162 226 333 290 183 247 311 204 268 161 332 225 289 182 246 310 203 267 331 224 288 181 245 309 202 266 330 223 287 244 308 201 265 329
+Burnt Cells: 386 322 365 301 344 387 323 366 302 345 281 388 324 367 303 346 282 389 325 261 368 304 347 283 390 326 262 369 305 241 348 284 391 327 263 370 306 242 349 285 221 392 328 264 371 307 243 350 286 222 393 120 157 138 167 119 81 156 100 124 137 118 99 155 80 136 117 146 154 98 79 135 103 60 397 116 97 153 78 134 59 396 115 40 377 125 152 96 133 77 58 395 82 114 39 376 151 95 20 357 147 76 132 57 394 113 38 375 94 150 19 356 104 131 75 112 56 37 374 149 61 398 93 18 355 130 74 126 55 111 36 373 49 128 86 174 7 30 109 67 11 90 48 127 85 173 6 29 108 66 10 89 47 195 28 107 232 65 176 9 88 213 46 194 27 106 64 171 4 83 21 358 170 3 340 189 22 359 42 379 172 5 84 168 1 338 190 23 360 169 2 339 191 24 43 380 63 400 193 26 105 192 25 211 44 175 8 87 212 45 41 378 68 12 91 31 110 50 129 69 148 13 92 32 51 70 14 351 33 62 399 52 71 15 352 34 53 72 16 353 35 372 54 73 17 354 139 210 158 214 145 233 177 102 196 140 188 159 215 178 234 253 197 160 216 231 179 235 166 254 198 123 217 209 180 236 199 255 274 218 237 252 256 200 187 275 219 144 238 230 257 220 276 101 295 239 258 273 277 208 240 296 165 259 251 278 297 122 260 316 279 294 298 229 317 186 280 272 299 318 143 337 300 315 319 250 207 293 320 164 336 271 121 228 314 185 292 142 249 335 206 313 163 270 227 334 184 291 248 141 205 312 269 162 226 333 290 183 247 311 204 268 161 332 225 289 182 246 310 203 267 331 224 288 181 245 309 202 266 330 223 287 244 308 201 265 329
+Harvested Cells:
+
+Time elapsed: 0.1149 seconds

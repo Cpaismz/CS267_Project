@@ -1,0 +1,408 @@
+------------------ Simulator C Beta version ----------------------
+
+------ Command line values ------
+--Fire-Period-Length: 1 
+InFolder: 
+OutFolder: SimOut
+ForestFile: Forest.csv
+FBPlookup: FBPlookup.csv
+WeatherOpt: rows
+Ignitions: 0
+SaveMem: 0
+scenarios: 0
+noOutput: 0
+OutputGrid: 0
+verbose: 0
+plottrue: 0
+spotting: 0
+exceltrue: 0
+combine: 0
+MinutesPerWP: 60
+Max_Fire_Periods: 1000
+TotalYears: 4
+TotalSims: 1
+FirePeriodLen: 1
+heuristic: 0
+seed: 123
+
+------ Instance from file initialization ------
+Populating Forest DF
+cols: 3,  rows:  3,   cellside:  100
+CoordCells Debug
+x: 0  y: 2
+x: 1  y: 2
+x: 2  y: 2
+x: 0  y: 1
+x: 1  y: 1
+x: 2  y: 1
+x: 0  y: 0
+x: 1  y: 0
+x: 2  y: 0
+Adjacents Debug
+Cell 1 =   W : -1 E : 2 SW : -1 SE : 5 S : 4 NE : -1 NW : -1 N : -1
+Cell 2 =   W : 1 E : 3 SW : 4 SE : 6 S : 5 NE : -1 NW : -1 N : -1
+Cell 3 =   W : 2 E : -1 SW : 5 SE : -1 S : 6 NE : -1 NW : -1 N : -1
+Cell 4 =   W : -1 E : 5 SW : -1 SE : 8 S : 7 NE : 2 NW : -1 N : 1
+Cell 5 =   W : 4 E : 6 SW : 7 SE : 9 S : 8 NE : 3 NW : 1 N : 2
+Cell 6 =   W : 5 E : -1 SW : 8 SE : -1 S : 9 NE : -1 NW : 2 N : 3
+Cell 7 =   W : -1 E : 8 SW : -1 SE : -1 S : -1 NE : 5 NW : -1 N : 4
+Cell 8 =   W : 7 E : 9 SW : -1 SE : -1 S : -1 NE : 6 NW : 4 N : 5
+Cell 9 =   W : 8 E : -1 SW : -1 SE : -1 S : -1 NE : -1 NW : 5 N : 6
+
+------ Read DataFrames: Forest and Weather ------
+Forest DataFrame from instance Data.csv
+ fueltype  mon  jd  m  jd_min  lat  lon  elev  ffmc  ws  waz  bui  ps  saz  pc  pdf  gfl  cur  time  pattern 
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20   
+ C1  NaN  NaN  NaN  NaN  51.621244  -115.608378  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  NaN  0.75  NaN  20  NaN 
+Populating DF for cell 1
+Populating DF for cell 2
+Populating DF for cell 3
+Populating DF for cell 4
+Populating DF for cell 5
+Populating DF for cell 6
+Populating DF for cell 7
+Populating DF for cell 8
+Populating DF for cell 9
+
+Weather DataFrame from instance Weather.csv
+ Scenario  datetime  APCP  TMP  RH  WS  WD  FFMC  DMC  DC  ISI  BUI  FWI 
+ JCB  2001-10-16 13:00  0.0  17.7  20  21  270  90  43  259  10.9  60  26 
+ JCB  2001-10-16 14:00  0.0  16.9  18  25  270  90  43  259  14.9  60  32 
+ JCB  2001-10-16 15:00  0.0  16.1  20  27  270  90  43  259  17.6  60  36 
+ JCB  2001-10-16 16:00  0.0  15.8  20  37  270  90  43  259  31.1  60  51.7 
+ JCB  2001-10-16 17:00  0.0  13.9  25  43  270  90  43  259  41.5  60  61.8 
+ JCB  2001-10-16 18:00  0.0  12.1  35  45  270  90  43  259  43.9  60  63.9 
+ JCB  2001-10-16 19:00  0.0  10.6  41  46  270  90  43  259  43.6  60  63.7 
+ JCB  2001-10-16 20:00  0.0  11.3  39  18  270  90  43  259  11.5  60  27.1 
+Populating Weather DF period 1
+Populating Weather DF period 2
+Populating Weather DF period 3
+Populating Weather DF period 4
+Populating Weather DF period 5
+Populating Weather DF period 6
+Populating Weather DF period 7
+Populating Weather DF period 8
+------------------------------------------ Simulation Number: 1------------------------------------------
+
+Weather inside ignition:
+waz: 90  ffmc: 90  bui: 60
+Fires are still alive, no message generated
+Current fire period: 1
+Fires are still alive, no message generated
+Current fire period: 2
+Fires are still alive, no message generated
+Current fire period: 3
+Fires are still alive, no message generated
+Current fire period: 4
+Fires are still alive, no message generated
+Current fire period: 5
+Fires are still alive, no message generated
+Current fire period: 6
+Fires are still alive, no message generated
+Current fire period: 7
+Fires are still alive, no message generated
+Current fire period: 8
+Fires are still alive, no message generated
+Current fire period: 9
+Fires are still alive, no message generated
+Current fire period: 10
+Fires are still alive, no message generated
+Current fire period: 11
+Fires are still alive, no message generated
+Current fire period: 12
+Fires are still alive, no message generated
+Current fire period: 13
+Fires are still alive, no message generated
+Current fire period: 14
+Fires are still alive, no message generated
+Current fire period: 15
+Fires are still alive, no message generated
+Current fire period: 16
+Fires are still alive, no message generated
+Current fire period: 18
+Fires are still alive, no message generated
+Current fire period: 19
+Fires are still alive, no message generated
+Current fire period: 20
+Fires are still alive, no message generated
+Current fire period: 21
+Fires are still alive, no message generated
+Current fire period: 22
+Fires are still alive, no message generated
+Current fire period: 23
+Fires are still alive, no message generated
+Current fire period: 24
+Fires are still alive, no message generated
+Current fire period: 25
+Fires are still alive, no message generated
+Current fire period: 26
+Fires are still alive, no message generated
+Current fire period: 27
+Fires are still alive, no message generated
+Current fire period: 28
+Fires are still alive, no message generated
+Current fire period: 29
+Fires are still alive, no message generated
+Current fire period: 30
+Fires are still alive, no message generated
+Current fire period: 31
+Fires are still alive, no message generated
+Current fire period: 32
+Fires are still alive, no message generated
+Current fire period: 33
+Fires are still alive, no message generated
+Current fire period: 35
+Fires are still alive, no message generated
+Current fire period: 36
+Fires are still alive, no message generated
+Current fire period: 37
+Fires are still alive, no message generated
+Current fire period: 38
+Fires are still alive, no message generated
+Current fire period: 39
+Fires are still alive, no message generated
+Current fire period: 41
+Fires are still alive, no message generated
+Current fire period: 42
+Fires are still alive, no message generated
+Current fire period: 43
+Fires are still alive, no message generated
+Current fire period: 44
+Fires are still alive, no message generated
+Current fire period: 45
+Fires are still alive, no message generated
+Current fire period: 46
+Fires are still alive, no message generated
+Current fire period: 47
+Fires are still alive, no message generated
+Current fire period: 48
+Fires are still alive, no message generated
+Current fire period: 49
+Fires are still alive, no message generated
+Current fire period: 50
+Fires are still alive, no message generated
+Current fire period: 51
+Fires are still alive, no message generated
+Current fire period: 52
+Fires are still alive, no message generated
+Current fire period: 53
+Fires are still alive, no message generated
+Current fire period: 54
+Fires are still alive, no message generated
+Current fire period: 55
+Fires are still alive, no message generated
+Current fire period: 56
+Fires are still alive, no message generated
+Current fire period: 58
+Fires are still alive, no message generated
+Current fire period: 59
+Fires are still alive, no message generated
+Current fire period: 60
+Fires are still alive, no message generated
+Current fire period: 61
+Fires are still alive, no message generated
+Current fire period: 62
+Fires are still alive, no message generated
+Current fire period: 63
+Fires are still alive, no message generated
+Current fire period: 64
+Fires are still alive, no message generated
+Current fire period: 65
+Fires are still alive, no message generated
+Current fire period: 66
+Fires are still alive, no message generated
+Current fire period: 67
+Fires are still alive, no message generated
+Current fire period: 68
+Fires are still alive, no message generated
+Current fire period: 69
+Fires are still alive, no message generated
+Current fire period: 70
+Fires are still alive, no message generated
+Current fire period: 71
+Fires are still alive, no message generated
+Current fire period: 72
+Fires are still alive, no message generated
+Current fire period: 73
+Fires are still alive, no message generated
+Current fire period: 74
+Fires are still alive, no message generated
+Current fire period: 75
+Fires are still alive, no message generated
+Current fire period: 76
+Fires are still alive, no message generated
+Current fire period: 77
+Fires are still alive, no message generated
+Current fire period: 78
+Fires are still alive, no message generated
+Current fire period: 79
+Fires are still alive, no message generated
+Current fire period: 81
+Fires are still alive, no message generated
+Current fire period: 82
+Fires are still alive, no message generated
+Current fire period: 83
+Fires are still alive, no message generated
+Current fire period: 84
+Fires are still alive, no message generated
+Current fire period: 85
+Fires are still alive, no message generated
+Current fire period: 86
+Fires are still alive, no message generated
+Current fire period: 87
+Fires are still alive, no message generated
+Current fire period: 88
+Fires are still alive, no message generated
+Current fire period: 90
+Fires are still alive, no message generated
+Current fire period: 91
+Fires are still alive, no message generated
+Current fire period: 92
+Fires are still alive, no message generated
+Current fire period: 93
+Fires are still alive, no message generated
+Current fire period: 94
+Fires are still alive, no message generated
+Current fire period: 95
+Fires are still alive, no message generated
+Current fire period: 96
+Fires are still alive, no message generated
+Current fire period: 97
+Fires are still alive, no message generated
+Current fire period: 98
+Fires are still alive, no message generated
+Current fire period: 99
+Fires are still alive, no message generated
+Current fire period: 100
+Fires are still alive, no message generated
+Current fire period: 101
+Fires are still alive, no message generated
+Current fire period: 102
+Fires are still alive, no message generated
+Current fire period: 103
+Fires are still alive, no message generated
+Current fire period: 104
+Fires are still alive, no message generated
+Current fire period: 105
+Fires are still alive, no message generated
+Current fire period: 106
+Fires are still alive, no message generated
+Current fire period: 107
+Fires are still alive, no message generated
+Current fire period: 108
+Fires are still alive, no message generated
+Current fire period: 109
+Fires are still alive, no message generated
+Current fire period: 110
+Fires are still alive, no message generated
+Current fire period: 111
+Fires are still alive, no message generated
+Current fire period: 112
+Fires are still alive, no message generated
+Current fire period: 113
+Fires are still alive, no message generated
+Current fire period: 114
+Fires are still alive, no message generated
+Current fire period: 115
+Fires are still alive, no message generated
+Current fire period: 116
+Fires are still alive, no message generated
+Current fire period: 117
+Fires are still alive, no message generated
+Current fire period: 118
+Fires are still alive, no message generated
+Current fire period: 119
+Fires are still alive, no message generated
+Current fire period: 120
+Fires are still alive, no message generated
+Current fire period: 121
+Fires are still alive, no message generated
+Current fire period: 122
+Fires are still alive, no message generated
+Current fire period: 123
+Fires are still alive, no message generated
+Current fire period: 124
+Fires are still alive, no message generated
+Current fire period: 126
+Fires are still alive, no message generated
+Current fire period: 127
+Fires are still alive, no message generated
+Current fire period: 128
+Fires are still alive, no message generated
+Current fire period: 129
+Fires are still alive, no message generated
+Current fire period: 130
+Fires are still alive, no message generated
+Current fire period: 131
+Fires are still alive, no message generated
+Current fire period: 132
+Fires are still alive, no message generated
+Current fire period: 133
+Fires are still alive, no message generated
+Current fire period: 134
+Fires are still alive, no message generated
+Current fire period: 135
+Fires are still alive, no message generated
+Current fire period: 136
+Fires are still alive, no message generated
+Current fire period: 137
+Fires are still alive, no message generated
+Current fire period: 138
+Fires are still alive, no message generated
+Current fire period: 139
+Fires are still alive, no message generated
+Current fire period: 140
+Fires are still alive, no message generated
+Current fire period: 141
+Fires are still alive, no message generated
+Current fire period: 142
+Fires are still alive, no message generated
+Current fire period: 143
+Fires are still alive, no message generated
+Current fire period: 144
+Fires are still alive, no message generated
+Current fire period: 145
+Fires are still alive, no message generated
+Current fire period: 146
+Fires are still alive, no message generated
+Current fire period: 147
+Fires are still alive, no message generated
+Current fire period: 148
+Fires are still alive, no message generated
+Current fire period: 149
+Fires are still alive, no message generated
+Current fire period: 150
+Fires are still alive, no message generated
+Current fire period: 151
+Fires are still alive, no message generated
+Current fire period: 152
+Fires are still alive, no message generated
+Current fire period: 153
+Fires are still alive, no message generated
+Current fire period: 154
+Fires are still alive, no message generated
+Current fire period: 155
+Fires are still alive, no message generated
+Current fire period: 156
+Fires are still alive, no message generated
+Current fire period: 157
+Fires are still alive, no message generated
+Current fire period: 158
+Next year...
+
+ ------------------------ Final results for comparison with Python ------------------------
+Set information period (week 100)
+Available Cells:
+nonBurnable Cells:
+Burning Cells:
+Burnt Cells: 7 8 4 2 9 1 3 5 6
+Harvested Cells:
+
+Time elapsed: 0.0084281 seconds
