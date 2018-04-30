@@ -64,6 +64,7 @@ void printSets(int week_number, std::unordered_set<int> availCells, std::unorder
 	std::cout << std::endl;
 }
 
+
 /***************************************************************************
 																Main
 ****************************************************************************/
@@ -219,7 +220,8 @@ int main(int argc, char * argv[])
 
     // initialize time 
     auto startTime = std::chrono::high_resolution_clock::now();
-
+    double sendTime = 0.0;
+    double recTime = 0.0;
 
 
 	/********************************************************************
@@ -538,6 +540,8 @@ int main(int argc, char * argv[])
 				*												Steps 2,3: Send/Receive messages 
 				*
 				***************************************************************************/
+                auto t1 = std::chrono::high_resolution_clock::now();
+
 				if (!noIgnition) {
 					while (fire_period[year - 1] < args.Max_Fire_Periods) {
 						if (fire_period[year - 1] == args.Max_Fire_Periods - 1) {
@@ -589,8 +593,9 @@ int main(int argc, char * argv[])
 								Burning cells loop: sending messages (Embarrasingly parallel?: CP: should be)
 								Each burning cell updates its fire progress and (if needed) populates their message
 						*/
-						vector<int> aux_list;
+                        // pragma omp here?
 						for (int cell : burningCells) {
+                            vector<int> aux_list;
 							// Get object from unordered map
 							it = Cells_Obj.find(cell-1);
 							
@@ -637,6 +642,7 @@ int main(int argc, char * argv[])
 
 							// Burnt out inactive burning cells
 							if (aux_list.size() == 0) {
+                                // not parallel here
 								burnedOutList.push_back(it->second.realId);
 								if (args.verbose){
 									std::cout  << "\nMessage and Aux Lists are empty; adding to BurnedOutList" << std::endl;
@@ -728,6 +734,7 @@ int main(int argc, char * argv[])
 						}
 					
 					
+                        auto t2 = std::chrono::high_resolution_clock::now();
 					
 						/*
 						*
@@ -844,7 +851,7 @@ int main(int argc, char * argv[])
 							
 						
 							// Update sets (TODO: optimize)
-
+                            // maybe some to parallalize here? not sure
                             for(auto &bc : burntList) {
                                 burntCells.insert(bc);
                             }
@@ -895,10 +902,11 @@ int main(int argc, char * argv[])
 
 						}
 					
+                        auto t3 = std::chrono::high_resolution_clock::now();
 					
+                        sendTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000000000.;
 					
-					
-					
+                        recTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t3 - t2).count() / 1000000000.;
 					
 					
 					//break;		// Debugging inner while of sending and receiving messages
@@ -988,7 +996,7 @@ int main(int argc, char * argv[])
                                 << " seconds" << std::endl;
 	
 		
-	
+    std::cout << "rec: " << recTime << " send: " << sendTime << std::endl;
 	
 	
 	
