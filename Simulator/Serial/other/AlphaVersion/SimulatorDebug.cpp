@@ -3,6 +3,7 @@
 #include "SpottingFBP.h"
 #include "FBP5.0.h"
 #include "ReadCSV.h"
+#include "WriteCSV.h"
 #include "ReadArgs.h"
 #include "Lightning.h"
 
@@ -152,20 +153,32 @@ int main(int argc, char * argv[])
 	std::vector<string> fTypeCells2(nCells, "Burnable"); 
     std::vector<int> statusCells(nCells, 0);
     
+	// Non burnable types: populate relevant fields such as status and ftype
+	std::string NoFuel = "NF ";
+	std::string NoData = "ND ";
+	const char * NF = NoFuel.c_str();
+	const char * ND = NoData.c_str();
+	
 	for(int l=0; l< nCells; l++){
-		if(df[l].fueltype == "NF "){
-			fTypeCells[l] = 1;
+		if (strcmp(df[l].fueltype,NF) == 0 || strcmp(df[l].fueltype ,ND) == 0) {
+			fTypeCells[l] = 0;
 			fTypeCells2[l] = "NonBurnable";
 			statusCells[l] = 4;
 		}
 	}
+	
+	// Debug initialization 
+	/*for(int z=0; z < nCells; z++){
+		std::cout  << "Cell " << z+1 << " realftype: -" <<  df[z].fueltype  <<  "-   ftype: " << fTypeCells[z] << "  ftype2: " << fTypeCells2[z] <<  "  statusCell: " << statusCells[z] <<  std::endl; 
+	}
+	*/
 	
 	/* Weather DataFrame */
 	std::string weatherFile = args.InFolder + "Weather.csv";
 	CSVReader CSVWeather(weatherFile, sep);
 	std::vector<std::vector<std::string>> WeatherDF = CSVWeather.getData();
 	std::cout << "\nWeather DataFrame from instance " << weatherFile << std::endl;
-	CSVWeather.printData(WeatherDF);
+	if (args.verbose) CSVWeather.printData(WeatherDF);
 	
 	// Populate WDF 
 	int WPeriods = WeatherDF.size() - 1;  // -1 due to header
@@ -177,7 +190,7 @@ int main(int argc, char * argv[])
 	
 	/*  Ignitions */
 	int IgnitionYears;
-	std::vector<int> IgnitionPoints;   //HACK: HARD CODED FOR OUT OF SCOPE
+	std::vector<int> IgnitionPoints;   
 	
 	if(args.ignitions){
 		std::cout << "\nWe have specific ignition points:" << std::endl;
@@ -194,7 +207,7 @@ int main(int argc, char * argv[])
 		
 		// Total Years
 		IgnitionYears = IgnitionsDF.size() - 1;
-		args.TotalYears = std::max(args.TotalYears, IgnitionYears);
+		args.TotalYears = std::min(args.TotalYears, IgnitionYears);
 		std::cout << "Setting TotalYears to " << args.TotalYears << " for consistency with Ignitions file" << std::endl;
 		
 		// Ignition points 
@@ -351,7 +364,25 @@ int main(int argc, char * argv[])
 										std::cout << "Cell " <<  it->second.realId << " Status: "<< it->second.getStatus() << std::endl;
 									}
 									
-									// TODO: plottrue
+									// Plotter
+									if(args.plottrue){
+										std::string plotName = args.InFolder + "plotGrid" + std::to_string(plotNumber) + ".csv";
+										if(args.verbose){
+											std::cout  << "We are plotting the current forest to a csv file " << plotName << std::endl;
+										}
+										CSVWriter CSVPloter(plotName, ",");
+										
+										for (auto & cell: Cells_Obj){
+											if(cell.second.getStatus() == "Burning" || cell.second.getStatus() == "Burnt"){
+												statusCells[cell.second.id] = 1;
+												//std::cout  << "We are including cell " << cell.second.realId << " in the plot" << std::endl;
+											}
+										}
+										
+										CSVPloter.printCSV(rows, cols, statusCells);
+										plotNumber++;
+									}
+									
 									break;  
 								}
 							}
@@ -405,7 +436,24 @@ int main(int argc, char * argv[])
 										std::cout << "Cell " <<  it->second.realId << " Status: "<< it->second.getStatus() << std::endl;
 									}
 									
-									// TODO: plottrue
+									// Plotter
+									if(args.plottrue){
+										std::string plotName = args.InFolder + "plotGrid" + std::to_string(plotNumber) + ".csv";
+										if(args.verbose){
+											std::cout  << "We are plotting the current forest to a csv file " << plotName << std::endl;
+										}
+										CSVWriter CSVPloter(plotName, ",");
+										
+										for (auto & cell: Cells_Obj){
+											if(cell.second.getStatus() == "Burning" || cell.second.getStatus() == "Burnt"){
+												statusCells[cell.second.id] = 1;
+												//std::cout  << "We are including cell " << cell.second.realId << " in the plot" << std::endl;
+											}
+										}
+										
+										CSVPloter.printCSV(rows, cols, statusCells);
+										plotNumber++;
+									}
 									
 							}
 							
@@ -417,6 +465,9 @@ int main(int argc, char * argv[])
 						if (args.verbose){
 							std::cout << "No ignition during year " << year << ", Cell " << IgnitionPoints[year-1] << " is already burnt or non-burnable type" << std::endl;
 						}
+						year++;
+						week_number = 1;
+						weatherPeriod = 0;
 					}
                 }
 				
@@ -629,8 +680,10 @@ int main(int argc, char * argv[])
 						// Conditions depending on number of messages and repeatFire flag 
 						// No messages but repetition
 						if (repeatFire && numMessages == 0) {
-							std::cout << "Fires are still alive, no message generated" << std::endl;
-							std::cout <<  "Current fire period: " << fire_period[year - 1] << std::endl;
+							if(args.verbose){
+								std::cout << "Fires are still alive, no message generated" << std::endl;
+								std::cout <<  "Current fire period: " << fire_period[year - 1] << std::endl;
+							}
 							fire_period[year - 1] += 1;
 
 							// Check if we need to update the weather
@@ -657,9 +710,9 @@ int main(int argc, char * argv[])
 							}
 							
 							// Reset values 
-							year += 1;
-							week_number = 1;
-							weatherPeriod = 0;
+							//year += 1;
+							//week_number = 1;
+							//weatherPeriod = 0;
 							
 							// Update sets
                             for(auto &bc : burningCells){
@@ -716,7 +769,24 @@ int main(int argc, char * argv[])
 								}
 							}
 							
-							    // TODO: plot
+							    // Plotter
+								if(args.plottrue){
+										std::string plotName = args.InFolder + "plotGrid" + std::to_string(plotNumber) + ".csv";
+										if(args.verbose){
+											std::cout  << "We are plotting the current forest to a csv file " << plotName << std::endl;
+										}
+										CSVWriter CSVPloter(plotName, ",");
+										
+										for (auto & cell: Cells_Obj){
+											if(cell.second.getStatus() == "Burning" || cell.second.getStatus() == "Burnt"){
+												statusCells[cell.second.id] = 1;
+												//std::cout  << "We are including cell " << cell.second.realId << " in the plot" << std::endl;
+											}
+										}
+										
+										CSVPloter.printCSV(rows, cols, statusCells);
+										plotNumber++;
+									}
 							
 							// Get burnt loop
 							if(args.verbose){
@@ -836,9 +906,9 @@ int main(int argc, char * argv[])
 					
 					// End of the year (out of inner loop)
 					std::cout << "Next year..." << std::endl;
-					//year += 1;
-					//week_number = 1;
-					//weatherPeriod = 0;
+					year += 1;
+					week_number = 1;
+					weatherPeriod = 0;
 					
 					
 				}
@@ -893,19 +963,31 @@ int main(int argc, char * argv[])
 		
 		// Final results for comparison with Python
 		std::cout  << "\n ------------------------ Final results for comparison with Python ------------------------";
-		printSets(100, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
+		//if(args.verbose)printSets(100, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);  For final version
+		printSets(100, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);  // for debugging 
 		
+		// Final report
+		float ACells = availCells.size();
+		float BCells = burntCells.size();
+		float NBCells = nonBurnableCells.size();
+		
+		std::cout <<"\n----------------------------- Results -----------------------------" << std::endl;
+		std::cout << "Total Available Cells:    " << ACells << " - % of the Forest: " <<  ACells/nCells*100.0 << "%" << std::endl;
+		std::cout << "Total Burnt Cells:        " << BCells << " - % of the Forest: " <<  BCells/nCells*100.0 <<"%" << std::endl;
+		std::cout << "Total Non-Burnable Cells: " << NBCells << " - % of the Forest: " <<  NBCells/nCells*100.0 <<"%"<< std::endl;
+
+	
 		
 		
 	} // End of simulations loop 
     
+	// Clock: Running time measurement
     auto endTime = std::chrono::high_resolution_clock::now();
     std::cout << "\nTime elapsed: "
                   << (double)std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() / 1000000000.
                                 << " seconds" << std::endl;
 	
 		
-	
 	
 	
 	

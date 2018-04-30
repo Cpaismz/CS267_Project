@@ -257,6 +257,90 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
     fire_struc headstruct, backstruct, flankstruct;
 
 	calculate(&(df[this->id]), coef, &mainstruct, &sndstruct, &headstruct, &flankstruct, &backstruct);
+	
+	
+	/*  ROSs DEBUG!   */
+	if(args->verbose){
+		std::cout << "*********** ROSs debug ************" << std::endl;
+		std::cout <<  "-------Input Structure--------" << std::endl;
+		std::cout <<  "fueltype: " << df[this->id].fueltype << std::endl;
+		std::cout <<  "ffmc: " << df[this->id].ffmc << std::endl;
+		std::cout <<  "ws: " << df[this->id].ws << std::endl;
+		std::cout <<  "gfl: " << df[this->id].gfl << std::endl;
+		std::cout <<  "bui: " << df[this->id].bui << std::endl;
+		std::cout <<  "lat: " << df[this->id].lat << std::endl;
+		std::cout <<  "lon: " << df[this->id].lon << std::endl;
+		std::cout <<  "time: " << df[this->id].time << std::endl;
+		std::cout <<  "pattern: " << df[this->id].pattern << std::endl;
+		std::cout <<  "mon: " << df[this->id].mon << std::endl;
+		std::cout <<  "jd: " << df[this->id].jd << std::endl;
+		std::cout <<  "jd_min: " << df[this->id].jd_min << std::endl;
+		std::cout <<  "waz: " << df[this->id].waz << std::endl;
+		std::cout <<  "ps: " << df[this->id].ps << std::endl;
+		std::cout <<  "saz: " << df[this->id].saz << std::endl;
+		std::cout <<  "pc: " << df[this->id].pc << std::endl;
+		std::cout <<  "pdf: " << df[this->id].pdf << std::endl;
+		std::cout <<  "cur: " << df[this->id].cur << std::endl;
+		std::cout <<  "elev: " << df[this->id].elev << std::endl;
+		std::cout <<  "hour: " << df[this->id].hour << std::endl;
+		std::cout <<  "hourly: " << df[this->id].hourly << std::endl;
+		std::cout <<  "\n-------Mainout Structure--------" << std::endl;
+		std::cout << "hffmc: " << mainstruct.hffmc << std::endl;
+		std::cout << "sfc: " << mainstruct.sfc << std::endl;
+		std::cout << "csi: " << mainstruct.csi << std::endl;
+		std::cout << "rso: " << mainstruct.rso << std::endl;
+		std::cout << "fmc: " << mainstruct.fmc << std::endl;
+		std::cout << "sfi: " << mainstruct.sfi << std::endl;
+		std::cout << "rss: " << mainstruct.rss << std::endl;
+		std::cout << "isi:" << mainstruct.isi << std::endl;
+		std::cout << "be:" << mainstruct.be << std::endl;
+		std::cout << "sf:" << mainstruct.sf << std::endl;
+		std::cout << "raz: " << mainstruct.raz << std::endl;
+		std::cout << "wsv:" << mainstruct.wsv << std::endl;
+		std::cout << "ff: " << mainstruct.ff << std::endl;
+		std::cout << "jd_min:" << mainstruct.jd_min << std::endl;
+		std::cout << "jd:" << mainstruct.jd << std::endl;
+		std::cout << "covertype: " << mainstruct.covertype << std::endl;
+		std::cout <<  "\n-------Headout Structure--------" << std::endl;
+		std::cout <<  "ros: " << headstruct.ros << std::endl;
+		std::cout <<  "dist: " << headstruct.dist << std::endl;
+		std::cout <<  "rost: " << headstruct.rost << std::endl;
+		std::cout <<  "cfb: " << headstruct.cfb << std::endl;
+		std::cout <<  "fc: " << headstruct.fc << std::endl;
+		std::cout <<  "cfc: "<< headstruct.cfc << std::endl;
+		std::cout <<  "time: " << headstruct.time << std::endl;
+		std::cout <<  "rss: " << headstruct.rss << std::endl;
+		std::cout <<  "isi: " << headstruct.isi << std::endl;
+		std::cout <<  "fd: " << headstruct.fd << std::endl;
+		std::cout <<  "fi: " << headstruct.fi << std::endl;
+		std::cout <<  "\n------- Flank Structure--------" << std::endl;
+		std::cout <<  "ros: " << flankstruct.ros << std::endl;
+		std::cout <<  "dist: " << flankstruct.dist << std::endl;
+		std::cout <<  "rost: " << flankstruct.rost << std::endl;
+		std::cout <<  "cfb: " << flankstruct.cfb << std::endl;
+		std::cout <<  "fc: " << flankstruct.fc << std::endl;
+		std::cout <<  "cfc: "<< flankstruct.cfc << std::endl;
+		std::cout <<  "time: " << flankstruct.time << std::endl;
+		std::cout <<  "rss: " << flankstruct.rss << std::endl;
+		std::cout <<  "isi: " << flankstruct.isi << std::endl;
+		std::cout <<  "fd: " << flankstruct.fd << std::endl;
+		std::cout <<  "fi: " << flankstruct.fi << std::endl;
+		std::cout <<  "\n------- Back Structure--------" << std::endl;
+		std::cout <<  "ros: " << backstruct.ros << std::endl;
+		std::cout <<  "dist: " << backstruct.dist << std::endl;
+		std::cout <<  "rost: " << backstruct.rost << std::endl;
+		std::cout <<  "cfb: " << backstruct.cfb << std::endl;
+		std::cout <<  "fc: " << backstruct.fc << std::endl;
+		std::cout <<  "cfc: "<< backstruct.cfc << std::endl;
+		std::cout <<  "time: " << backstruct.time << std::endl;
+		std::cout <<  "rss: " << backstruct.rss << std::endl;
+		std::cout <<  "isi: " << backstruct.isi << std::endl;
+		std::cout <<  "fd: " << backstruct.fd << std::endl;
+		std::cout <<  "fi: " << backstruct.fi << std::endl;
+		std::cout << "*********** ROSs debug ************" << std::endl;
+	}
+	/*                         */
+	
     double cartesianAngle = 450 - mainstruct.raz; 
 	if (cartesianAngle >= 360){
 		cartesianAngle -= 360;
@@ -493,8 +577,8 @@ bool CellsFBP::ignition(int period, int year, std::vector<int> & ignitionPoints,
         snd_outs sndstruct;
         fire_struc headstruct, backstruct, flankstruct;
 
-		printf("\nWeather inside ignition:\n");
-		std::cout << "waz: " << wdf_ptr->waz << "  ffmc: " <<    wdf_ptr->ffmc << "  bui: " <<   wdf_ptr->bui << std::endl;
+		//printf("\nWeather inside ignition:\n");
+		//std::cout << "waz: " << wdf_ptr->waz << "  ffmc: " <<    wdf_ptr->ffmc << "  bui: " <<   wdf_ptr->bui << std::endl;
 		
 		df[this->id].waz = wdf_ptr->waz;
 		df[this->id].ws = wdf_ptr->ws;

@@ -69,7 +69,7 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 	float pdf, cur, elev, lat, lon, ffmc, ws, bui, gfl;
 	
 	// Ints 
-	int mon, jd, jd_min, waz, ps, saz, pc, time, pattern; //std::stoi (DF[i][1] ,&sz);
+	int mon, jd, jd_min, waz, ps, saz, pc, time, pattern, hour,hourly; //std::stoi (DF[i][1] ,&sz);
 	
 	// CChar
 	const char * faux;
@@ -77,7 +77,7 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 	
 	// Loop over cells (populating per row)
 	for (i=1; i <= NCells; i++){
-		printf("Populating DF for cell %d\n", i);
+		//printf("Populating DF for cell %d\n", i);
 		faux = DF[i][0].append(" ").c_str();
 		
 		if (DF[i][2].compare("") == 0) jd = 0;
@@ -129,8 +129,8 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 		if (DF[i][16].compare("") == 0) gfl = 0;
 		else gfl = std::stof (DF[i][16], &sz);
 		
-		if (DF[i][17].compare("") == 0) pattern = 0;
-		else pattern = std::stoi (DF[i][17], &sz);
+		if (DF[i][18].compare("") == 0) pattern = 0;
+		else pattern = 1;// std::stoi (DF[i][18], &sz);
 		
 		
 			
@@ -141,6 +141,7 @@ void CSVReader::parseDF(inputs * df_ptr, std::vector<std::vector<std::string>> &
 		df_ptr->ws=ws; df_ptr->waz=waz; df_ptr->bui=bui; df_ptr->ps=ps;
 		df_ptr->saz=saz; df_ptr->pc=pc; df_ptr->pdf=pdf; df_ptr->gfl=gfl; 
 		df_ptr->cur=cur; df_ptr->time=time;df_ptr->pattern=pattern;
+		df_ptr->hourly=0;df_ptr->hour=0;
 			
 		// Next pointer
 		df_ptr++;
@@ -167,14 +168,14 @@ void CSVReader::parseWeatherDF(weatherDF * wdf_ptr, std::vector<std::vector<std:
 	
 	// Loop over cells (populating per row)
 	for (i=1; i <= WPeriods; i++){
-		printf("Populating Weather DF period %d\n", i);
+		//printf("Populating Weather DF period %d\n", i);
 		scenario = DF[i][0];
 		
 		scenario = DF[i][0];
 		datetime = DF[i][1];
 		
 		if (DF[i][6].compare("") == 0) waz = 0;
-		else {waz = std::stoi (DF[i][6] ,&sz) + 180;
+		else {waz = std::stoi (DF[i][6] ,&sz) + 180/2;   // DEBUGGING THE ANGLE 
 			if (waz >= 360){
 				waz = waz - 360;
 			}

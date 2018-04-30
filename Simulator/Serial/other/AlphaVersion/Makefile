@@ -9,10 +9,10 @@ TARGETS = SimulatorDebug
 
 all:	$(TARGETS)
 
-SimulatorDebug: SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o
-	$(CC) -o $@ $(LIBS) SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o
+SimulatorDebug: SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
+	$(CC) -o $@ $(LIBS) SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
 
-SimulatorDebug.o: SimulatorDebug.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o
+SimulatorDebug.o: SimulatorDebug.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o WriteCSV.o
 	$(CC) -c $(CFLAGS) SimulatorDebug.cpp
 
 SpottingFBP.o: SpottingFBP.cpp SpottingFBP.h CellsFBP.h
@@ -35,8 +35,11 @@ Lightning.o: Lightning.cpp Lightning.h
 
 Forest.o: Forest.cpp Forest.h
 	$(CC) -c $(CFLAGS) Forest.cpp
+	
+WriteCSV.o: WriteCSV.cpp WriteCSV.h 
+	$(CC) -c $(CFLAGS) WriteCSV.cpp
 
 
 	
 clean:
-	rm Lightning.o ReadArgs.o ReadCSV.o FBPfunc5_NoDebug.o SimulatorDebug.o CellsFBP.o SimulatorDebug SpottingFBP.o Forest.o *.gch
+	rm Lightning.o ReadArgs.o ReadCSV.o FBPfunc5_NoDebug.o SimulatorDebug.o CellsFBP.o SimulatorDebug SpottingFBP.o Forest.o WriteCSV.o *.gch

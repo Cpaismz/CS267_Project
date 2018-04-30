@@ -25,6 +25,7 @@ typedef struct
     float q,bui0,cbh,cfl;
     double a,b,c;
   } fuel_coefs;
+  
  typedef struct
   { float ros,dist,rost,cfb,fc,cfc,time,rss,isi;
     char fd;
