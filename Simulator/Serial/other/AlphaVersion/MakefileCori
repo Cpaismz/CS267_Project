@@ -1,31 +1,29 @@
 CC = g++
 MPCC = g++
 OPENMP = -openmp
-CFLAGS = -g -std=c++11 -O3
-LIBS =
-
+CFLAGS = -g -O3 -std=c++11
+CXXFLAGS += -I/global/u1/c/cpaismz/Project/C/boost_1_67_0
+LDPATH += -L/global/u1/c/cpaismz/Project/C/boost_1_67_0/boost/lib
+LIBS = 
 
 TARGETS = SimulatorDebug
 
 all:	$(TARGETS)
 
-SimulatorDebug: SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
-	$(CC) -o $@ $(LIBS) SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
-
-SimulatorDebug.o: SimulatorDebug.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o WriteCSV.o
-	$(CC) -c $(CFLAGS) SimulatorDebug.cpp
+SimulatorDebug: SimulatorDebug.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
+	$(CC) -o $@ $(LIBS) $(LDPATH) $(CXXFLAGS) $(CFLAGS) SimulatorDebug.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
 
 SpottingFBP.o: SpottingFBP.cpp SpottingFBP.h CellsFBP.h
-	$(CC) -c $(CFLAGS) SpottingFBP.cpp CellsFBP.h
+	$(CC) -c $(CFLAGS) $(LDPATH) $(CXXFLAGS) SpottingFBP.cpp CellsFBP.h
 
 CellsFBP.o: CellsFBP.cpp CellsFBP.h FBPfunc5_NoDebug.o
-	$(CC) -c $(CFLAGS) CellsFBP.cpp
+	$(CC) -c $(CFLAGS) $(LDPATH) $(CXXFLAGS) CellsFBP.cpp 
 	
 FBPfunc5_NoDebug.o: FBPfunc5_NoDebug.c FBP5.0.h
 	$(CC) -c $(CFLAGS) FBPfunc5_NoDebug.c
 
 ReadCSV.o: ReadCSV.cpp ReadCSV.h FBPfunc5_NoDebug.o
-	$(CC) -c $(CFLAGS) ReadCSV.cpp
+	$(CC) -c $(CFLAGS) $(LDPATH) $(CXXFLAGS) ReadCSV.cpp 
 	
 ReadArgs.o: ReadArgs.cpp ReadArgs.h
 	$(CC) -c $(CFLAGS) ReadArgs.cpp
@@ -37,7 +35,7 @@ Forest.o: Forest.cpp Forest.h
 	$(CC) -c $(CFLAGS) Forest.cpp
 	
 WriteCSV.o: WriteCSV.cpp WriteCSV.h 
-	$(CC) -c $(CFLAGS) WriteCSV.cpp
+	$(CC) -c $(CFLAGS) $(LDPATH) $(CXXFLAGS) WriteCSV.cpp
 
 
 	
