@@ -220,9 +220,11 @@ int main(int argc, char * argv[])
 
     // initialize time 
     auto startTime = std::chrono::high_resolution_clock::now();
+	
+	double ignTime = 0.0;
     double sendTime = 0.0;
     double recTime = 0.0;
-
+    double sendTime2 = 0.0;
 
 	/********************************************************************
 	*
@@ -314,18 +316,20 @@ int main(int argc, char * argv[])
 				*												Step 1: Ignition 
 				*
 				*******************************************************************/
-			
+				auto t0 = std::chrono::high_resolution_clock::now();
 				// Ignitions 
 				int aux = 0;
 				int loops = 0;
 				noIgnition = false;
-								
+				
+				std::default_random_engine generator (args.seed);
+                std::uniform_int_distribution<int> distribution(0, nCells-1);
 				// No Ignitions provided
 				if (args.ignitions == 0) { 
 					while (true) {
 						// Pick any cell (uniform distribution [a,b])
-						std::default_random_engine generator (args.seed);
-						std::uniform_int_distribution<int> distribution(0, nCells-1);
+						//std::default_random_engine generator (args.seed);
+						//std::uniform_int_distribution<int> distribution(0, nCells-1);
 						aux = distribution(generator);
 						
 						// Check information (Debugging)
@@ -534,6 +538,7 @@ int main(int argc, char * argv[])
 					week_number = 1;
 				}
 				
+				ignTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - t0).count() / 1000000000.;
 				
 				/***************************************************************************
 				*
@@ -543,6 +548,7 @@ int main(int argc, char * argv[])
                 auto t1 = std::chrono::high_resolution_clock::now();
 
 				if (!noIgnition) {
+					auto t11 = std::chrono::high_resolution_clock::now();
 					while (fire_period[year - 1] < args.Max_Fire_Periods) {
 						if (fire_period[year - 1] == args.Max_Fire_Periods - 1) {
 							std::cout << "*** WARNING!!! About to hit MaxFirePeriods: " << args.Max_Fire_Periods << std::endl;
@@ -551,39 +557,7 @@ int main(int argc, char * argv[])
 						/// Send messages logic
 						bool messagesSent = false;
 						std::unordered_map<int, vector<int>> sendMessageList;
-
 						
-						// Information of the current step 
-						if (args.verbose){
-							std::cout << "\n---------------------- Step 2: Sending Messages from Ignition ----------------------" << std::endl;
-							std::cout << "Current Week: " <<  week_number << std::endl;
-							std::cout << "Current Fire Period: " <<  fire_period[year-1] << std::endl;
-							printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
-							std::cout <<  "-------------------- Cleaning step (angles) ------------------------" << std::endl;
-						}						
-						
-						// Clean the angles of non available cells 
-						for (auto & _cell : Cells_Obj) {
-							int cell = _cell.first;
-							if (_cell.second.ROSAngleDir.size() > 0) {
-								for (auto & _angle : _cell.second.angleToNb) {
-									int angle = _angle.first;
-									int nb = _angle.second;
-									if (availCells.find(nb) == availCells.end() && _cell.second.ROSAngleDir.find(angle) != _cell.second.ROSAngleDir.end()) {
-										if(args.verbose){
-											std::cout <<  "Cell " << _cell.second.realId <<   ": clearing ROSAngleDir" << std::endl;
-										}
-										_cell.second.ROSAngleDir.erase(angle);
-									}
-								}
-							}
-						}
-
-						// Close section with lines
-						if(args.verbose){
-							std::cout << "--------------------------------------------------------------------" << std::endl; 
-						}
-
 						// Repeat fire flag 
 						bool repeatFire = false;
 						vector<int> burnedOutList;
@@ -650,7 +624,7 @@ int main(int argc, char * argv[])
 							}
 	 
 						}
-						
+						auto t12 = std::chrono::high_resolution_clock::now();
 						/* End sending messages loop */
 						
 						
@@ -844,6 +818,18 @@ int main(int argc, char * argv[])
 									// Update the burntlist
 									if (checkBurnt) {
 										burntList.insert(it->second.realId);
+										
+										// Cleaning step
+                                        int cellNum = it->second.realId - 1;
+                                        for (auto & angle : it->second.angleToNb) {
+                                            int origToNew = angle.first;
+                                            int newToOrig = (origToNew + 180) % 360;
+                                            int adjCellNum = angle.second - 1;
+                                            auto adjIt = Cells_Obj.find(adjCellNum);
+                                            if (adjIt != Cells_Obj.end()) {
+                                                adjIt->second.ROSAngleDir.erase(newToOrig);
+                                            } 
+                                        }
 									}
 
 								}
@@ -903,9 +889,9 @@ int main(int argc, char * argv[])
 						}
 					
                         auto t3 = std::chrono::high_resolution_clock::now();
-					
-                        sendTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000000000.;
-					
+						
+						sendTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t11).count() / 1000000000.;
+                        sendTime2 += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t12 - t11).count() / 1000000000.;	
                         recTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t3 - t2).count() / 1000000000.;
 					
 					
@@ -966,9 +952,7 @@ int main(int argc, char * argv[])
         }
 		
 		
-		// Next simulation (replication)
-		sim++;
-		
+				
 		// Final results for comparison with Python
 		std::cout  << "\n ------------------------ Final results for comparison with Python ------------------------";
 		//if(args.verbose)printSets(100, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);  For final version
@@ -984,28 +968,24 @@ int main(int argc, char * argv[])
 		std::cout << "Total Burnt Cells:        " << BCells << " - % of the Forest: " <<  BCells/nCells*100.0 <<"%" << std::endl;
 		std::cout << "Total Non-Burnable Cells: " << NBCells << " - % of the Forest: " <<  NBCells/nCells*100.0 <<"%"<< std::endl;
 
-	
+		// Next simulation (replication)
+		sim++;
 		
 		
 	} // End of simulations loop 
     
 	// Clock: Running time measurement
-    auto endTime = std::chrono::high_resolution_clock::now();
+    auto endTime = std::chrono::high_resolution_clock::now(); 
+	double tTime = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() / 1000000000.;
     std::cout << "\nTime elapsed: "
                   << (double)std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() / 1000000000.
                                 << " seconds" << std::endl;
 	
 		
-    std::cout << "rec: " << recTime << " send: " << sendTime << std::endl;
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	// Times
+    std::cout << "rec: " << recTime << " send: " << sendTime << " ign: " << ignTime << std::endl;
+	std::cout << "rec %: " << recTime / tTime *100 << " send %: " << sendTime / tTime * 100 << " ign %: " << ignTime / tTime  * 100 << std::endl;
+    std::cout << "partime: " << sendTime2 << std::endl;
 	
 	
 	return 0;

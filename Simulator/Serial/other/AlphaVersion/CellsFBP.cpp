@@ -388,7 +388,7 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
 		ros_distr(cartesianAngle,  headstruct.ros, flankstruct.ros, backstruct.ros);
         		
 		/* Fire progress using ROS from burning cell, not the neighbors */
-        vector<double> toPop = vector<double>();
+       // vector<double> toPop = vector<double>();
         
 		// this is a iterator through the keyset of a dictionary
         for (auto&  _angle : this->ROSAngleDir) {
@@ -407,7 +407,7 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
             if (this->fireProgress[nb] >= this->distToCenter[nb]) {
                 msg_list.push_back(nb);
                 // cannot mutate ROSangleDir during iteration.. we do it like 10 lines down
-                toPop.push_back(angle);
+               // toPop.push_back(angle);
                 /*if (verbose) {
                     //fill out this verbose section
                     std::cout << "MSG list" << msg_list << std::endl;
@@ -431,9 +431,9 @@ std::vector<int> CellsFBP::manageFire(int period, std::unordered_set<int> & Avai
 						
 		}
 
-        for (double temp : toPop) {
-            this->ROSAngleDir.erase(temp);
-        }
+      //  for (double temp : toPop) {
+        //    this->ROSAngleDir.erase(temp);
+        
 			
 		
 

@@ -973,13 +973,14 @@ int main(int argc, char * argv[])
     
 	// Clock: Running time measurement
     auto endTime = std::chrono::high_resolution_clock::now();
+	double tTime = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() / 1000000000.;
     std::cout << "\nTime elapsed: "
-                  << (double)std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime).count() / 1000000000.
-                                << " seconds" << std::endl;
+                  << tTime << " seconds" << std::endl;
 	
 
     std::cout << "rec: " << recTime << " send: " << sendTime << " ign: " << ignTime << std::endl;
-    std::cout << "partime: " << sendTime2 << std::endl;
+    std::cout << "rec %: " << recTime / tTime *100 << " send %: " << sendTime / tTime * 100 << " ign %: " << ignTime / tTime  * 100 << std::endl;
+	std::cout << "partime: " << sendTime2 << std::endl;
 	
 	
 	
