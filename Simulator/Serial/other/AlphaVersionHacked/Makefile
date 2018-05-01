@@ -10,7 +10,7 @@ TARGETS = SimulatorDebug
 all:	$(TARGETS)
 
 SimulatorDebug: SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
-	$(CC) -o $@ $(LIBS) SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
+	$(CC) -o $@ $(CFLAGS) $(LIBS) SimulatorDebug.o CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o Lightning.o WriteCSV.o
 
 SimulatorDebug.o: SimulatorDebug.cpp CellsFBP.o FBPfunc5_NoDebug.o SpottingFBP.o ReadCSV.o ReadArgs.o WriteCSV.o
 	$(CC) -c $(CFLAGS) SimulatorDebug.cpp
