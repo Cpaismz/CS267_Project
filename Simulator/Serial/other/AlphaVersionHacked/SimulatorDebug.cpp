@@ -13,6 +13,7 @@
 #include "Lightning.h"
 
 // Include libraries
+#include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -216,6 +217,8 @@ int main(int argc, char * argv[])
     double sendTime = 0.0;
     double recTime = 0.0;
     double sendTime2 = 0.0;
+
+    double copyTime = 0.0;
 
 	/********************************************************************
 	*
@@ -565,61 +568,82 @@ int main(int argc, char * argv[])
 								Burning cells loop: sending messages (Embarrasingly parallel?: CP: should be)
 								Each burning cell updates its fire progress and (if needed) populates their message
 						*/
-						vector<int> aux_list;
-						for (int cell : burningCells) {
-							// Get object from unordered map
-							it = Cells_Obj.find(cell-1);
-							
-							// Cell's info 
-							if (args.verbose) {
-								it->second.print_info();
-							}
-							
-							/*
-									Manage Fire method main step
-							*/
-							
-							if (it->second.ROSAngleDir.size() > 0) {
-																
-								aux_list = it->second.manageFire(fire_period[year-1], availCells,  df, coef_ptr, 
-																     			  {{"SPOTANGLE", 1},{"SPOT0PROB",0.1},{"SPOT10TIME", 10}}, 
-																				   coordCells, Cells_Obj, args_ptr, &wdf[weatherPeriod]);
-																
-								//aux_list = Cells_Obj[cell - 1].manageFire(firePeriod[year - 1], availCells, verbose, df, coef_ptr, spotting, spottingParams, CoordCells, Cells_Obj, args);
-							} // TODO: side effect-less else branch
+                        vector<int> burningCells2;
+                        for (auto i : burningCells) {
+                            burningCells2.push_back(i);
+                        }
+                        auto t115 = std::chrono::high_resolution_clock::now();
 
-							else{
-								if(args.verbose) std::cout << "\nCell " << cell <<  " does not have any neighbor available for receiving messages" << std::endl;
-							}
-							
-							// If message and not a true flag 
-							if (aux_list.size() > 0 && aux_list[0] != -100) {
-								if (args.verbose) std::cout <<"\nList is not empty" << std::endl;
-								messagesSent = true;
-								sendMessageList[it->second.realId] = aux_list; 
-								if (args.verbose){
-									std::cout << "Message list content" << std::endl;
-									for (auto & msg : sendMessageList[it->second.realId]){
-										std::cout << "  Fire reaches the center of the cell " << msg << "  Distance to cell (in meters) was 100.0" << " " << std::endl;
-									}
-								}
-								
-							}
+                        #pragma omp parallel num_threads(1)
+                        //#pragma omp single
+                        {
+                            #pragma omp for
+                            for (int i = 0; i < burningCells2.size(); i++) {
+                                //#pragma omp task firstprivate(cell)
+                                {
+                                    int cell = burningCells2[i];
+                                    vector<int> aux_list;
+                                    // Get object from unordered map
+                                    auto it_par = Cells_Obj.find(cell-1);
+                                    
+                                    // Cell's info 
+                                    if (args.verbose) {
+                                        it_par->second.print_info();
+                                    }
+                                    
+                                    /*
+                                            Manage Fire method main step
+                                    */
+                                    
+                                    if (it_par->second.ROSAngleDir.size() > 0) {
+                                                                        
+                                        aux_list = it_par->second.manageFire(fire_period[year-1], availCells,  df, coef_ptr, 
+                                                                                          {{"SPOTANGLE", 1},{"SPOT0PROB",0.1},{"SPOT10TIME", 10}}, 
+                                                                                           coordCells, Cells_Obj, args_ptr, &wdf[weatherPeriod]);
+                                                                        
+                                        //aux_list = Cells_Obj[cell - 1].manageFire(firePeriod[year - 1], availCells, verbose, df, coef_ptr, spotting, spottingParams, CoordCells, Cells_Obj, args);
+                                    } // TODO: side effect-less else branch
 
-							// Repeat fire conditions if true flag
-							if (aux_list.size() > 0 && aux_list[0] == -100) {
-								repeatFire = true;
-							}
+                                    else{
+                                        if(args.verbose) std::cout << "\nCell " << cell <<  " does not have any neighbor available for receiving messages" << std::endl;
+                                    }
+                                    
+                                    // If message and not a true flag 
+                                    if (aux_list.size() > 0 && aux_list[0] != -100) {
+                                        if (args.verbose) std::cout <<"\nList is not empty" << std::endl;
+                                        messagesSent = true;
+                                        #pragma omp critical
+                                        {
+                                            sendMessageList[it_par->second.realId] = aux_list; 
+                                        }
+                                        if (args.verbose){
+                                            std::cout << "Message list content" << std::endl;
+                                            for (auto & msg : sendMessageList[it_par->second.realId]){
+                                                std::cout << "  Fire reaches the center of the cell " << msg << "  Distance to cell (in meters) was 100.0" << " " << std::endl;
+                                            }
+                                        }
+                                        
+                                    }
 
-							// Burnt out inactive burning cells
-							if (aux_list.size() == 0) {
-								burnedOutList.push_back(it->second.realId);
-								if (args.verbose){
-									std::cout  << "\nMessage and Aux Lists are empty; adding to BurnedOutList" << std::endl;
-								}
-							}
-	 
-						}
+                                    // Repeat fire conditions if true flag
+                                    if (aux_list.size() > 0 && aux_list[0] == -100) {
+                                        repeatFire = true;
+                                    }
+
+                                    // Burnt out inactive burning cells
+                                    if (aux_list.size() == 0) {
+                                        #pragma omp critical
+                                        {
+                                            burnedOutList.push_back(it_par->second.realId);
+                                        }
+                                        if (args.verbose){
+                                            std::cout  << "\nMessage and Aux Lists are empty; adding to BurnedOutList" << std::endl;
+                                        }
+                                    }
+                                }
+         
+                            }
+                        }
 						
                         auto t12 = std::chrono::high_resolution_clock::now();
 						/* End sending messages loop */
@@ -891,6 +915,7 @@ int main(int argc, char * argv[])
                         sendTime2 += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t12 - t11).count() / 1000000000.;	
                         recTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t3 - t2).count() / 1000000000.;
 
+                        copyTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t115 - t11).count() / 1000000000.;
 					
 					
 					//break;		// Debugging inner while of sending and receiving messages
@@ -981,6 +1006,7 @@ int main(int argc, char * argv[])
     std::cout << "rec: " << recTime << " send: " << sendTime << " ign: " << ignTime << std::endl;
     std::cout << "partime: " << sendTime2 << std::endl;
 	
+    std::cout << "copytime: " << copyTime << std::endl;
 	
 	
 	return 0;
