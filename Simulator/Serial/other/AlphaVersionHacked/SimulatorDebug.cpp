@@ -75,6 +75,7 @@ void printSets(int week_number, std::unordered_set<int> availCells, std::unorder
 ****************************************************************************/
 int main(int argc, char * argv[])
 {
+    std::cout << sizeof(vector<int>) << std::endl;
 	/********************************************************************
 	*
 	*															Initialization steps
@@ -216,7 +217,7 @@ int main(int argc, char * argv[])
     double ignTime = 0.0;
     double sendTime = 0.0;
     double recTime = 0.0;
-    double sendTime2 = 0.0;
+    double parTime = 0.0;
 
     double copyTime = 0.0;
 
@@ -537,9 +538,11 @@ int main(int argc, char * argv[])
 				*
 				***************************************************************************/
                 
+                int num_threads = 4;
+
 				if (!noIgnition) {
 					while (fire_period[year - 1] < args.Max_Fire_Periods) {
-
+                    
                         auto t11 = std::chrono::high_resolution_clock::now();
 						if (fire_period[year - 1] == args.Max_Fire_Periods - 1) {
 							std::cout << "*** WARNING!!! About to hit MaxFirePeriods: " << args.Max_Fire_Periods << std::endl;
@@ -547,7 +550,7 @@ int main(int argc, char * argv[])
 						
 						/// Send messages logic
 						bool messagesSent = false;
-						std::unordered_map<int, vector<int>> sendMessageList;
+						std::vector<std::unordered_map<int, vector<int>>> sendMessageList(num_threads);
 
 						
 						// Information of the current step 
@@ -558,10 +561,9 @@ int main(int argc, char * argv[])
 							printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
 						}						
 
-
 						// Repeat fire flag 
 						bool repeatFire = false;
-						vector<int> burnedOutList;
+						vector<vector<int>> burnedOutList = vector<vector<int>>(num_threads);
 	
 						/*
 								Potential parallel zone: Send messages
@@ -574,13 +576,14 @@ int main(int argc, char * argv[])
                         }
                         auto t115 = std::chrono::high_resolution_clock::now();
 
-                        #pragma omp parallel num_threads(4)
+                        #pragma omp parallel num_threads(num_threads)
                         //#pragma omp single
                         {
                             #pragma omp for
                             for (int i = 0; i < burningCells2.size(); i++) {
                                 //#pragma omp task firstprivate(cell)
                                 {
+                                    int tid = omp_get_thread_num();
                                     int cell = burningCells2[i];
                                     vector<int> aux_list;
                                     // Get object from unordered map
@@ -612,13 +615,10 @@ int main(int argc, char * argv[])
                                     if (aux_list.size() > 0 && aux_list[0] != -100) {
                                         if (args.verbose) std::cout <<"\nList is not empty" << std::endl;
                                         messagesSent = true;
-                                        #pragma omp critical
-                                        {
-                                            sendMessageList[it_par->second.realId] = aux_list; 
-                                        }
+                                        sendMessageList[tid][it_par->second.realId] = aux_list; 
                                         if (args.verbose){
                                             std::cout << "Message list content" << std::endl;
-                                            for (auto & msg : sendMessageList[it_par->second.realId]){
+                                            for (auto & msg : sendMessageList[tid][it_par->second.realId]){
                                                 std::cout << "  Fire reaches the center of the cell " << msg << "  Distance to cell (in meters) was 100.0" << " " << std::endl;
                                             }
                                         }
@@ -632,10 +632,7 @@ int main(int argc, char * argv[])
 
                                     // Burnt out inactive burning cells
                                     if (aux_list.size() == 0) {
-                                        #pragma omp critical
-                                        {
-                                            burnedOutList.push_back(it_par->second.realId);
-                                        }
+                                        burnedOutList[tid].push_back(it_par->second.realId);
                                         if (args.verbose){
                                             std::cout  << "\nMessage and Aux Lists are empty; adding to BurnedOutList" << std::endl;
                                         }
@@ -650,10 +647,12 @@ int main(int argc, char * argv[])
 						
 						
 						// Check for burnt out updates via sets' difference
-                        for(auto &bc : burnedOutList){
-                            auto lt = burningCells.find(bc);
-                            if (lt != burningCells.end()) { 
-                                burningCells.erase(bc);
+                        for(auto & v : burnedOutList){
+                            for (auto & bc : v) {
+                                auto lt = burningCells.find(bc);
+                                if (lt != burningCells.end()) { 
+                                    burningCells.erase(bc);
+                                }
                             }
                         }
 
@@ -667,20 +666,22 @@ int main(int argc, char * argv[])
 							printSets(week_number, availCells, nonBurnableCells, burningCells, burntCells, harvestCells);
 						}	
 						
-						
-						// Number of messages received per cell 
-						int numMessages = 0;
-						for (auto & p : sendMessageList) {
-							numMessages += p.second.size();
-						}
-						
+							
 						if (args.verbose){
+
+                            // Number of messages received per cell 
+                            int numMessages = 0;
+                            for (auto & v : sendMessageList) {
+                                for (auto & p : v) {
+                                    numMessages += p.second.size();
+                                }
+                            }
 							std::cout << "Number of messages: " <<  numMessages  << std::endl;
 						}
 						
 						// Conditions depending on number of messages and repeatFire flag 
 						// No messages but repetition
-						if (repeatFire && numMessages == 0) {
+						if (repeatFire && !messagesSent) {
 							if(args.verbose){
 								std::cout << "Fires are still alive, no message generated" << std::endl;
 								std::cout <<  "Current fire period: " << fire_period[year - 1] << std::endl;
@@ -699,7 +700,7 @@ int main(int argc, char * argv[])
 						}
 
 						// Messages and repetition
-						if (repeatFire && numMessages > 0) {
+						if (repeatFire && messagesSent) {
 							if (args.verbose) std::cout << "Messages have been sent, next step. Current period: " << fire_period[year - 1] << std::endl;
 							repeatFire = false;
 						}
@@ -741,14 +742,16 @@ int main(int argc, char * argv[])
                         
 							// frequency array
 							std::unordered_map<int, int> globalMessagesList;
-							for (auto & sublist : sendMessageList) {
-								for (int val : sublist.second) {
-									if (globalMessagesList.find(val) == globalMessagesList.end()){
-										globalMessagesList[val] = 1;
-									} else {
-										globalMessagesList[val] = globalMessagesList[val] + 1;
-									}
-								}
+							for (auto & v : sendMessageList) {
+                                for (auto & sublist : v) {
+                                    for (int val : sublist.second) {
+                                        if (globalMessagesList.find(val) == globalMessagesList.end()){
+                                            globalMessagesList[val] = 1;
+                                        } else {
+                                            globalMessagesList[val] = globalMessagesList[val] + 1;
+                                        }
+                                    }
+                                }
 							}
 							
 							// Initialize cells if needed (getting messages)
@@ -863,8 +866,10 @@ int main(int argc, char * argv[])
                                 burntCells.insert(bc);
                             }
 
-                            for(auto &bc : burnedOutList) {
-                                burntCells.insert(bc);
+                            for(auto &v : burnedOutList) {
+                                for (auto & bc : v) {
+                                    burntCells.insert(bc);
+                                }
                             }
 							
                             for(auto &bc : burntList) {
@@ -912,7 +917,7 @@ int main(int argc, char * argv[])
                         auto t3 = std::chrono::high_resolution_clock::now();
 					
                         sendTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t11).count() / 1000000000.;
-                        sendTime2 += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t12 - t11).count() / 1000000000.;	
+                        parTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t12 - t115).count() / 1000000000.;	
                         recTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t3 - t2).count() / 1000000000.;
 
                         copyTime += (double)std::chrono::duration_cast<std::chrono::nanoseconds>(t115 - t11).count() / 1000000000.;
@@ -1004,7 +1009,7 @@ int main(int argc, char * argv[])
 	
 
     std::cout << "rec: " << recTime << " send: " << sendTime << " ign: " << ignTime << std::endl;
-    std::cout << "partime: " << sendTime2 << std::endl;
+    std::cout << "partime: " << parTime << std::endl;
 	
     std::cout << "copytime: " << copyTime << std::endl;
 	
