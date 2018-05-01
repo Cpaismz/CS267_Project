@@ -574,7 +574,7 @@ int main(int argc, char * argv[])
                         }
                         auto t115 = std::chrono::high_resolution_clock::now();
 
-                        #pragma omp parallel num_threads(1)
+                        #pragma omp parallel num_threads(4)
                         //#pragma omp single
                         {
                             #pragma omp for
