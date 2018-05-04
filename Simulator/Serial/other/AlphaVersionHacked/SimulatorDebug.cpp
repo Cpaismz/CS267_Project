@@ -221,6 +221,9 @@ int main(int argc, char * argv[])
 
     double copyTime = 0.0;
 
+    double tt1 = 0.0;
+    double tt2 = 0.0;
+    double tt3 = 0.0;
 	/********************************************************************
 	*
 	*												Global Parameters for loop 
@@ -538,7 +541,7 @@ int main(int argc, char * argv[])
 				*
 				***************************************************************************/
                 
-                int num_threads = 4;
+                int num_threads = 3;
 
 				if (!noIgnition) {
 					while (fire_period[year - 1] < args.Max_Fire_Periods) {
@@ -564,7 +567,9 @@ int main(int argc, char * argv[])
 						// Repeat fire flag 
 						bool repeatFire = false;
 						vector<vector<int>> burnedOutList = vector<vector<int>>(num_threads);
-	
+                        vector<double> test1 = vector<double>(20 * num_threads, 0.0);	
+                        vector<double> test2 = vector<double>(20 * num_threads, 0.0);
+                        vector<double> test3 = vector<double>(20 * num_threads, 0.0);
 						/*
 								Potential parallel zone: Send messages
 								Burning cells loop: sending messages (Embarrasingly parallel?: CP: should be)
@@ -575,7 +580,12 @@ int main(int argc, char * argv[])
                             burningCells2.push_back(i);
                         }
                         auto t115 = std::chrono::high_resolution_clock::now();
-
+                        weatherDF * wdf_ptr = &wdf[weatherPeriod];
+                        df[0].waz = wdf_ptr->waz;
+                        df[0].ws = wdf_ptr->ws;
+                        df[0].ffmc = wdf_ptr->ffmc;
+                        df[0].bui = wdf_ptr->bui;	
+                        vector<vector<double>> times = vector<vector<double>>(num_threads);
                         #pragma omp parallel num_threads(num_threads)
                         //#pragma omp single
                         {
@@ -588,12 +598,7 @@ int main(int argc, char * argv[])
                                     vector<int> aux_list;
                                     // Get object from unordered map
                                     auto it_par = Cells_Obj.find(cell-1);
-                                    
-                                    // Cell's info 
-                                    if (args.verbose) {
-                                        it_par->second.print_info();
-                                    }
-                                    
+                                     
                                     /*
                                             Manage Fire method main step
                                     */
@@ -602,43 +607,38 @@ int main(int argc, char * argv[])
                                                                         
                                         aux_list = it_par->second.manageFire(fire_period[year-1], availCells,  df, coef_ptr, 
                                                                                           {{"SPOTANGLE", 1},{"SPOT0PROB",0.1},{"SPOT10TIME", 10}}, 
-                                                                                           coordCells, Cells_Obj, args_ptr, &wdf[weatherPeriod]);
+                                                                                           coordCells, Cells_Obj, args_ptr, &wdf[weatherPeriod], times[tid]);
                                                                         
                                         //aux_list = Cells_Obj[cell - 1].manageFire(firePeriod[year - 1], availCells, verbose, df, coef_ptr, spotting, spottingParams, CoordCells, Cells_Obj, args);
                                     } // TODO: side effect-less else branch
 
-                                    else{
-                                        if(args.verbose) std::cout << "\nCell " << cell <<  " does not have any neighbor available for receiving messages" << std::endl;
-                                    }
                                     
                                     // If message and not a true flag 
                                     if (aux_list.size() > 0 && aux_list[0] != -100) {
-                                        if (args.verbose) std::cout <<"\nList is not empty" << std::endl;
+                                        //if (args.verbose) std::cout <<"\nList is not empty" << std::endl;
                                         messagesSent = true;
                                         sendMessageList[tid][it_par->second.realId] = aux_list; 
-                                        if (args.verbose){
-                                            std::cout << "Message list content" << std::endl;
-                                            for (auto & msg : sendMessageList[tid][it_par->second.realId]){
-                                                std::cout << "  Fire reaches the center of the cell " << msg << "  Distance to cell (in meters) was 100.0" << " " << std::endl;
-                                            }
-                                        }
                                         
                                     }
 
                                     // Repeat fire conditions if true flag
-                                    if (aux_list.size() > 0 && aux_list[0] == -100) {
+                                    else if (aux_list.size() > 0 && aux_list[0] == -100) {
                                         repeatFire = true;
-                                    }
+                                    } else {
 
                                     // Burnt out inactive burning cells
-                                    if (aux_list.size() == 0) {
+                                    //if (aux_list.size() == 0) {
                                         burnedOutList[tid].push_back(it_par->second.realId);
-                                        if (args.verbose){
-                                            std::cout  << "\nMessage and Aux Lists are empty; adding to BurnedOutList" << std::endl;
-                                        }
                                     }
                                 }
          
+                            }
+                        }
+                        for (int i = 0; i < num_threads; i+= 1) {
+                            if (times[i].size() > 0) {
+                                tt1 += times[i][0];
+                                tt2 += times[i][1];
+                                tt3 += times[i][2];
                             }
                         }
 						
@@ -1013,6 +1013,7 @@ int main(int argc, char * argv[])
 	
     std::cout << "copytime: " << copyTime << std::endl;
 	
+    std::cout << "testtime: " << tt1 << " " << tt2 << " " << tt3 <<  std::endl;
 	
 	return 0;
 	
